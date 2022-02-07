@@ -13,50 +13,51 @@ const guild = false;
 module.exports = async (bot) => {
   //////resting slash command
   const commands = [];
-                   
-                   
-              
-bot.once("ready",async()=>{
-  try {
-    console.log("Started refreshing application (/) commands.");
 
-    if (!guild) {
-      await rest.put(Routes.applicationCommands(config.clientID), {
-        body: commands,
-      });
-      console.log("Successfully registered application commands globally");
-    } else {
-      await rest.put(Routes.applicationGuildCommands(config.clientID, guild), {
-        body: commands,
-      });
-      console.log(
-        "Successfully registered application commands for development guild"
-      );
+  bot.once("ready", async () => {
+    try {
+      console.log("Started refreshing application (/) commands.");
 
-      console.log("Successfully reloaded application (/) commands.");
+      if (!guild) {
+        await rest.put(Routes.applicationCommands(config.clientID), {
+          body: commands,
+        });
+        console.log("Successfully registered application commands globally");
+      } else {
+        await rest.put(
+          Routes.applicationGuildCommands(config.clientID, guild),
+          {
+            body: commands,
+          }
+        );
+        console.log(
+          "Successfully registered application commands for development guild"
+        );
+
+        console.log("Successfully reloaded application (/) commands.");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }})
+  });
 
-  fs.readdirSync("./C-slash/").forEach((dir) => {
+  fs.readdirSync("./CC-slash/").forEach((dir) => {
     const commandFiles = fs
-      .readdirSync(`./C-slash/${dir}`)
+      .readdirSync(`./CC-slash/${dir}`)
       .filter((file) => file.endsWith(".js"));
 
     for (const file of commandFiles) {
-      const command = require(`../C-slash/${dir}/${file}`);
-      command = [{
-        
-        data:new SlashCommandBuilder()
-        .setName(String(command.name)).setDescription(String(command.description)),
-        
-        
-        
-      }];
+      let command = require(`../CC-slash/${dir}/${file}`);
+      command = 
+        {
+          data: new SlashCommandBuilder()
+            .setName(String(command.name))
+            .setDescription(String(command.description)),
+        };
+  
       // console.log(command.data.name);
-      commands.push(command.data);
-      bot.slash.set(command.data.name, command);
+      commands.push(command);
+      bot.slash.set(command);
       table.addRow(file, "👍");
       console.log(table.toString());
     }
