@@ -9,7 +9,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Routes } = require("discord-api-types/v9");
 
 const rest = new REST({ version: "9" }).setToken(config.token);
-const guild = false;
+const guild = "939212559356145736";
 module.exports = async (bot) => {
   //////resting slash command
   const commands = [];
@@ -48,16 +48,18 @@ module.exports = async (bot) => {
 
     for (const file of commandFiles) {
       let command = require(`../CC-slash/${dir}/${file}`);
-      command = 
+     /* command = 
         {
           data: new SlashCommandBuilder()
             .setName(String(command.name))
             .setDescription(String(command.description)),
-        };
-  
+        };*/
+      
+      
+  let Command = new SlashCommandBuilder().setName(String(command.name).toLowerCase()).setDescription(command.description);
       // console.log(command.data.name);
-      commands.push(command);
-      bot.slash.set(command);
+      commands.push(Command.toJSON());
+      bot.slash.set(command.name,command);
       table.addRow(file, "👍");
       console.log(table.toString());
     }

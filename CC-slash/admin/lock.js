@@ -23,7 +23,7 @@ option.setName('target')
   run: async (interaction, bot, data) => {
     // const data = await Guild.findOne({guildID: message.guild.id})
     let channel =
-      (await interaction.options.getChannel("target")) || interaction.channel;
+     /* (await interaction.options.getChannel("target")) || */interaction.channel;
     if (!channel)
       return interaction.reply({ content: `Mention channel first ` });
     channel.permissionOverwrites

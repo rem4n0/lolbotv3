@@ -5,35 +5,8 @@ module.exports = class {
     const data = {};
 
     if (!interaction.isCommand()) return;
- //   const options = interaction;
 
-  ///  const command = bot.slash.get(interaction.commandName + interaction.options.getSubcommand());
-    
-    
-    const CategoryName = interaction.commandName;
-    /**
-    try {
-          if (bot.slash.has(CategoryName + interaction.options.getSubcommand())) {
-            command = bot.slash.get(CategoryName + interaction.options.getSubcommand());
-          }
-        } catch {
-          if (bot.slash.has("normal" + CategoryName)) {
-            command = bot.slash.get("normal" + CategoryName);
-          }
-        }*/
-    const command = bot.slash.get(CategoryName+ interaction.options)
-
-    const args = [];
-
-        for (let option of interaction.options.data) {
-            if (option.type === "SUB_COMMAND") {
-                if (option.name) args.push(option.name);
-                option.options.forEach((x) => {
-                    if (x.value) args.push(x.value);
-                });
-            } else if (option.value) args.push(option.value);
-        }
-    
+    const command = bot.slash.get(interaction.commandName); //,interaction.options.getSubcommand());
    if (!command) return;
     try {
       let guild = await Guild.findOne({ guildID: interaction.guild.id });
@@ -188,12 +161,12 @@ module.exports = class {
           )
             return interaction.reply({ embeds: [perms] });
         }
-        if (!bot.cooldowns.has(command.data.name)) {
-          bot.cooldowns.set(command.data.name, new Discord.Collection());
+        if (!bot.cooldowns.has(command.name)) {
+          bot.cooldowns.set(command.name, new Discord.Collection());
         }
 
         const now = Date.now();
-        const timestamps = bot.cooldowns.get(command.data.name);
+        const timestamps = bot.cooldowns.get(command.name);
         const cooldownAmount = command.cooldown || 2 * 1000;
         if (timestamps.has(interaction.userId)) {
           const expirationTime =
