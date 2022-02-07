@@ -14,7 +14,8 @@ option.setName('target')
   description: "lock",
   options:[{
     "User":{
-      name
+      name:"user",
+      description:"hama",
     }
     
   }],
