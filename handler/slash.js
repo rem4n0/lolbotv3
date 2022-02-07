@@ -48,16 +48,17 @@ module.exports = async (bot) => {
 
     for (const file of commandFiles) {
       let command = require(`../CC-slash/${dir}/${file}`);
-     /* command = 
-        {
-          data: new SlashCommandBuilder()
-            .setName(String(command.name))
-            .setDescription(String(command.description)),
-        };*/
-      
-      
+    
   let Command = new SlashCommandBuilder().setName(String(command.name).toLowerCase()).setDescription(command.description);
-      // console.log(command.data.name);
+    for(const option of command.options){  
+
+      if(option.User && option.User.name && option.User.description){
+								Command.addUserOption((op) =>
+												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+											)
+										}
+    }
+      
       commands.push(Command.toJSON());
       bot.slash.set(command.name,command);
       table.addRow(file, "👍");

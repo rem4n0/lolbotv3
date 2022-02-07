@@ -12,6 +12,12 @@ option.setName('target')
 ),*/
   name: "lock",
   description: "lock",
+  options:[{
+    "User":{
+      name
+    }
+    
+  }],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
