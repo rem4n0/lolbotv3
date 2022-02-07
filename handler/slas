@@ -1,0 +1,125 @@
+const Discord = require("discord.js");
+
+const fs = require("fs");
+const ascii = require("ascii-table");
+const table = new ascii().setHeading("Command", "Load Status");
+
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
+const { readdirSync, lstatSync } = require("fs");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const rest = new REST({ version: "9" }).setToken(config.token);
+const guild = false;
+const dirSetup = [{
+{
+Folder:"admin",name:"admin",
+description:'admin commands'
+
+},
+{
+Folder:"economy",name:"economy",
+description:"economy system"
+},
+
+}]
+module.exports = async (bot) => {
+  let commands=[];
+  //////resting slash command
+    bot.once("ready", async () => {
+    try {
+      console.log("Started refreshing application (/) commands.");
+
+      if (!guild) {
+        await rest.put(Routes.applicationCommands(config.clientID), {
+          body: commands,
+        });
+        console.log("Successfully registered application commands globally");
+      } else {
+        await rest.put(Routes.applicationGuildCommands(config.clientID, guild), {
+          body: commands,
+        });
+        console.log(
+          "Successfully registered application commands for development guild"
+        );
+
+        console.log("Successfully reloaded application (/) commands.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
+//-----------////
+fs.readdirSync("./C-slash/").forEach((dir) => {
+    const commandFiles = fs
+      .readdirSync(`./C-slash/${dir}`)
+      .filter((file) => file.endsWith(".js"));
+const cmdSetup = dirSetup.find(d=>d.Folder == dir);
+    for (const file of commandFiles) {
+
+const subCommand = new SlashCommandBuilder().setName(String(cmdSetup.name).replace(/\s+/g, '_').toLowerCase()).setDescription(String(cmdSetup.description));
+     // const pull = require(`../C-slash/${dir}/${file}`);
+      if(cmdSetup && cmdSetup.Folder) {
+					//Set the SubCommand as a Slash Builder
+					const subCommand = new SlashCommandBuilder().setName(String(cmdSetup.CmdName).replace(/\s+/g, '_').toLowerCase()).setDescription(String(cmdSetup.Cmdescription));
+					//Now for each file in that subcommand, add a command!
+					const slashCommands = readdirSync(`./C-slash/${dir}/`).filter((file) => file.endsWith(".js"));
+					for (let file of slashCommands) {
+						let pull = require(`../C-slash/${dir}/${file}`);
+						if (pull.name && pull.description) {
+							subCommand
+							.addSubcommand((subcommand) => {
+								subcommand.setName(String(pull.name).toLowerCase()).setDescription(pull.description)
+								if(pull.options && pull.options.length > 0){
+									for(const option of pull.options){
+										if(option.User && option.User.name && option.User.description){
+											subcommand.addUserOption((op) =>
+												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+											)
+										} else if(option.Integer && option.Integer.name && option.Integer.description){
+											subcommand.addIntegerOption((op) =>
+												op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
+											)
+										} else if(option.String && option.String.name && option.String.description){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
+											)
+										} else if(option.Channel && option.Channel.name && option.Channel.description){
+											subcommand.addChannelOption((op) =>
+												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+											)
+										} else if(option.Role && option.Role.name && option.Role.description){
+											subcommand.addRoleOption((op) =>
+												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
+											)
+										} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
+												.addChoices(option.StringChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),String(c[1])] )),
+											)
+										} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
+												.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
+											)
+										} else {
+											console.log(`A Option is missing the Name or/and the Description of ${pull.name}`)
+										}
+									}
+								}
+								return subcommand;
+							})
+							bot.slash.set(String(cmdSetup.CmdName).replace(/\s+/g, '_').toLowerCase() + pull.name, pull)
+						} else {
+							console.log(file, `error -> missing a help.name, or help.name is not a string.`.brightRed);
+							continue;
+						}
+
+      commands.push(pull.data);
+      bot.slash.set(pull.data.name, command);
+      table.addRow(file, "👍");
+      console.log(table.toString());
+    }
+  });
+  
+}

@@ -1,0 +1,25 @@
+
+const Discord = require("discord.js");
+
+
+module.exports = {
+  name: "invite",
+  aliases: ["uinvite","invite"],
+  description: "",
+  usage: [""],
+  category: [""],
+  enabled: true,
+  memberPermissions: ["SEND_MESSAGES"],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  ownerOnly: false,
+  cooldown: 6000,
+  run: async (bot, message, args, dev, data) => {
+
+
+message.guild.invites.fetch().then(invs => {
+      let user = message.mentions.users.first() || message.author || message.guild.members.cache.get(args[1]);
+      if(!user) return message.channel.send({content:`i can't found this user`})
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      message.channel.send({content:`${user} has ${inviteCount} invites.`});
+    })}}
