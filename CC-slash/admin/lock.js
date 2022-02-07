@@ -13,10 +13,10 @@ option.setName('target')
   name: "lock",
   description: "lock",
   options:[{
-    "User":{
-      name:"user",
-      description:"hama",
-      required:true,
+    "Channel":{
+      name:"channel_target",
+      description:"target a channel",
+      required:false,
     }
     
   }],
