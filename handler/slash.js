@@ -48,19 +48,31 @@ module.exports = async (bot) => {
 
     for (const file of commandFiles) {
       let command = require(`../CC-slash/${dir}/${file}`);
-    
-  let Command = new SlashCommandBuilder().setName(String(command.name).toLowerCase()).setDescription(command.description);
-    for(const option of command.options){  
 
-      if(option.User && option.User.name && option.User.description){
-								Command.addUserOption((op) =>
-												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
-											)
-										}
-    }
-      
+      let Command = new SlashCommandBuilder()
+        .setName(String(command.name).toLowerCase())
+        .setDescription(String(command.description));
+      let option = new SlashCommandBuilder()
+        .setName(String(command.options.name).toLowerCase())
+        .setDescription(String(command.options.description))
+        .setRequired(Boolean(command.options.required));
+      if (command.options && command.options.length > 0) {
+        for (const option of command.options) {
+          if (option.User && option.User.name && option.User.description) {
+            Command.addUserOption((op) =>
+              op
+                .setName(
+                  String(option.User.name).replace(/\s+/g, "_").toLowerCase()
+                )
+                .setDescription(option.User.description)
+                .setRequired(option.User.required)
+            );
+          }
+        }
+      }
+
       commands.push(Command.toJSON());
-      bot.slash.set(command.name,command);
+      bot.slash.set(command.name, command);
       table.addRow(file, "👍");
       console.log(table.toString());
     }

@@ -16,6 +16,7 @@ option.setName('target')
     "User":{
       name:"user",
       description:"hama",
+      required:true,
     }
     
   }],
