@@ -6,13 +6,13 @@ module.exports = {
   description: "xp toggle",
   options: [
     {
-      "StringChoices": {
+      StringChoices: {
         name: "xp",
         description: "what's you want to system",
         required: true,
         choices: [
-          ["on", "enable xp system"],
-          ["off", "disable xp system"],
+          [ "enable xp system","on"],
+          ["disable xp system","off"],
         ],
       },
     },
