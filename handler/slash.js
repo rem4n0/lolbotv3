@@ -77,10 +77,10 @@ module.exports = async (bot) => {
 												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
 											)
 										} else if(option.Channel && option.Channel.name && option.Channel.description){
-										Command.addChannelOption((op) =>
-												op.setName(String(option.Channel.name).toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+										Command.addChannelOption(op => op.setName(option.Channel.name).setDescription(option.Channel.description).setRequired(option.Channel.required).addChannelType('GUILD_TEXT')
+                                            )
       
-											)
+											
 										} else if(option.Role && option.Role.name && option.Role.description){
 										Command.addRoleOption((op) =>
 												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
