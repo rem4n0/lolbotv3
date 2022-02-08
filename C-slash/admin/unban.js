@@ -12,7 +12,16 @@ option.setName('id')
 .setRequired(true)),
   */
   name:"unban",
-  
+  description:"unban users if banned",
+  options:[{
+    
+    Number:{
+      name:"id",
+      description:"put id of user",
+      
+      
+    }
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES","BAN_MEMBERS" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","BAN_MEMBERS" ],		
@@ -24,7 +33,7 @@ prime: false,
   run: async (interaction,bot,data) => {
 
     
-    let user = await interaction.options.getString("id")
+    let user = await interaction.options.getNumber("id")
 let ban = await interaction.guild.bans.fetch(user).catch(()=>{return 
                interaction.reply({content:`<This user not found>`})
               });

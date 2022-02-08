@@ -2,12 +2,15 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
+  /*
 data: new SlashCommandBuilder()
 .setName("unlock")
 .setDescription("unlock channel")
   .addChannelOption(option=>
   option.setName('target'). setDescription ('target channel you want unlock')),
-
+*/
+  name:"unlock",
+  description:"
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES","MANAGE_CHANNELS"],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS"],		
