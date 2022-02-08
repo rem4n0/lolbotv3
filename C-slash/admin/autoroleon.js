@@ -17,6 +17,12 @@ module.exports = {
         
         ]
       
+    },
+    Role:{
+      name:"role",
+      description:"if on mention role",
+      required:true,
+      
     }
     
     
@@ -46,7 +52,7 @@ prime: false,
 			message,
 				search: args.slice(1).join(" ")
 			});*/
-   ///   let role = await message.mentions.roles.first() || message.guild.roles.cache.get(args[2])
+   ///  let role = await message.mentions.roles.first() || message.guild.roles.cache.get(args[2])
 			if(!role){
 				return interaction.reply({content:`Please specify a valid role!`})
 			}
