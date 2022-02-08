@@ -4,9 +4,8 @@ const { MessageAttachment } = require("discord.js");
 const canvacord = require("canvacord");
 const text = require('../../util/string');
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("leaderboard")
-.setDescription("leaderboard in server"),
+name:"leaderboard",
+  description:"leaderboard of server",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

@@ -2,15 +2,14 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("setcolor")
-    .setDescription("set color off your profile card")
-    .addStringOption((option) =>
-      option
-        .setName("hex_code")
-        .setDescription("put Hex color")
-        .setRequired(true)
-    ),
+  name:"setcolor",
+  description:'set profile color',
+  options:[{
+    String:{
+      name:"hex_code",
+      description:" put hex color code",
+      required:true,
+    }}],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

@@ -30,7 +30,7 @@ name:"userinfo",
       
       name:'target',
       description: "target someone",
-      required:false
+      required:false,}
     
     
   }],

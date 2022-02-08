@@ -1,13 +1,8 @@
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("setbio")
-.setDescription("setbio to profile")
-.addStringOption(option =>
-option.setName('bio')
-.setDescription('bio to your profile ')
-.setRequired(true)),
+name:"setbio",
+  description:",set bio to profile",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

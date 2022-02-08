@@ -7,12 +7,12 @@ const moment = require("moment");
 moment.suppressDeprecationWarnings = true;
 const wait = require("util").promisify(setTimeout);
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("profile")
-    .setDescription("show your profile")
-    .addUserOption((option) =>
-      option.setName("target_user").setDescription("target user profile")
-    ),
+name:' profile',
+  description:'profile of user',
+  options:[{
+    User:{
+      name:'profile_user', description:'target someone',
+      required:false,}}],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
@@ -23,7 +23,7 @@ module.exports = {
   prime: false,
   run: async (interaction, bot, data) => {
     const member =
-      interaction.options.getUser("target_user") || interaction.user;
+      interaction.options.getUser("profile_user") || interaction.user;
     if (member.bot) {
       return interaction.reply({
         content: `sir I don't have data in databse please mention user not bot `,
