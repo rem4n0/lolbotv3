@@ -79,6 +79,7 @@ module.exports = async (bot) => {
 										} else if(option.Channel && option.Channel.name && option.Channel.description){
 										Command.addChannelOption((op) =>
 												op.setName(String(option.Channel.name).toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+      
 											)
 										} else if(option.Role && option.Role.name && option.Role.description){
 										Command.addRoleOption((op) =>
