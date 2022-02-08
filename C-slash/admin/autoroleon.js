@@ -2,21 +2,8 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("autoroleon")
-.setDescription("give role when user jojn")
-  
-.addStringOption(option =>
-option.setName('status')
-.setDescription('on')
-.setRequired(true))
-.addRoleOption(option=>
-               option.setName('role')
-               . setDescription ('mention role')
-               .setRequired(true)),
-                
-                
-  
+  name:"autorole",
+  description:"toggle autorole to off or on",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

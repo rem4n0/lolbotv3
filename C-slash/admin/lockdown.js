@@ -2,14 +2,22 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  
+  /*
 data: new SlashCommandBuilder()
 .setName("lockdown")
 .setDescription("Lock all channels for antiraid")
 .addNumberOption(option =>
 option.setName('time')
 .setDescription('time to unlock all channels only millisecond require')
-),
+),*/
+  name:"lockdown",
+  description:"lockdown all channels",
+  options:[{
+    Number:{
+      name:"time",
+      description:"give me time to unlocke all channels",
+      required:false,
+    }}],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES","MANAGE_CHANNELS"],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS" ],		

@@ -4,14 +4,23 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  
+  /*
 data: new SlashCommandBuilder()
 .setName("lock")
 .setDescription("lock channel")
 .addChannelOption(option =>
 option.setName('target')
 .setDescription('target channel')
-),
+),*/
+  name:"lock",
+  description:'lock is a moderation command to lock channels',
+  options:[{
+    Channel:{
+      name:"mention_channel",
+      description:"mention text channel",
+      required:false,
+    }}],
+  
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
@@ -25,7 +34,7 @@ prime: false,
     
 
    // const data = await Guild.findOne({guildID: message.guild.id})
-  let channel = await interaction.options.getChannel('target') || interaction.channel
+  let channel = await interaction.options.getChannel('mention_channel') || interaction.channel
   if(!channel) return interaction.reply({content:`Mention channel first `})
   channel
       .permissionOverwrites.edit(interaction.guild.id, {

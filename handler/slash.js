@@ -41,13 +41,13 @@ module.exports = async (bot) => {
     }
   });
 
-  fs.readdirSync("./CC-slash/").forEach((dir) => {
+  fs.readdirSync("./C-slash/").forEach((dir) => {
     const commandFiles = fs
-      .readdirSync(`./CC-slash/${dir}`)
+      .readdirSync(`./C-slash/${dir}`)
       .filter((file) => file.endsWith(".js"));
 
     for (const file of commandFiles) {
-      let command = require(`../CC-slash/${dir}/${file}`);
+      let command = require(`../C-slash/${dir}/${file}`);
 
       let Command = new SlashCommandBuilder()
         .setName(String(command.name).toLowerCase())

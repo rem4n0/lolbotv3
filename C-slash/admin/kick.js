@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+module.exports = {/*
 data: new SlashCommandBuilder()
 .setName("kick")
 .setDescription("kick user")
@@ -12,7 +12,15 @@ option.setName('target')
 .addStringOption(option=>
 option.setName('reason')
 .setDescription (`Reason of kick`)),
-  
+  */
+  name:"kick",
+  description:" kick is a moderation command to kick someone",
+  options:[{
+  User:{
+    name:"target_user",
+    description:"target someone to kick",
+    required:true,
+  }}],
 
   enabled: true,			   
   memberPermissions: [ "SEND_MESSAGES","KICK_MEMBERS" ],			

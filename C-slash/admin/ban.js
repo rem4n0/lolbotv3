@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  
+  /*
   data: new SlashCommandBuilder()
     .setName("ban")
     .setDescription("ban user")
@@ -12,8 +12,21 @@ module.exports = {
     )
     .addStringOption((option) =>
       option.setName("reason").setDescription("set reason to ban")
-    ),
-
+                     
+    ),*/
+name:"ban",
+  description:"moderation command to ban someone",
+  options:[{
+    User:{
+      
+      name:"target",
+      description:"target someone",
+      required:true,
+    }
+    
+    
+    
+  }],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
