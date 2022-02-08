@@ -11,14 +11,14 @@ module.exports = {
   name:"xptoggle",
   description:"xp toggle",
 options:[{
-    Stringchoice:{
+    StringChoices:{
       
-      name:"xptoggle",
+      name:"xp",
       description:"what's you want to system",
       required:true,
-      choice:[
-        ["enable xp system","on"],
-        ["disable","off"]
+      choices:[
+        ["on","enable xp system"],
+        ["off","disable xp system"]
       
         ]
     
@@ -35,7 +35,7 @@ options:[{
   cooldown: 1000,
   prime: false,
   run: async (interaction,bot,data) => {
-    const toggle = interaction.options.getString('toggle')
+    const toggle = interaction.options.getString('xp')
   
     if (toggle ==="on") {
       data.guild.xp.onoff = "on";
