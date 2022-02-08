@@ -3,12 +3,20 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
 
-data: new SlashCommandBuilder()
-.setName("avatar")
-.setDescription("member avatar")
-.addUserOption(option =>
-option.setName('target')
-.setDescription('target user avatar')),
+name:"avatar",
+  description:"avatar images",
+  options:[{
+    User:{
+      name:"target",
+      description:"target someone",
+      required:false,
+      
+      
+    }
+    
+    
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

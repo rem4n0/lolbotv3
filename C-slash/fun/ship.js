@@ -2,13 +2,24 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const progressbar = require("percentagebar");
 const fs = require("fs");
-module.exports = {
+module.exports = {/*
   data: new SlashCommandBuilder()
     .setName("ship")
     .setDescription("ship is a ship")
     .addUserOption((option) =>
       option.setName("target_ship").setDescription("target user to ship")
-    ),
+    ),*/
+  name:"ship",
+  description:"ship",
+  options:[{
+    User:{
+      name:"target_ship",
+      description:'mention someone',
+      required:false,
+      
+      
+    }
+  }],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

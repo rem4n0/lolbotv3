@@ -2,10 +2,8 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("invite")
-.setDescription("invite link")
-,
+  name:"invite",
+  description:"give you my invite link",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

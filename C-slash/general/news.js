@@ -6,9 +6,7 @@ const news =require(`../../data/news.js`);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("news")
-.setDescription("weekly my devlopera publish news"),
+name:"
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

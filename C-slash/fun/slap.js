@@ -1,18 +1,32 @@
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const fetch = require("node-fetch")
-module.exports = {
+module.exports = {/*
 data: new SlashCommandBuilder()
 .setName("slap")
 .setDescription("slap yourself or user 👋")
 .addUserOption(option =>
 option.setName('target_slap')
-.setDescription('mention someone')),
+.setDescription('mention someone'))*/
+  name:"slap",
+  description:"slap user or user",
+  options:[{
+    User:{
+      name:"target_slap",
+      description:"mention someone",
+      required:false,
+    }
+    
+  }]
+  
+  
+  
+  ,
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
   enabled:true,
-  category:["general"],
+  category:["fun"],
   ownerOnly: false,			
   cooldown: 10000,
 prime: false,

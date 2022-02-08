@@ -15,7 +15,9 @@ option.setName('your_love')
   description:" 💋 kiss",
   options:[{
     User:{
-      name
+      name:'kiss_target',
+      description:"mention someone",
+      required:false,
       
     }
     
@@ -33,7 +35,7 @@ prime: false,
 
     
         try{
-const user = await interaction.options.getUser('your_love')
+const user = await interaction.options.getUser('kiss_target')
   
 
   

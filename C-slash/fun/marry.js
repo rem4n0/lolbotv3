@@ -2,14 +2,23 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const pendings = {};
 module.exports = {
-  
+/*
 data: new SlashCommandBuilder()
 .setName("marry")
 .setDescription("marry with your girlfriend")
 .addUserOption(option =>
 option.setName('target_user')
 .setDescription('target your girlfriend')
-.setRequired(true)),
+.setRequired(true)),*/
+  name:"marry",
+  description:"marry with your girlfriend",
+  options:[{
+    User:{
+      name:"target_user",
+      description:"target your girlfriend",
+      required:true,}
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

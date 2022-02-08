@@ -18,6 +18,7 @@ option.setName('target')
     User:{
       name:'target',
       description:'target user',
+      required:false,
     }
     
   }],

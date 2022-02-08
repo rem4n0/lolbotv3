@@ -3,10 +3,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   
-data: new SlashCommandBuilder()
-.setName("infobot")
-.setDescription("about bot")
-,
+name:"about",
+  description:"aboutbot",
   
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
