@@ -10,7 +10,19 @@ data: new SlashCommandBuilder()
   option.setName('target'). setDescription ('target channel you want unlock')),
 */
   name:"unlock",
-  description:"
+  description:"unlock locked channel",
+  options:[{
+    Channel:{
+      name:"target",
+      description:"mention channel you want to unlock 🔓",
+      required:false,
+      
+      
+      
+    }}],
+      
+      
+    
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES","MANAGE_CHANNELS"],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS"],		

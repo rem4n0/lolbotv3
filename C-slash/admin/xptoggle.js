@@ -2,11 +2,24 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Color } = config.embed.Color;
 module.exports = {
+  /*
   data: new SlashCommandBuilder()
     .setName("xp")
     .setDescription("xptoggle")
   .addStringOption(option => option.setName("toggle"). setDescription("only off or on").setRequired(true)),
-                
+                */
+  name:"xptoggle",
+  description:"xp toggle",
+  options:[{
+    Stringchoice:{
+      name:"on",
+      description:"on system",
+    
+    }
+    
+    
+    
+  }],
   category: ["admin"],
   memberPermissions: ["SEND_MESSAGES", "MANAGE_GUILD"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
