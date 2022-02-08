@@ -3,6 +3,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const fetch = require("node-fetch")
 
 module.exports = {
+  /*
   
 data: new SlashCommandBuilder()
 .setName("hug")
@@ -10,7 +11,16 @@ data: new SlashCommandBuilder()
 .addUserOption(option =>
 option.setName('target')
 .setDescription('target user')),
-
+*/
+  name:"hug",
+  description:"hug yourself if you single or your love",
+  options:[{
+    User:{
+      name:'target',
+      description:'target user',
+    }
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

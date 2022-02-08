@@ -19,7 +19,7 @@ module.exports = {
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   enabled: true,
-  category: ["general"],
+  category: ["economy"],
   ownerOnly: false,
   cooldown: 10000,
   prime: false,

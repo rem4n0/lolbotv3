@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const m = "<:Bobocash:897148836567457862>";
 
-module.exports = {
+module.exports = {/*
   data: new SlashCommandBuilder()
     .setName("give")
     .setDescription("transfer balance to your friends")
@@ -17,12 +17,29 @@ module.exports = {
         .setName("amount")
         .setDescription("amount to transfer")
         .setRequired(true)
-    ),
+    ),*/
+  name:"transfer",
+  description:"transfer your balance to another account",
+  options:[{
+    User:{
+      name:"user_target",
+      description:"mention someone",
+      required:true,
+      
+    },
+    Number:{
+      name:"amount",
+      description:"amount to transfer",
+      required:true,
+      
+    }
+    
+  }],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   enabled: true,
-  category: ["general"],
+  category: ["economy"],
   ownerOnly: false,
   cooldown: 10000,
   prime: false,

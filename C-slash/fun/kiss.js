@@ -3,13 +3,24 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const fetch = require("node-fetch")
 
 module.exports = {
+  /*
 data: new SlashCommandBuilder()
 .setName("kiss")
 .setDescription("kiss 😘")
 .addUserOption(option =>
 option.setName('your_love')
 .setDescription('Target 🎯 your love')
-),
+),*/
+  name:"kiss",
+  description:" 💋 kiss",
+  options:[{
+    User:{
+      name
+      
+    }
+    
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

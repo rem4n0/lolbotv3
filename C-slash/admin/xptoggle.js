@@ -10,16 +10,23 @@ module.exports = {
                 */
   name:"xptoggle",
   description:"xp toggle",
-  options:[{
+options:[{
     Stringchoice:{
-      name:"on",
-      description:"on system",
+      
+      name:"xptoggle",
+      description:"what's you want to system",
+      required:true,
+      choice:[
+        ["enable xp system","on"],
+        ["disable","off"]
+      
+        ]
     
-    }
+      }}],
     
     
     
-  }],
+  
   category: ["admin"],
   memberPermissions: ["SEND_MESSAGES", "MANAGE_GUILD"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

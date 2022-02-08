@@ -1,15 +1,18 @@
 const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+module.exports = {/*
   data: new SlashCommandBuilder()
     .setName("daily")
-    .setDescription("💸get your daily all 24 hours"),
+    .setDescription("💸get your daily all 24 hours"),*/
+  name:"daily",
+  description:"💸 get your daily all 24hours",
+  
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   enabled: true,
-  category: ["general"],
+  category: ["economy"],
   ownerOnly: false,
   cooldown: 10000,
   prime: false,
