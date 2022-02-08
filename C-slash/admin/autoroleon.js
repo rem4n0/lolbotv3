@@ -4,6 +4,24 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
   name:"autorole",
   description:"toggle autorole to off or on",
+  options:[{
+    
+    
+    StringChoices:{
+      name:"toggle",
+      description:"toggle Auto role to on off",
+      required:true,
+      choices:[
+        ["disable","off"],
+        ["enable","on"]
+        
+        ]
+      
+    }
+    
+    
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
@@ -13,7 +31,7 @@ module.exports = {
   cooldown: 10000,
 prime: false,
   run: async (interaction,bot,data) => {
-    let status = await interaction.options.getString('status')
+    let status = await interaction.options.getString('toggle')
     let role = await interaction.options.getRole('role')
 
 
@@ -22,6 +40,7 @@ prime: false,
 		}
         
 		if(status === "on"){
+
 /*
 			const role = await Resolvers.resolveRole({
 			message,
@@ -65,12 +84,12 @@ prime: false,
  
       
       
-		}}/*
+		}}
 
 		if(status === "off"){
       
 			if(!data.guild.plugins.autorole.enabled){
-				return interaction.reply({content:`**The autorole is already disabled.**\n\n:arrow_right_hook: *Send ${prefix}autorole on @YourRole to enable it again!*`})
+				return interaction.reply({content:`**The autorole is already disabled.**`})
 			}
 
 			data.guild.plugins.autorole = {
@@ -109,7 +128,7 @@ prime: false,
           
             setTimeout(()=>{
             }, 3000)
-      }}*/
+      }}
     
     
   }}

@@ -31,7 +31,7 @@ module.exports = {
     if (toggle === "on") {
       data.guild.xp.onoff = "on";
       data.guild.save();
-      return interaction.reply({ content: `On` });
+      return interaction.reply({ content: `xp system enabled in t` });
     }
 
     if (toggle === "off") {
