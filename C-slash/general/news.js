@@ -6,7 +6,8 @@ const news =require(`../../data/news.js`);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-name:"
+name:"news",
+description:"all news about me",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

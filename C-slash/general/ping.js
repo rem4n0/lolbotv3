@@ -3,11 +3,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports ={
   
-  
-  
- 
- 
- data: new SlashCommandBuilder().setName("ping").setDescription("speed bot"),
+name:"ping",
+  description:"show speed of bot",
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

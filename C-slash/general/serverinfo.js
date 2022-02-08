@@ -56,11 +56,13 @@ const regions = {
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+module.exports = {/*
   
 data: new SlashCommandBuilder()
 .setName("serverinfo")
-.setDescription("server information"),
+.setDescription("server information"),*/
+  name:"serverinfo",
+  description:"server information",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

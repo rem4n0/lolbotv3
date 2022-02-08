@@ -2,9 +2,8 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-data: new SlashCommandBuilder()
-.setName("support")
-.setDescription("give you support server linke"),
+name:"support",
+  description:"server support",
   enabled:true,		    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

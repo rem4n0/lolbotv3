@@ -23,14 +23,17 @@ const moment = require('moment')
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
-  
-data: new SlashCommandBuilder()
-.setName("userinfo")
-.setDescription("information user")
-.addUserOption(option =>
-option.setName('target')
-.setDescription('target any user')
-),
+name:"userinfo",
+  description:"information of user",
+  options:[{
+    User:{
+      
+      name:'target',
+      description: "target someone",
+      required:false
+    
+    
+  }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
