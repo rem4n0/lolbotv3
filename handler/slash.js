@@ -105,7 +105,7 @@ module.exports = async (bot) => {
                 .setDescription(option.Channel.description)
                 .setRequired(option.Channel.required)
             );
-          } else if (
+          }else if (
             option.Role &&
             option.Role.name &&
             option.Role.description
@@ -118,14 +118,14 @@ module.exports = async (bot) => {
                 .setDescription(option.Role.description)
                 .setRequired(option.Role.required)
             );
-          } else if (option.Number && option.Number.name && option.Number.description) {
+         } else if (option.Number && option.Number.name && option.Number.description) {
             Command.addNumberOption((op) =>
               op
                 .setName(
-                  String(option.Number.name).replace(/\s+/g, "_").toLowerCase()
+                  String(option.Number.name).toLowerCase()
                 )
                 .setDescription(option.Number.description)
-                .setRequired(option.Number.required)
+                .setRequired(Boolean(option.Number.required))
             );
           } else if (
             option.StringChoices &&

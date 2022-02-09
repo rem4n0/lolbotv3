@@ -1,25 +1,24 @@
 const Discord = require("discord.js");
-const { SlashCommandBuilder } = require("@discordjs/builders");
+
 const m = "<:Bobocash:897148836567457862>";
 
 module.exports = {
-  name:"transfer",
-  description:"transfer your balance to another account",
-  options:[{
-    User:{
-      name:"user_target",
-      description:"mention someone",
-      required:true,
-      
+  name: "transfer",
+  description: "transfer your balance to another account",
+  options: [
+    {
+      User: {
+        name: "user_target",
+        description: "mention someone",
+        required: true,
+      },
+      Number: {
+        name: "amount_balance",
+        description: "amount to transfer",
+        required: true,
+      },
     },
-    Number:{
-      name:"amount",
-      description:"amount to transfer",
-      required:true,
-      
-    }
-    
-  }],
+  ],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
@@ -28,9 +27,9 @@ module.exports = {
   ownerOnly: false,
   cooldown: 10000,
   prime: false,
-  run: async (interaction, bot, data) => {
+  run: async (interaction, bot) => {
     const member = await interaction.options.getUser("user_target");
-    const money = await interaction.options.getNumber("amount");
+    const money = await interaction.options.getInteger("amount_balance");
     let author = await User.findOne({ userID: interaction.user.id });
     let loc =
       (await User.findOne({ userID: member.id })) ||
@@ -39,7 +38,7 @@ module.exports = {
     if (money < 1) {
       return interaction.reply({ content: `❎ You can't send 0 credit!` });
     }
-    if(!loc) return;
+    if (!loc) return;
     let sender = author.money - money;
 
     if (author.money < money) {
