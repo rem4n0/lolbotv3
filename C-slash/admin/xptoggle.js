@@ -29,9 +29,9 @@ module.exports = {
     const toggle = interaction.options.getString("xp");
 const data = await Guild.findOneAndUpdate({guildID: interaction.guild.id})
     if (toggle === "on") {
-      data.guild.xp.onoff = "on";
-      data.guild.save();
-      return interaction.reply({ content: `xp system enabled in t` });
+      data.xp.onoff = "on";
+      data.save();
+      return interaction.reply({ content: `xp system enabled in the server` });
     }
 
     if (toggle === "off") {

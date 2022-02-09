@@ -1,13 +1,9 @@
 const Discord = require("discord.js");
-const { SlashCommandBuilder } = require("@discordjs/builders");
+const ms = require("ms");
+module.exports = {
+  name: "daily",
+  description: "💸 get your daily all 24hours",
 
-module.exports = {/*
-  data: new SlashCommandBuilder()
-    .setName("daily")
-    .setDescription("💸get your daily all 24 hours"),*/
-  name:"daily",
-  description:"💸 get your daily all 24hours",
-  
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
@@ -16,12 +12,13 @@ module.exports = {/*
   ownerOnly: false,
   cooldown: 10000,
   prime: false,
-  run: async (interaction, bot, data) => {
+  run: async (interaction, bot) => {
     let cooldown = 0; //43200000;
-    //  let data = await User.findOne({ userID: message.author.id });
+    let data = await User.findOne({ userID: interaction.user.id });
+    if(!data) return;
     if (
-      data.user.time !== null &&
-      cooldown - (Date.now() - data.user.time) > 0
+      data.time !== null &&
+      cooldown - (Date.now() - data.time) > 0
     ) {
       return interaction.reply({
         content: ` You need wait ${ms(

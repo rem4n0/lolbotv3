@@ -2,22 +2,7 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const m = "<:Bobocash:897148836567457862>";
 
-module.exports = {/*
-  data: new SlashCommandBuilder()
-    .setName("give")
-    .setDescription("transfer balance to your friends")
-    .addUserOption((option) =>
-      option
-        .setName("user_target")
-        .setDescription("tarfet user to transfer")
-        .setRequired(true)
-    )
-    .addNumberOption((option) =>
-      option
-        .setName("amount")
-        .setDescription("amount to transfer")
-        .setRequired(true)
-    ),*/
+module.exports = {
   name:"transfer",
   description:"transfer your balance to another account",
   options:[{
@@ -54,14 +39,7 @@ module.exports = {/*
     if (money < 1) {
       return interaction.reply({ content: `❎ You can't send 0 credit!` });
     }
-    /*
-    if (!loc) {
-      User.create({
-        userID: member.id,
-        money: 1000,
-        name: member.name,
-      });
-    }*/
+    if(!loc) return;
     let sender = author.money - money;
 
     if (author.money < money) {

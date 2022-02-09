@@ -52,7 +52,7 @@ module.exports = async (bot) => {
       let Command = new SlashCommandBuilder()
         .setName(String(command.name).toLowerCase())
         .setDescription(String(command.description));
-     /* let option = new SlashCommandBuilder()
+      /* let option = new SlashCommandBuilder()
         .setName(String(command.options.name).toLowerCase())
         .setDescription(String(command.options.description))
         .setRequired(Boolean(command.options.required));
@@ -68,41 +68,116 @@ module.exports = async (bot) => {
                 .setDescription(option.User.description)
                 .setRequired(option.User.required)
             );
-          }else if(option.Integer && option.Integer.name && option.Integer.description){
-											Command.addIntegerOption((op) =>
-												op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
-											)
-										} else if(option.String && option.String.name && option.String.description){
-											Command.addStringOption((op) =>
-												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
-											)
-										} else if(option.Channel && option.Channel.name && option.Channel.description){
-										Command.addChannelOption(op => op.setName(option.Channel.name).setDescription(option.Channel.description).setRequired(option.Channel.required)
-                                            )
-      
-											
-										} else if(option.Role && option.Role.name && option.Role.description){
-										Command.addRoleOption((op) =>
-												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
-											)
-										} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
-										Command.addStringOption((op) =>
-												op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
-												.addChoices(option.StringChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),String(c[1])] )),
-											)
-										} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
-											Command.addStringOption((op) =>
-												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
-												.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
-											)
-										} else {
-											console.log(`A Option is missing the Name or/and the Description of ${command.name}`)
-										}
-          
-          
-          
-          
-          
+          } else if (
+            option.Integer &&
+            option.Integer.name &&
+            option.Integer.description
+          ) {
+            Command.addIntegerOption((op) =>
+              op
+                .setName(
+                  String(option.Integer.name).replace(/\s+/g, "_").toLowerCase()
+                )
+                .setDescription(option.Integer.description)
+                .setRequired(option.Integer.required)
+            );
+          } else if (
+            option.String &&
+            option.String.name &&
+            option.String.description
+          ) {
+            Command.addStringOption((op) =>
+              op
+                .setName(
+                  String(option.String.name).replace(/\s+/g, "_").toLowerCase()
+                )
+                .setDescription(option.String.description)
+                .setRequired(option.String.required)
+            );
+          } else if (
+            option.Channel &&
+            option.Channel.name &&
+            option.Channel.description
+          ) {
+            Command.addChannelOption((op) =>
+              op
+                .setName(option.Channel.name)
+                .setDescription(option.Channel.description)
+                .setRequired(option.Channel.required)
+            );
+          } else if (
+            option.Role &&
+            option.Role.name &&
+            option.Role.description
+          ) {
+            Command.addRoleOption((op) =>
+              op
+                .setName(
+                  String(option.Role.name).replace(/\s+/g, "_").toLowerCase()
+                )
+                .setDescription(option.Role.description)
+                .setRequired(option.Role.required)
+            );
+          } else if (option.Number && option.Number.name && option.Number.description) {
+            Command.addNumberOption((op) =>
+              op
+                .setName(
+                  String(option.Number.name).replace(/\s+/g, "_").toLowerCase()
+                )
+                .setDescription(option.Number.description)
+                .setRequired(option.Number.required)
+            );
+          } else if (
+            option.StringChoices &&
+            option.StringChoices.name &&
+            option.StringChoices.description &&
+            option.StringChoices.choices &&
+            option.StringChoices.choices.length > 0
+          ) {
+            Command.addStringOption((op) =>
+              op
+                .setName(
+                  String(option.StringChoices.name)
+                    .replace(/\s+/g, "_")
+                    .toLowerCase()
+                )
+                .setDescription(option.StringChoices.description)
+                .setRequired(option.StringChoices.required)
+                .addChoices(
+                  option.StringChoices.choices.map((c) => [
+                    String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                    String(c[1]),
+                  ])
+                )
+            );
+          } else if (
+            option.IntChoices &&
+            option.IntChoices.name &&
+            option.IntChoices.description &&
+            option.IntChoices.choices &&
+            option.IntChoices.choices.length > 0
+          ) {
+            Command.addStringOption((op) =>
+              op
+                .setName(
+                  String(option.IntChoices.name)
+                    .replace(/\s+/g, "_")
+                    .toLowerCase()
+                )
+                .setDescription(option.IntChoices.description)
+                .setRequired(option.IntChoices.required)
+                .addChoices(
+                  option.IntChoices.choices.map((c) => [
+                    String(c[0]).replace(/\s+/g, "_").toLowerCase(),
+                    parseInt(c[1]),
+                  ])
+                )
+            );
+          } else {
+            console.log(
+              `A Option is missing the Name or/and the Description of ${command.name}`
+            );
+          }
         }
       }
 
