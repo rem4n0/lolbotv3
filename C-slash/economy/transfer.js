@@ -12,12 +12,13 @@ module.exports = {
         description: "mention someone",
         required: true,
       },
-      Number: {
+      
+    Number: {
         name: "amount_balance",
         description: "amount to transfer",
         required: true,
-      },
-    },
+      }
+    }
   ],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
