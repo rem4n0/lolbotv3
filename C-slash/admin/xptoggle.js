@@ -25,9 +25,9 @@ module.exports = {
   enabled: true,
   cooldown: 1000,
   prime: false,
-  run: async (interaction, bot, data) => {
+  run: async (interaction, bot) => {
     const toggle = interaction.options.getString("xp");
-
+const data = await Guild.findOneAndUpdate({guildID: interaction.guild.id})
     if (toggle === "on") {
       data.guild.xp.onoff = "on";
       data.guild.save();
@@ -35,8 +35,8 @@ module.exports = {
     }
 
     if (toggle === "off") {
-      data.guild.xp.onoff = "off";
-      data.guild.save();
+      data.xp.onoff = "off";
+      data.save();
       return interaction.reply({
         content: ` Xp system from guild is disabled`,
       });

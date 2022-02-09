@@ -3,10 +3,7 @@ const Canvas = require("canvas"),
 	Discord = require("discord.js");
 const { resolve } = require("path");
 // Register assets fonts
-/*
-Canvas.registerFont(resolve("./assets/fonts/theboldfont.ttf"), { family: "Bold" });
-Canvas.registerFont(resolve("./assets/fonts/SketchMatch.ttf"), { family: "SketchMatch" });
-*/
+
 const applyText = (canvas, text, defaultFontSize) => {
 	const ctx = canvas.getContext("2d");
 	do {
@@ -19,7 +16,7 @@ module.exports = class {
 
 
 
-	async run (member,bot, message, invite) {
+	async run (member,bot, message) {
     
     
    // const cachedInvites = bot.guildInvites.get(member.guild.id)
@@ -32,17 +29,17 @@ module.exports = class {
 		const guildData = await Guild.findOne({ guildID: member.guild.id });
 		member.guild.data = guildData;
 
-		/*const memberData = await Guild.findOrCreateMember({ id: member.id, guildID: member.guild.id });
+		const memberData = await Member.findOne({ id: member.id, guildID: member.guild.id });
 		if(memberData.mute.muted && memberData.mute.endDate > Date.now()){
 			member.guild.channels.cache.forEach((channel) => {
-				channel.updateOverwrite(member.id, {
+				channel.permissionOverwrites.edit(member.id, {
 					SEND_MESSAGES: false,
 					ADD_REACTIONS: false,
 					CONNECT: false
 				}).catch(() => {});
 			});
 		}
-*/
+
 		// Check if the autorole is enabled
   if(!guildData) return;
 		if(guildData.plugins.autorole.enabled){
