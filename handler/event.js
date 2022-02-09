@@ -25,21 +25,5 @@ module.exports = async (bot) => {
     });
   };
   init();
-/*
-  const commands = [];
-
-  fs.readdirSync("./C-slash/").forEach((dir) => {
-    const commandFiles = fs
-      .readdirSync(`./C-slash/${dir}`)
-      .filter((file) => file.endsWith(".js"));
-
-    for (const file of commandFiles) {
-      const command = require(`../C-slash/${dir}/${file}`);
-      // console.log(command.data.name);
-      commands.push(command.data);
-      bot.slash.set(command.data.name, command);
-      table.addRow(file, "👍");
-      console.log(table.toString());
-    }})*/
   
 };
