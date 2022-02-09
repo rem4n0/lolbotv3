@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = class  {
-async run(bot, newRole,oldRole){
+async run( newRole,oldRole){
   let data = await Guild.findOne({guildID: newRole.guild.id})
     const logChannel = newRole.guild.channels.cache.get(data.plugins.modlogs);
     if (!logChannel) return;
@@ -16,11 +16,11 @@ async run(bot, newRole,oldRole){
         .addFields(
             {
                 name: "Old Color:",
-                value: oldRole.hexColor
+                value: `${oldRole.hexColor}`
             },
             {
                 name: "New Color:",
-                value: newRole.hexColor
+                value: `${newRole.hexColor}`
             },
             {
                 name: "Responsible Moderator:",
@@ -38,11 +38,11 @@ async run(bot, newRole,oldRole){
         .addFields(
             {
                 name: "Old name:",
-                value: oldRole.name
+                value: `${oldRole.name}`
             },
             {
                 name: "New name:",
-                value: newRole.name
+                value: `${newRole.name}`
             },
             {
                 name: "Responsible Moderator:",
@@ -51,4 +51,14 @@ async run(bot, newRole,oldRole){
         )
         return logChannel.send({ embeds: [embed] })
     }
+  if(oldRole.permissions !== newRole.permissions){
+    
+    const embed = new Discord.MessageEmbed()
+    . setAuthor ({name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true})})
+    . setDescription (`**\`${newRole.name}\` has been updated.**`)
+    
+    
+    
+    
+  }
 }}
