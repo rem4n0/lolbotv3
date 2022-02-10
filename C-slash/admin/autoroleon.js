@@ -3,14 +3,15 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   name:"autorole",
-  description:"toggle autorole to off or on",
+  description:"toggle autorol n",
   options:[{
     
-    Role: {
+    "Role": {
       name: "what_role", 
       description: "To Ping a Role lol", 
-      required: false }, 
-    StringChoices:{
+      required: true }, 
+    
+      "StringChoices":{
       name:"toggle",
       description:"toggle Auto role to on off",
       required:true,
