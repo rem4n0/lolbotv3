@@ -6,7 +6,10 @@ module.exports = {
   description:"toggle autorole to off or on",
   options:[{
     
-    
+    Role: {
+      name: "what_role", 
+      description: "To Ping a Role lol", 
+      required: false }, 
     StringChoices:{
       name:"toggle",
       description:"toggle Auto role to on off",
@@ -16,13 +19,7 @@ module.exports = {
         ["enable","on"]
         
         ]},
-    Role:{
-      name:"role",
-      description:"if on mention role",
-      required:true,
-    
-    }
-    
+
   }],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
