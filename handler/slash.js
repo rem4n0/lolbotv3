@@ -50,13 +50,9 @@ module.exports = async (bot) => {
       let command = require(`../C-slash/${dir}/${file}`);
 
       let Command = new SlashCommandBuilder()
-        .setName(String(command.name).replace(/\s+/g, '_').toLowerCase())
+        .setName(String(command.name).replace(/\s+/g, "_").toLowerCase())
         .setDescription(command.description);
-      /* let option = new SlashCommandBuilder()
-        .setName(String(command.options.name).toLowerCase())
-        .setDescription(String(command.options.description))
-        .setRequired(Boolean(command.options.required));
-        */
+
       if (command.options && command.options.length > 0) {
         for (const option of command.options) {
           if (option.User && option.User.name && option.User.description) {
@@ -105,7 +101,7 @@ module.exports = async (bot) => {
                 .setDescription(option.Channel.description)
                 .setRequired(option.Channel.required)
             );
-          }else if (
+          } else if (
             option.Role &&
             option.Role.name &&
             option.Role.description
@@ -118,12 +114,14 @@ module.exports = async (bot) => {
                 .setDescription(option.Role.description)
                 .setRequired(option.Role.required)
             );
-         } else if (option.Number && option.Number.name && option.Number.description) {
+          } else if (
+            option.Number &&
+            option.Number.name &&
+            option.Number.description
+          ) {
             Command.addNumberOption((op) =>
               op
-                .setName(
-                  String(option.Number.name).toLowerCase()
-                )
+                .setName(String(option.Number.name).toLowerCase())
                 .setDescription(option.Number.description)
                 .setRequired(Boolean(option.Number.required))
             );
