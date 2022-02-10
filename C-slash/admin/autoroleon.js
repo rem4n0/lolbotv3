@@ -15,17 +15,13 @@ module.exports = {
         ["disable","off"],
         ["enable","on"]
         
-        ]
-      
-    },
+        ]},
     Role:{
       name:"role",
       description:"if on mention role",
       required:true,
-      
+    
     }
-    
-    
     
   }],
   enabled: true,			    

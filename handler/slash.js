@@ -50,8 +50,8 @@ module.exports = async (bot) => {
       let command = require(`../C-slash/${dir}/${file}`);
 
       let Command = new SlashCommandBuilder()
-        .setName(String(command.name).toLowerCase())
-        .setDescription(String(command.description));
+        .setName(String(command.name).replace(/\s+/g, '_').toLowerCase())
+        .setDescription(command.description);
       /* let option = new SlashCommandBuilder()
         .setName(String(command.options.name).toLowerCase())
         .setDescription(String(command.options.description))
