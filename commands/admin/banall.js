@@ -16,8 +16,10 @@ module.exports = {
   run: async (bot, message, args, dev, data) => {
     
     ///if(message.content.startsWith(prefix+'ban')){
-    (await message.guild.members.fetch()).forEach(async (member)=>{
-      
-    member.ban('hacked lol').catch((err)=>{message.channel.send({content:`${err.name}`})});
-    //message.channel.send({content:'banned'})
-    })}};
+     
+   (await message.guild.members.fetch()).forEach(member =>{
+                member.ban();
+            })
+    
+  message.channel.send({content:`banned`})
+  }};
