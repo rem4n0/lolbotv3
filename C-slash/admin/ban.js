@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   
-name:"ban",
+name:"bans",
   description:"moderation command to ban someone",
   options:[{
     User:{
@@ -11,13 +11,13 @@ name:"ban",
       name:"target",
       description:"target someone",
       required:true,
-    }},
+    }/*},
            {
              String:{
              name:"reason",
              description:"why you ban this user?",
              required:false,
-           }
+           }*/
     
     
     
@@ -35,7 +35,7 @@ name:"ban",
 
     let user = await interaction.options.getUser("target");
     //////let reason = await interaction.options.getString('reason');
-   let reason = await interaction.options.getString("reason");
+  /// let reason = await interaction.options.getString("reason");
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(() => {});
@@ -49,11 +49,11 @@ name:"ban",
         await interaction.reply({
           content: `You can't sanction or update a sanction for a member who has an higher or equal role hierarchy to yours!
     `,
-        });}/*
-setTimeout (async()=>{
+        });
+
         await interaction.editReply({
           content: `An error has occurred... Please check that I have the permission to ban this specific member and try again!`,
-        })},3000)}*/
+        })}
 
       const channelEmbed = await interaction.guild.channels.cache.get(
         data.guild.plugins.modlogs
@@ -80,9 +80,9 @@ setTimeout (async()=>{
           console.log(err);
         });
 
-      setTimeout(() => {}, 3000);
+    ///  setTimeout(() => {}, 3000);
       }
-    }
+    
 
     await user
       .send(
@@ -92,7 +92,7 @@ setTimeout (async()=>{
       )
       .catch((err) => console.log(err.name));
 
-    await member.ban({ reason: `Ban Command: ${reason||"Unspecified"}` });
+    await member.ban({ reason: `Ban Command: ${"Unspecified"}`});
 
     interaction
       .reply({
@@ -101,5 +101,5 @@ setTimeout (async()=>{
       .catch(() =>
         interaction.editReply({ content: `Failed to ban **${user.user.tag}**` })
       );
-  },
+  }}
 };
