@@ -2,14 +2,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  /*
-data: new SlashCommandBuilder()
-.setName("lockdown")
-.setDescription("Lock all channels for antiraid")
-.addNumberOption(option =>
-option.setName('time')
-.setDescription('time to unlock all channels only millisecond require')
-),*/
+  
   name:"lockdown",
   description:"lockdown all channels",
   options:[{
