@@ -108,22 +108,9 @@ module.exports = async (bot) => {
           ) {
             Command.addRoleOption((op) =>
               op
-                .setName(
-                  String(option.Role.name).toLowerCase()
-                )
+                .setName(String(option.Role.name).replace(/\s+/g,"_").toLowerCase())
                 .setDescription(option.Role.description)
                 .setRequired(option.Role.required)
-            );
-          } else if (
-            option.Number &&
-            option.Number.name &&
-            option.Number.description
-          ) {
-            Command.addNumberOption((op) =>
-              op
-                .setName(String(option.Number.name).toLowerCase())
-                .setDescription(option.Number.description)
-                .setRequired(Boolean(option.Number.required))
             );
           } else if (
             option.StringChoices &&
@@ -180,7 +167,7 @@ module.exports = async (bot) => {
       }
 
       commands.push(Command.toJSON());
-      bot.slash.set('normal'+command.name, command);
+      bot.slash.set( command.name, command);
       table.addRow(file, "👍");
       console.log(table.toString());
     }
