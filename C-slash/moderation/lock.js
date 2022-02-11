@@ -4,14 +4,7 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  /*
-data: new SlashCommandBuilder()
-.setName("lock")
-.setDescription("lock channel")
-.addChannelOption(option =>
-option.setName('target')
-.setDescription('target channel')
-),*/
+  
   name:"lock",
   description:'lock is a moderation command to lock channels',
   options:[{
@@ -22,14 +15,14 @@ option.setName('target')
     }}],
   
   enabled: true,			    
-  memberPermissions: [ "SEND_MESSAGES" ],			
-  botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
+  memberPermissions: [ "SEND_MESSAGES","MANAGE_CHANNELS" ],			
+  botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS"],		
   enabled:true,
-  category:["admin"],
+  category:["moderation"],
   ownerOnly: false,			
   cooldown: 10000,
 prime: false,
-  run: async (interaction,bot,data) => {
+  run: async (interaction,bot,data,channelEmbed) => {
 
     
 
@@ -44,9 +37,7 @@ prime: false,
         interaction.reply({content:`channel locked`});
     
         /// send to log channel
-    const channelEmbed = await interaction.guild.channels.cache.get(data.guild.plugins.modlogs)
 
-      if(!channelEmbed) return;
     const embed = new Discord.MessageEmbed()
     .setDescription(`:pencil: **Channel Action**`)
     .addField('Moderator Name',interaction.user.tag, true)
@@ -55,17 +46,11 @@ prime: false,
     .setThumbnail(interaction.guild.iconURL())
     .setTimestamp()
     .setColor(config.embed.Color)
-  
-   
-   
-        if(channelEmbed &&
-      channelEmbed.viewable &&
-      channelEmbed.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
             channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
           
             setTimeout(()=>{
             }, 3000)
-      }})
+  })
     
      
    }

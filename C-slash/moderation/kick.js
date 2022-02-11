@@ -27,7 +27,7 @@ module.exports = {
   memberPermissions: [ "SEND_MESSAGES","KICK_MEMBERS" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","KICK_MEMBERS" ],		
   enabled:true,
-  category:["admin"],
+  category:["moderation"],
   ownerOnly: false,			
   cooldown: 10000,
 prime: false,
