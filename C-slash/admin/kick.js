@@ -1,18 +1,7 @@
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {/*
-data: new SlashCommandBuilder()
-.setName("kick")
-.setDescription("kick user")
-.addUserOption(option =>
-option.setName('target')
-.setDescription('target user to kick')
-.setRequired(true))
-.addStringOption(option=>
-option.setName('reason')
-.setDescription (`Reason of kick`)),
-  */
+module.exports = {
   name:"kick",
   description:" kick is a moderation command to kick someone",
   options:[{
@@ -20,7 +9,19 @@ option.setName('reason')
     name:"target_user",
     description:"target someone to kick",
     required:true,
-  }}],
+  }},{
+    String:{
+      
+      name:"reason",
+      description:'pick reason for kick',
+      required:false,
+      
+    }
+    
+    
+    
+    
+  }],
 
   enabled: true,			   
   memberPermissions: [ "SEND_MESSAGES","KICK_MEMBERS" ],			
@@ -30,10 +31,10 @@ option.setName('reason')
   ownerOnly: false,			
   cooldown: 10000,
 prime: false,
-  run: async (interaction,bot,data) => {
+  run: async (interaction,bot,data,channelEmbed) => {
 
     
-     let user = await interaction.options.getUser('target')
+     let user = await interaction.options.getUser('target_user')
      
      
       let reason = await interaction.options.getString('reason');
@@ -50,40 +51,31 @@ if(member){
 			if(!member.kickable) {
 				return interaction.reply({content:`An error has occurred... Please check that I have the permission to ban this specific member and try again!`})
 			}
-		////// send to log channel
-      const channelEmbed = await interaction.guild.channels.cache.get(data.guild.plugins.modlogs)
-
-      if(!channelEmbed) return;
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`:pencil: **Kick Action**`)
-    .addField('Moderator Name', interaction.user.tag, true)
-    .addField('User kicked',member.user.tag, true)
-    .setFooter({text:interaction.guild.name})
-    .setThumbnail(interaction.guild.iconURL())
-    .setTimestamp()
-    .setColor(config.embed.Color)
-  
-   
-   
-        if(channelEmbed &&
-      channelEmbed.viewable &&
-      channelEmbed.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
-            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
-          
-            setTimeout(()=>{
-            }, 3000)
-      }}
+		//////
         
       await user.send(`**${interaction.user.tag}**kicked you from ${interaction.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
 
-    return member.kick({ reason: `Kick Command: ${interaction.user.tag}: ${reason || 'Unspecified'}`})
+    return member.kick({ reason: `Kick Command: ${reason || 'Unspecified'}`})
     .then(_member => interaction.reply(`Successfully Kicked **${_member.user.tag}**`))
     .catch((err) => interaction.editReply(`Failed to ban **${member.user.tag} : reason: Your role not high than this member or ${err.name}**!`));
 
-
-
+}
   
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`:pencil: **Kick Action**`)
+    .addField('Moderator Name', interaction.user.tag, true)
+    .addField('User kicked',member.user.tag, true)
+    .addField('Reason', reason,true)
+    .setFooter({text:interaction.guild.name})
+    .setThumbnail(interaction.guild.iconURL())
+    .setTimestamp()
+    .setColor(config.embed.Color)
+
+  channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
+          
+            setTimeout(()=>{
+            }, 3000)
 
 
     

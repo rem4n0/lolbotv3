@@ -11,6 +11,7 @@ module.exports = {
   ownerOnly: false,
   cooldown: 6000,
   run: async (bot, message, args, dev, data) => {
+    const data = await Guild.findOne
     const areModLogsEnabled = Boolean(data.guild.plugins.modlogs);
     const sentChannel = await Resolvers.resolveChannel({
       message,
