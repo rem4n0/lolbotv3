@@ -2,18 +2,7 @@ const Discord = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  /*
-  data: new SlashCommandBuilder()
-    .setName("ban")
-    .setDescription("ban user")
   
-    .addUserOption((option) =>
-      option.setName("target").setDescription("Select a user").setRequired(true)
-    )
-    .addStringOption((option) =>
-      option.setName("reason").setDescription("set reason to ban")
-                     
-    ),*/
 name:"ban",
   description:"moderation command to ban someone",
   options:[{
@@ -22,7 +11,13 @@ name:"ban",
       name:"target",
       description:"target someone",
       required:true,
-    }
+    }},
+           {
+             String:{
+             name:"reason",
+             description:"why you ban this user?",
+             required:false,
+           }
     
     
     
@@ -31,7 +26,7 @@ name:"ban",
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   enabled: true,
-  category: ["admin"],
+  category: ["moderation"],
   ownerOnly: false,
   cooldown: 10000,
   prime: false,
@@ -39,6 +34,7 @@ name:"ban",
     // let data = await Guild.findOne({guildID: message.guild.id})
 
     let user = await interaction.options.getUser("target");
+    let reason = await interaction.options.getString('reason');
     // let reason = await interaction.options.getString("reason");
     const member = await interaction.guild.members
       .fetch(user.id)
@@ -53,12 +49,11 @@ name:"ban",
         await interaction.reply({
           content: `You can't sanction or update a sanction for a member who has an higher or equal role hierarchy to yours!
     `,
-        });
-
+        });}/*
+setTimeout (async()=>{
         await interaction.editReply({
           content: `An error has occurred... Please check that I have the permission to ban this specific member and try again!`,
-        });
-      }
+        })},3000)}*/
 
       const channelEmbed = await interaction.guild.channels.cache.get(
         data.guild.plugins.modlogs
@@ -85,7 +80,7 @@ name:"ban",
           console.log(err);
         });
 
-        // setTimeout(() => {}, 3000);
+      setTimeout(() => {}, 3000);
       }
     }
 
@@ -97,7 +92,7 @@ name:"ban",
       )
       .catch((err) => console.log(err.name));
 
-    await member.ban({ reason: `Ban Command: ${"Unspecified"}` });
+    await member.ban({ reason: `Ban Command: ${reason||"Unspecified"}` });
 
     interaction
       .reply({
