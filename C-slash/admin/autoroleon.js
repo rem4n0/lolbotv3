@@ -6,12 +6,7 @@ module.exports = {
   description:"toggle autorol n",
   options:[{
     
-    "Role": {
-      name: "what_role", 
-      description: "To Ping a Role lol", 
-      required: true }, 
-    
-      "StringChoices":{
+      StringChoices:{
       name:"toggle",
       description:"toggle Auto role to on off",
       required:true,
@@ -19,9 +14,13 @@ module.exports = {
         ["disable","off"],
         ["enable","on"]
         
-        ]},
-
-  }],
+        ]}},
+    {
+    Role:{
+      name:"what_role",
+      description:"mention role ",
+      required:true,
+  }}],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
@@ -32,7 +31,7 @@ module.exports = {
 prime: false,
   run: async (interaction,bot,data) => {
     let status = await interaction.options.getString('toggle')
-    let role = await interaction.options.getRole('role')
+    let role = await interaction.options.getRole('what_role')
 
 
 		if(status !== "on" && status !== "off"){
