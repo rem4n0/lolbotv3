@@ -23,10 +23,10 @@ name:"ban",
     
   }],
   enabled: true,
-  memberPermissions: ["SEND_MESSAGES"],
-  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  memberPermissions: ["SEND_MESSAGES","BAN_MEMBERS"],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS","BAN_MEMBERS"],
   enabled: true,
-  category: ["moderation"],
+  category: ["admin"],
   ownerOnly: false,
   cooldown: 10000,
   prime: false,
@@ -34,8 +34,8 @@ name:"ban",
     // let data = await Guild.findOne({guildID: message.guild.id})
 
     let user = await interaction.options.getUser("target");
-    let reason = await interaction.options.getString('reason');
-    // let reason = await interaction.options.getString("reason");
+    //////let reason = await interaction.options.getString('reason');
+   let reason = await interaction.options.getString("reason");
     const member = await interaction.guild.members
       .fetch(user.id)
       .catch(() => {});
