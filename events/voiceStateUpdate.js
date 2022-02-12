@@ -38,26 +38,16 @@ if (!(res instanceof User)){
       get next(){ return this.cap - serverdata.voice }
     }};
 if (!oldStats.channel && newStats.channel) {
-  
+  var addXP = setInterval(async function() {
+     
 serverdata.voice = serverdata.voice + points;
   while (_xp.local.next < 1){
     serverdata.level++
   };
 
-    res.data.voice.splice(index, 0, serverdata);
-  res.save().then(() => {
-    xp.set(newStats.id, {});
-    setTimeout(() => xp.delete(newStats.id), 60000);
-    return { xpAdded: true, reason: null };
-  })
-  .catch(() => {
-    return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
-  });
-    var addXP = setInterval(async function() {
-      if (!newStats.channel) {
-       clearInterval(addXP);
-      
-  }},3000)}
+    res.data.voice.splice(serverdata);
+  res.save()},600)
+}
 
       
     
