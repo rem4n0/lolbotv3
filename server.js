@@ -41,6 +41,7 @@ global.Owner = require("./data/owner.js");
 global.Prime = require("./data/prime.js");
 global.Member = require("./data/member.js");
 //global.Lang = require("./data/lang.js");
+
 global.News = require("./data/news.js");
 global.Maintenance = require("./data/maintenance.js");
 global.Black = require("./data/blacklist");
@@ -55,7 +56,7 @@ bot.databaseCache.guilds = new Collection();
 bot.databaseCache.members = new Collection();
 bot.databaseCache.usersReminds = new Collection(); // members with active reminds
 bot.databaseCache.mutedUsers = new Collection(); // members who are currently muted
-
+bot.xp= new Collection ();
 bot.catagories = fs.readdirSync("./commands/");
 ["command", "event","slash"].forEach((handler) => {
   require(`./handler/${handler}`)(bot);
