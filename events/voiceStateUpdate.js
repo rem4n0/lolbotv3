@@ -19,6 +19,7 @@ module.exports= class{
       voice: 0,
       level: 1
     });
+    res.save();
     index = res.data.xp.findIndex(x => x.id === newStats.guild.id);
     [ serverdata ] = res.data.voice.splice(index,1);
   } else {
@@ -26,13 +27,10 @@ module.exports= class{
   };
 if (!oldStats.channel && newStats.channel) {
     var addXP = setInterval(async function() {
-    res.data.voice.voice +=  4,
-      res.data.voice.id =newStats.guild.id
-  
-        
-      
-      
-      
+   if(res){
+      res.data.voice.voice +=  4;
+      res.data.voice.id =newStats.guild.id;
+   }
 res.save();
       if (!newStats.channel) {
         clearInterval(addXP);
