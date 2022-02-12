@@ -1,6 +1,6 @@
 
        /// xp(message)
-        async function xp(message,bot,guild,user){
+        async function voicexp(message,bot,guild,user){
          /// let guild = await Guild.findOne({guildID: message.guild.id})
                                           
   const max = 205;
@@ -64,21 +64,21 @@ if(guild){
 }else{
   message.channel.send({content:`Congratulations ${message.author.toString()}, you leveled up to ${serverdata.level}!!`})
 
-  }*/};
+  }}*/
 
   // PROCESS LOCAL XP
   // Add points which was previously randomized on server[local] based xp
   // increment level if next is less than the current xp.
-  serverdata.xp = serverdata.xp + points;
+  serverdata.voice = serverdata.voice + points;
   while (_xp.local.next < 1){
     serverdata.level++
     if(guild){
-      let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
+     /* let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
       
      if(channel){channel.send({content:`Congratulations ${message.author.tag}, your leveled up to ${serverdata.level}!!`}).catch(()=>{})
        
        
-     }}else{
+     }*/}else{
        
     return message.channel.send({content:`Congratulations ${message.author.tag}, your leveled up to ${serverdata.level}!!`}).catch(()=>{})
 
@@ -88,7 +88,7 @@ if(guild){
   // index = where the serverdata is inserted
   // 0 = number of elements to remove
   // serverdata = the inserted data
-  res.data.xp.splice(index, 0, serverdata);
+  res.data. voice.splice(index, 0, serverdata);
 
   // Save the new data
   return res.save()
@@ -101,5 +101,5 @@ if(guild){
     return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
   });}
         
-        module.exports = xp;
+        module.exports = voicexp;
         
