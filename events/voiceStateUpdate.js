@@ -31,13 +31,14 @@ if (!(res instanceof User)){
   } else {
     [ serverdata ] = res.data.voice.splice(index,1);
   };
+ 
     let _xp={
     local: {
       get cap(){ return (50 * Math.pow(serverdata.level,2)) + (250 * serverdata.level); },
       get next(){ return this.cap - serverdata.voice }
     }};
 if (!oldStats.channel && newStats.channel) {
-    var addXP = setInterval(async function() {
+  
 serverdata.voice = serverdata.voice + points;
   while (_xp.local.next < 1){
     serverdata.level++
@@ -52,12 +53,11 @@ serverdata.voice = serverdata.voice + points;
   .catch(() => {
     return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
   });
-    
+    var addXP = setInterval(async function() {
       if (!newStats.channel) {
        clearInterval(addXP);
-      }
-    }, 6000);
-  }
+      
+  }},3000)}
 
       
     
