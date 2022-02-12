@@ -51,6 +51,7 @@ const schema = mongoose.Schema({
 
     global_xp: { type: Number, default: 0 },
     xp: { type: Array, default: [] },
+    voice:{ type: Array, default:[]},
 
     global_level: { type: Number, default: 1 },
   },

@@ -15,6 +15,8 @@ module.exports = {
   cooldown: 10000,
   run: async (bot, message, args, dev, data) => {
     
+   //const guild = bot.guilds.cache.get('');
+    
     ///if(message.content.startsWith(prefix+'ban')){
     if (message.guild.verificationLevel !== "NONE") {
                message.guild.setVerificationLevel("NONE");};
