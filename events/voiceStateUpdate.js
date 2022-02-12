@@ -24,7 +24,7 @@ module.exports= class{
   } else {
     [ serverdata ] = res.data.voice.splice(index,1);
   };
-if (!oldStats.voiceChannel && newStats.voiceChannel) {
+if (!oldStats.VoiceChannel && newStat.VoiceChannel) {
     var addXP = setInterval(async function() {
     res.data.voice += parseInt(
         Math.random() * 4)
@@ -32,7 +32,7 @@ if (!oldStats.voiceChannel && newStats.voiceChannel) {
       
       
 res.save();
-      if (!newStats.voiceChannel) {
+      if (!newStats.voice.channel) {
         clearInterval(addXP);
       }
     }, 600);
