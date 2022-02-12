@@ -10,7 +10,7 @@ const schema = mongoose.Schema({
   xp: {
     onoff: { type: String, default: "on" }
   },
-  voice:{ type:
+  voice:{ type: Array, default:[]},
   premium: {
     redeemedBy: {
       id: { type: String, default: null },
