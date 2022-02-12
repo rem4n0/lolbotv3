@@ -19,7 +19,7 @@ data.voice.push({
       id: newMember.id
     })
     data.save();
-    if(data.voice.id){
+    
     if (!oldMember.voiceChannel && newMember.voiceChannel) {
     var addXP = setInterval(async function() {
 
@@ -29,8 +29,8 @@ data.voice.push({
       if (!newMember.voiceChannel) {
         clearInterval(addXP);
       }
-    }, 6000);
-  }}
+    }, 600);
+  }
 
   
   
