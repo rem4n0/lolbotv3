@@ -67,7 +67,7 @@ if(!role){return message.channel.send({content:`please provide a valid role`})}
     });
     collector.on("collect", async i => {
       if (i.customId === "member") {
-      (await  message.guild.members.fetch()).forEach(a =>a.roles.add(role));
+      (await  message.guild.members.fetch()). filter ((r)=>!r.user.bot).forEach(a =>a.roles.add(role));
         msg.delete();
         return message.channel.send({content:
           `Successfully Added **${
