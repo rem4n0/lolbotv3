@@ -3,7 +3,7 @@
 
 module.exports= class{
   async run(oldStats,newStats){
-    let res = await User.findOneAndUpdate({userID: newStats.id});
+    let res = await User.findOne({userID: newStats.id});
     
     
       
@@ -13,13 +13,16 @@ module.exports= class{
 const max = 2;
   const min = 1;
   const points = Math.floor(Math.random() * (max-min)) + min;
+if (!(res instanceof User)){
+    return promise.resolve({ xpAdded: false, reason: 'DB_ERROR'})
+  };
 
   // Add serverdata to profile if it doesn't exist yet
   // -1 means the index couldn't be found
   if (index === -1){
     res.data.voice.push({
       id: newStats.guild.id,
-      voice: 0,
+      voicexp: 0,
       level: 1
     });
   
@@ -51,7 +54,7 @@ serverdata.voice = serverdata.voice + points;
   });
     
       if (!newStats.channel) {
-        clearInterval(addXP);
+       clearInterval(addXP);
       }
     }, 6000);
   }
