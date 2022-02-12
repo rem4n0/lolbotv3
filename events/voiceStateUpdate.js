@@ -11,21 +11,44 @@ module.exports=class{
     if (index === -1){
     data.data.voice.push({
       id: newMember.guild.id,
-      xp: 0,
+      voice: 0,
       level: 1
     });
-    index = data.data.xp.findIndex(x => x.id === newMember.guild.id);
+      
+    index = data.data.voice.findIndex(x => x.id === newMember.guild.id);
     [ serverdata ] = data.data.voice.splice(index,1);
   } else {
-    [ serverdata ] = res.data.xp.splice(index,1);
+    [ serverdata ] = data.data.voice.splice(index,1);
   };
+    let _xp = {
+  local: {
+      get cap(){ return (50 * Math.pow(serverdata.level,2)) + (250 * serverdata.level); },
+      get next(){ return this.cap - serverdata.voice }
+    }
+  };
+   if (!oldMember.voiceChannel && newMember.voiceChannel) {
+    var addXP = setInterval(async function() { 
+serverdata.voice = serverdata.voice + points;
+  while (_xp.local.next < 1){
+    serverdata.level++
+  };
+     data.data.voice.splice(index, 0, serverdata);
+
+  // Save the new data
+  return data.save()
+  .then(() => {
+    xp.set(newMember.id, {});
+    setTimeout(() => xp.delete(newMember.id), 60000);
+    return { xpAdded: true, reason: null };
+  })
+  .catch(() => {
+    return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
+  })
     
-    data.data.voice.push({
-      id: newMember.guild.id,
-      voicexp,
-      
-      
-      
-    }) 
+   if (!newMember.voiceChannel) {
+        clearInterval(addXP);
+      } 
+    
+    },60000)}
     
   }}
