@@ -10,6 +10,9 @@ module.exports= class{
       
       let index = res.data.voice.findIndex(x => x.id === newStats.guild.id);
   let serverdata;
+const max = 2;
+  const min = 1;
+  const points = Math.floor(Math.random() * (max-min)) + min;
 
   // Add serverdata to profile if it doesn't exist yet
   // -1 means the index couldn't be found
@@ -19,23 +22,38 @@ module.exports= class{
       voice: 0,
       level: 1
     });
-   res.save();
+  
     index = res.data.voice.findIndex(x => x.id === newStats.guild.id);
     [ serverdata ] = res.data.voice.splice(index,1);
   } else {
     [ serverdata ] = res.data.voice.splice(index,1);
   };
+    let _xp={
+    local: {
+      get cap(){ return (50 * Math.pow(serverdata.level,2)) + (250 * serverdata.level); },
+      get next(){ return this.cap - serverdata.voice }
+    }};
 if (!oldStats.channel && newStats.channel) {
     var addXP = setInterval(async function() {
-   if(res){
-      res.data.voice.voice +=  4;
-      res.data.voice.id =newStats.guild.id;
-   }
-res.save();
+serverdata.voice = serverdata.voice + points;
+  while (_xp.local.next < 1){
+    serverdata.level++
+  };
+
+    res.data.voice.splice(index, 0, serverdata);
+  res.save().then(() => {
+    xp.set(newStats.id, {});
+    setTimeout(() => xp.delete(newStats.id), 60000);
+    return { xpAdded: true, reason: null };
+  })
+  .catch(() => {
+    return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
+  });
+    
       if (!newStats.channel) {
         clearInterval(addXP);
       }
-    }, 600);
+    }, 6000);
   }
 
       
