@@ -6,6 +6,7 @@ const bot = new Client({
     "GUILD_MESSAGE_REACTIONS",
     "GUILD_MESSAGES",
     "GUILD_VOICE_STATES",
+    "GUILD_MEMBER_UPDATE"
   ],
   allowedMentions: {
     parse: ["everyone", "roles", "users"],
