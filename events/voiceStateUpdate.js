@@ -24,15 +24,17 @@ module.exports= class{
   } else {
     [ serverdata ] = res.data.voice.splice(index,1);
   };
-if (!oldStats.VoiceChannel && newStat.VoiceChannel) {
+if (!oldStats.channel && newStats.channel) {
     var addXP = setInterval(async function() {
-    res.data.voice += parseInt(
-        Math.random() * 4)
+    res.data.voice.voice +=  4,
+      res.data.voice.id =newStats.guild.id
+  
+        
       
       
       
 res.save();
-      if (!newStats.voice.channel) {
+      if (!newStats.channel) {
         clearInterval(addXP);
       }
     }, 600);
