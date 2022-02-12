@@ -169,7 +169,7 @@ module.exports = async (bot) => {
       commands.push(Command.toJSON());
       bot.slash.set( command.name, command);
       table.addRow(file, "👍");
-      console.log(table.toString());
+     // console.log(table.toString());
     }
   });
 };

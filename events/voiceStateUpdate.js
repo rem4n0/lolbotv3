@@ -1,79 +1,31 @@
-let Discord = require("discord.js");
+module.exports=class{
+  async run (oldMember,newMember){
+    let data = await User.findOneAndUpdate({userID: newMember.id})
+    const max =3
+    const min= 1;
+    const points = Math.floor(Math.random() * (max-min)) + min;
 
-module.exports = class {
-  async run(oldMember, newMember, member,bot) {
-    if (newMember.bot) return;
+    let index = data.data.voice.findIndex(x => x.id === newMember.guild.id);
+  let serverdata;
 
-    let res = await User.findOneAndUpdate({ userID: newMember.id });
-    const max = 3;
-    const min = 1;
-    const points = Math.floor(Math.random() * (max - min)) + min;
-    /*
-data.voice.push({
-
-      text: 0,
-      voice: parseInt(Math.random() * 10),
-      msgs: 0,
-      id: newMember.id
-    })
-    data.save();*/
-    // Get the server data
-  ///  let xp =new Discord.Collection('xp', newMember.guild.id);
-
-    let index = res.data.voice.findIndex((x) => x.id === newMember.guild.id);
-    let serverdata;
-
-    // Add serverdata to profile if it doesn't exist yet
-    // -1 means the index couldn't be found
-    if (index === -1) {
-      res.data.voice.push({
-        id: newMember.guild.id,
-        voice: 0,
-        level: 1,
-      });
-
-      index = res.data.voice.findIndex((x) => x.id === newMember.guild.id);
-      [serverdata] = res.data.voice.splice(index, 1);
-    } else {
-      [serverdata] = res.data.voice.splice(index, 1);
-    }
-
-    if (!oldMember.voiceChannel && newMember.voiceChannel) {
-      var addXP = setInterval(async function () {
-        let _xp = {
-          local: {
-            get cap() {
-              return (
-                50 * Math.pow(serverdata.level, 2) + 250 * serverdata.level
-              );
-            },
-            get next() {
-              return this.cap - serverdata.voice;
-            },
-          },
-        };
-     serverdata.voice = serverdata.voice+ points;   
-        while (_xp.local.next < 1) {
-          res.data.voice++;
-        }
-        res.data.voice.splice(index, 0, serverdata);
-
-        // Save the new data
-        return res
-          .save()
-          .then(() => {
-            xp.set(newMember.id, {});
-            setTimeout(() => xp.delete(newMember.id), 60000);
-            return { xpAdded: true, reason: null };
-          })
-          .catch(() => {
-            return { xpAdded: false, reason: "DB_ERROR_ON_SAVE" };
-          });
-
-        if (!newMember.voiceChannel) {
-          clearInterval(addXP);
-        }
-      }, 600);
-    }
-  }
-};
+    if (index === -1){
+    data.data.voice.push({
+      id: newMember.guild.id,
+      xp: 0,
+      level: 1
+    });
+    index = data.data.xp.findIndex(x => x.id === newMember.guild.id);
+    [ serverdata ] = data.data.voice.splice(index,1);
+  } else {
+    [ serverdata ] = res.data.xp.splice(index,1);
+  };
+    
+    data.data.voice.push({
+      id: newMember.guild.id,
+      voicexp,
+      
+      
+      
+    }) 
+    
+  }}
