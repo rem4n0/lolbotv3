@@ -9,7 +9,7 @@ module.exports = {
      * @param {object} client The Discord Client instance
      */
 	async init(bot){
-await Member.find({ "mute.muted": true }).then((members) => {
+await Mute.find({ "mute.muted": true }).then((members) => {
 			members.forEach(async (member) => {
       ///  const data = await Member.findOne({guildID:member.guildID})
 			bot.databaseCache.mutedUsers.set(`${member.id}${member.guildID}`, member);

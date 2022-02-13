@@ -13,8 +13,9 @@ module.exports = {
   ownerOnly: false,
   cooldown: 6000,
   run: async (bot, message, args, dev, data) => {
-  
-  		const member = await message.mentions.users.first() || message.guild.members.cache.get(args[1]);
+      
+  		const user = await message.mentions.users.first() || message.guild.members.cache.get(args[1]);
+    const member = await message.guild.members.fetch(user.id);
 		if(!member){
 			return message.channel.send({content:` user not found`});
 		}
@@ -28,7 +29,7 @@ module.exports = {
 		if(message.member.ownerId !== message.author.id && !(moderationPosition > memberPosition)){
 			return message.channel.send({content:`You cant mute `})
 		}
-		const memberData = await Member.findOneAndUpdate({ id: member.id, guildID: message.guild.id });
+		const memberData = await Mute.findOneAndUpdate({ id: member.id, guildID: message.guild.id });
     //if(!memberData) new Member({id:member.id, guildID: message.guild.id});
 
 		const time = args[2];
@@ -50,16 +51,15 @@ module.exports = {
           permissions: []
         }})*/
     let mute = message.guild.roles.cache.find(role => role.name === "Muted");
-    if (!mute)
-      mute = await message.guild.roles.create({
+    if (!mute){ await message.guild.roles.create({
         data: {
           name: "Muted",
           color: "#0000",
           permissions: []
-        }})
+        }})}
 
         message.guild.channels.cache.forEach(async channel => {
-      await channel.permissionOverwrites.creat(mute, {
+      await channel.permissionOverwrites.create(mute, {
         SEND_MESSAGES: false,
         ADD_REACTIONS: false,
         CONNECT: false
@@ -122,7 +122,7 @@ member.send(`Sir **${member.username}**
 			if(!channel) return;
 			const embed = new Discord.MessageEmbed()
 				.setAuthor(`count case:${ data.guild.casesCount}`)
-				.addField("**user**",member.tag)
+				.addField("**user**", member.user.tag)
 				.addField("moderator",`\`${message.author.tag}\` (${message.author.toString()})`, true)
 				.addField("reason", reason ||"no specify", true)
 				.addField("**time**",time, true)
