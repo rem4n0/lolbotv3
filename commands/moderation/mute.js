@@ -51,12 +51,13 @@ module.exports = {
           permissions: []
         }})*/
     let mute = message.guild.roles.cache.find(role => role.name === "Muted");
-    if (!mute){ await message.guild.roles.create({
-        data: {
+    if (!mute)
+      mute = await message.guild.roles.create({
+    
           name: "Muted",
           color: "#0000",
-          permissions: []
-        }})}
+        permissions: []
+        })
 
         message.guild.channels.cache.forEach(async channel => {
       await channel.permissionOverwrites.create(mute, {
@@ -121,7 +122,7 @@ member.send(`Sir **${member.username}**
 			const channel = message.guild.channels.cache.get(data.guild.plugins.modlogs);
 			if(!channel) return;
 			const embed = new Discord.MessageEmbed()
-				.setAuthor(`count case:${ data.guild.casesCount}`)
+				.setAuthor({name:`count case:${ data.guild.casesCount}`})
 				.addField("**user**", member.user.tag)
 				.addField("moderator",`\`${message.author.tag}\` (${message.author.toString()})`, true)
 				.addField("reason", reason ||"no specify", true)
