@@ -35,10 +35,12 @@ module.exports = class {
         worldWhitelist: "768944616724103170",
       });
     }
-    let members = await Member.findOne({guildID: message.guild.id})
-  if(!members){
+    
+    
+    let mute = await Mute.findOne({guildID: message.guild.id})
+  /*if(!members){
     Member.create({
-      guildID: message.guild.id})}
+      guildID: message.guild.id})}*/
     ///if(message.guild.members.cache.has("838593240328044554")) return
 
     if (!user || !user.xp) {

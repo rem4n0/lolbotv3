@@ -4,6 +4,9 @@ module.exports = class{
     let data = await Guild.findOne({guildID: member.guild.id})
     const logChannel = member.guild.channels.cache.get(data.plugins.modlogs);
     if (!logChannel) return;// member.channel.send({content:`ii`});
+    
+    
+    if(!oldNickname && newNickname){
     const embed = new Discord.MessageEmbed()
     .setAuthor({ name: member.user.tag, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
     .setDescription(`**:writing_hand: ${member} roles has been updated.**`)
@@ -21,4 +24,4 @@ module.exports = class{
     .setTimestamp()
     .setFooter(member.guild.name, member.guild.iconURL({ dynamic: true }))
     return logChannel.send({ embeds: [embed] })
-}}
+    }}}

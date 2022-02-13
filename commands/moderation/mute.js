@@ -14,12 +14,7 @@ module.exports = {
   cooldown: 6000,
   run: async (bot, message, args, dev, data) => {
   
-  		const member = await /*resolve.resolveMember({
-        
-        message: message,
-        search: args.slice(2).join('')})*/
-        
-        message.mentions.users.first();//await this.client.resolveMember(args[0], message.guild);
+  		const member = await message.mentions.users.first() || message.guild.members.cache.get(args[1]);
 		if(!member){
 			return message.channel.send({content:` user not found`});
 		}
@@ -28,12 +23,11 @@ module.exports = {
 			return message.channel.send({content:`you cant mue yourself`})
 		}
 
-	/*	const memberPosition = member.roles.highest.position;
+	const memberPosition = member.roles.highest.position;
 		const moderationPosition = message.member.roles.highest.position;
 		if(message.member.ownerId !== message.author.id && !(moderationPosition > memberPosition)){
 			return message.channel.send({content:`You cant mute `})
-		}*/
-
+		}
 		const memberData = await Member.findOneAndUpdate({ id: member.id, guildID: message.guild.id });
     //if(!memberData) new Member({id:member.id, guildID: message.guild.id});
 
