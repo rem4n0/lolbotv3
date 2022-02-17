@@ -2,6 +2,8 @@
 {
   "token":"OTI4Nzg2MzI2NDAzMzEzNzY1.Ydd1rA.LcA7KuisGxHQzzjdU4af_Oqlw5g",
   "clientID": "928786326403313765",
+  "secret":"wk3rQ51BDWCh4mp7Z9en_m3bgODP83Q9",
+  "callback":"https://quill-abounding-juniper.glitch.me/callback",
   "prefix": "Bo",
   "mongoURL": "mongodb+srv://testbobo:hama1234+@cluster0.cizb6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "channels":{
