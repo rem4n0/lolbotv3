@@ -117,12 +117,11 @@ const http = require('http').createServer(app);
 
   
   
-  global.checkAuth = async(req, res, next)=>{
-    if (req.isAuthenticated()) return next();
+  global.checkAuth = (req, res, next) => {
+      if (req.isAuthenticated()) return next();
       req.session.backURL = req.url;
       res.redirect("/login");
-    
-    }
+  }
 
    app.get("/login", (req, res, next) => {
       if (req.session.backURL) {
