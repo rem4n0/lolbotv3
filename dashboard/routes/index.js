@@ -5,7 +5,7 @@ const path = require('path')
   
   app.get('/', async(req,res)=>{
     
-    let data = await Guild.findOne({guildID:req.
+    //let data = await Guild.findOne({guildID:req.
   res.render('/index.ejs',{
   
   })
