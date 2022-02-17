@@ -7,6 +7,9 @@ const path = require('path')
     
     //let data = await Guild.findOne({guildID:req.
   res.render('index.ejs',{
+    bot: bot,
+    
+    
   
   })
   
