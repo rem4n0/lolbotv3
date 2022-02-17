@@ -136,23 +136,7 @@ const http = require('http').createServer(app);
     },
     passport.authenticate("discord", { prompt: 'none' }));
     app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
-       /* let banned = await banSchema.findOne({user: req.user.id})
-        if(banned) {
-      
-        req.session.destroy(() => {
-        res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
-        req.logout();
-        });
-        } else {
-            try {/*
-              const request = require('request');
-              request({
-                  url: `https://discordapp.com/api/v8/guilds/${config.server.id}/members/${req.user.id}`,
-                  method: "PUT",
-                  json: { access_token: req.user.accessToken },
-                  eaders: { "Authorization": `Bot ${bot.token}` }
-              });
-        } catch {};*/
+    
         res.redirect(req.session.backURL || '/')
       
         

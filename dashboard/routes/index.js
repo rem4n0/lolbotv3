@@ -1,11 +1,11 @@
 const app = require("express").Router();
 const path = require("path");
 
-app.get("/", async (req, res) => {
+app.get("/", function(req, res) {
   //let data = await Guild.findOne({guildID:req.
   res.render("index.ejs", {
     bot: bot,
-  ///req.isAuthenticated() ? req.user : null,
+  user: req.isAuthenticated() ? req.user : null,
   });
 }); /*
 app.post('/', async(req,res)=>{
