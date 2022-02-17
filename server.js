@@ -43,7 +43,7 @@ global.Mute = require("./data/mute.js");
 //global.Lang = require("./data/lang.js");
 
 global.News = require("./data/news.js");
-global.Maintenance = require("./data/maintenance.js");
+///global.Maintenance = require("./data/maintenance.js");
 global.Black = require("./data/blacklist");
 bot.commands = new Collection();
 bot.aliases = new Collection();
@@ -62,5 +62,5 @@ bot.catagories = fs.readdirSync("./commands/");
   require(`./handler/${handler}`)(bot);
 });
 
-require('./dashboard/index.js
+(require('./dashboard/index.js')(bot));
 bot.login(config.token);
