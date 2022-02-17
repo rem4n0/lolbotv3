@@ -62,6 +62,7 @@ bot.catagories = fs.readdirSync("./commands/");
   require(`./handler/${handler}`)(bot);
 });
 require('./dashboard/index.js')(bot);
+require('./data/connect.js')(bot);
 /////////dashboard
 
 ///require("./dashboard/index.js")(bot);

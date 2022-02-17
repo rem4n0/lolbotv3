@@ -11,7 +11,7 @@ const ejs = require ('ejs');
 const path = require ("path");
 
 
-
+module.exports=async(bot)=>{
 
 
 
@@ -47,4 +47,4 @@ const http = require('http').createServer(app);
       
   
         
-    });
+    });}
