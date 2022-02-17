@@ -18,7 +18,7 @@ module.exports = async (bot) => {
     console.log(`Loading a total of ${evtFiles.length} events.`, "log");
     evtFiles.forEach((file) => {
       const eventName = file.split(".")[0];
-      console.log(`Loading Event: ${eventName}`);
+     // console.log(`Loading Event: ${eventName}`);
       const event = new (require(`../events/${file}`))(bot);
       
       bot.on(eventName, (...args) => event.run(...args, bot));
