@@ -24,7 +24,7 @@ const { inspect } = require("util");
 const cmd = require("node-cmd");
 
 global.mongoose = require("mongoose");
-
+/*
 mongoose
   .connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -32,7 +32,7 @@ mongoose
   })
   .catch((err) => {
     console.log("Unable to connect to the Mongodb database. Error:" + err);
-  });
+  });*/
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);
 global.Guild = require("./data/guild.js");
@@ -63,6 +63,10 @@ bot.catagories = fs.readdirSync("./commands/");
 });
 
 /////////dashboard
-global.dashboard = require
- 
+
+require("./dashboard/index.js")()
+
+
+require("./data/connect.js")()
+
 bot.login(config.token);
