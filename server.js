@@ -1,5 +1,5 @@
 const { Discord, Client } = require("discord.js");
-const bot = global.bot = new Client({
+const bot =( global.bot =new Client({
   intents: [
     "GUILDS",
     "GUILD_MEMBERS",
@@ -12,7 +12,7 @@ const bot = global.bot = new Client({
     repliedUser: true,
   },
   partials: ["CHANNEL", "MESSAGE", "REACTION", "USER"],
-});
+}));
 ///const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD] });
 global.config = require("./config.json");
 const { Util } = require("discord.js");
@@ -62,11 +62,13 @@ bot.catagories = fs.readdirSync("./commands/");
   require(`./handler/${handler}`)(bot);
 });
 
+["index"].forEach((server)=>{
+ new ( require(`./dashboard/${server}`))(bot)})
 /////////dashboard
 
-require("./dashboard/index.js")()
+///require("./dashboard/index.js")(bot);
 
 
-require("./data/connect.js")()
+///require("./data/connect.js")(bot);
 
 bot.login(config.token);
