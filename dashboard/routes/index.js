@@ -1,19 +1,13 @@
-const app = require('express').Router();
-const path = require('path')
-  
-  
-  
-  app.get('/', async(req,res)=>{
-    
-    //let data = await Guild.findOne({guildID:req.
-  res.render('index.ejs',{
+const app = require("express").Router();
+const path = require("path");
+
+app.get("/", async (req, res) => {
+  //let data = await Guild.findOne({guildID:req.
+  res.render("index.ejs", {
     bot: bot,
-    user: req.isAuthenticated() ? req.user : null,
-    
-  
-  })
-  
-})/*
+  ///req.isAuthenticated() ? req.user : null,
+  });
+}); /*
 app.post('/', async(req,res)=>{
   let data = await Data.findOneAndUpdate({name:
     req.body.title
