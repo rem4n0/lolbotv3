@@ -48,7 +48,16 @@
     "voucher-code-generator": "^1.1.1",
     "winston": "^3.4.0",
     "@discordjs/builders": "^0.12.0",
-    "ejs": "^3.1.6"
+    "ejs": "^3.1.6",
+    "passport": "^0.5.2",
+    "express-session": "^1.17.2",
+    "passport-discord": "^0.1.4",
+    "memorystore": "^1.6.6",
+    "cookie-parser": "^1.4.6",
+    "referrer-policy": "^1.2.0",
+    "express-rate-limit": "^6.2.0",
+    "rate-limit-mongo": "^2.3.2",
+    "express-minify-html-terser": "^1.0.2"
   },
   "engines": {
     "node": "16.x"
