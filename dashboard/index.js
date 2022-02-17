@@ -1,9 +1,9 @@
 
 
 const express = require ('express');
-global.app = express();
+const app =(global.app = express());
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended:true}))
+
 
 const ejs = require ('ejs');
 
@@ -87,7 +87,10 @@ const http = require('http').createServer(app);
     app.use("/css", express.static(path.resolve(`${templateDir}${path.sep}public/css`)));
     app.use("/js", express.static(path.resolve(`${templateDir}${path.sep}public/js`)));
     app.use("/img", express.static(path.resolve(`${templateDir}${path.sep}assets/img`)));
-  */
+  */app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({
+      extended: true
+    }));
     passport.serializeUser((user, done) => done(null, user));
     passport.deserializeUser((obj, done) => done(null, obj));
   
@@ -114,7 +117,7 @@ const http = require('http').createServer(app);
 
   
   
-  global.checkAuth = (req, res, next) => {
+  global.checkAuth = async(req, res, next)=>{
     if (req.isAuthenticated()) return next();
       req.session.backURL = req.url;
       res.redirect("/login");
