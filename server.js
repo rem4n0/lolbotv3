@@ -61,9 +61,7 @@ bot.catagories = fs.readdirSync("./commands/");
 ["command", "event","slash"].forEach((handler) => {
   require(`./handler/${handler}`)(bot);
 });
-
-["index"].forEach((server)=>{
- new ( require(`./dashboard/${server}`))(bot)})
+require('./dashboard/index.js')(bot);
 /////////dashboard
 
 ///require("./dashboard/index.js")(bot);
