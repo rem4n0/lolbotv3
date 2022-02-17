@@ -1,5 +1,5 @@
 const { Discord, Client } = require("discord.js");
-const bot = new Client({
+const bot = global.bot = new Client({
   intents: [
     "GUILDS",
     "GUILD_MEMBERS",
@@ -17,7 +17,7 @@ const bot = new Client({
 global.config = require("./config.json");
 const { Util } = require("discord.js");
 const fs = require("fs");
-const prefix = config.prefix;
+const prefix = global.prefix = config.prefix;
 const { Collection, MessageEmbed } = require("discord.js");
 const beautify = require("js-beautify");
 const { inspect } = require("util");
@@ -62,4 +62,5 @@ bot.catagories = fs.readdirSync("./commands/");
   require(`./handler/${handler}`)(bot);
 });
 
+require('./dashboard/index.js
 bot.login(config.token);
