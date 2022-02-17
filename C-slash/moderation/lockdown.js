@@ -6,7 +6,7 @@ module.exports = {
   name:"lockdown",
   description:"lockdown all channels",
   options:[{
-    Number:{
+    Integer:{
       name:"time",
       description:"give me time to unlocke all channels",
       required:false,

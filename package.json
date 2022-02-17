@@ -4,7 +4,7 @@
   "description": "-- AWESOMENESS --",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node ."
   },
   "dependencies": {
     "@discordjs/rest": "^0.3.0",

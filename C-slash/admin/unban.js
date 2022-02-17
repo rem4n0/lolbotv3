@@ -2,22 +2,15 @@ const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  /*
-data: new SlashCommandBuilder()
-.setName("unban")
-.setDescription("unabn user")
-.addStringOption(option =>
-option.setName('id')
-.setDescription('id of user you want unbanned')
-.setRequired(true)),
-  */
+  
   name:"unban",
   description:"unban users if banned",
   options:[{
     
-    Number:{
+    Integer:{
       name:"id",
       description:"put id of user",
+      required:true,
       
       
     }

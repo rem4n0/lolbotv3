@@ -20,6 +20,7 @@ module.exports = async (bot) => {
       const eventName = file.split(".")[0];
       console.log(`Loading Event: ${eventName}`);
       const event = new (require(`../events/${file}`))(bot);
+      
       bot.on(eventName, (...args) => event.run(...args, bot));
       delete require.cache[require.resolve(`../events/${file}`)];
     });

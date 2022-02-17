@@ -62,5 +62,7 @@ bot.catagories = fs.readdirSync("./commands/");
   require(`./handler/${handler}`)(bot);
 });
 
-(require('./dashboard/index.js')(bot));
+/////////dashboard
+global.dashboard = require
+ 
 bot.login(config.token);
