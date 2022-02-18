@@ -14,7 +14,7 @@ const Strategy = require("passport-discord").Strategy;
 
 const Discord = require("discord.js");
 //const channels = config.server.channels;
-const secret = '4sLVfecFJoDVtL48b3L8Vue_2fBhX1e8'
+const secret = "4sLVfecFJoDVtL48b3L8Vue_2fBhX1e8";
 const MemoryStore = require("memorystore")(session);
 const fetch = require("node-fetch");
 const cookieParser = require("cookie-parser");
@@ -131,29 +131,32 @@ module.exports = async (bot) => {
     },
     passport.authenticate("discord")
   );
-
-  app.get("/callback", passport.authenticate("discord", {
-      failWithError: false,
-      failureFlash: "There was an error logging you in!",
-      failureRedirect: "/error?code=999&message=We encountered an error while connecting." ,
-    }), async (req, res) => {
-try  {
+   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
+        let banned = await Black.findOne({userID: req.user.id})
+        if(banned) {
+          
+        
+        
+        req.session.destroy(() => {
+        res.json({ login: false, message: "You have been blocked from dashboard.", logout: true })
+        req.logout();
+        });
+        } else {
+            try {
               const request = require('request');
               request({
-                  url: ``,
+                  url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
                   headers: { "Authorization": `Bot ${bot.token}` }
               });
-  
-        
+        } catch {};
         res.redirect(req.session.backURL || '/')
-}catch{
-  res.redirect('/')
+    
+        }
+    });
+
   
-}
- 
-    })
   app.get("/logout", function (req, res) {
     req.session.destroy(() => {
       req.logout();
