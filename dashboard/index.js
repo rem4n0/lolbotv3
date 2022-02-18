@@ -7,14 +7,14 @@ const ejs = require("ejs");
 const url = require("url");
 const path = require("path");
 
-
+const btoa = require("btoa");
 const passport = require("passport");
 const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
 
 const Discord = require("discord.js");
 //const channels = config.server.channels;
-
+const secret = config.secret;
 const MemoryStore = require("memorystore")(session);
 const fetch = require("node-fetch");
 const cookieParser = require("cookie-parser");
@@ -141,7 +141,7 @@ module.exports = async (bot) => {
         })*/
   
     
-    try {
+  
 
       
       const params = new URLSearchParams();
@@ -152,23 +152,22 @@ module.exports = async (bot) => {
 		method: "POST",
 		body: params.toString(),
 		headers: {
-			Authorization: `Basic ${btoa(`${bot.user.id}:${config.secret}`)}`,
+			Authorization: `Basic ${btoa(`${bot.user.id}:${secret}`)}`,
 			"Content-Type": "application/x-www-form-urlencoded"
 		}
 	});
       
       
+    
       
       
-      
-        } catch {};
         res.redirect(req.session.backURL || '/')
     
     
     const tokens = await response.json();
 	// If the code isn't valid
-	if(tokens.error || !tokens.access_token) return res.redirect(`/api/login&state=${req.query.state}`);
-
+	if(tokens.error || !tokens.access_token){ return;
+                                          }
   })
   
   
