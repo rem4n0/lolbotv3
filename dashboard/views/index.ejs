@@ -69,14 +69,20 @@
  <br>
   
        <div class="button-container">
-         <li><a href"<%= config.support %>">Discord</a></li>
-      <!--<br><br><br>-->
-      <% if (user){ %>
+         <li><a href"">Discord</a></li>
+    <br>
+         
+        
+ <% if (user){ %>
       <li><a href="/dashboard">dashboard</a></li>
-      <%}else{%>
-      <li><a href="/login">Login</a></li>
       <% } %>
-      
+        
+        
+        <br>
+        <% if(!user){%>
+     <li><a href="/login">Login</a></li>
+      <% } %>
+      <br>
       
       <li><a href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id %>&permissions=8&scope=bot%20applications.commands">Invite</a></li>
 

@@ -142,12 +142,25 @@ module.exports = async (bot) => {
   
     
     try {
-              const request = 
-                  url: `https://discord.com/api/oauth2/token`,
-                  method: "PUT",
-                  json: { access_token: req.user.accessToken },
-                  headers: { "Authorization": `Bot ${client.token}` }
-              });
+
+      
+      const params = new URLSearchParams();
+	params.set("grant_type", "authorization_code");
+	params.set("code", req.query.code);
+	params.set("redirect_uri", `${config.callback}`);
+	let response = await fetch("https://discord.com/api/oauth2/token", {
+		method: "POST",
+		body: params.toString(),
+		headers: {
+			Authorization: `Basic ${btoa(`${bot.user.id}:${config.secret}`)}`,
+			"Content-Type": "application/x-www-form-urlencoded"
+		}
+	});
+      
+      
+      
+      
+      
         } catch {};
         res.redirect(req.session.backURL || '/')
     
