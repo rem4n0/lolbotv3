@@ -19,6 +19,9 @@
   app.use(referrerPolicy({ policy: "strict-origin" }))
   const rateLimit = require("express-rate-limit");
   var MongoStore = require('rate-limit-mongo');
+ const id = config.clientID;
+const callback= config.callback;
+const secret
 
   // MODELS
   
@@ -53,7 +56,7 @@
 
     app.set('views', path.join(__dirname, '/views'));
    app .use(express.static(path.join(__dirname, "/public")))
-		/
+		
     passport.serializeUser((user, done) => done(null, user));
     passport.deserializeUser((obj, done) => done(null, obj));
   
@@ -122,7 +125,7 @@
                   url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
-                  headers: { "Authorization": `Bot ${bot.token}` }
+                  headers: { Authorization: `Bot ${bot.token}` }
               });
         } catch {};
         res.redirect(req.session.backURL || '/')
