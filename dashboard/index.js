@@ -22,7 +22,7 @@
 
   // MODELS
   
-  module.exports = async (client) => {
+  module.exports = async (bot) => {
 
     const apiLimiter = rateLimit({
       store: new MongoStore({
@@ -59,12 +59,15 @@
   
     passport.use(new Strategy({
       clientID: config.clientID,
-      clientSecret: config.secret,
+    
+      clientSecret: "HGNp03tYaoTjhEfsqaqCizDH5yFdXTvh",
       callbackURL: config.callback,      
       scope: ["identify", "guilds"]
     },
+      
     (accessToken, refreshToken, profile, done) => { 
       process.nextTick(() => done(null, profile));
+      console.log('xxxxxxxxxxxxxxxxx');
     }));
   
     app.use(session({
@@ -78,8 +81,8 @@
     app.use(passport.session());
   
   
-    app.engine("html", ejs.renderFile);
-    app.set("view engine", "ejs");
+    app.engine("partner", ejs.renderFile);
+    app.set("view engine", "partner");
   
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
@@ -150,12 +153,12 @@
     io.on('connection', socket => {
         io.emit("userCount", io.engine.clientsCount);
     });
-    http.listen(3000, () => { console.log("Website running on 3000 port.")});
+    http.listen(8080, () => { console.log("Website running on 3000 port.")});
 
     //------------------- Routers -------------------//
 
     /* General */
-    console.clear();/*
+/*
        app.use(async (req, res, next) => {
        if(req.path.includes('/admin')) {
         if (req.isAuthenticated()) {
