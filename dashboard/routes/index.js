@@ -4,8 +4,8 @@ const path = require("path");
 app.get("/",(req, res,next)=> {
   //let data = await Guild.findOne({guildID:req.
   res.render("index.ejs", {
-    config:config,
-    support:confg.support,
+    config: config,
+    support:config.support,
     bot: bot,
     user:req.isAuthenticated() ? req.user : null,
   });

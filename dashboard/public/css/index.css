@@ -51,8 +51,8 @@ margin-top: 50px;
 }
 .button-container {
 
-  display: flex;
-padding-left: 90px;
+  display: block;
+padding-left: 40px;
 }
 
 .button-container li{
@@ -60,7 +60,7 @@ padding-left: 90px;
 }
 .button-container li a{
   display: block;
-  margin: 10px;
+  margin: 0px;
   
   margin-right: 20px;
   margin-left: 0px;
