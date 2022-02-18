@@ -34,7 +34,10 @@ module.exports = async (bot) => {
     },
     (accessToken, refreshToken, profile, done) => { 
       process.nextTick(() => done(null, profile));
-    }));
+    })
+              
+              
+              );
   
   app.set("views", path.join(__dirname, "./views"));
 
@@ -131,7 +134,7 @@ module.exports = async (bot) => {
     },
     passport.authenticate("discord")
   );
-   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
+   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/dashboard" }), async (req, res) => {
         let banned = await Black.findOne({userID: req.user.id})
         if(banned) {
           
