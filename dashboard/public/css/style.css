@@ -39,6 +39,14 @@ body {
    right: 100px;
  }
 }
+
+.all-header{
+  
+  color:var(--white-text);
+  text-align: center;
+  
+  
+}
 .up-page{
   position: fixed;
   display: inline-block;
