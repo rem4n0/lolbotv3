@@ -8,8 +8,8 @@
   const ejs = require("ejs");
   const bodyParser = require("body-parser");
   const Discord = require("discord.js");
-  const config = require(`${process.cwd()}/config.js`);
-const cc = require ('../config.json')
+ // const config = require(`${process.cwd()}/config.js`);
+//const cc = require ('../config.json')
   //const channels = config.server.channels;
   const app = express();
   const MemoryStore = require("memorystore")(session);
@@ -26,7 +26,7 @@ const cc = require ('../config.json')
 
     const apiLimiter = rateLimit({
       store: new MongoStore({
-         uri: cc.mongoURL,
+         uri: config.mongoURL,
          collectionName: "rate-limit",
          expireTimeMs:  60 * 60 * 1000,
          resetExpireDateOnChange: true
@@ -60,7 +60,7 @@ const cc = require ('../config.json')
     passport.use(new Strategy({
       clientID: config.clientID,
       clientSecret: config.secret,
-      callbackURL: cc.callback,      
+      callbackURL: config.callback,      
       scope: ["identify", "guilds"]
     },
     (accessToken, refreshToken, profile, done) => { 
@@ -119,7 +119,7 @@ const cc = require ('../config.json')
                   url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
-                  headers: { "Authorization": `Bot ${client.token}` }
+                  headers: { "Authorization": `Bot ${bot.token}` }
               });
         } catch {};
         res.redirect(req.session.backURL || '/')

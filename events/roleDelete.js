@@ -16,12 +16,12 @@ if(!role) return
 
 const guild = await Guild.findOne({ guildID: role.guild.id })
 
-
+/*
 const maintenance = await Maintenance.findOne({
   maintenance: "maintenance"
 })
 
-if(maintenance && maintenance.toggle == "true") return;
+if(maintenance && maintenance.toggle == "true") return;*/
 
 if(cooldown.has(role.guild.id)) return;
 
