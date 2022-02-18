@@ -130,6 +130,34 @@ module.exports = async (bot) => {
     },
     passport.authenticate("discord", { prompt: 'none' }));
   
+  
+  app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
+  
+
+  req.session.destroy(() => {
+        res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
+        req.logout();
+        })
+  }else{
+          
+  const params = new URLSearchParams();
+	params.set("grant_type", "authorization_code");
+	params.set("code", req.query.code);
+	params.set("redirect_uri", `${req.config.callback}`);
+	let response = await fetch("https://discord.com/api/oauth2/token", {
+		method: "POST",
+		body: params.toString(),
+		headers: {
+			Authorization: `Basic ${btoa(`${bot.user.id}:${req.config.secret}`)}`,
+			"Content-Type": "application/x-www-form-urlencoded"
+		}
+  
+  
+  
+  })})
+  
+  
+  
   app.get("/logout", function (req, res) {
       req.session.destroy(() => {
         req.logout();
