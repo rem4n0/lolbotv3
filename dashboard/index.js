@@ -14,7 +14,7 @@ const Strategy = require("passport-discord").Strategy;
 
 const Discord = require("discord.js");
 //const channels = config.server.channels;
-const secret = "4sLVfecFJoDVtL48b3L8Vue_2fBhX1e8";
+const config = require (`${process.cwd()}/config.json`);
 const MemoryStore = require("memorystore")(session);
 const fetch = require("node-fetch");
 const cookieParser = require("cookie-parser");
@@ -145,7 +145,7 @@ module.exports = async (bot) => {
             try {
               const request = require('request');
               request({
-                  
+                  url:`https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
                   headers: { "Authorization": `Bot ${bot.token}` }
