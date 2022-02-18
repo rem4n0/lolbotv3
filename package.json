@@ -60,7 +60,8 @@
     "express-minify-html-terser": "^1.0.2",
     "geoip-lite": "^1.4.3",
     "ipware": "^2.0.0",
-    "btoa": "^1.2.1"
+    "btoa": "^1.2.1",
+    "socket.io": "^4.4.1"
   },
   "engines": {
     "node": "16.x"

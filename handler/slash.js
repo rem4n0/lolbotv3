@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const ascii = require("ascii-table");
 const table = new ascii().setHeading("Command", "Load Status");
-
+const config = require ('../config.json')
 const { REST } = require("@discordjs/rest");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Routes } = require("discord-api-types/v9");

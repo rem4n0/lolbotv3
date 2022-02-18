@@ -8,7 +8,7 @@
   const ejs = require("ejs");
   const bodyParser = require("body-parser");
   const Discord = require("discord.js");
-  const config = require("../config.js");
+  const config = require(`${process.cwd()}/config.json`);
 global.config = config;
   //const channels = config.server.channels;
   const app = express();
@@ -21,13 +21,12 @@ global.config = config;
   var MongoStore = require('rate-limit-mongo');
 
   // MODELS
-  const banSchema = require("./database/models/site-ban.js");
-
+  
   module.exports = async (client) => {
 
     const apiLimiter = rateLimit({
       store: new MongoStore({
-         uri: global.config.bot.mongourl,
+         uri: global.config.mongoURL,
          collectionName: "rate-limit",
          expireTimeMs:  60 * 60 * 1000,
          resetExpireDateOnChange: true
@@ -53,18 +52,15 @@ global.config = config;
     }));
 
     app.set('views', path.join(__dirname, '/views'));
-    const templateDir = path.resolve(`${process.cwd()}${path.sep}src/views`);
-    app.use("/css", express.static(path.resolve(`${templateDir}${path.sep}assets/css`)));
-    app.use("/js", express.static(path.resolve(`${templateDir}${path.sep}assets/js`)));
-    app.use("/img", express.static(path.resolve(`${templateDir}${path.sep}assets/img`)));
-  
+   app .use(express.static(path.join(__dirname, "/public")))
+		/
     passport.serializeUser((user, done) => done(null, user));
     passport.deserializeUser((obj, done) => done(null, obj));
   
     passport.use(new Strategy({
-      clientID: config.website.clientID,
-      clientSecret: config.website.secret,
-      callbackURL: config.website.callback,      
+      clientID: config.clientID,
+      clientSecret: config.secret,
+      callbackURL: config.callback,      
       scope: ["identify", "guilds", "guilds.join"]
     },
     (accessToken, refreshToken, profile, done) => { 
@@ -82,8 +78,8 @@ global.config = config;
     app.use(passport.session());
   
   
-    app.engine("Partner-bot-tk", ejs.renderFile);
-    app.set("view engine", "partner-bot-tk");
+    app.engine("html", ejs.renderFile);
+    app.set("view engine", "ejs");
   
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
@@ -110,12 +106,9 @@ global.config = config;
     },
     passport.authenticate("discord", { prompt: 'none' }));
     app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
-        let banned = await banSchema.findOne({user: req.user.id})
+        let banned = await Black.findOne({userID: req.user.id})
         if(banned) {
-        client.users.fetch(req.user.id).then(async a => {
-       /// client.channels.cache.get("859005494097739776").send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}](https://partner-bot.tk/user/${a.id}).`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
-        })
-        req.session.destroy(() => {
+               req.session.destroy(() => {
         res.json({ login: false, message: "You have been blocked from dashboard.", logout: true })
         req.logout();
         });
@@ -123,18 +116,14 @@ global.config = config;
             try {
               const request = require('request');
               request({
-                  url: `https://discordapp.com/api/v8/guilds/${config.server.id}/members/${req.user.id}`,
+                  url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
                   headers: { "Authorization": `Bot ${client.token}` }
               });
         } catch {};
         res.redirect(req.session.backURL || '/')
-        client.users.fetch(req.user.id).then(async a => {
-       // client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://partner-bot.tk/user/${a.id}) mmmm.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
-        
-        })
-        }
+               }
     });
     app.get("/logout", function (req, res) {
       req.session.destroy(() => {
@@ -151,8 +140,8 @@ global.config = config;
         var geo = geoip.lookup(ip);
         
         if(geo) {
-          let sitedatas = require("./database/models/analytics-site.js")
-          await sitedatas.updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        
+          await Site.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
         }
         return next();
     })
@@ -166,48 +155,8 @@ global.config = config;
     //------------------- Routers -------------------//
 
     /* General */
-    console.clear();
-    /*
-      (WARN)
-      You can delete the log here, but you cannot write your own name in the Developed by section.
-      * log = first console.log
-    */
-    console.log(`
-      [===========================================]
-                    
-
-                    Achievements =)
-      [===========================================]
-      `)
-    console.log("\x1b[32m", "System loading, please wait...")
-    sleep(1050)
-    console.clear();
-    console.log('\x1b[36m%s\x1b[0m', " General routers loading...");
-    sleep(500);
-    app.use("/", require('./routers/index.js'))
-    app.use("/", require('./routers/partners.js'))
-    app.use("/", require('./routers/mini.js'))
-/*
-  
-    
-*/
-    
-    console.log(" ")
-    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Profile system routers loading...");
-    sleep(500);
-    app.use("/user", require('./routers/profile/index.js'))
-    app.use("/user", require('./routers/profile/edit.js'))
-
-   
-    
-    /* Server List System */
-    console.log(" ")
-    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Serverlist system routers loading...");
-    sleep(500);
-    app.use("/dashboard", require("./routers/servers/addserver.js"))
-    app.use("/dashboard", require('./routers/servers/guilds.js'))
-//
-    app.use(async (req, res, next) => {
+    console.clear();/*
+       app.use(async (req, res, next) => {
        if(req.path.includes('/admin')) {
         if (req.isAuthenticated()) {
           if(client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "714451348212678658") {
@@ -222,39 +171,18 @@ global.config = config;
        } else {
            next();
        }
-    })
-    console.log(" ")
-    console.log("system routers loading...");
-    sleep(500);
-///    app.use("/", require('./routers/servers/addserver.js'))
-   /// app.use("/", require('./routers/admin/ban.js'))
-    
-    app.use("/", require('./routers/index.js'))
-    /*app.use("/", require('./routers/admin/botlist/confirm.js'))
-    app.use("/", require('./routers/admin/botlist/decline.js'))
-    app.use("/", require('./routers/admin/botlist/delete.js'))
-    app.use("/", require('./routers/admin/botlist/certificate/give.js'))
-    app.use("/", require('./routers/admin/botlist/certificate/decline.js'))
-    app.use("/", require('./routers/admin/codeshare/index.js'))
-    app.use("/", require('./routers/admin/codeshare/edit.js'))
-    app.use("/", require('./routers/admi
-
-    /*
-    console.log(" ")
-    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Bot system loading...");
-    app.use("/", require('./routers/api/api.js'))
-    sleep(500)*/
-    app.use((req, res) => {
+    })*/
+app.use('/', require ('./routes/index.js'));
+        app.use((req, res) => {
         req.query.code = 404;
         req.query.message = `Page not found.`;
         res.status(404).render("error.ejs", {
-            bot: global.Client,
+            bot: bot,
             path: req.path,
             config: global.config,
             user: req.isAuthenticated() ? req.user : null,
             req: req,
-            roles:global.config.server.roles,
-            channels: global.config.server.channels
+        
         })
     });
   };
