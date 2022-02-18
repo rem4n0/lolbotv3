@@ -1,127 +1,103 @@
-const express = require("express");
-const app = (global.app = express());
-const bodyParser = require("body-parser");
 
-const ejs = require("ejs");
+  const url = require("url");
+  const path = require("path");
+  const express = require("express");
+  const passport = require("passport");
+  const session = require("express-session");
+  const Strategy = require("passport-discord").Strategy;
+  const ejs = require("ejs");
+  const bodyParser = require("body-parser");
+  const Discord = require("discord.js");
+  const config = require("../config.js");
+global.config = config;
+  //const channels = config.server.channels;
+  const app = express();
+  const MemoryStore = require("memorystore")(session);
+  const fetch = require("node-fetch");
+  const cookieParser = require('cookie-parser');
+  const referrerPolicy = require('referrer-policy');
+  app.use(referrerPolicy({ policy: "strict-origin" }))
+  const rateLimit = require("express-rate-limit");
+  var MongoStore = require('rate-limit-mongo');
 
-const url = require("url");
-const path = require("path");
+  // MODELS
+  const banSchema = require("./database/models/site-ban.js");
 
-const btoa = require("btoa");
-const passport = require("passport");
-const session = require("express-session");
-const Strategy = require("passport-discord").Strategy;
+  module.exports = async (client) => {
 
-const Discord = require("discord.js");
-//const channels = config.server.channels;
-const config = require (`${process.cwd()}/config.json`);
-const MemoryStore = require("memorystore")(session);
-const fetch = require("node-fetch");
-const cookieParser = require("cookie-parser");
-const referrerPolicy = require("referrer-policy");
-app.use(referrerPolicy({ policy: "strict-origin" }));
-const rateLimit = require("express-rate-limit");
-var MongoStore = require("rate-limit-mongo");
+    const apiLimiter = rateLimit({
+      store: new MongoStore({
+         uri: global.config.bot.mongourl,
+         collectionName: "rate-limit",
+         expireTimeMs:  60 * 60 * 1000,
+         resetExpireDateOnChange: true
+         }),
+           windowMs: 60 * 60 * 1000,
+           max: 4,
+           message:
+       ({ error: true, message:  "Too many requests, you have been rate limited. Please try again in one hour." })
+    });
 
-module.exports = async (bot) => {
+    var minifyHTML = require('express-minify-html-terser');
+    app.use(minifyHTML({
+        override:      true,
+        exception_url: false,
+        htmlMinifier: {
+            removeComments:            true,
+            collapseWhitespace:        true,
+            collapseBooleanAttributes: true,
+            removeAttributeQuotes:     true,
+            removeEmptyAttributes:     true,
+            minifyJS:                  true
+        }
+    }));
+
+    app.set('views', path.join(__dirname, '/views'));
+    const templateDir = path.resolve(`${process.cwd()}${path.sep}src/views`);
+    app.use("/css", express.static(path.resolve(`${templateDir}${path.sep}assets/css`)));
+    app.use("/js", express.static(path.resolve(`${templateDir}${path.sep}assets/js`)));
+    app.use("/img", express.static(path.resolve(`${templateDir}${path.sep}assets/img`)));
   
+    passport.serializeUser((user, done) => done(null, user));
+    passport.deserializeUser((obj, done) => done(null, obj));
   
-  passport.use(new Strategy({
-      clientID: config.clientID,
-      clientSecret: config.secret,
-      callbackURL: config.callback,      
-      scope: ["identify", "guilds"]
+    passport.use(new Strategy({
+      clientID: config.website.clientID,
+      clientSecret: config.website.secret,
+      callbackURL: config.website.callback,      
+      scope: ["identify", "guilds", "guilds.join"]
     },
     (accessToken, refreshToken, profile, done) => { 
       process.nextTick(() => done(null, profile));
-    })
-              
-              
-              );
+    }));
   
-  app.set("views", path.join(__dirname, "./views"));
-
-  app.engine("html", ejs.renderFile);
-  app.set("view engine", "ejs");
-
-  app.use(express.static(path.join(__dirname, "./public")));
-
-  const http = require("http").createServer(app);
-  http.listen(8080, () => {
-    console.log("Website running on 80 port.");
-  });
-
-  /*app.listen(8080,async()=>{
-  
-  console.log('data was redy')})*/
-
-  const apiLimiter = rateLimit({
-    store: new MongoStore({
-      uri: config.mongoURL,
-      collectionName: "rate-limit",
-      expireTimeMs: 60 * 60 * 1000,
-      resetExpireDateOnChange: true,
-    }),
-    windowMs: 60 * 60 * 1000,
-    max: 4,
-    message: {
-      error: true,
-      message:
-        "Too many requests, you have been rate limited. Please try again in one hour.",
-    },
-  });
-
-  var minifyHTML = require("express-minify-html-terser");
-  app.use(
-    minifyHTML({
-      override: true,
-      exception_url: false,
-      htmlMinifier: {
-        removeComments: true,
-        collapseWhitespace: true,
-        collapseBooleanAttributes: true,
-        removeAttributeQuotes: true,
-        removeEmptyAttributes: true,
-        minifyJS: true,
-      },
-    })
-  );
-
-  app.use(bodyParser.json());
-  app.use(
-    bodyParser.urlencoded({
-      extended: true,
-    })
-  );
-  passport.serializeUser((user, done) => done(null, user));
-  passport.deserializeUser((obj, done) => done(null, obj));
-
-
-
-  app.use(
-    session({
+    app.use(session({
       store: new MemoryStore({ checkPeriod: 86400000 }),
-      secret:
-        "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
+      secret: "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
       resave: false,
       saveUninitialized: false,
-    })
-  );
-
-  app.use(passport.initialize());
-  app.use(passport.session());
-
-  global.checkAuth = (req, res, next) => {
-    if (req.isAuthenticated()) return next();
-    req.session.backURL = req.url;
-    res.redirect("/login");
-  };
-
-  app.get(
-    "/login",
-    (req, res, next) => {
+    }));
+  
+    app.use(passport.initialize());
+    app.use(passport.session());
+  
+  
+    app.engine("Partner-bot-tk", ejs.renderFile);
+    app.set("view engine", "partner-bot-tk");
+  
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({
+      extended: true
+    }));
+  
+    global.checkAuth = (req, res, next) => {
+      if (req.isAuthenticated()) return next();
+      req.session.backURL = req.url;
+      res.redirect("/login");
+    }
+   app.get("/login", (req, res, next) => {
       if (req.session.backURL) {
-        req.session.backURL = req.session.backURL;
+        req.session.backURL = req.session.backURL; 
       } else if (req.headers.referer) {
         const parsed = url.parse(req.headers.referer);
         if (parsed.hostname === app.locals.domain) {
@@ -129,17 +105,16 @@ module.exports = async (bot) => {
         }
       } else {
         req.session.backURL = "/";
-      }
+       }
       next();
     },
-    passport.authenticate("discord")
-  );
-   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/dashboard" }), async (req, res) => {
-        let banned = await Black.findOne({userID: req.user.id})
+    passport.authenticate("discord", { prompt: 'none' }));
+    app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
+        let banned = await banSchema.findOne({user: req.user.id})
         if(banned) {
-          
-        
-        
+        client.users.fetch(req.user.id).then(async a => {
+       /// client.channels.cache.get("859005494097739776").send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}](https://partner-bot.tk/user/${a.id}).`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+        })
         req.session.destroy(() => {
         res.json({ login: false, message: "You have been blocked from dashboard.", logout: true })
         req.logout();
@@ -148,47 +123,146 @@ module.exports = async (bot) => {
             try {
               const request = require('request');
               request({
-                  url:`https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
+                  url: `https://discordapp.com/api/v8/guilds/${config.server.id}/members/${req.user.id}`,
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
-                  headers: { "Authorization": `Bot ${bot.token}` }
+                  headers: { "Authorization": `Bot ${client.token}` }
               });
         } catch {};
         res.redirect(req.session.backURL || '/')
-    
+        client.users.fetch(req.user.id).then(async a => {
+       // client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://partner-bot.tk/user/${a.id}) mmmm.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+        
+        })
         }
     });
-
-  
-  app.get("/logout", function (req, res) {
-    req.session.destroy(() => {
-      req.logout();
-      res.redirect("/");
+    app.get("/logout", function (req, res) {
+      req.session.destroy(() => {
+        req.logout();
+        res.redirect("/");
+      });
     });
-  });
-  app.use(async (req, res, next) => {
-    var getIP = require("ipware")().get_ip;
-    var ipInfo = getIP(req);
-    var geoip = require("geoip-lite");
-    var ip = ipInfo.clientIp;
-    var geo = geoip.lookup(ip);
+  
+    app.use(async (req, res, next) => {
+        var getIP = require('ipware')().get_ip;
+        var ipInfo = getIP(req);
+        var geoip = require('geoip-lite');
+        var ip = ipInfo.clientIp;
+        var geo = geoip.lookup(ip);
+        
+        if(geo) {
+          let sitedatas = require("./database/models/analytics-site.js")
+          await sitedatas.updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        }
+        return next();
+    })
+    const http = require('http').createServer(app);
+    const io = require('socket.io')(http);
+    io.on('connection', socket => {
+        io.emit("userCount", io.engine.clientsCount);
+    });
+    http.listen(3000, () => { console.log("Website running on 3000 port.")});
 
-    if (geo) {
-      await Site.updateOne(
-        { id: config.clientID },
-        { $inc: { [`country.${geo.country}`]: 1 } },
-        { upsert: true }
-      );
-    }
-    return next();
-  });
+    //------------------- Routers -------------------//
 
-  app.use("/", require("./routes/index.js"));
+    /* General */
+    console.clear();
+    /*
+      (WARN)
+      You can delete the log here, but you cannot write your own name in the Developed by section.
+      * log = first console.log
+    */
+    console.log(`
+      [===========================================]
+                    
 
-  app.use((req, res) => {
-    req.query.code = 404;
-    req.query.message = `Page not found.`;
+                    Achievements =)
+      [===========================================]
+      `)
+    console.log("\x1b[32m", "System loading, please wait...")
+    sleep(1050)
+    console.clear();
+    console.log('\x1b[36m%s\x1b[0m', " General routers loading...");
+    sleep(500);
+    app.use("/", require('./routers/index.js'))
+    app.use("/", require('./routers/partners.js'))
+    app.use("/", require('./routers/mini.js'))
+/*
+  
+    
+*/
+    
+    console.log(" ")
+    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Profile system routers loading...");
+    sleep(500);
+    app.use("/user", require('./routers/profile/index.js'))
+    app.use("/user", require('./routers/profile/edit.js'))
 
-    res.status(404).render("error.ejs", {});
-  });
-};
+   
+    
+    /* Server List System */
+    console.log(" ")
+    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Serverlist system routers loading...");
+    sleep(500);
+    app.use("/dashboard", require("./routers/servers/addserver.js"))
+    app.use("/dashboard", require('./routers/servers/guilds.js'))
+//
+    app.use(async (req, res, next) => {
+       if(req.path.includes('/admin')) {
+        if (req.isAuthenticated()) {
+          if(client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "714451348212678658") {
+              next();
+              } else {
+              res.redirect("/error?code=403&message=You is not competent to do this.")
+          }
+        } else {
+          req.session.backURL = req.url;
+          res.redirect("/login");
+        }
+       } else {
+           next();
+       }
+    })
+    console.log(" ")
+    console.log("system routers loading...");
+    sleep(500);
+///    app.use("/", require('./routers/servers/addserver.js'))
+   /// app.use("/", require('./routers/admin/ban.js'))
+    
+    app.use("/", require('./routers/index.js'))
+    /*app.use("/", require('./routers/admin/botlist/confirm.js'))
+    app.use("/", require('./routers/admin/botlist/decline.js'))
+    app.use("/", require('./routers/admin/botlist/delete.js'))
+    app.use("/", require('./routers/admin/botlist/certificate/give.js'))
+    app.use("/", require('./routers/admin/botlist/certificate/decline.js'))
+    app.use("/", require('./routers/admin/codeshare/index.js'))
+    app.use("/", require('./routers/admin/codeshare/edit.js'))
+    app.use("/", require('./routers/admi
+
+    /*
+    console.log(" ")
+    console.log('\x1b[36m%s\x1b[0m', "[vcodes.xyz]: Bot system loading...");
+    app.use("/", require('./routers/api/api.js'))
+    sleep(500)*/
+    app.use((req, res) => {
+        req.query.code = 404;
+        req.query.message = `Page not found.`;
+        res.status(404).render("error.ejs", {
+            bot: global.Client,
+            path: req.path,
+            config: global.config,
+            user: req.isAuthenticated() ? req.user : null,
+            req: req,
+            roles:global.config.server.roles,
+            channels: global.config.server.channels
+        })
+    });
+  };
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
