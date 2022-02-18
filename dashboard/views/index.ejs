@@ -69,19 +69,20 @@
  <br>
   
        <div class="button-container">
+         <ul>
          <li><a href"">Discord</a></li>
-    
+    <br>
          
         
  
          <% if (user){ %>
       <li><a href="/dashboard">dashboard</a></li>
-      <% } %>
-     
+    
+     <br>
       
       
         
-        <% if(!user){%>
+        <% }else{%>
      <li><a href="/login">Login</a></li>
      <% } %>
       <br>
@@ -90,7 +91,7 @@
 
      
     </div>
-
+          </ul>
     <br><br>
     <br>
     <br>  
