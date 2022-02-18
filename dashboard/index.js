@@ -117,28 +117,10 @@ module.exports = async (bot) => {
   /*
   
   global.checkAuth = (req, res, next) => {
-      if (req.isAuthenticated()) return next();
-      req.session.backURL = req.url;
-      res.redirect("/login");
-  }*/
+      if (req.isAuthenticated()) return next(
 
-  app.get(
-    "/login",
-    (req, res, next) => {
-      if (req.session.backURL) {
-        req.session.backURL = req.session.backURL;
-      } else if (req.headers.referer) {
-        const parsed = url.parse(req.headers.referer);
-        if (parsed.hostname === app.locals.domain) {
-          req.session.backURL = parsed.path;
-        }
-      } else {
-        req.session.backURL = "/";
-      }
-      next();
-    },
     passport.authenticate("discord", { prompt: "none" })
-  );
+  
   app.get(
     "/callback",
     passport.authenticate("discord", {
@@ -161,12 +143,5 @@ module.exports = async (bot) => {
     req.query.message = `Page not found.`;
 
     res.status(404).render("error.ejs", {});
-
-    global.checkAuth = (req, res, next) => {
-      if (req.isAuthenticated())////
-        return next();
-      req.session.backURL = req.url;
-      res.redirect("/login");
-    };
-  });
+  })
 };
