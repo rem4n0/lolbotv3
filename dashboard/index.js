@@ -170,6 +170,7 @@ const secret = config.secret;
        }
     })*/
 app.use('/', require ('./routes/index.js'));
+    app.use('/', require ('./routes/dashboard.js'))
         app.use((req, res) => {
         req.query.code = 404;
         req.query.message = `Page not found.`;
