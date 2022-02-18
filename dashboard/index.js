@@ -165,7 +165,10 @@ module.exports = async (bot) => {
         res.redirect(req.session.backURL || '/')
     
     
-    
+    const tokens = await response.json();
+	// If the code isn't valid
+	if(tokens.error || !tokens.access_token) return res.redirect(`/api/login&state=${req.query.state}`);
+
   })
   
   
