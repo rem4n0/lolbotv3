@@ -132,54 +132,24 @@ module.exports = async (bot) => {
     passport.authenticate("discord", { prompt: "none" })
   );
 
-  app.get(
-    "/callback",
-    passport.authenticate("discord", {
-      failureRedirect:
-        "/error?code=999&message=We encountered an error while connecting.",
-    }),
-    async (req, res) => {
-      /*
-  req.session.destroy(() => {
-        res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
-        req.logout();
-        })*/
+  app.get("/callback", passport.authenticate("discord", {
+      failWithError: true,
+      failureFlash: "There was an error logging you in!",
+      failureRedirect: "/",
+    }), async (req, res) => {
+try {
 
-      /*
-const redirectURL = req.query.state || "/";
+        if (req.session.backURL) {
+
+          const url = req.session.backURL || '/';
+          req.session.backURL = null;
+          res.redirect(url);
+res.redirect("/");
+        }
+      } catch (err) {
       
-      const params = new URLSearchParams();
-	params.set("grant_type", "authorization_code");
-	params.set("code", req.query.code);
-	params.set("redirect_uri", `${config.callback}`);
-	let response = await fetch("https://discord.com/api/oauth2/token", {
-		method: "PUT",
-		body: params.toString(),
-    json: { access_token: req.user.accessToken },
-		headers: {
-			Authorization: `Basic ${btoa(`${bot.user.id}:${secret}`)}`,
-			"Content-Type": "application/x-www-form-urlencoded"
-		}
-	});*/
-
-      try {
-        const request = require("request");
-        request({
-          url: `https://discord.com/api/oauth2/token`,
-          method: "POST",
-          json: { access_token: req.user.accessToken },
-          headers: { Authorization: `Bot ${bot.token}` }
-        });
-      } catch {}
-
-      res.redirect("/");
-
-      ///res.redirect(/*req.session.backURL |*/'/')
-
-      // If the code isn't valid
-    }
-  );
-
+        res.redirect('/')
+      }})
   app.get("/logout", function (req, res) {
     req.session.destroy(() => {
       req.logout();
