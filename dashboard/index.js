@@ -28,7 +28,7 @@ module.exports = async (bot) => {
   app.engine("html", ejs.renderFile);
   app.set("view engine", "ejs");
 
-  app.use("/", require("./routes/index.js"));
+  
 
   app.use(express.static(path.join(__dirname, "./public")));
 
@@ -73,12 +73,7 @@ module.exports = async (bot) => {
     })
   );
 
-  /*
-    const templateDir = path.resolve(`${process.cwd()}${path.sep}/views`);
-    app.use("/css", express.static(path.resolve(`${templateDir}${path.sep}public/css`)));
-    app.use("/js", express.static(path.resolve(`${templateDir}${path.sep}public/js`)));
-    app.use("/img", express.static(path.resolve(`${templateDir}${path.sep}assets/img`)));
-  */ app.use(bodyParser.json());
+   app.use(bodyParser.json());
   app.use(
     bodyParser.urlencoded({
       extended: true,
@@ -114,29 +109,32 @@ module.exports = async (bot) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  /*
-  
   global.checkAuth = (req, res, next) => {
-      if (req.isAuthenticated()) return next(
-
-    passport.authenticate("discord", { prompt: "none" })
-  
-  app.get(
-    "/callback",
-    passport.authenticate("discord", {
-      failureRedirect:
-        "/error?code=999&message=We encountered an error while connecting.",
-    }),
-    async (req, res) => {
-      res.redirect(req.session.backURL || "/");
+      if (req.isAuthenticated()) return next();
+      req.session.backURL = req.url;
+      res.redirect("/login");
     }
-  );
-  app.get("/logout", function (req, res) {
-    req.session.destroy(() => {
-      req.logout();
-      res.redirect("/");
-    });
-  });
+
+  app.get("/login", (req, res, next) => {
+      if (req.session.backURL) {
+        req.session.backURL = req.session.backURL; 
+      } else if (req.headers.referer) {
+        const parsed = url.parse(req.headers.referer);
+        if (parsed.hostname === app.locals.domain) {
+          req.session.backURL = parsed.path;
+        }
+      } else {
+        req.session.backURL = "/";
+       }
+      next();
+    },
+    passport.authenticate("discord", { prompt: 'none' }));
+  
+  
+  
+  
+  
+  app.use('/', require ('./routes/index.js'));
 
   app.use((req, res) => {
     req.query.code = 404;
