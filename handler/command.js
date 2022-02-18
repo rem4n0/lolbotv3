@@ -3,7 +3,9 @@ const ascii = require("ascii-table");
 const table = new ascii().setHeading("Command", "Load Status");
 const { Permissions } = require('discord.js');
 
-module.exports = bot => {
+module.exports = (bot)=> {
+  
+  
   readdirSync("./commands/").forEach(dir => {
     const commands = readdirSync(`./commands/${dir}/`).filter(f =>
       f.endsWith(".js")

@@ -8,8 +8,8 @@
   const ejs = require("ejs");
   const bodyParser = require("body-parser");
   const Discord = require("discord.js");
-  const config = require(`${process.cwd()}/config.json`);
-global.config = config;
+  const config = require(`${process.cwd()}/config.js`);
+const cc = require ('../config.json')
   //const channels = config.server.channels;
   const app = express();
   const MemoryStore = require("memorystore")(session);
@@ -26,7 +26,7 @@ global.config = config;
 
     const apiLimiter = rateLimit({
       store: new MongoStore({
-         uri: global.config.mongoURL,
+         uri: cc.mongoURL,
          collectionName: "rate-limit",
          expireTimeMs:  60 * 60 * 1000,
          resetExpireDateOnChange: true
@@ -60,8 +60,8 @@ global.config = config;
     passport.use(new Strategy({
       clientID: config.clientID,
       clientSecret: config.secret,
-      callbackURL: config.callback,      
-      scope: ["identify", "guilds", "guilds.join"]
+      callbackURL: cc.callback,      
+      scope: ["identify", "guilds"]
     },
     (accessToken, refreshToken, profile, done) => { 
       process.nextTick(() => done(null, profile));
