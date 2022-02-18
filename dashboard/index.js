@@ -131,7 +131,7 @@ module.exports = async (bot) => {
     },
     passport.authenticate("discord")
   );
-   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
+   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
         let banned = await Black.findOne({userID: req.user.id})
         if(banned) {
           
