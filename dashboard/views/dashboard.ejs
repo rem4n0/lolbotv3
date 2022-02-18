@@ -3,17 +3,17 @@
 <title><%= member.username %> | Profile</title>
 <head>
     <meta name="og:title" content="<%= member.username %> | Profile">
-    <meta name="og:description" content="<%= pdata ? (pdata.biography ? pdata.biography : member.username+' has no have any biography.') : member.username+' has no have any biography.'%>">
-    <meta name="og:image" content="https://cdn.discordapp.com/avatars/<%=member.id%>/<%=member.avatar%>.png">
+    <meta name="og:description" content="<%= data ? (data.info ? data.info : user.username+' has no have any biography.') : user.username+' has no have any biography.'%>">
+    <meta name="og:image" content="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png">
 </head>
 <div class="container px-3 px-3 mt-5 pt-5">
     <div class="columns container px-3 is-multiline">
         <div class="column is-2">
-            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=member.presence.status%>"  onerror=" imgerror(this);"="" src="<%= member.avatarURL({dynamic: true}) %>" style="width: 300px; border-radius: 50%;">
+            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=user.presence.status%>"  onerror=" imgerror(this);"="" src="<%= user.avatarURL({dynamic: true}) %>" style="width: 300px; border-radius: 50%;">
         </div>
         <div class="column is-6">
-          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.presence.status%>"></i></p>
-           <div class="user-badges">
+          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= user.username %><span class="is-size-4" style="opacity: 0.7;">#<%= user.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.presence.status%>"></i></p>
+         <!---  <div class="user-badges">
             <% 
             let cacheServer = bot.guilds.cache.get(config.server.id).members.cache.get(member.id) 
             %>
@@ -50,9 +50,10 @@
             <% } %>
         </div>
         <div class="is-4 mt-1 column">
-            <% if(pdata) {%>
-                <% if(pdata.twitter) {%>
-                    <a href="https://twitter.com/<%= pdata.twitter %>" class="is-flex mt-1">
+            <% if(data) {%>
+                <% if(data.twitter) {%>
+                    <a href="https://twitter.com/<%= p
+data.twitter %>" class="is-flex mt-1">
                       <div style="background: #2077aa" class="box-2-p"><i class="fab fa-twitter is-size-6 mt-1"></i></div>
                       <p style="background: #019ffa" class="box-2">Twitter</p>
                     </a>
@@ -79,7 +80,7 @@
         </div>
             <br>
     <div class="column mt-5">
-    <p class="has-text-white title is-large"><i class="fa fa-robot"></i>&nbsp;<%= member.username%>'s Bots</p>
+    <p class="has-text-white title is-large"><i class="fa fa-robot"></i>&nbsp;<%= user.username%>'s Bots</p>
     <p class="content has-text-white" style="margin-top: -20px;">They are ranked according to the votes they received.</p>
     <% if(botdata.filter(a => (member.id === a.ownerID || a.coowners.includes(member.id))).length <= 0) { %>
       <div class="alert alert-danger" role="alert">
