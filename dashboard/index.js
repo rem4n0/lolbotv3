@@ -29,8 +29,6 @@ module.exports = async (bot) => {
   app.engine("html", ejs.renderFile);
   app.set("view engine", "ejs");
 
-  
-
   app.use(express.static(path.join(__dirname, "./public")));
 
   const http = require("http").createServer(app);
@@ -74,7 +72,7 @@ module.exports = async (bot) => {
     })
   );
 
-   app.use(bodyParser.json());
+  app.use(bodyParser.json());
   app.use(
     bodyParser.urlencoded({
       extended: true,
@@ -111,14 +109,16 @@ module.exports = async (bot) => {
   app.use(passport.session());
 
   global.checkAuth = (req, res, next) => {
-      if (req.isAuthenticated()) return next();
-      req.session.backURL = req.url;
-      res.redirect("/login");
-    }
+    if (req.isAuthenticated()) return next();
+    req.session.backURL = req.url;
+    res.redirect("/login");
+  };
 
-  app.get("/login", (req, res, next) => {
+  app.get(
+    "/login",
+    (req, res, next) => {
       if (req.session.backURL) {
-        req.session.backURL = req.session.backURL; 
+        req.session.backURL = req.session.backURL;
       } else if (req.headers.referer) {
         const parsed = url.parse(req.headers.referer);
         if (parsed.hostname === app.locals.domain) {
@@ -126,22 +126,26 @@ module.exports = async (bot) => {
         }
       } else {
         req.session.backURL = "/";
-       }
+      }
       next();
     },
-    passport.authenticate("discord", { prompt: 'none' }));
-  
-  
-  app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
-  
-/*
+    passport.authenticate("discord", { prompt: "none" })
+  );
+
+  app.get(
+    "/callback",
+    passport.authenticate("discord", {
+      failureRedirect:
+        "/error?code=999&message=We encountered an error while connecting.",
+    }),
+    async (req, res) => {
+      /*
   req.session.destroy(() => {
         res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
         req.logout();
         })*/
-  
-    
-  
+
+      /*
 const redirectURL = req.query.state || "/";
       
       const params = new URLSearchParams();
@@ -156,50 +160,55 @@ const redirectURL = req.query.state || "/";
 			Authorization: `Basic ${btoa(`${bot.user.id}:${secret}`)}`,
 			"Content-Type": "application/x-www-form-urlencoded"
 		}
-	});
-      
-      res.redirect('/')
-    
-      
-      
+	});*/
+
+      try {
+        const request = require("request");
+        request({
+          url: `https://discord.com/api/oauth2/token`,
+          method: "POST",
+          json: { access_token: req.user.accessToken },
+          headers: { Authorization: `Bot ${bot.token}` }
+        });
+      } catch {}
+
+      res.redirect("/");
+
       ///res.redirect(/*req.session.backURL |*/'/')
-    
-    
-    
-	// If the code isn't valid
-         
-                                         
-  })
-  
-  
-  
+
+      // If the code isn't valid
+    }
+  );
+
   app.get("/logout", function (req, res) {
-      req.session.destroy(() => {
-        req.logout();
-        res.redirect("/");
-      });
+    req.session.destroy(() => {
+      req.logout();
+      res.redirect("/");
     });
+  });
   app.use(async (req, res, next) => {
-        var getIP = require('ipware')().get_ip;
-        var ipInfo = getIP(req);
-        var geoip = require('geoip-lite');
-        var ip = ipInfo.clientIp;
-        var geo = geoip.lookup(ip);
-        
-        if(geo) {
-        
-          await Site.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
-        }
-        return next();
-    })
-  
-  
-  app.use('/', require ('./routes/index.js'));
+    var getIP = require("ipware")().get_ip;
+    var ipInfo = getIP(req);
+    var geoip = require("geoip-lite");
+    var ip = ipInfo.clientIp;
+    var geo = geoip.lookup(ip);
+
+    if (geo) {
+      await Site.updateOne(
+        { id: config.clientID },
+        { $inc: { [`country.${geo.country}`]: 1 } },
+        { upsert: true }
+      );
+    }
+    return next();
+  });
+
+  app.use("/", require("./routes/index.js"));
 
   app.use((req, res) => {
     req.query.code = 404;
     req.query.message = `Page not found.`;
 
     res.status(404).render("error.ejs", {});
-  })
+  });
 };
