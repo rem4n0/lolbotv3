@@ -5,6 +5,7 @@
   "secret":"wk3rQ51BDWCh4mp7Z9en_m3bgODP83Q9",
   "callback":"https://quill-abounding-juniper.glitch.me/callback",
   "prefix": "Bo",
+  "invitelink":"https://discord.com/api/oauth2/authorize?client_id=928786326403313765&permissions=8&redirect_uri=https%3A%2F%2Fquill-abounding-juniper.glitch.me%2Fcallback&response_type=code&scope=identify%20guilds%20guilds.join%20bot",
   "mongoURL": "mongodb+srv://testbobo:hama1234+@cluster0.cizb6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "channels":{
   "logChannel":"927472619123523594",
