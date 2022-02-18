@@ -14,7 +14,7 @@ const Strategy = require("passport-discord").Strategy;
 
 const Discord = require("discord.js");
 //const channels = config.server.channels;
-const secret = config.secret;
+const secret = '4sLVfecFJoDVtL48b3L8Vue_2fBhX1e8'
 const MemoryStore = require("memorystore")(session);
 const fetch = require("node-fetch");
 const cookieParser = require("cookie-parser");
@@ -85,9 +85,9 @@ module.exports = async (bot) => {
     new Strategy(
       {
         clientID: config.clientID,
-        clientSecret: config.secret,
+        clientSecret: secret,
         callbackURL: config.callback,
-        scope: ["identify", "guilds", "guilds.join"],
+        scope: ["identify", "guilds"],
       },
       (accessToken, refreshToken, profile, done) => {
         process.nextTick(() => done(null, profile));
@@ -133,15 +133,15 @@ module.exports = async (bot) => {
   );
 
   app.get("/callback", passport.authenticate("discord", {
-      failWithError: true,
+      failWithError: false,
       failureFlash: "There was an error logging you in!",
       failureRedirect: "/error?code=999&message=We encountered an error while connecting." ,
     }), async (req, res) => {
 try  {
               const request = require('request');
               request({
-                  url: `https://discord.com/api/oauth2/token`,
-                  method: "POST",
+                  url: ``,
+                  method: "PUT",
                   json: { access_token: req.user.accessToken },
                   headers: { "Authorization": `Bot ${bot.token}` }
               });
