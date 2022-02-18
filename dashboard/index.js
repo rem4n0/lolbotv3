@@ -21,7 +21,7 @@
   var MongoStore = require('rate-limit-mongo');
  const id = config.clientID;
 const callback= config.callback;
-const secret
+const secret = config.secret;
 
   // MODELS
   
@@ -61,10 +61,10 @@ const secret
     passport.deserializeUser((obj, done) => done(null, obj));
   
     passport.use(new Strategy({
-      clientID: config.clientID,
+      clientID: `${id}`,
     
-      clientSecret: "HGNp03tYaoTjhEfsqaqCizDH5yFdXTvh",
-      callbackURL: config.callback,      
+      clientSecret: `${secret}`,
+      callbackURL:`${callback}`,      
       scope: ["identify", "guilds"]
     },
       
