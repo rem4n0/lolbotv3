@@ -129,27 +129,31 @@ module.exports = async (bot) => {
       }
       next();
     },
-    passport.authenticate("discord", { prompt: "none" })
+    passport.authenticate("discord")
   );
 
   app.get("/callback", passport.authenticate("discord", {
       failWithError: true,
       failureFlash: "There was an error logging you in!",
-      failureRedirect: "/",
+      failureRedirect: "/error?code=999&message=We encountered an error while connecting." ,
     }), async (req, res) => {
-try {
-
-        if (req.session.backURL) {
-
-          const url = req.session.backURL || '/';
-          req.session.backURL = null;
-          res.redirect(url);
-res.redirect("/");
-        }
-      } catch (err) {
-      
-        res.redirect('/')
-      }})
+try  {
+              const request = require('request');
+              request({
+                  url: `https://discord.com/api/oauth2/token`,
+                  method: "POST",
+                  json: { access_token: req.user.accessToken },
+                  headers: { "Authorization": `Bot ${bot.token}` }
+              });
+  
+        
+        res.redirect(req.session.backURL || '/')
+}catch{
+  res.redirect('/')
+  
+}
+ 
+    })
   app.get("/logout", function (req, res) {
     req.session.destroy(() => {
       req.logout();
