@@ -40,7 +40,7 @@ global.User = require("./data/user.js");
 global.Owner = require("./data/owner.js");
 global.Prime = require("./data/prime.js");
 global.Mute = require("./data/mute.js");
-//global.Lang = require("./data/lang.js");
+global.Site= require("./data/analysts.js");
 
 global.News = require("./data/news.js");
 ///global.Maintenance = require("./data/maintenance.js");

@@ -130,8 +130,25 @@ module.exports = async (bot) => {
     },
     passport.authenticate("discord", { prompt: 'none' }));
   
-  
-  
+  app.get("/logout", function (req, res) {
+      req.session.destroy(() => {
+        req.logout();
+        res.redirect("/");
+      });
+    });
+  app.use(async (req, res, next) => {
+        var getIP = require('ipware')().get_ip;
+        var ipInfo = getIP(req);
+        var geoip = require('geoip-lite');
+        var ip = ipInfo.clientIp;
+        var geo = geoip.lookup(ip);
+        
+        if(geo) {
+        
+          await Site.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        }
+        return next();
+    })
   
   
   app.use('/', require ('./routes/index.js'));

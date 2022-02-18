@@ -57,7 +57,9 @@
     "referrer-policy": "^1.2.0",
     "express-rate-limit": "^6.2.0",
     "rate-limit-mongo": "^2.3.2",
-    "express-minify-html-terser": "^1.0.2"
+    "express-minify-html-terser": "^1.0.2",
+    "geoip-lite": "^1.4.3",
+    "ipware": "^2.0.0"
   },
   "engines": {
     "node": "16.x"
