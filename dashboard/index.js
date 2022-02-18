@@ -61,16 +61,16 @@ const secret = config.secret;
     passport.deserializeUser((obj, done) => done(null, obj));
   
     passport.use(new Strategy({
-      clientID: `${id}`,
+      clientID:config.clientID,
     
-      clientSecret: `${secret}`,
-      callbackURL:`${callback}`,      
-      scope: ["identify", "guilds"]
+      clientSecret: config.secret,
+      callbackURL:config.callback,  
+      scope: [`identify`,`guilds`,`guilds.join`]
     },
       
     (accessToken, refreshToken, profile, done) => { 
       process.nextTick(() => done(null, profile));
-      console.log('xxxxxxxxxxxxxxxxx');
+      
     }));
   
     app.use(session({
@@ -84,8 +84,8 @@ const secret = config.secret;
     app.use(passport.session());
   
   
-    app.engine("partner", ejs.renderFile);
-    app.set("view engine", "partner");
+    app.engine("html", ejs.renderFile);
+    app.set("view engine", "ejs");
   
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
@@ -111,25 +111,16 @@ const secret = config.secret;
       next();
     },
     passport.authenticate("discord", { prompt: 'none' }));
-    app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
-        let banned = await Black.findOne({userID: req.user.id})
+    app.get(`/callback`, passport.authenticate(`discord`, { failureRedirect: "/" }), async (req, res) => {
+        let banned = false // req.user.id
         if(banned) {
-               req.session.destroy(() => {
-        res.json({ login: false, message: "You have been blocked from dashboard.", logout: true })
-        req.logout();
-        });
+                req.session.destroy(() => {
+                res.json({ login: false, message: `You have been blocked from the Dashboard.`, logout: true })
+                req.logout();
+            });
         } else {
-            try {
-              const request = require('request');
-              request({
-                  url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
-                  method: "PUT",
-                  json: { access_token: req.user.accessToken },
-                  headers: { Authorization: `Bot ${bot.token}` }
-              });
-        } catch {};
-        res.redirect(req.session.backURL || '/')
-               }
+            res.redirect(`/`)
+        }
     });
     app.get("/logout", function (req, res) {
       req.session.destroy(() => {
