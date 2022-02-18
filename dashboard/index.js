@@ -142,11 +142,11 @@ module.exports = async (bot) => {
   
     
   
-
+const redirectURL = req.query.states[req.query.state] || "/";
       
       const params = new URLSearchParams();
 	params.set("grant_type", "authorization_code");
-	params.set("code", req.query.code);
+///	params.set("code", req.query.code);
 	params.set("redirect_uri", `${config.callback}`);
 	let response = await fetch("https://discord.com/api/oauth2/token", {
 		method: "POST",
@@ -161,13 +161,16 @@ module.exports = async (bot) => {
     
       
       
-        res.redirect(req.session.backURL || '/')
+      ///res.redirect(/*req.session.backURL |*/'/')
     
     
     const tokens = await response.json();
 	// If the code isn't valid
-	if(tokens.error || !tokens.access_token){ return;
-                                          }
+	if( tokens.error||!tokens.access_token){
+    return;};
+    res.redirect(r)                  
+                                           
+                                         
   })
   
   
