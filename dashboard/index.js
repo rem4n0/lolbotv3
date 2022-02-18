@@ -24,6 +24,18 @@ const rateLimit = require("express-rate-limit");
 var MongoStore = require("rate-limit-mongo");
 
 module.exports = async (bot) => {
+  
+  
+  passport.use(new Strategy({
+      clientID: config.clientID,
+      clientSecret: config.secret,
+      callbackURL: config.callback,      
+      scope: ["identify", "guilds"]
+    },
+    (accessToken, refreshToken, profile, done) => { 
+      process.nextTick(() => done(null, profile));
+    }));
+  
   app.set("views", path.join(__dirname, "./views"));
 
   app.engine("html", ejs.renderFile);
@@ -81,19 +93,7 @@ module.exports = async (bot) => {
   passport.serializeUser((user, done) => done(null, user));
   passport.deserializeUser((obj, done) => done(null, obj));
 
-  passport.use(
-    new Strategy(
-      {
-        clientID: config.clientID,
-        clientSecret: secret,
-        callbackURL: config.callback,
-        scope: ["identify", "guilds"],
-      },
-      (accessToken, refreshToken, profile, done) => {
-        process.nextTick(() => done(null, profile));
-      }
-    )
-  );
+
 
   app.use(
     session({
@@ -145,7 +145,7 @@ module.exports = async (bot) => {
             try {
               const request = require('request');
               request({
-                  url: `https://discordapp.com/api/v8/guilds/${config.serverid}/members/${req.user.id}`,
+                  
                   method: "PUT",
                   json: { access_token: req.user.accessToken },
                   headers: { "Authorization": `Bot ${bot.token}` }
