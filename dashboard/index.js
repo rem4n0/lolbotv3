@@ -7,6 +7,7 @@ const ejs = require("ejs");
 const url = require("url");
 const path = require("path");
 
+
 const passport = require("passport");
 const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
@@ -133,28 +134,26 @@ module.exports = async (bot) => {
   
   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/error?code=999&message=We encountered an error while connecting." }), async (req, res) => {
   
-
+/*
   req.session.destroy(() => {
         res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
         req.logout();
-        })
-  }else{
-          
-  const params = new URLSearchParams();
-	params.set("grant_type", "authorization_code");
-	params.set("code", req.query.code);
-	params.set("redirect_uri", `${req.config.callback}`);
-	let response = await fetch("https://discord.com/api/oauth2/token", {
-		method: "POST",
-		body: params.toString(),
-		headers: {
-			Authorization: `Basic ${btoa(`${bot.user.id}:${req.config.secret}`)}`,
-			"Content-Type": "application/x-www-form-urlencoded"
-		}
+        })*/
   
-  
-  
-  })})
+    
+    try {
+              const request = 
+                  url: `https://discord.com/api/oauth2/token`,
+                  method: "PUT",
+                  json: { access_token: req.user.accessToken },
+                  headers: { "Authorization": `Bot ${client.token}` }
+              });
+        } catch {};
+        res.redirect(req.session.backURL || '/')
+    
+    
+    
+  })
   
   
   
