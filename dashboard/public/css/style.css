@@ -75,6 +75,7 @@ body {
   
 }
 
+
 .up-link a{
  
   text-decoration: none;
@@ -109,11 +110,14 @@ line-height: 70px;
 }
 
 .up-page:hover .up-link{
+  
   display: block;
+  
   background-color: var(--black);
   top:0;
   left:0;
 }
+
 /*-+++-+------ banner png*/
 .main-container{
  
