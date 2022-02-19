@@ -3,20 +3,61 @@
 
   
   
-<div class="container">
-  <% if(user){%>
-    <h7 style="color:white; text-align: center;">balance</h7>
-    <div class="money-box">
-    <h3 class="bigtext1"><i class="fa-solid fa-credit-card"></i><%=data.money%></h3>
+          <div class ="row">
+<% if(user){%>
+<div class="boxs">
+<div class="box5 box">
+
+  <div class="containerB">
+     <h3 class="bigText"><i class="fa fa-"></i><%= data.money%></h3>
+      <p class="heading">Joins Today</p>
+  </div>
+                                       
+</div>
   
+<div class="box5 box">
+    <div class="containerB">
+     <h3 class="bigText"><i class="fa fa-users"></i><%= data.info%></h3>
+      <p class="heading">Joins last 7 Days</p>
+  </div>
+</div>
+
+  
+
+
+<div class="box1 box">
+
+    <div class="containerB">
+      <h3 class="bigText"><i class="fa fa-users"></i><%= data.data.global_level%></h3>
+    <p class="heading">Server members</p>
       </div>
-      
-      <% } %>
+                                       
+</div>
+  
+<div class="box2 box">
+    <div class="containerB">
+      <h3 class="bigText"> </i><%=%></h3>
+  <p class="heading">Channels</p>
+       </div>
+</div>
+
+
+
+   
+  
+  
+            </div>
+
+</div>
+   <% }%>         
+<div style="padding-bottom: 20px;"></div>
+  
+  
   
 
   
   
-  </div>
+
   
   
   

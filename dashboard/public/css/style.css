@@ -244,17 +244,110 @@ line-height: 70px;
  
 /*-----accoutn style----*/
 
-.money-box{
-  display:block;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 300px, 1000px;
-width:400px;
-  
-  background-image:url("https://imgur.com/HS4WJLP.png");
+.boxs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    position: relative;
+}
+
+.boxs .box {
+    height: 100px;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border-radius: 4px;
+    color: white;
+
+      transition: 0.4s ease-out;
+}
+
+.boxs .box1 {
+    background: url("https://pogy.xyz/cards/4.svg"), linear-gradient(150deg, #5A57C9, #44409A);
+    background-position: center;
+    background-size: 100%;
+}
+
+.boxs .box2 {
+    background: url("https://pogy.xyz/cards/8.svg"), linear-gradient(150deg, #FFD3A5a5, #FD6F88a5);
+    ;
+    background-position: center;
+    background-size: 100%;
+}
+
+.boxs .box3 {
+    background: url("https://pogy.xyz/cards/10.svg"), linear-gradient(150deg, #ABDCFFa5, #1BA0FFa5);
+    background-position: center;
+    background-size: 100%;
+}
+.boxs .box5 {
+    background: url("https://pogy.xyz/card/10.svg"), linear-gradient(150deg, #31A231, #90EE90);
+    background-position: center;
+    background-size: 100%;
+}
+.boxs .box6 {
+    background: url(""), linear-gradient(150deg, #8b0000,  #FF0000);
+    background-position: center;
+    background-size: 100%;
+}
+
+.boxs .box4 .containerB .heading, .boxs .box4 .container .boxText {
+    pointer-events: none;
+}
+
+.boxs .box4 {
+    background: url("https://pogy.xyz/cards/4.svg"), linear-gradient(150deg, #48435A, #39384A);
+    background-position: center;
+    background-size: 100%;
+}
+
+
+
+
+.boxs .box .containerB {
+    position: absolute;
+    padding: 0 0 0 10px;
+  /* color: var(--text);*/
+  color: #E8E7E7
   
 }
-  
+
+.boxs .box .containerB h3.bigText {
+    font-size: 35px;
+    /*position: relative;
+    top: -5px; */
+}
+
+.boxs .box .containerB h3.bigText input {
+    font-size: 35px;
+    background: transparent;
+    color: #E9F2FA;
+    outline: none;
+    border: none;
+     width: 150px;
+}
+
+.boxs .statuses .containerB h3.bigText {
+    font-size: 30px;
+}
+
+.boxs .box .containerB .heading {
+    font-size: 17px;
+    font-weight: 500;
+    position: relative;
+    top: -10px;
+  color:#E9F2FA;
+}
+
+.boxs .statuses .containerB .heading {
+    top: -5px;
+}
+
+.boxs .box .containerB .boxText {
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+}
   
   
   
