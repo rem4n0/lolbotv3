@@ -242,4 +242,19 @@ line-height: 70px;
   
 }
  
-/*-----belo of wave----*/
+/*-----accoutn style----*/
+
+.money-box{
+  display:block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:60% 1000px;
+  width:400px;
+  margin-right:300px;
+  background-image:url("https://imgur.com/HS4WJLP.png");
+  
+}
+  
+  
+  
+  
