@@ -1,4 +1,5 @@
 <%- include ('./meta.ejs')%>
+  <!--
   <div class="all-background">
   <div class="up-page">
     <!--
@@ -7,7 +8,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
--->
+
 <div class="icons">
 <div class="icon"><i class="fas fa-arrow-right"></i>
 </div>
@@ -32,5 +33,146 @@
      
      </div>
     
+  </div>-->
+  
+  
+  <div class="sidebar">
+  <div class="logo-detail">
+    <img src="./img/bobo.png"/>
+    <p class="logo-name">BoBo list</p>
   </div>
+ <div class="nav-list">
+   <ul class="list">
+     
+     <li>
+          
+        <div class="icon">
+               
+      <a>
+        <p>h</p>
+         <span class="link_name">Dashboard</span>
+               
+  
+       </a>
+ 
+       
+       </div>
+ <ul class="sub-menu">
+          <li>
+            <a href="/dashboard/<%=guild%>/setting">SETTING</a>
+          </li>
+                    <li>
+            <a href="/dashboard/<%=guild%>/xpsystem">XP SYSTEM</a>
+          </li>
+                    <li>
+            <a href="/dashboard/<%=guild/logs">LOG SYSTEM</a>
+          </li>
+        </ul>
+        
+     </li>
+          <li>
+        <div class="icon">
+               
+      <a href="#">
+        <p class="arrow">h</p>
+         <span class="link_name"></span>
+               
+
+       </a>
+          
+       
+       </div>
+
+        
+     </li>
+     <li>
+        <div class="icon">
+               
+      <a href="#">
+        <p class="arrow">h</p>
+         <span class="link_name"></span>
+               
+
+       </a>
+          
+       
+       </div>
+
+       
+     </li>
+     <li>
+        <div class="icon">
+               
+      <a href="#">
+        <p class="arrow">h</p>
+         <span class="link_name"></span>
+               
+
+       </a>
+
+       
+       </div>
+
+        
+     </li>
+
+     
+
+   <% if(user){%>
+   
+   <li>
+
+   <div class="profile-detail">
+    
+   
+       <div class="profile-content">
+       <!-- <img src="<%user.user.D%>"/>-->
+         <img src="./img/bobo.png" alt="profile"/>
+       </div>
+       <div class="profile-name">HAMA</div>
+       <div class="profile-badg">🤦</div>
+     </div>
+     </li>
+     <% } %>
+         </ul>
+   
+   
+   
+   
+   
+   </div>
+   
+      </div>
+
+  
+</div>
+  <section class="home-section">
+    <div class="home-content">
+      <span class="text">DROPDAWN</span>
+    </div>
+  </section>
+  
+<script>
+  let arrow = document.querySelectorAll(".link_name")
+  
+  for(i=0; i < arrow.length;i++){
+    arrow[i].addEventListener("click",(e)=>{
+      let target = e.target.parentElement.parentElement.parentElement;
+      
+      target.classList.toggle("showMenu")
+    })
+    
+  }
+  let sidebar= document.querySelector(".sidebar");
+  let sidebarBtn= document.querySelector(".text");
+  sidebarBtn.addEventListener('click',()=>{
+    
+    sidebar.classList.toggle("close");
+   // console.log(sidebar);
+  })
+  
+ 
+</script>
+
+  
   <br><br>
