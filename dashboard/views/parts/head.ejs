@@ -35,7 +35,8 @@
     
   </div>-->
   
-  
+              <% if(!req.originalUrl.includes('/server')) { %>
+    
   <div class="sidebar">
   <div class="logo-detail">
     <img src="./img/bobo.png"/>
@@ -65,7 +66,7 @@
             <a href="/dashboard/<%=guild%>/xpsystem">XP SYSTEM</a>
           </li>
                     <li>
-            <a href="/dashboard/<%=guild/logs">LOG SYSTEM</a>
+            <a href="/dashboard/<%=guild%>/logs">LOG SYSTEM</a>
           </li>
         </ul>
         
@@ -134,12 +135,26 @@
      </div>
      </li>
      <% } %>
+       <% }else{ %>
+           <li>
+          
+        <div class="icon">
+               
+      <a>
+        <p>h</p>
+         <span class="link_name">Dashboard</span>
+               
+  
+       </a>
+ 
+       
+             </div> 
+             <% } %>
          </ul>
    
    
    
-   
-   
+  
    </div>
    
       </div>
@@ -151,6 +166,7 @@
       <span class="text">DROPDAWN</span>
     </div>
   </section>
+    
   
 <script>
   let arrow = document.querySelectorAll(".link_name")
