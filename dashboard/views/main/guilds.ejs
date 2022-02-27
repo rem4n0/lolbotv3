@@ -29,8 +29,9 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild=>{
-   const perm = new perms("MANAGE_GUILD")
-  if(!req. permissionsFor(user).has("MANAGE_GUILD)
+  const guilD = bot.guilds.fetch(guild);
+   const perm = new perms(guilD.permissions)
+  
 if(!perm.has("MANAGE_GUILD")) {
 	return;
 } %>
@@ -61,7 +62,8 @@ if(!perm.has("MANAGE_GUILD")) {
     
     
   <% user.guilds.forEach(guild=>{
- const perm = new perms("MANAGE_GUILD")
+    const guilD = bot.guilds.cache.get(guild.id);
+ const perm = new perms(guilD.permissions)
     
   if(!perm.has("MANAGE_GUILD")){ 
     return;}
