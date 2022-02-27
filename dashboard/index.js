@@ -171,6 +171,9 @@ const secret = config.secret;
     })*/
 app.use('/', require ('./routes/index.js'));
     app.use('/', require ('./routes/dashboard.js'))
+    
+    
+    app.use('/', require ("./routes/guilds/discord-guild.js"))
         app.use((req, res) => {
         req.query.code = 404;
         req.query.message = `Page not found.`;
@@ -184,6 +187,7 @@ app.use('/', require ('./routes/index.js'));
         })
     });
   };
+
 
 function sleep(milliseconds) {
   const date = Date.now();
