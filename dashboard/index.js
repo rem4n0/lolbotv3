@@ -110,7 +110,7 @@ const secret = config.secret;
        }
       next();
     },
-    passport.authenticate("discord"/*, { prompt: 'none' }*/));
+    passport.authenticate("discord", { prompt: 'none' }));
     app.get(`/callback`, passport.authenticate(`discord`, { failureRedirect: "/" }), async (req, res) => {
         let banned = false // req.user.id
         if(banned) {

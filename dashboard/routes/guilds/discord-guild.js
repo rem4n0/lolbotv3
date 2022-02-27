@@ -13,9 +13,8 @@ console.log(" guild router loaded.");
 
 
 app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
-  req.user.guilds.forEach(guild=>{
-  const perms = new Permissions(guild.permissions)
   
+  const permss = new Permissions(req.params.guildID);
     res.render("main/guilds.ejs", {
         bot: bot,
         path: req.path,
@@ -24,11 +23,11 @@ app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
         req: req,
 
       flag:flags,
-      perms:perms,
+      perms: permss,
     
        guildID: req.params.guildID,
 
-	})})
+	})
 })/*
 app.post("/dashboard/guilds", global.checkAuth, async (req,res) => {
     let { guildID } = req.body;

@@ -28,9 +28,8 @@
 
 
 <div class="servers">
-<% user.guilds.forEach(guild => { 
-
-const permsOnGuild = new perms(flag);
+<% user.guilds.forEach(guild=>{
+   
   
 if(!perms.has("MANAGE_GUILD")) {
 	return;
@@ -55,14 +54,13 @@ if(!perms.has("MANAGE_GUILD")) {
     <a class="edit button" href="/dashboard/setup/<%= guild.id %>">set-up</a>
 </div>
   <% } %>
-
-  <% }); %>
+<% })%>
+  
     
     
     
     
-  <% user.guilds.forEach(guild => {
-    
+  <% 
   
     
     if(!perms.has("MANAGE_GUILD")){ return;}
@@ -79,7 +77,9 @@ if(!perms.has("MANAGE_GUILD")) {
 %>
 
  
-  <% if (!bot.guilds.cache.get(guild.id)) { %>
+  <% user.guilds.forEach(guild=>{
+    
+     if (!bot.guilds.cache.get(guild.id)) {%>
     
   <div class="server">
    <div class="icon-and-name">
@@ -89,7 +89,7 @@ if(!perms.has("MANAGE_GUILD")) {
  <a href='https://discord.com/api/oauth2/authorize?client_id=<%=bot.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="add button">Add Bot</a>
 </div>
   <% } %>
-  <%  }); %>
+  <% })%>
 </div>
 
 
