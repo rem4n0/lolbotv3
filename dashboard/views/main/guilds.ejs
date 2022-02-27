@@ -28,10 +28,10 @@
 
 
 <div class="servers">
-<% user.guilds.forEach(guild => {
- if (user.permissions.has("MANAGE_GUILD) {
-	console.log('This member can kick');
-} %>
+<% user.guilds.forEach(guild => { 
+ if (user.permissions.has("MANAGE_GUILD"){
+	return;
+}%>
 <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
 } else {
@@ -55,8 +55,8 @@
 
   <% }); %>
   <% user.guilds.forEach(guild => {
-if (user.permissions.has("MANAGE_GUILD) {
-	console.log('This member can kick');
+if (user.permissions.has("MANAGE_GUILD") {
+	return
 }
 %>
 <% if (guild.icon) {
