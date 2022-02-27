@@ -9,7 +9,6 @@ const flags = [
 ///const channels = global.config.server.channels;
 const Discord = require("discord.js")
 console.log(" guild router loaded.");
-
 app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
   
   
@@ -22,7 +21,7 @@ app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
         req: req,
 
       flag:flags,
-      perms: Discord.Permissions,
+      perms: Permissions,
     
        guildID: req.params.guildID,
 
