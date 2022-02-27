@@ -56,9 +56,14 @@ if(!permsOnGuild.has("MANAGE_GUILD")) {
   <% } %>
 
   <% }); %>
+    
+    
+    
+    
   <% user.guilds.forEach(guild => {
-if (guild.permissionsFor(user).has("MANAGE_GUILD")){
-	return
+    const perm = new perms(flag)
+    if(!perm.has("MANAGE_GUILD")){
+    return;
 }
 %>
 <% if (guild.icon) {

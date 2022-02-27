@@ -2,11 +2,8 @@ const app = require('express').Router();
 const { Permissions } = require('discord.js');
 
 const flags = [
-	Permissions.FLAGS.MANAGE_CHANNELS,
-	Permissions.FLAGS.EMBED_LINKS,
-	Permissions.FLAGS.ATTACH_FILES,
-	Permissions.FLAGS.READ_MESSAGE_HISTORY,
-	Permissions.FLAGS.MANAGE_ROLES,
+
+	Permissions.FLAGS.MANAGE_GUILD,
 ];
 
 ///const channels = global.config.server.channels;
@@ -14,6 +11,8 @@ const Discord = require("discord.js")
 console.log(" guild router loaded.");
 
 app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
+  
+  
   
     res.render("main/guilds.ejs", {
         bot: bot,
