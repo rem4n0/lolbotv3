@@ -9,9 +9,12 @@ const flags = [
 ///const channels = global.config.server.channels;
 const Discord = require("discord.js")
 console.log(" guild router loaded.");
+
+
+
 app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
-  
-  
+  const guild = bot.guilds.cache.get(req.params.guildID)
+  const perms = new Permission(guild. permissions)
   
     res.render("main/guilds.ejs", {
         bot: bot,
