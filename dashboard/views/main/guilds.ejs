@@ -29,8 +29,9 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild => { 
-const permsOnGuild = new perms(guild.permissions);
-  console.log(permsOnGuild);
+  const everyone = guild.roles.everyone
+const permsOnGuild = new perms(1982892);
+  
 if(!permsOnGuild.has("MANAGE_GUILD")) {
 	return;
 } %>
