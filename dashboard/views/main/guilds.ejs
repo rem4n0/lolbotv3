@@ -29,8 +29,8 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild => { 
-  const everyone = guild.roles.everyone
-const permsOnGuild = new perms(1982892);
+
+const permsOnGuild = new perms(flag);
   
 if(!permsOnGuild.has("MANAGE_GUILD")) {
 	return;
@@ -63,12 +63,13 @@ if(!permsOnGuild.has("MANAGE_GUILD")) {
     
   <% user.guilds.forEach(guild => {
     
-    const perms = new perms(guild.permissions);
-			if(perms.has("MANAGE_GUILD")){
-				return;
-			}
+  
+        
+
     
-%>
+    %>
+			
+		
 <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=312";
 } else {
@@ -78,6 +79,8 @@ if(!permsOnGuild.has("MANAGE_GUILD")) {
 
  
   <% if (!bot.guilds.cache.get(guild.id)) { %>
+    <% const perm = new perms(flag)%>
+      <% if(perm.has("MANAGE_GUILD")){%>
   <div class="server">
    <div class="icon-and-name">
 <img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
@@ -86,8 +89,8 @@ if(!permsOnGuild.has("MANAGE_GUILD")) {
  <a href='https://discord.com/api/oauth2/authorize?client_id=838593240328044554&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="add button">Add Bot</a>
 </div>
   <% } %>
-
-  <% }); %>
+<% }%>
+  <%  }); %>
 </div>
 
 
