@@ -29,7 +29,7 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild => { 
-const permsOnGuild = new perms(flag);
+const permsOnGuild = new perms(guild.id);
 if(!permsOnGuild.has("MANAGE_GUILD")) {
  return
 	return;
@@ -61,15 +61,15 @@ if(!permsOnGuild.has("MANAGE_GUILD")) {
     
     
   <% user.guilds.forEach(guild => {
-    const perm = new perms(flag)
-    if(!perm.has("MANAGE_GUILD")){
+  
+    if(!user.permissions.has(pe)){
     return;
 }
 %>
 <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=312";
 } else {
- iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
+ iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949"
 }
 %>
 
