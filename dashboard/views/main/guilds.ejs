@@ -29,7 +29,9 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild => { 
- if (guild.permissionsFor(user).has("MANAGE_GUILD")){
+const permsOnGuild = new perms(flag);
+if(!permsOnGuild.has("MANAGE_GUILD")) {
+ return
 	return;
 } %>
 <% if (guild.icon) {
