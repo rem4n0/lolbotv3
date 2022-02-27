@@ -352,6 +352,10 @@ line-height: 70px;
     position: relative;
     top: -10px;
 }
-  
+  .servers{
+    position: static;
+    margin-left:150px;
+    
+}
   
   
