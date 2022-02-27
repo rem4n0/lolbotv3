@@ -24,7 +24,7 @@ app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
       flag:flags,
       perms: Discord.Permissions,
     
-       guild: req.params.guildID,
+       guildID: req.params.guildID,
 
 	})
 })/*
