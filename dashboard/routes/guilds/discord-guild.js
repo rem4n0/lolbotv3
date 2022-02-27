@@ -20,7 +20,7 @@ app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
        guild: req.params.guildID,
 
 	})
-})
+})/*
 app.post("/dashboard/guilds", global.checkAuth, async (req,res) => {
     let { guildID } = req.body;
     const guild = bot.guilds.cache.get(req.body.guildID);
@@ -54,7 +54,7 @@ app.post("/dashboard/guilds", global.checkAuth, async (req,res) => {
             }
     }, { upsert: true })
 
-    /*if(autoCreate === "true") {
+    if(autoCreate === "true") {
     guild.fetchInvites().then(async fetchinvite => {
       fetchinvite.array().find(a => a.inviter.id === client.user.id)
         ? fetchinvite.array().find(a => a.inviter.id === client.user.id).code
@@ -82,7 +82,5 @@ app.post("/dashboard/guilds", global.checkAuth, async (req,res) => {
         }
     }, { upsert: true })
     }*/
-    return res.send({ success: true, message: "Server succesfuly added." });
-})
 
 module.exports = app;
