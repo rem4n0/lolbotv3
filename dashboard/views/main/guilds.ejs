@@ -29,10 +29,11 @@
 
 <div class="servers">
 <% user.guilds.forEach(guild=>{
-  const guilD = bot.guilds.fetch(guild);
-   const perm = new perms(guilD.permissions)
   
-if(!perm.has("MANAGE_GUILD")) {
+   const perm = new perms(flag)
+const perr = guild.permissionsIn(guild)
+  
+if(!perr.has("MANAGE_GUILD")) {
 	return;
 } %>
 <% if (guild.icon) {
@@ -62,10 +63,11 @@ if(!perm.has("MANAGE_GUILD")) {
     
     
   <% user.guilds.forEach(guild=>{
-    const guilD = bot.guilds.cache.get(guild.id);
- const perm = new perms(guilD.permissions)
     
-  if(!perm.has("MANAGE_GUILD")){ 
+ const perm = new perms(flag)
+const perr = perm.permissionsIn(guild)
+    
+  if(!perr.has("MANAGE_GUILD")){ 
     return;}
     
 
