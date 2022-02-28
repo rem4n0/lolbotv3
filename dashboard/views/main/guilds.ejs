@@ -19,12 +19,14 @@
     .servers .server .icon-and-name{
       margin-top:40%;
       display:flex; 
+      text-align: center;
+      
     line-height:15px;
     }
     .servers .server .icon-and-name .server-icon{
     
-      width: 50px;
-      height:50px;
+      width: 80px;
+      height:80px;
     }
     .servers .server .icon-and-name .text{
       margin-left:30px;
@@ -34,14 +36,18 @@
       
     }
   
+    h2{
+      color: white;
+      
+      
+    }
   </style>
-<div class="has-text-white is-size-6">
-  
+
 
 <h2>SELECT A SERVER</h2>
 
 
-
+  
 <% if (!user) { %>
     <div style="width: 512px;
 	 padding: 16px;
@@ -69,7 +75,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=50";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=80";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -85,9 +91,7 @@
     
   <p class="text"><%= guild.name %></p>
   </div>
-    <a class="btn btn-success" href="/dashboard/<%=guild.id%>">setting</a>
-    
-    <a class="edit button" href="/dashboard/setup/<%= guild.id %>"></a>
+    <a class="btn btn-success" href="/dashboard/guild/<%=guild.id%>">setting</a>
 </div>
   <% } %>
 
@@ -99,7 +103,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=50";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=80";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -112,7 +116,7 @@
 <img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
   <p class="text"><%= guild.name %></p>
   </div>
- <a href='https://discord.com/api/oauth2/authorize?client_id=838593240328044554&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="add button">Add Bot</a>
+ <a href='https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="btn btn-danger">Add Bot</a>
 </div>
   <% } %>
 
