@@ -19,7 +19,7 @@
     .servers .server .icon-and-name{
       margin-top:40%;
       display:flex; 
-    line-height: 30px;
+    line-height:15px;
     }
     .servers .server .icon-and-name .server-icon{
     
@@ -85,7 +85,7 @@
     
   <p class="text"><%= guild.name %></p>
   </div>
-    <a class="edit button" href="/dashboard/<%=guild.id%>/edit"></a>
+    <a class="btn btn-success" href="/dashboard/<%=guild.id%>">setting</a>
     
     <a class="edit button" href="/dashboard/setup/<%= guild.id %>"></a>
 </div>
