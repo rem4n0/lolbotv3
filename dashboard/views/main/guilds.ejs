@@ -28,12 +28,13 @@
 
 
 <div class="servers">
-<% req.user.guilds.forEach(function(guild){
+<% user.guilds.forEach((guild)=>{
  
   
- if(!guild.members.fetch(user).permissions.has("MANAGE_GUILD")) {
- return
- }
+const permsOnGuild = new perms(guild.permissions);
+      if(!permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) {
+     return} 
+
 %>
 <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
@@ -57,7 +58,7 @@
   <% } %>
 
   <% }); %>
-  <% req.user.guilds.forEach(guild => {
+  <% user.guilds.forEach(guild => {
  const permsOnGuild = new perms(guild.permissions);
  if(!permsOnGuild.has("MANAGE_GUILD")) {
  return
