@@ -4,30 +4,30 @@
   <style>
   
   .servers{
-  
-  
-    left:0;
+    
+   left:0;
     position: static;
     }
-    .servers .server{
+      .servers .server{
       margin-right: 100px;
       position:static;
     
       
       
     }
+
     .servers .server .icon-and-name{
-      display:flex;
-      
-     
-      
+      margin-top:40%;
+      display:flex; 
+    line-height: 30px;
     }
     .servers .server .icon-and-name .server-icon{
-    margin-right: 100px;
-      width: 100px;
-      height:100px;
+    
+      width: 50px;
+      height:50px;
     }
     .servers .server .icon-and-name .text{
+      margin-left:30px;
       font-weight: 600;
       
       color: white;
@@ -69,7 +69,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=100";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=50";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -99,7 +99,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=100";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=50";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -121,7 +121,7 @@
 
 
 
-<%- include("../parts/foot") %>
+
 <script>
     function PopupCenter(e, n, t, i) {
         var o = void 0 != window.screenLeft ? window.screenLeft : screen.left,
@@ -133,10 +133,4 @@
         window.focus && s.focus()
     }
 </script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;
-600&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;
-600&display=swap');
-
-  </style>
+<%- include ("../parts/foot.ejs")%>
