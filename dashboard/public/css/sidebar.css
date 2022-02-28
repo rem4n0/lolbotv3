@@ -52,16 +52,16 @@
   
   color: var(--white);
   
-  font-size: 22px;
+  font-size: 18px;
 }
 .sidebar .nav-list .list li i{
   height: 50px;
   color:var(--white);
   
-  line-height: 50px;
+  line-height: 10px;
   min-width: 78px;
   text-align: center;
-padding-left: 20px;
+ /*padding-left: 20px;*/
 }
 .sidebar .nav-list .list li{
  position: relative;

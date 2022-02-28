@@ -1,5 +1,6 @@
 <%- include ('./meta.ejs')%>
   
+        <% if(!req.originalUrl.includes('/server')) {%>
   
     
   <div class="sidebar">
@@ -41,7 +42,7 @@
                
       <a href="#">
         <p class="arrow">h</p>
-         <span class="link_name"></span>
+         <span class="link_name">information</span>
                
 
        </a>
@@ -56,7 +57,7 @@
                
       <a href="#">
         <p class="arrow">h</p>
-         <span class="link_name"></span>
+         <span class="link_name">partners</span>
                
 
        </a>
@@ -70,7 +71,7 @@
         <div class="icon">
                
       <a href="#">
-        <p class="arrow">h</p>
+        
          <span class="link_name"></span>
                
 
@@ -93,7 +94,7 @@
    
        <div class="profile-content">
        <!-- <img src="<%user.user%>"/>-->
-         <img src="./img/bobo.png" alt="profile"/>
+         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" alt="profile"/>
        </div>
        <div class="profile-name">HAMA</div>
        <div class="profile-badg">🤦</div>
@@ -139,3 +140,4 @@
 
   
   <br><br>
+    <% }%>
