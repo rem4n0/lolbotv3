@@ -1,8 +1,7 @@
 <%- include ('./meta.ejs')%>
   
-        <% if(!req.originalUrl.includes('/server')) {%>
+              <% if(!req.originalUrl.includes('/server')) { %>
   
-    
   <div class="sidebar">
   <div class="logo-detail">
     <img src="./img/bobo.png"/>
@@ -94,7 +93,7 @@
    
        <div class="profile-content">
        <!-- <img src="<%user.user%>"/>-->
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" alt="profile"/>
+         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
        <div class="profile-name">HAMA</div>
        <div class="profile-badg">🤦</div>
@@ -107,8 +106,7 @@
    </div>
    
       </div>
-
-    </div>
+   <% }%>
   <section class="home-section">
     <div class="home-content">
       <span class="text">DROPDAWN</span>
@@ -140,4 +138,4 @@
 
   
   <br><br>
-    <% }%>
+  
