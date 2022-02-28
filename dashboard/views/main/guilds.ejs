@@ -28,14 +28,17 @@
 
 
 <div class="servers">
-<% user.guilds.forEach(guild=>{
+<% user.guilds.forEach(guild =>{
+  if(!guild) return;
+  if(guild){
   
    const perm = new perms(flag)
-const perr = guild.permissionsIn(guild)
+
+const guild2 = bot.guilds.cache.get(g
   
-if(!perr.has("MANAGE_GUILD")) {
+if(!perr.permissions.has("MANAGE_GUILD")) {
 	return;
-} %>
+} } %>
 <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=240";
 } else {
