@@ -21,6 +21,7 @@ app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
         config: global.config,
         user: req.isAuthenticated() ? req.user : null,
         req: req,
+      res:res,
         perms: Discord.Permissions,
         guildID: req.params.guildID,
 

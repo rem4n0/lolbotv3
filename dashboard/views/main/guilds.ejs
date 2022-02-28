@@ -35,7 +35,8 @@ const bitpermissions = new perms(268550160n);
 const permsOnGuild = new perms(guild.bitpermissions) 
 
 
-    
+    if(!permsOnGuild.has("MANAGE_GUILD","ADMINISTRATOR")){
+  return;}
 
 %>
 <% if (guild.icon) {
