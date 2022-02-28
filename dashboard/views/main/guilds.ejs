@@ -59,7 +59,7 @@
   <% }); %>
   <% user.guilds.forEach(guild => {
  const permsOnGuild = new perms(guild.permissions_new);
- if(!permsOnGuild.has("MANAGE_GUILD"))) {
+ if(!permsOnGuild.has("MANAGE_GUILD")) {
  return;
  }
 %>
