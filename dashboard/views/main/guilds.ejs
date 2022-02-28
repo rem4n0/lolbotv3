@@ -1,8 +1,107 @@
-<%- include ("../parts/head.ejs",{bot,path,user})%>
+<%- include("../parts/head", {bot, user, path }) %>
+
+
+
+<div class="has-text-white is-size-6">
   
+
+<h2>SELECT A SERVER</h2>
+
+
+
+<% if (!user) { %>
+    <div style="width: 512px;
+	 padding: 16px;
+	 margin: 8px;  background-color: rgba(77, 77, 255, 0.05);">
+      <h3 style="color: #4d4dff; 	 margin-top: 0;
+	 margin-bottom: 8px;
+	 font-size: 18px;
+	 font-family: 'Poppins', sans-serif;">Hey <%= user.username%>!</h3>
+      <p style="margin: 0;
+	 font-size: 14px;
+	 font-family: 'Open Sans', sans-serif;
+	 color: #555;">Looks like you aren't in partnerbot Support Server. <a href="/dc">Join Here!</a></p>
+    </div>
+
+  <% } %>
+
+
+
+<div class="servers">
+<% req.user.guilds.forEach((guild)=> {
+ const permsOnGuild = new perms(guild.permissions);
   
-  
-  
-  
-  
-  <%- include('../parts/foot.ejs')%>
+ if(!permsOnGuild.has("MANAGE_GUILD")) {
+ return
+ }
+%>
+<% if (guild.icon) {
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
+} else {
+ iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
+}
+%>
+
+ 
+  <% if( bot.guilds.cache.get(guild.id)) { %>
+  <div class="server">
+   <div class="icon-and-name">
+<img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
+  <p class="text"><%= guild.name %></p>
+  </div>
+    <a class="edit button" href="/dashboard/settings/<%=guild.id%>">server setting</a>
+    <a class="edit button" href="/dashboard/<%=guild.id%>/edit">edition</a>
+    
+    <a class="edit button" href="/dashboard/setup/<%= guild.id %>">set-up</a>
+</div>
+  <% } %>
+
+  <% }); %>
+  <% req.user.guilds.forEach(guild => {
+ const permsOnGuild = new perms(guild.permissions);
+ if(!permsOnGuild.has("MANAGE_GUILD")) {
+ return
+ }
+%>
+<% if (guild.icon) {
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
+} else {
+ iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
+}
+%>
+
+ 
+  <% if (!bot.guilds.cache.get(guild.id)) { %>
+  <div class="server">
+   <div class="icon-and-name">
+<img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
+  <p class="text"><%= guild.name %></p>
+  </div>
+ <a href='https://discord.com/api/oauth2/authorize?client_id=838593240328044554&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="add button">Add Bot</a>
+</div>
+  <% } %>
+
+  <% }); %>
+</div>
+
+
+
+<%- include("../parts/foot") %>
+<script>
+    function PopupCenter(e, n, t, i) {
+        var o = void 0 != window.screenLeft ? window.screenLeft : screen.left,
+            d = void 0 != window.screenTop ? window.screenTop : screen.top,
+            c = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width,
+            w = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height,
+            r = c / 2 - t / 2 + o, h = w / 2 - i / 2 + d,
+            s = window.open(e, n, "scrollbars=yes, width=" + t + ", height=" + i + ", top=" + h + ", left=" + r);
+        window.focus && s.focus()
+    }
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;
+600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;
+600&display=swap');
+
+  </style>
