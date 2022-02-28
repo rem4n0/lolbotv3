@@ -9,15 +9,26 @@
     left:0;
     position: static;
     }
+    .servers .server{
+      margin-right: 100px;
+      position:static;
+    
+      
+      
+    }
     .servers .server .icon-and-name{
       display:flex;
+      
+     
+      
     }
     .servers .server .icon-and-name .server-icon{
-      left:0;
-      width: 200px;
-      height:200px;
+    margin-right: 100px;
+      width: 100px;
+      height:100px;
     }
     .servers .server .icon-and-name .text{
+      font-weight: 600;
       
       color: white;
       
@@ -58,7 +69,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=100";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -69,12 +80,14 @@
   <div class="server">
    <div class="icon-and-name">
 <img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
+     
+     
+    
   <p class="text"><%= guild.name %></p>
   </div>
-    <a class="edit button" href="/dashboard/settings/<%=guild.id%>">server setting</a>
-    <a class="edit button" href="/dashboard/<%=guild.id%>/edit">edition</a>
+    <a class="edit button" href="/dashboard/<%=guild.id%>/edit"></a>
     
-    <a class="edit button" href="/dashboard/setup/<%= guild.id %>">set-up</a>
+    <a class="edit button" href="/dashboard/setup/<%= guild.id %>"></a>
 </div>
   <% } %>
 
@@ -86,7 +99,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=512";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=100";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
