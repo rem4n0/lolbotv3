@@ -11,20 +11,6 @@ console.log(" guild router loaded.");
 app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
   
   
-  /*
-  
-  req.user.guilds.forEach((guild)=>{
-    
-    const perm = new Permissions(guild.permissoins)
-    
-       if(!perm.has('MANAGE_GUILD')){
-        
-        return
-       }
-                          
-                          
-                          
-                          })*/
   
   
   
