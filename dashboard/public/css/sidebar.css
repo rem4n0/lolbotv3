@@ -60,7 +60,7 @@
   
   line-height: 10px;
   min-width: 78px;
-  text-align: center;
+  
  /*padding-left: 20px;*/
 }
 .sidebar .nav-list .list li{
@@ -150,8 +150,6 @@ background: var(--nilikall);
 .home-section{
 position: relative;
   left:0px;
-
-  /*height: 100vh;*/
   width: calc(100% - 230px);
   
 
@@ -159,6 +157,7 @@ position: relative;
 }
  
  .sidebar .home-section .home-content{
+   
     display:flex;
     height: 60px;
     align-items: center; 
@@ -185,7 +184,8 @@ position: relative;
 100% {opacity:1;}
 }
 .home-section .home-content .text i{
-  
+  position: absolute;
+
   color:var(--white);
   font-size: 30px;
   
