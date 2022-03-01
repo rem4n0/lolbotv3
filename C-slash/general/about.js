@@ -21,7 +21,7 @@ prime: false,
         .setDescription(`This bot has been created by **<@768944616724103170>**`)
         .setColor(config.embed.Color)
         .setThumbnail(bot.user.displayAvatarURL())
-    .addField(`**users**:`,`${bot.guilds.cache.reduce((guild,acc)=> guild.memberCount,0)}`)
+    .addField(`**users**:`,`${bot.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0) }`)
         .addField(`**Bot Name:**`, `${bot.user.tag}`)
         .addField(`**Bot ID**`, `${bot.user.id}`)
         .addField(`**Bot Prefix**`, `${data.guild.prefix}`)
