@@ -1,5 +1,19 @@
  <%- include ('./parts/head.ejs',{bot,user})%>
- 
+ <style>
+   .bot-info{
+     
+     
+   }
+   
+   .bot-info .guild-info{
+     color: white;
+     font-size:22px;
+     margin-left:22px;
+     
+   }
+   
+   
+   </style>
   <br><br>
   <div class="fade-in">
     
@@ -107,9 +121,10 @@
            
            
            <div class="bot-info">
-             <% client.guilds.cache
-client.guilds.cache.reduce((acc, guild) =>{%>
-             <div class="user-info"><%= bot.users.cache.size%></div
+            
+               <div class="guild-info">+<%=bot.guilds.cache.size%> Guilds</div>
+                 
+                   </div>
              
              
              
