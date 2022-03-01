@@ -127,12 +127,13 @@
            
            
            <div class="bot-info">
-            <% bot.guilds.cache.reduce((acc,guild)=>{ %>
-               <div class="guild-info">+<% acc + guild.memberCount,0%></div>
-            
-                 <div class="user-info">+ </div>
+           <% const hama = bot .guilds .cache. reduce ( ( acc, guild) => acc + guild.memberCount, 0) %>
+          
+              <div class="guild-info"> <% hama %> </div>
+      
+                 <div class="user-info"></div>
                 
-                  <% })   %>
+                
                    </div>
              
              
