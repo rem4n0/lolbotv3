@@ -129,14 +129,10 @@
            <div class="bot-info">
             
                <div class="guild-info">+<%=bot.guilds.cache.size%> Guilds</div>
-                 <% let count = 0;%>
-                 <% bot.guilds.cache.forEach((guild)=>{
-                   
-                  const count += guild.memberCount
-                   %>
-                 <div class="user-info">+<% count %></div>
+            
+                 <div class="user-info">+<%=bot.users.cache.re%></div>
+                
                   
-                   <% })%>
                    </div>
              
              
