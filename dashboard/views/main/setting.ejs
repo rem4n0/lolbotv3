@@ -1,0 +1,109 @@
+   <%- include ('../parts/head',{bot,user})%>
+     
+     
+     
+     <div class="container">
+  <br><br>
+<div class="container contact-form">
+  <div class="contact-image">
+      <i></i>
+  </div>
+  <script>
+        (function(){
+        var txt = $("input#guildID");
+        var func = function() {
+            txt.val(txt.val().replace(/\s/g, ''));
+        }
+        txt.keyup(func).blur(func);
+    });
+  </script>
+  
+  <form method="POST">
+  <!--<input type="hidden" value="" name="_token" id="_token">
+-->
+      <h3></h3>
+     <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+               <label><i class="fad fa-fingerprint"></i> Server ID (It is generated automatically)<span style="color: rgb(175, 22, 22)">*</span></label>
+                  <input type="hidden" name="guildID" id="guildID" class="form-control" placeholder="" value="<%=guild%>" required="required" disabled/>
+              </div>
+              <br><br>
+                            <div class="form-group">
+               <label><i class="fad fa-fingerprint"></i> PREFIX <span style="color: rgb(175, 22, 22)">*</span></label>
+                  <input type="text" name="prefix" id="prefix" class="form-control" placeholder="" value="<%=prefix%>"/>
+              </div>
+              <br><br>
+                                        <div class="form-group">
+                                       <label><i class="fad fa-fingerprint"></i> XP SYSTEM <span style="color: rgb(175, 22, 22)">*</span></label>
+           <br>
+               <br><input type="radio" name="xp" value="On" id="on" />
+   <label for="on">on</label>
+   
+   <input type="radio" name="xp" value="Off"id="off" />
+   <label for="off"> off </label>
+   <br />
+             
+              </div>        
+              
+      </div>  
+      <br><br>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
+
+
+
+
+      <p class="text-muted">Spaces with <span style="color: rgb(175, 22, 22)">*</span> next to it are required.</p>
+
+      
+      <br/>
+   
+      
+      <button type="submit" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
+    
+  </form>
+  <div style="display: none;color: white;" class=".error-title"idr sui>Nop</div>
+</div>
+</div>
+<br><br>
+  
+  
+      <script>
+
+     
+      
+ var urlParams = new URLSearchParams(window.location.search);
+
+
+
+    if(urlParams.has('success') && urlParams.get('success')){
+    Swal.fire({
+     icon: 'success',
+     title: 'Succesfull...',
+     closeOnConfirm: false,
+     text: urlParams.get('message'),
+     footer: 'Copyright 2021  - All right reserved.'
+    }).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = `#`;
+  }
+})
+    }
+    if(urlParams.has('error') && urlParams.get('error')){
+    Swal.fire({
+     icon: 'error',
+     title: 'Oops...',
+     text: urlParams.get('message'),
+     footer: 'Copyright 2021   - All right reserved.'
+    }).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = '#';
+  }    
+})
+    }
+   </script>
+<%- include ('../parts/foot')%>

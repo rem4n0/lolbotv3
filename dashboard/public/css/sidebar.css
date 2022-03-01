@@ -157,6 +157,7 @@ position: relative;
 }
  
  .sidebar .home-section .home-content{
+   position: absolute;
    
     display:flex;
     height: 60px;
@@ -184,8 +185,6 @@ position: relative;
 100% {opacity:1;}
 }
 .home-section .home-content .text i{
-  position: absolute;
-
   color:var(--white);
   font-size: 30px;
   
