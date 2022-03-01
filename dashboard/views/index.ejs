@@ -38,24 +38,30 @@
        <div class="button-container">
 
          <ul>
-         <li><a href"/dc">Discord</a></li>
-    <br>
+        
          
         
  
          <% if (user){ %>
       <li><a href="/dashboard/guilds">dashboard</a></li>
-    
+           
+          
+          <br>
+           <li><a href="/dc">Discord</a></li>
+           
      <br>
-      
+           <li><a href="/invite">Invite</a></li>
       
         
         <% }else{%>
+          <li><a href="/dc">Discord</a></li>
+         <br> 
      <li><a href="/login">Login</a></li>
-     <% } %>
+     
       <br>
       
-      <li><a href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id %>&permissions=8&scope=bot%20applications.commands">Invite</a></li>
+      <li><a href="/invite">Invite</a></li>
+<% }%>
 
      
     </div>
