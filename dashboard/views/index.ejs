@@ -127,12 +127,12 @@
            
            
            <div class="bot-info">
+            <% bot.guilds.cache.reduce((acc,guild)=>{ %>
+               <div class="guild-info">+<% acc + guild.memberCount,0%></div>
             
-               <div class="guild-info">+<%=bot.guilds.cache.size%> Guilds</div>
-            
-                 <div class="user-info">+<%=bot.users.cache.reduce(use=> !use.bot)%></div>
+                 <div class="user-info">+ </div>
                 
-                  
+                  <% })   %>
                    </div>
              
              
