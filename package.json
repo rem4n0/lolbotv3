@@ -61,7 +61,8 @@
     "geoip-lite": "^1.4.3",
     "ipware": "^2.0.0",
     "btoa": "^1.2.1",
-    "socket.io": "^4.4.1"
+    "socket.io": "^4.4.1",
+    "typed.js": "^2.0.12"
   },
   "engines": {
     "node": "16.x"

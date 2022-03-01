@@ -32,13 +32,14 @@ animation: fadeIn ease 2s;
 @media screen and (min-width: 500px){
   
   .button-container {
-margin-left: 15px;
+margin-left: 70px;
 margin-top: 50px;
 display: flex;
 
 }
   
   .button-container li{
+    margin-right:30px;
   list-style: none;
 }
   
