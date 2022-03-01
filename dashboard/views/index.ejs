@@ -130,7 +130,7 @@
             
                <div class="guild-info">+<%=bot.guilds.cache.size%> Guilds</div>
             
-                 <div class="user-info">+<%=bot.users.cache.re%></div>
+                 <div class="user-info">+<%=bot.users.cache.reduce(use=> !use.bot)%></div>
                 
                   
                    </div>
