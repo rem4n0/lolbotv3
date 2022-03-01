@@ -4,11 +4,21 @@
      
      
    }
-   
+   .bot-info{
+     
+    line-height:190px;
+     
+   }
    .bot-info .guild-info{
      color: white;
      font-size:22px;
      margin-left:22px;
+     
+   }
+   .bot-info  span{
+     
+     font-size: 22px;
+     color: pink;
      
    }
    .bot-info .user-info{
@@ -25,7 +35,7 @@
     
   <div class="main-container">
    
-      <img  src="https://i.imgur.com/BnLgepd.png"/>
+      <img  src="<%= bot.user.displayAvatarURL()%>"/>
     
     <h3 class="bobo-text"><%= bot.user.username%>
     </h3>
@@ -128,10 +138,11 @@
            
            <div class="bot-info">
           
-              <div class="guild-info">+<%= guild %> </div>
+             <div class="user-info">+<%= guild %> <i class='bx bxs-user'></i> <span>USERS</span></div>
                 
       
-                 <div class="user-info">bot.guilds.cache.size</div>
+                 <div class="guild-info">+<%=bot.guilds.cache.size%>
+                   <i class='bx bxl-discord-alt' ></i> <span>SERVERS</span></div>
                 
                 
                    </div>
