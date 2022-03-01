@@ -6,6 +6,7 @@ app.get("/",(req, res,next)=> {
   res.render("index.ejs", {
     config: config,
     support:config.support,
+    req: req,
     bot: bot,
     user:req.isAuthenticated() ? req.user : null,
   });
