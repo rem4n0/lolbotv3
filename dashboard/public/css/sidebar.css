@@ -149,21 +149,19 @@ background: var(--nilikall);
 }
 .home-section{
 position: relative;
-  left:0;
+  left:0px;
 
   /*height: 100vh;*/
   width: calc(100% - 230px);
   
 
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
  
  .sidebar .home-section .home-content{
     display:flex;
     height: 60px;
-    align-items: center;
-    
-    
+    align-items: center; 
   }
   .sidebar ~ .home-section{
   
@@ -171,26 +169,25 @@ position: relative;
     width: calc(100% - 78px);
   }
   .sidebar.close ~ .home-section{
-    left: 230px;
+    left: 240px;
   
-    width: calc(100% - 230px);
+    width: calc(100% - 240px);
     
   }
  
  .sidebar.close {
   display: block;
   
-   animation: fadeIn ease 3s;
+   animation: fadeIn ease 1s;
  }
  @keyframes fadeIn {
 0% {opacity:0;}
 100% {opacity:1;}
 }
-.home-section .home-content .text{
-  color:var(--nili);
+.home-section .home-content .text i{
+  
+  color:var(--white);
   font-size: 30px;
   
 }
-.home-section .home-content .text{
-font-size: 20px;
-font-weight: 600;}
+

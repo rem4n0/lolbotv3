@@ -1,38 +1,5 @@
  <%- include ('./parts/head.ejs',{bot,user})%>
- <!--<div class="all-background">
-  <div class="up-page">
-    
-              <div class="nav-bar-toggle">
-        <span class="bar">hip</span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
-<div class="icons">
-<div class="icon"><i class="fas fa-arrow-right"></i>
-</div>
-
-</div>
-<script>
-  
-</script>
-  <div class="up-link">
-  <span class="logo"><img src="https://i.imgur.com/BnLgepd.png"/>Bobo website</span>
-     <ul>
-    <li>
-      <a href="about.html">
-      <span><i class="fas fa-info"></i> About</span>
-      </a>
-    </li>
-        <li>
-      <a href="/commands">
-      <span><i class="fas fa-align-center"></i> Commands</span>
-      </a>
-    </li>
-     
-     </div>
-    
-  </div>-->
+ 
   <br><br>
   <div class="fade-in">
     
@@ -40,10 +7,10 @@
    
       <img  src="https://i.imgur.com/BnLgepd.png"/>
     
-    <h3 class="bobo-text"> BoBo
+    <h3 class="bobo-text"><%= bot.user.username%>
     </h3>
     <div class="text-title">
-    <p>BoBo new bot in discord made by BoBo devlopers we use DiscordJs and Mongo db in bot without any lag or any issues  </p>
+    <p><%= bot.user.username%> new bot in discord made by Bobo devlopers we use DiscordJs and Mongo db in bot without any lag or any issues  </p>
     </div>
   </div>
   </div>
@@ -69,8 +36,9 @@
  <br>
   
        <div class="button-container">
+
          <ul>
-         <li><a href"">Discord</a></li>
+         <li><a href"/dc">Discord</a></li>
     <br>
          
         
