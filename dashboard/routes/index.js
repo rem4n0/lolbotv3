@@ -2,11 +2,14 @@ const app = require("express").Router();
 const path = require("path");
 const type = require ('typed.js')
 app.get("/",(req, res,next)=> {
+  
+  const hama = bot.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0) 
   //let data = await Guild.findOne({guildID:req.
   res.render("index.ejs", {
     config: config,
     support:config.support,
     req: req,
+ guild:hama,
     Typed: type,
     bot: bot,
     user:req.isAuthenticated() ? req.user : null,
