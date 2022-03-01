@@ -11,6 +11,12 @@
      margin-left:22px;
      
    }
+   .bot-info .user-info{
+     
+     color: white;
+     font-size:22px;
+     margin-left:22px;
+   }
    
    
    </style>
@@ -123,7 +129,7 @@
            <div class="bot-info">
             
                <div class="guild-info">+<%=bot.guilds.cache.size%> Guilds</div>
-                 <div class="user-info"><%= bot.users.cache.reduce(user=> user,0)%></div>
+                 <div class="user-info">+<%= bot.users.cache.reduce(acc=> acc,0)%></div>
                    </div>
              
              
