@@ -20,6 +20,7 @@ app.post("/dashboard/guild/:guildID", global.checkAuth, async (req,res) => {
   
       let rbody = req.body;
 let data = await Guild.findOne({guildID: req.params.guildID})
+
 if(data){
   
   data.prefix= rbody["prefix"];
@@ -28,7 +29,8 @@ if(data){
   
 }
 data.save();
-res.redirect
+res.redirect(`?success=true&message=Your changes have been successfully applied .&guildID=${req.params.guildID}`)
+
   
 })
 module.exports = app;
