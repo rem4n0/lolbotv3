@@ -380,7 +380,7 @@ border-radius: 30px;
 
 .contact-form{
 
-   background: var(--grey);
+   /*background: var(--grey);*/
     margin-top: 10%;
     margin-bottom: 5%;
     width: 70%;
@@ -456,6 +456,12 @@ border-radius: 30px;
 }
 .contact-form label {
   color: #fff;
+}
+.contact-form label i{
+  font-size:25px;
+  line-height:20px;
+  
+  
 }
 
 /****---------end--------------***/

@@ -163,7 +163,7 @@ position: relative;
     height: 60px;
     align-items: center; 
   }
-  .sidebar ~ .home-section{
+  .sidebar + .home-section{
   
     left:0px;
     width: calc(100% - 78px);
