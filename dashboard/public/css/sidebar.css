@@ -188,7 +188,7 @@ position: relative;
 0% {opacity:0;}
 100% {opacity:1;}
 }
- .sidebar .home-section .home-content .text i{
+.home-section .home-content .text i{
   position: fixed;
   color:var(--white);
   font-size: 30px;
