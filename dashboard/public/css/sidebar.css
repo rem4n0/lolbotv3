@@ -143,11 +143,15 @@ background: var(--nilikall);
   background: var(--nili);
   padding: 10px;
 }
+.sidebar .nav-list .profile-detail .profile-name i{
+  font-size: 37px;
+  color:var(--white);
+  margin-left: 90px;}
 
 .sidebar .nav-list .profile-detail .profile-name {
   margin-right:14px;
   color:var(--white);
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 500;
 }
 .home-section{
@@ -194,6 +198,8 @@ position: relative;
   position: fixed;
   color:var(--white);
   font-size: 30px;
+   top:8px;
+   left:5px;
   
 }
 
@@ -208,6 +214,6 @@ position: relative;
 
   width:50px;
   height:50px;
-  top:0;
+  top:0px;
   border-radius:50%;
 }
