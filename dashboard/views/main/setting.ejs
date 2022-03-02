@@ -80,18 +80,7 @@
 
     if(urlParams.has('success') && urlParams.get('success')){
       
-      /*
-    Swal.fire({
-     icon: 'success',
-     title: 'Succesfull...',
-     closeOnConfirm: false,
-     text: urlParams.get('message'),
-     footer: 'Copyright 2021  - All right reserved.'
-    }).then((result) => {
-  if (result.isConfirmed) {
-    window.location.href = `/dashboard/guild/<%=guild.id%>`;
-  }
-})*/
+
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -108,12 +97,12 @@ Toast.fire({
   icon: 'success',
   title: 'applied successfully',
   text:urlParams.get('message'),
-  footer: Date.now() +'BoBo Dashboard',
+  footer: new Date() + '<br>' + 'BoBo Dashboard',
   
 }).then(()=>{
   window.location.href ='/dashboard/guild/<%=guild.id%>';
 })
-    }
+}
     if(urlParams.has('error') && urlParams.get('error')){
     Swal.fire({
      icon: 'error',
