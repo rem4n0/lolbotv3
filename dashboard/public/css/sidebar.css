@@ -18,7 +18,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }*/
 .sidebar{
-  
+  z-index:1;
   top:0;
   left:0;
   width: 240px;
@@ -139,11 +139,13 @@ background: var(--nilikall);
   border-radius: 16px;
   object-fit: cover;
   height: 52px;
-  margin: 0 14px 0 13px;
+  margin-right:25px;
   background: var(--nili);
   padding: 10px;
 }
+
 .sidebar .nav-list .profile-detail .profile-name {
+  margin-right:14px;
   color:var(--white);
   font-size: 18px;
   font-weight: 500;
@@ -159,7 +161,6 @@ position: relative;
  
  .sidebar .home-section .home-content{
    position: absolute;
-   
     display:flex;
     height: 60px;
     align-items: center; 
@@ -187,7 +188,8 @@ position: relative;
 0% {opacity:0;}
 100% {opacity:1;}
 }
-.sidebar .home-section .home-content .text i{
+ .sidebar .home-section .home-content .text i{
+  position: fixed;
   color:var(--white);
   font-size: 30px;
   
