@@ -18,6 +18,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }*/
 .sidebar{
+  
   top:0;
   left:0;
   width: 240px;
@@ -163,7 +164,7 @@ position: relative;
     height: 60px;
     align-items: center; 
   }
-  .sidebar + .home-section{
+  .sidebar .home-section{
   
     left:0px;
     width: calc(100% - 78px);
@@ -176,6 +177,8 @@ position: relative;
   }
  
  .sidebar.close {
+   pointer-events:none;
+   
   display: block;
   
    animation: fadeIn ease 1s;
@@ -184,7 +187,7 @@ position: relative;
 0% {opacity:0;}
 100% {opacity:1;}
 }
-.home-section .home-content .text i{
+.sidebar .home-section .home-content .text i{
   color:var(--white);
   font-size: 30px;
   
