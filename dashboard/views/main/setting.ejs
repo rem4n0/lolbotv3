@@ -79,6 +79,8 @@
 
 
     if(urlParams.has('success') && urlParams.get('success')){
+      
+      /*
     Swal.fire({
      icon: 'success',
      title: 'Succesfull...',
@@ -89,6 +91,27 @@
   if (result.isConfirmed) {
     window.location.href = `/dashboard/guild/<%=guild.id%>`;
   }
+})*/
+      const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 4000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseleave', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'applied successfully',
+  text:urlParams.get('message'),
+  footer: Date.now() +'BoBo Dashboard',
+  
+}).then(()=>{
+  window.location.href ='/dashboard/guild/<%=guild.id%>';
 })
     }
     if(urlParams.has('error') && urlParams.get('error')){
