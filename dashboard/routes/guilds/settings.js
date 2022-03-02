@@ -19,7 +19,7 @@ app.get("/dashboard/guild/:guildID",global.checkAuth,async(req, res,next)=> {
 app.post("/dashboard/guild/:guildID", global.checkAuth, async (req,res) => {
   
       let rbody = req.body;
-let data = await Guild.findOneAndUpdate({guildID: req.params.guildID})
+let data = await Guild.findOne({guildID: req.params.guildID})
 if(data){
   
   data.prefix= rbody["prefix"];
@@ -28,7 +28,7 @@ if(data){
   
 }
 data.save();
-
+res.redirect
   
 })
 module.exports = app;
