@@ -1,106 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
-
-
-:root{
+:root {
   --white-text: white;
-  --black: #18191C;
+  --black: #18191c;
   --red-text: red;
-  --nili:#00031C;
-  --nilitox:#0D0027;
-  --grey:#23272a;
-  
+  --nili: #00031c;
+  --nilitox: #0d0027;
+  --grey: #23272a;
 }
 
-
-
-*{
- box-sizing: border-box;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-image:  url('../img/background.jpeg');
+  background-image: url("../img/background.jpeg");
   animation: fadein 30s ease-out infinite;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-blend-mode: overlay;
-  font-family: "Quicksand",sans-serif;
-
+  font-family: "Quicksand", sans-serif;
 }
 
-@keyframes hama{
- from{ background: gold;
- right: 10px;
-   
- }
- to{
-   background: var(--black);
-   right: 100px;
- }
+@keyframes hama {
+  from {
+    background: gold;
+    right: 10px;
+  }
+  to {
+    background: var(--black);
+    right: 100px;
+  }
 }
 
-.all-header{
-  
-  color:var(--white-text);
+.all-header {
+  color: var(--white-text);
   text-align: center;
-  
-  
 }
-.up-page{
+.up-page {
   position: fixed;
   display: inline-block;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 40px;
- height:100%;
+  height: 100%;
   /*background-color: var(--nav-color);*/
-  
 }
-.up-page .up-link img{
+.up-page .up-link img {
   width: 40px;
   height: 40px;
-
 }
-  
 
-
-
-.up-link{
+.up-link {
   position: absolute;
   display: none;
   height: 100%;
   width: 200px;
- 
-  
 }
 
-
-.up-link a{
- 
+.up-link a {
   text-decoration: none;
-  
 }
-.up-page .up-link .logo{
-  color: var(--red-text)
+.up-page .up-link .logo {
+  color: var(--red-text);
 }
-.up-page .up-link span{
-  color:var(--white-text) ;
- font-size: 20px;
-text-align: center;
+.up-page .up-link span {
+  color: var(--white-text);
+  font-size: 20px;
+  text-align: center;
 
-line-height: 70px;
- 
+  line-height: 70px;
 }
-.up-page .up-link li{
-  
+.up-page .up-link li {
   list-style: none;
-  
- }
- 
+}
+
 .up-page .up-link li:hover {
   margin: 10px;
   margin-right: 20px;
@@ -112,72 +90,59 @@ line-height: 70px;
   border-radius: 5px;
 }
 
-.up-page:hover .up-link{
-  
+.up-page:hover .up-link {
   display: block;
-  
+
   background-color: var(--black);
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 }
 
 /*-+++-+------ banner png*/
-.main-container{
- 
+.main-container {
   width: 350px;
   height: 200px;
-
-
-
 }
-.main-container img{
+.main-container img {
   width: 150px;
   height: 150px;
   align-items: center;
- margin-left: 30px;
- border-radius: 40px;
+  margin-left: 30px;
+  border-radius: 40px;
 }
-  /*------text in logo*/
-  .main-container .bobo-text{
-    text-align: left;
-    font-size: 40px;
-    margin-left: 150px;
-    text-shadow: 10px 10px 10px 10px rgba(0,0,0.5);
-    color: var(--white-text);
-    
-  }
-  .main-container .text-title p{
-    color: var(--white-text);
-   display: inline-block;
-    margin-left: 50px;
-    font-size: 16px;
-  }
-  
-  /**----media*-*/
-  @media screen and (min-width: 500px){
- .main-container{
-   width: 450px;
- }
-    
-.main-container {
-  margin-left: 10rem;
-  
+/*------text in logo*/
+.main-container .bobo-text {
+  text-align: left;
+  font-size: 40px;
+  margin-left: 150px;
+  text-shadow: 10px 10px 10px 10px rgba(0, 0, 0.5);
+  color: var(--white-text);
 }
-.main-container .bobo-text{
-  font-size: 60px;
+.main-container .text-title p {
+  color: var(--white-text);
+  display: inline-block;
+  margin-left: 50px;
+  font-size: 16px;
 }
-.main-container .text-title{
-   margin-left: 3em;
-   display: block;
-   font-size: 30px;
-}
- 
 
- 
- 
- 
- 
-     }/*
+/**----media*-*/
+@media screen and (min-width: 500px) {
+  .main-container {
+    width: 450px;
+  }
+
+  .main-container {
+    margin-left: 10rem;
+  }
+  .main-container .bobo-text {
+    font-size: 60px;
+  }
+  .main-container .text-title {
+    margin-left: 3em;
+    display: block;
+    font-size: 30px;
+  }
+} /*
      @media screen and(min-heigh: 400px){
        
        .main-container .text-title{
@@ -192,17 +157,14 @@ line-height: 70px;
        
        
      }*/
-     /*---------*/
-    
-    
-    
-    
-  /*---max text*/
-  .banner-png .max-text{
-    display: none;
-  }
-  
-  /*---wave--------*/
+/*---------*/
+
+/*---max text*/
+.banner-png .max-text {
+  display: none;
+}
+
+/*---wave--------*/
 /*
 .wave-page {
   width: 100%;
@@ -214,169 +176,151 @@ line-height: 70px;
 /*------text contet***----*/
 
 @keyframes anime {
-  0% {background-color: var(--nili) ;
-  background-position: 0% 50%;
-  
+  0% {
+    background-color: var(--nili);
+    background-position: 0% 50%;
   }
- 50% {background-color: var(--nilitox);
-  background-position: 100% 50%;
- 
- }
-  100%{
-   background-color: var(--black);
-   background-position: 0% 50%;
- }
+  50% {
+    background-color: var(--nilitox);
+    background-position: 100% 50%;
+  }
+  100% {
+    background-color: var(--black);
+    background-position: 0% 50%;
+  }
 }
-
-
-
-
 
 /**-----fadin*/
-@keyframes fadein{
-  0% { background-color:var(--nili);
-  background-position: 0% 50%;
+@keyframes fadein {
+  0% {
+    background-color: var(--nili);
+    background-position: 0% 50%;
   }
-  50% {background-color: var(--nilitox);
-  background-position: 100% 50%;
+  50% {
+    background-color: var(--nilitox);
+    background-position: 100% 50%;
   }
-  
-  
- 100%{
-   background-color: var(--black);
-   background-position: 0% 50%;
- }
-  
+
+  100% {
+    background-color: var(--black);
+    background-position: 0% 50%;
+  }
 }
- 
+
 /*-----accoutn style----*/
 
 .boxs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-    position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  position: relative;
 }
 
 .boxs .box {
-    height: 100px;
-    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
-    position: relative;
-    border-radius: 4px;
-    color: white;
-  
+  height: 100px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  border-radius: 4px;
+  color: white;
   transition: 0.4s ease-out;
 }
 
 .boxs .box1 {
-    background: url("https://imgur.com/tm2VIt4.png");/*linear-gradient(150deg, #5A57C9, #44409A);*/
-    background-position: center;
-  width:400px;
-  left:10px;
-    background-size: 100%;
+  background: url("https://imgur.com/tm2VIt4.png");
+  background-position: center;
+  width: 400px;
+  left: 10px;
+  background-size: 100%;
 }
 
 .boxs .box2 {
-    background: url("https://imgur.com/sJn0yHt.png");
-  width:400;
-  left:10px;
-    background-position: center;
-    background-size: 100%;
+  background: url("https://imgur.com/sJn0yHt.png");
+  width: 400;
+  left: 10px;
+  background-position: center;
+  background-size: 100%;
 }
 
 .boxs .box3 {
-    background: url("https://imgur.com/hLsB4u6.png");
-  width:400px;
-  left:10px;
-    background-position: center;
-    background-size: 100%;
+  background: url("https://imgur.com/hLsB4u6.png");
+  width: 400px;
+  left: 10px;
+  background-position: center;
+  background-size: 100%;
 }
-.boxs .box4{
-  left:10px;
-  width:400px;
-    background: url("https://imgur.com/OxWqyTN.png");
-  
-    background-position: center;
-    background-size: 100%;
+.boxs .box4 {
+  left: 10px;
+  width: 400px;
+  background: url("https://imgur.com/OxWqyTN.png");
+  background-position: center;
+  background-size: 100%;
 }
-
-
-
 
 .boxs .box .containerB {
-    position: absolute;
-    padding: 0 0 0 10px;
+  position: absolute;
+  padding: 0 0 0 10px;
   /* color: var(--text);*/
-  color: #E8E7E7
-  
+  color: #e8e7e7;
 }
 
 .boxs .box .containerB h3.bigText {
-    font-size: 35px;
-    /*position: relative;
+  font-size: 35px;
+  /*position: relative;
     top: -5px; */
 }
 
 .boxs .box .containerB h3.bigText input {
-    font-size: 35px;
-    background: transparent;
-    color: #E9F2FA;
-    outline: none;
-    border: none;
-     width: 150px;
+  font-size: 35px;
+  background: transparent;
+  color: #e9f2fa;
+  outline: none;
+  border: none;
+  width: 150px;
 }
 
 .boxs .statuses .containerB h3.bigText {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .boxs .box .containerB .heading {
-    font-size: 17px;
-    font-weight: 500;
-    position: relative;
-    top: -10px;
-  color:#E9F2FA;
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+  top: -10px;
+  color: #e9f2fa;
 }
 
 .boxs .statuses .containerB .heading {
-    top: -5px;
+  top: -5px;
 }
 
 .boxs .box .containerB .boxText {
-    font-size: 13px;
-    position: relative;
-    top: -10px;
+  font-size: 13px;
+  position: relative;
+  top: -10px;
 }
-  .servers{
-    position: static;
-    margin-left:150px;
-    
+.servers {
+  position: static;
+  margin-left: 150px;
 }
 /*-------------all views commands css in here--++++*/
 
-  
-  
-.container{
-margin: auto auto;
-border-radius: 30px;
+.container {
+  margin: auto auto;
+  border-radius: 30px;
 }
 
-
-
-.container form{
- box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.5);
- border-radius: 30px;
-  
-  
+.container form {
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
 }
 
-.contact-form{
-
-   /*background: var(--grey);*/
-    margin-top: 10%;
-    margin-bottom: 5%;
-    width: 70%;
+.contact-form {
+  /*background: var(--grey);*/
+  margin-top: 10%;
+  margin-bottom: 5%;
+  width: 70%;
 }
 .contact-form input {
   background-color: #2c2f33;
@@ -394,7 +338,7 @@ border-radius: 30px;
   border: none;
 }
 .contact-form input:focus {
-  background-color:#2c2f33;
+  background-color: #2c2f33;
   color: #fff;
   border: none;
 }
@@ -403,58 +347,54 @@ border-radius: 30px;
   color: rgb(73, 73, 73);
   border: none;
 }
-.contact-form .form-control{
-    border-radius:1rem;
+.contact-form .form-control {
+  border-radius: 1rem;
 }
-.contact-image{
-    text-align: center;
+.contact-image {
+  text-align: center;
 }
-.contact-image i{
-    border-radius: 6rem;
-    width: 11%;
-    margin-top: -7%;
+.contact-image i {
+  border-radius: 6rem;
+  width: 11%;
+  margin-top: -7%;
 }
-.contact-form form{
-    padding: 14%;
+.contact-form form {
+  padding: 14%;
 }
-.contact-form form .row{
-    margin-bottom: -7%;
+.contact-form form .row {
+  margin-bottom: -7%;
 }
-.contact-form h3{
-    margin-bottom: 8%;
-    margin-top: -10%;
-    text-align: center;
-    color: #0062cc;
+.contact-form h3 {
+  margin-bottom: 8%;
+  margin-top: -10%;
+  text-align: center;
+  color: #0062cc;
 }
 .contact-form .btnContact {
-    width: 50%;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.5%;
-    background: #dc3545;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
+  width: 50%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5%;
+  background: #dc3545;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
 }
-.btnContactSubmit
-{
-  
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    color: #fff;
-    background-color: #0062cc;
-    border: none;
-    cursor: pointer;
+.btnContactSubmit {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  color: #fff;
+  background-color: #0062cc;
+  border: none;
+  cursor: pointer;
 }
 .contact-form label {
   color: #fff;
 }
-.contact-form label i{
-  font-size:25px;
-  line-height:20px;
-  
-  
+.contact-form label i {
+  font-size: 25px;
+  line-height: 20px;
 }
 
 /****---------end--------------***/

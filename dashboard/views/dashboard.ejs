@@ -1,4 +1,4 @@
-<%- include ('./parts/head.ejs',{bot,user})%>
+<%- include('./parts/head.ejs',{bot,user})%>
   <h3 class="all-header">Welcome to my dashboard </h3>
 
   
@@ -17,8 +17,8 @@
   
 <div class="box2 box">
     <div class="containerB">
-     <h3 class="bigText"><i class="fa fa-users"></i><%= data.info%></h3>
-      <p class="heading">Joins last 7 Days</p>
+     <h3 class="bigText"><i class="fa fa-users"></i></h3>
+      <p class="heading"><%=data.info.toString()%></p>
   </div>
 </div>
 
