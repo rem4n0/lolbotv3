@@ -270,7 +270,7 @@ line-height: 70px;
 }
 
 .boxs .box1 {
-    background: url("https://imgur.com/YAEatym.png");/*linear-gradient(150deg, #5A57C9, #44409A);*/
+    background: url("https://imgur.com/tm2VIt4.png");/*linear-gradient(150deg, #5A57C9, #44409A);*/
     background-position: center;
   width:400px;
   left:10px;
@@ -278,33 +278,25 @@ line-height: 70px;
 }
 
 .boxs .box2 {
-    background: url("
+    background: url("https://imgur.com/sJn0yHt.png");
+  width:400;
+  left:10px;
     background-position: center;
     background-size: 100%;
 }
 
 .boxs .box3 {
-    background: url("https://pogy.xyz/cards/10.svg"), linear-gradient(150deg, #ABDCFFa5, #1BA0FFa5);
+    background: url("https://imgur.com/hLsB4u6.png");
+  width:400px;
+  left:10px;
     background-position: center;
     background-size: 100%;
 }
-.boxs .box5 {
-    background: url("https://pogy.xyz/card/10.svg"), linear-gradient(150deg, #31A231, #90EE90);
-    background-position: center;
-    background-size: 100%;
-}
-.boxs .box6 {
-    background: url(""), linear-gradient(150deg, #8b0000,  #FF0000);
-    background-position: center;
-    background-size: 100%;
-}
-
-.boxs .box4 .containerB .heading, .boxs .box4 .container .boxText {
-    pointer-events: none;
-}
-
-.boxs .box4 {
-    background: url("https://pogy.xyz/cards/4.svg"), linear-gradient(150deg, #48435A, #39384A);
+.boxs .box4{
+  left:10px;
+  width:400px;
+    background: url("https://imgur.com/OxWqyTN.png");
+  
     background-position: center;
     background-size: 100%;
 }
