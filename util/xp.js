@@ -6,8 +6,8 @@
        
           
           
-       let res = await User.findOneAndUpdate({userID: message.author.id})||
-           await new User({userID: message.author.id}).save();
+       let res = await User.findOne({userID: message.author.id}) 
+          await new User({userID: message.author.id}).save();
   const max = 205;
   const min = 10;
   const points = Math.floor(Math.random() * (max-min)) + min;
@@ -55,7 +55,7 @@
   // PROCESS GLOBAL XP
   // Add 3xp xp add on global based xp
   // Increment level if next is less than the current xp
-  res.data.global_xp = res.data.global_xp + 3;
+  res.data.global_xp = res.data.global_xp + 100;
   while (_xp.global.next < 1){
     res.data.global_level++
   };
