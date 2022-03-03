@@ -1,11 +1,11 @@
 const app = require("express").Router();
 const path = require("path");
 
-app.get("/dashboard/guild/:guildID",global.checkAuth,async(req, res,next)=> {
+app.get("/dashboard/guild/:guildID/xpsystem",global.checkAuth,async(req, res,next)=> {
   
   let data = await Guild.findOne({guildID: req.params.guildID})
   const guild = bot.guilds.cache.get(req.params.guildID);
-  res.render("./main/setting.ejs", {
+  res.render("./main/xpsystem.ejs", {
     config: config,
     support:config.support,
     data:data,
@@ -16,15 +16,13 @@ app.get("/dashboard/guild/:guildID",global.checkAuth,async(req, res,next)=> {
   })});
 
 
-app.post("/dashboard/guild/:guildID", global.checkAuth, async (req,res) => {
+app.post("/dashboard/guild/:guildID/xpsystem", global.checkAuth, async (req,res) => {
   
       let rbody = req.body;
 let data = await Guild.findOne({guildID: req.params.guildID})
-if (String(rBody['prefix']).split(',').length > 5) return res.redirect("?error=true&message=You cant add up ..")
 if(data){
   
-  data.prefix= rbody["prefix"];
-  data.xp.onoff= rbody["xp"];
+  
   data.channels.xp= rbody["xpchannel"]
   
 }
