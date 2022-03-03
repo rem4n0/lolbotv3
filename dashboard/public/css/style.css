@@ -265,19 +265,20 @@ line-height: 70px;
     position: relative;
     border-radius: 4px;
     color: white;
-
-      transition: 0.4s ease-out;
+  
+  transition: 0.4s ease-out;
 }
 
 .boxs .box1 {
-    background: url("https://pogy.xyz/cards/4.svg"), linear-gradient(150deg, #5A57C9, #44409A);
+    background: url("https://imgur.com/YAEatym.png");/*linear-gradient(150deg, #5A57C9, #44409A);*/
     background-position: center;
+  width:400px;
+  left:10px;
     background-size: 100%;
 }
 
 .boxs .box2 {
-    background: url("https://pogy.xyz/cards/8.svg"), linear-gradient(150deg, #FFD3A5a5, #FD6F88a5);
-    ;
+    background: url("
     background-position: center;
     background-size: 100%;
 }
