@@ -55,7 +55,7 @@
   // PROCESS GLOBAL XP
   // Add 3xp xp add on global based xp
   // Increment level if next is less than the current xp
-  res.data.global_xp = res.data.global_xp + 100;
+  res.data.global_xp = res.data.global_xp + 10;
   while (_xp.global.next < 1){
     res.data.global_level++
   };
