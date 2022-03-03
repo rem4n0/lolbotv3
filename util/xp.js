@@ -3,7 +3,7 @@
         async function xp(message,bot,guild,user){
          /// let guild = await Guild.findOne({guildID: message.guild.id})
                           
-          
+       
           
           
        let res = await User.findOneAndUpdate({userID: message.author.id})||
@@ -58,16 +58,7 @@
   res.data.global_xp = res.data.global_xp + 3;
   while (_xp.global.next < 1){
     res.data.global_level++
-    /*
-if(guild){
-  
-  let channel = bot.channels.cache.find(c=>c.id===guild.channels.xp)
-  
-    channel.send({content:`Congratulations ${message.author.toString()}, your leveled up to ${serverdata.level}!!`})
-}else{
-  message.channel.send({content:`Congratulations ${message.author.toString()}, you leveled up to ${serverdata.level}!!`})
-
-  }*/};
+  };
 
   // PROCESS LOCAL XP
   // Add points which was previously randomized on server[local] based xp
@@ -78,14 +69,18 @@ if(guild){
 
     if(guild){
       let xpmessage = guild.xp.message
+      .replace(/{user}/, message.author.toString())
+      .replace(/{level}/, serverdata.level);
       let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
     
      if(channel){channel.send({content:xpmessage}).catch(()=>{})
        
        
      
-    }else{
-let xpmessage = guild.xp.message
+    }else{/*
+  let xpmessage = guild.xp.message
+  .replace(/{user}/, message.author.toString())
+  .replace(/{level}/, serverdata.level);*/
     return message.channel.send({content:xpmessage}).catch(()=>{})
 
   }}}
