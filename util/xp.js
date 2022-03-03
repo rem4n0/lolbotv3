@@ -2,15 +2,18 @@
        /// xp(message)
         async function xp(message,bot,guild,user){
          /// let guild = await Guild.findOne({guildID: message.guild.id})
-                                          
+                          
+          
+          
+          
+       let res = await User.findOneAndUpdate({userID: message.author.id})||
+           await new User({userID: message.author.id}).save();
   const max = 205;
   const min = 10;
   const points = Math.floor(Math.random() * (max-min)) + min;
 //const guild = await Guild.findOne({guildID: message.guild.id})
 
-  let res = await User.findOneAndUpdate({ userID: message.author.id }) ||
-  await new User({ userID: message.author.id }).save();
-
+  
   // Check if the data returned is a valid
   if (!(res instanceof User)){
     return promise.resolve({ xpAdded: false, reason: 'DB_ERROR'})
@@ -72,15 +75,16 @@ if(guild){
   serverdata.xp = serverdata.xp + points;
   while (_xp.local.next < 1){
     serverdata.level++
+
     if(guild){
       let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
-      
-     if(channel){channel.send({content:`Congratulations ${message.author.tag}, your leveled up to ${serverdata.level}!!`}).catch(()=>{})
+      const messagexp = guild.xp.message || ` Congratulations ${message.author.toString}, your level up to ${serverdata.level}`;
+     if(channel){channel.send({content:messagexp}).catch(()=>{})
        
        
      }}else{
-  const message =  
-    return message.channel.send({content:`Congratulations ${message.author.tag}, your leveled up to ${serverdata.level}!!`}).catch(()=>{})
+  const messagexp = guild.xp.message || `Congratulations ${message.author.tag},your level up to${serverdata.level}`; 
+    return message.channel.send({content:messagexp}).catch(()=>{})
 
   }}
 
