@@ -227,6 +227,7 @@ body {
 }
 
 .boxs .box1 {
+  border-radius:20px;
   background: url("https://imgur.com/tm2VIt4.png");
   background-position: center;
   width: 400px;
