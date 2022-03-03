@@ -79,7 +79,7 @@ if(guild){
        
        
      }}else{
-       
+  const message =  
     return message.channel.send({content:`Congratulations ${message.author.tag}, your leveled up to ${serverdata.level}!!`}).catch(()=>{})
 
   }}

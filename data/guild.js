@@ -8,7 +8,10 @@ const schema = mongoose.Schema({
     default: false
   },
   xp: {
-    onoff: { type: String, default: "on" }
+    onoff: { type: String, default: "on" },
+    message: {type:String, default: null},
+    max:{type: Number, default: 3},
+    min:{type: Number, default:1},
   },
   voice:{ type: Array, default:[]},
   premium: {

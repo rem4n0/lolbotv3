@@ -20,13 +20,20 @@ app.post("/dashboard/guild/:guildID/xpsystem", global.checkAuth, async (req,res)
   
       let rbody = req.body;
 let data = await Guild.findOne({guildID: req.params.guildID})
+
 if(data){
-  
-  
+  data.xp.message= rbody["xpmessage"]
   data.channels.xp= rbody["xpchannel"]
+  data.xp.max =rbody["xpmax"]
+  data.xp.min= rbody["xpmin"]
+  
   
 }
+  
+  
 data.save();
+  
+  
 res.redirect(`?success=true&message=Your changes have been successfully applied .&guildID=${req.params.guildID}`)
 
   
