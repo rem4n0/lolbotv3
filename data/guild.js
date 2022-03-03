@@ -9,7 +9,7 @@ const schema = mongoose.Schema({
   },
   xp: {
     onoff: { type: String, default: "on" },
-    message: {type:String, default: null},
+    message: {type:String, default: "Congratulations ${message.author.toString()}, your leveled up to ${serverdata.level}!!"},
     max:{type: Number, default: 3},
     min:{type: Number, default:1},
   },
