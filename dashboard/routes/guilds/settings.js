@@ -20,7 +20,7 @@ app.post("/dashboard/guild/:guildID", global.checkAuth, async (req,res) => {
   
       let rbody = req.body;
 let data = await Guild.findOne({guildID: req.params.guildID})
-if (String(rBody['prefix']).split(',').length > 5) return res.redirect("?error=true&message=You cant add up ..")
+if ((rbody['prefix']).length > 5) return res.redirect("?error=true&message=You cant add up 5 words to prefix..")
 if(data){
   
   data.prefix= rbody["prefix"];

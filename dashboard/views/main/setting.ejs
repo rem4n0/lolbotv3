@@ -96,23 +96,23 @@ Toast.fire({
   icon: 'success',
   title: 'applied successfully',
   text:urlParams.get('message'),
-  footer: new Date() + '<br>' + 'BoBo Dashboard',
+  footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
 }).then(()=>{
   window.location.href ='/dashboard/guild/<%=guild.id%>';
 })
 }
     if(urlParams.has('error') && urlParams.get('error')){
-    Swal.fire({
-     icon: 'error',
-     title: 'Oops...',
-     text: urlParams.get('message'),
-     footer: 'Copyright 2021   - All right reserved.'
-    }).then((result) => {
-  if (result.isConfirmed) {
-    window.location.href = '/dashboard/guild/<%=guild.id%>';
-  }    
+  Toast.fire({
+  icon: 'error',
+  title: 'opps...',
+  text:urlParams.get('message'),
+  footer:`<%=guild.name%>` + 'BoBo Dashboard',
+  
+}).then(()=>{
+  window.location.href ='/dashboard/guild/<%=guild.id%>';
 })
+
     }
    </script>
 <%- include ('../parts/foot')%>
