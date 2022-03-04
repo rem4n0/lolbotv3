@@ -18,7 +18,7 @@ app.get("/dashboard/guild", global.checkAuth, async (req,res) => {
   
   
   
-    res.render("main/guildss.ejs", {
+    res.render("guilds/guilds.ejs", {
         bot: bot,
         path: req.path,
         config: global.config,

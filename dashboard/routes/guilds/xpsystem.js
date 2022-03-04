@@ -5,7 +5,7 @@ app.get("/dashboard/guild/:guildID/xpsystem",global.checkAuth,async(req, res,nex
   
   let data = await Guild.findOne({guildID: req.params.guildID})
   const guild = bot.guilds.cache.get(req.params.guildID);
-  res.render("./main/xpsystem.ejs", {
+  res.render("./guild/xpsystem.ejs", {
     config: config,
     support:config.support,
     data:data,
