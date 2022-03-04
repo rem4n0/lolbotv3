@@ -227,4 +227,10 @@ background: var(--nilikall);
     filter: grayscale(100%); 
   
 }
-.sidebar.g
+.sidebar.guild .nav-list .list li a:hover img{
+  --webkit-filter: none;
+  filter: none;
+  
+  
+  
+}
