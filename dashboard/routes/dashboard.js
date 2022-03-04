@@ -16,7 +16,7 @@ const user_rank = await User.find({})
     support:config.support,
     data:data,
 user_rank:user_rank,
-    flag:flags,
+    //flag:flags,
       res:res,
         perms: Discord.Permissions,
         guildID: req.params.guildID,
