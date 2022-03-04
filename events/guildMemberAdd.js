@@ -29,7 +29,7 @@ module.exports = class {
 		const guildData = await Guild.findOne({ guildID: member.guild.id });
 		member.guild.data = guildData;
 
-		const memberData = await Member.findOne({ id: member.id, guildID: member.guild.id });
+		const memberData = await Mute.findOne({ id: member.id, guildID: member.guild.id });
 		if(memberData.mute.muted && memberData.mute.endDate > Date.now()){
 			member.guild.channels.cache.forEach((channel) => {
 				channel.permissionOverwrites.edit(member.id, {

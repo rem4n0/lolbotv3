@@ -32,7 +32,6 @@ global.Owner = require("./data/owner.js");
 global.Prime = require("./data/prime.js");
 global.Mute = require("./data/mute.js");
 global.Site= require("./data/analysts.js");
-global.Member(
 global.News = require("./data/news.js");
 ///global.Maintenance = require("./data/maintenance.js");
 global.Black = require("./data/blacklist");
