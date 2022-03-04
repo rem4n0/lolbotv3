@@ -1,69 +1,31 @@
-<%- include ('../parts/meta.ejs')%>
+<%- include ('./meta.ejs')%>
   
     
-  <div class="sidebar guild">
-  
+  <div class="sidebar">
+  <div class="logo-detail">
  <div class="nav-list">
-   
-   
-   <% user.guilds.forEach(guild => {
-  
- const permsOnGuild = new perms(guild.permissions_new);
- if(!permsOnGuild.has("MANAGE_GUILD")) {
- return;
- }
-%>
-<% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=70";
-} else {
- iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
-}
-%>
-
- 
-  <% if(bot.guilds.cache.get(guild.id)) { %>
-   
    <ul class="list">
      
      <li>
           
         <div class="icon">
                
-      <a href="/dashboard/guild/<%=guild.id%>">
-        <img src="<%= iconurl %>"/>
-        
-        
-         
+      <a href="/dashboard/<%=guild.id%>/xp">
+        <i class='bx bx-grid-alt'></i>
+         <span class="link_name">XP SYSTEM</span>
                
   
        </a>
  
        
        </div>
-       
-       
-       
-       <!--
- <ul class="sub-menu">
-          <li>
-            <a href="/dashboard/guilds">SETTING</a>
-          </li>
-                    <li>
-            <a href="/dashboard/user">XP SYSTEM</a>
-          </li>
-                    <li>
-            <a href="/dashboard//logs">LOG SYSTEM</a>
-          </li>
-        </ul>-->
-        
      </li>
-       <!--
           <li>
         <div class="icon">
                
-      <a href="/about">
+      <a href="/dashboard/<%=guild.id%>/welcome">
         <i class='bx bx-info-circle' ></i>
-         <span class="link_name">information</span>
+         <span class="link_name">WELCOME SYSTEM</span>
                
 
        </a>
@@ -76,9 +38,9 @@
      <li>
         <div class="icon">
                
-      <a href="/partner">
+      <a href="/dashboard/<%=guild.id%>/log">
         <i class='bx bxs-hand' ></i>
-         <span class="link_name">partners</span>
+         <span class="link_name">LOGS SYSTEM</span>
                
 
        </a>
@@ -91,9 +53,9 @@
      <li>
         <div class="icon">
                
-      <a href="#">
+      <a href="/">
         
-         <span class="link_name"></span>
+         <span class="link_name">HOME</span>
                
 
        </a>
@@ -104,6 +66,7 @@
         
      </li>
 
+     
 
    <% if(user){%>
    
@@ -117,18 +80,12 @@
          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
        <div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
+         <div class="profile-badge"></div>
      </div>
      </li>
      <% }%>
-       <% if(!user){%>
-         <div class="profile-detail">
-           <div class="profile-content">
-             <div class="profile-name">login<a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
-             <% }%>-->
      </ul>
-    <% }%>
-   <% })%>
+   
            </div>
          </div>
          </div>
