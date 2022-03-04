@@ -25,6 +25,17 @@
   background: var(--nili);
 }
 
+.sidebar.guild{
+z-index:1;
+  top:-10%;
+  left:0;
+  width:100px;
+  height:100%;
+  display:none;
+  position: fixed;
+  background:var(--nili);
+  
+}
 .sidebar .logo-name {
   color: var(--white);
   font-size: 22px;

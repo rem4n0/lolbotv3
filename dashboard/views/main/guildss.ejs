@@ -1,11 +1,8 @@
 <%- include ('../parts/meta.ejs')%>
   
     
-  <div class="sidebar">
-  <div class="logo-detail">
-   <!-- <img src="<%=bot.user.displayAvatarURL()%>"/>-->
-    <p class="logo-name">BoBo list</p>
-  </div>
+  <div class="sidebar guild">
+  
  <div class="nav-list">
    
    
@@ -33,8 +30,9 @@
         <div class="icon">
                
       <a href="/dashboard/guild/<%=guild.id%>">
+        <img style="width:80px; margin-right:px; height:80px;border-radius:50%;"src="<%= iconurl %>"/>
         
-        <i class='bx bx-grid-alt'></i>
+        
          
                
   
