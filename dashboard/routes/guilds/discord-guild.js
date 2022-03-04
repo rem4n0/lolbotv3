@@ -11,14 +11,14 @@ const flags = [
 	Permissions.FLAGS.MANAGE_GUILD
 	
 ];
-app.get("/dashboard/guilds", global.checkAuth, async (req,res) => {
+app.get("/dashboard/guild", global.checkAuth, async (req,res) => {
   
   
   
   
   
   
-    res.render("main/guilds.ejs", {
+    res.render("main/guildss.ejs", {
         bot: bot,
         path: req.path,
         config: global.config,

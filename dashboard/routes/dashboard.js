@@ -1,6 +1,6 @@
 const app = require("express").Router();
 const path = require("path");
-
+const Discord = require ("discord.js")
 app.get("/dashboard",global.checkAuth,async(req, res,next)=> {
   
   const user = bot.users.fetch(req.user.id).then(async(a)=>{
@@ -16,6 +16,11 @@ const user_rank = await User.find({})
     support:config.support,
     data:data,
 user_rank:user_rank,
+    flag:flags,
+      res:res,
+        perms: Discord.Permissions,
+        guildID: req.params.guildID,
+
     bot: bot,
     user:req.isAuthenticated() ? req.user : null,
   })});

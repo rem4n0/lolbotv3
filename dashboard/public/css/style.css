@@ -303,7 +303,8 @@ body {
 }
 .servers {
   position: static;
- margin-left: 150px;
+/* margin-left: 150px;*/
+  width:240px;
 }
 /*-------------all views commands css in here--++++*/
 
