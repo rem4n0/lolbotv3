@@ -225,12 +225,22 @@ background: var(--nilikall);
   border-radius:50%;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%); 
+  transition: transform 0.5s
   
 }
 .sidebar.guild .nav-list .list li a:hover img{
   --webkit-filter: none;
   filter: none;
   
-  
+  animation: guildimg  1.3s ease-in-out infinite alternate;
+  transform: translateY(-30px):
   
 }
+@keyframes guildimg{
+  from{ 
+    box-shadow:00 1px lightcyan 00 1px lightcyan 00 1px lightblue 00 1px lightcyan 00 1px lightcyan;}
+  to{
+    box-shadow: 00 1px lightcyan;
+  }
+    
+  }
