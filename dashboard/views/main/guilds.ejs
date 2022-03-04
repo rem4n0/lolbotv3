@@ -89,13 +89,14 @@
      
      
     
-  <p class="text"><%= guild.name %></p>
-  </div>
-    <a class="btn btn-success" href="/dashboard/guild/<%=guild.id%>">setting</a>
-</div>
+  <!--<p class="text"><%= guild.name %></p>
+  --></div>
+   <!-- <a class="btn btn-success" href="/dashboard/guild/<%=guild.id%>">setting</a>
+--></div>
   <% } %>
 
   <% }); %>
+    <!---
   <% user.guilds.forEach(guild => {
  const permsOnGuild = new perms(guild.permissions_new);
  if(!permsOnGuild.has("MANAGE_GUILD")) {
@@ -114,13 +115,13 @@
   <div class="server">
    <div class="icon-and-name">
 <img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
-  <p class="text"><%= guild.name %></p>
+  <!--<p class="text"><%= guild.name %></p>
   </div>
  <a href='https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="btn btn-danger">Add Bot</a>
 </div>
   <% } %>
 
-  <% }); %>
+  <% }); %>--->
 </div>
 
 
