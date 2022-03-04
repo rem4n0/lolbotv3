@@ -206,10 +206,12 @@ body {
     background-position: 0% 50%;
   }
 }
-@media screen and (min-height: 300px){
+@media screen and (min-height: 600px){
   .boxs { 
+    display:block;
+    margin-left:330px;
+    position:static;
     
-    display:flex;
   }
   
   
@@ -219,14 +221,18 @@ body {
 
 .boxs {
   display: grid;
+  position:static;
+justify-content: space-between;
   
+/*  
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
+  */grid-gap: 80px;
   
 }
 
 .boxs .box {
+
   
   height: 100px;
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
