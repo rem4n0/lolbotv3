@@ -206,28 +206,15 @@ body {
     background-position: 0% 50%;
   }
 }
-@media screen and (min-height: 600px){
-  .boxs { 
-    display:block;
-    margin-left:330px;
-    position:static;
-    
-  }
-  
-  
-}
 
-/*-----accoutn style----*/
 
-.boxs {
+  .boxs {
   display: grid;
   position:static;
-justify-content: space-between;
   
-/*  
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  */grid-gap: 80px;
+  grid-gap: 20px;
   
 }
 
@@ -252,7 +239,7 @@ justify-content: space-between;
 
 .boxs .box2 {
   background: url("https://imgur.com/sJn0yHt.png");
-  width: 400;
+  width: 400px;
   left: 10px;
   background-position: center;
   background-size: 100%;
