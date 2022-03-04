@@ -214,13 +214,13 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
-  position: relative;
+  position: static;
 }
 
 .boxs .box {
   height: 100px;
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
-  position: relative;
+  position: static;
   border-radius: 4px;
   color: white;
   transition: 0.4s ease-out;
@@ -255,6 +255,7 @@ body {
   width: 400px;
   background: url("https://imgur.com/OxWqyTN.png");
   background-position: center;
+  
   background-size: 100%;
 }
 
@@ -267,8 +268,7 @@ body {
 
 .boxs .box .containerB h3.bigText {
   font-size: 35px;
-  /*position: relative;
-    top: -5px; */
+  position: static;
 }
 
 .boxs .box .containerB h3.bigText input {
@@ -280,7 +280,8 @@ body {
   width: 150px;
 }
 
-.boxs .statuses .containerB h3.bigText {
+.boxs .statuses .containerB h3.bigText{
+  position: static;
   font-size: 30px;
 }
 
