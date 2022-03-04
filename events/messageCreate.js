@@ -136,11 +136,7 @@ const channelEmbed = await message.guild.channels.cache.get(data.guild.plugins.m
 
       
       ////-------------///
-      if(args[1] === "3"){
-        
-        message.channel.send({content:`bote me`})
-        
-      }
+  
       
       ///-----------------------------------------permissoins--------------------------------///
       if (!message.channel.permissionsFor(bot.user).has("SEND_MESSAGES"))

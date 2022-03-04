@@ -13,7 +13,7 @@ const bot =( global.bot =new Client({
   },
   partials: ["CHANNEL", "MESSAGE", "REACTION", "USER"],
 }));
-///const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD] });
+
 global.config = require("./config.json");
 const { Util } = require("discord.js");
 const fs = require("fs");
@@ -24,15 +24,6 @@ const { inspect } = require("util");
 const cmd = require("node-cmd");
 
 global.mongoose = require("mongoose");
-/*
-mongoose
-  .connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connected to the Mongodb database.");
-  })
-  .catch((err) => {
-    console.log("Unable to connect to the Mongodb database. Error:" + err);
-  });*/
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);
 global.Guild = require("./data/guild.js");
