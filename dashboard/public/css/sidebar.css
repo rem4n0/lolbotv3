@@ -216,3 +216,15 @@ background: var(--nilikall);
   top: 0px;
   border-radius: 50%;
 }
+
+.sidebar.guild .nav-list .list li a img{
+  width:70px;
+  height:70px;
+  margin-left:-20px;
+  margin-top:10px;
+  border-radius:50%;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%); 
+  
+}
+.sidebar.g

@@ -1,74 +1,12 @@
-<%- include("../parts/head", {bot, user, path }) %>
-
-
-  <style>
+<%- include ('../parts/meta.ejs')%>
   
-  .servers{
     
-   left:0;
-    position: static;
+  <div class="sidebar guild">
   
-    }
-      .servers .server{
-      margin-right: 100px;
-      position:static;
-    
-      
-      
-    }
-
-    .servers .server .icon-and-name{
-      margin-top:40%;
-      display:flex; 
-      text-align: center;
-      
-    line-height:15px;
-    }
-    .servers .server .icon-and-name .server-icon{
-    
-      width: 80px;
-      height:80px;
-    }
-    .servers .server .icon-and-name .text{
-      margin-left:30px;
-      font-weight: 600;
-      
-      color: white;
-      
-    }
-  
-    h2{
-      color: white;
-      
-      
-    }
-  </style>
-
-
-<h2>SELECT A SERVER</h2>
-
-
-  
-<% if (!user) { %>
-    <div style="width: 512px;
-	 padding: 16px;
-	 margin: 8px;  background-color: rgba(77, 77, 255, 0.05);">
-      <h3 style="color: #4d4dff; 	 margin-top: 0;
-	 margin-bottom: 8px;
-	 font-size: 18px;
-	 font-family: 'Poppins', sans-serif;">Hey <%= user.username%>!</h3>
-      <p style="margin: 0;
-	 font-size: 14px;
-	 font-family: 'Open Sans', sans-serif;
-	 color: #555;">Looks like you aren't login into dashboard . <a href="/login">click here</a></p>
-    </div>
-
-  <% } %>
-
-
-
-<div class="servers">
-<% user.guilds.forEach(guild => {
+ <div class="nav-list">
+   
+   
+   <% user.guilds.forEach(guild => {
   
  const permsOnGuild = new perms(guild.permissions_new);
  if(!permsOnGuild.has("MANAGE_GUILD")) {
@@ -76,7 +14,7 @@
  }
 %>
 <% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=80";
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=70";
 } else {
  iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
 }
@@ -84,59 +22,155 @@
 
  
   <% if(bot.guilds.cache.get(guild.id)) { %>
-  <div class="server">
-   <div class="icon-and-name">
-<img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
+   
+   <ul class="list">
      
-     
-    
-  <!--<p class="text"><%= guild.name %></p>
-  --></div>
-   <!-- <a class="btn btn-success" href="/dashboard/guild/<%=guild.id%>">setting</a>
---></div>
-  <% } %>
-
-  <% }); %>
-    <!---
-  <% user.guilds.forEach(guild => {
- const permsOnGuild = new perms(guild.permissions_new);
- if(!permsOnGuild.has("MANAGE_GUILD")) {
- return;
- }
-%>
-<% if (guild.icon) {
- iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=80";
-} else {
- iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
-}
-%>
-
+     <li>
+          
+        <div class="icon">
+               
+      <a href="/dashboard/guild/<%=guild.id%>">
+        <img src="<%= iconurl %>"/>
+        
+        
+         
+               
+  
+       </a>
  
-  <% if (!bot.guilds.cache.get(guild.id)) { %>
-  <div class="server">
-   <div class="icon-and-name">
-<img class="server-icon" src="<%= iconurl %>" alt="<% guild.name %>"/>
-  <!--<p class="text"><%= guild.name %></p>
-  </div>
- <a href='https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>' class="btn btn-danger">Add Bot</a>
-</div>
-  <% } %>
+       
+       </div>
+       
+       
+       
+       <!--
+ <ul class="sub-menu">
+          <li>
+            <a href="/dashboard/guilds">SETTING</a>
+          </li>
+                    <li>
+            <a href="/dashboard/user">XP SYSTEM</a>
+          </li>
+                    <li>
+            <a href="/dashboard//logs">LOG SYSTEM</a>
+          </li>
+        </ul>-->
+        
+     </li>
+       <!--
+          <li>
+        <div class="icon">
+               
+      <a href="/about">
+        <i class='bx bx-info-circle' ></i>
+         <span class="link_name">information</span>
+               
 
-  <% }); %>--->
-</div>
+       </a>
+          
+       
+       </div>
+
+        
+     </li>
+     <li>
+        <div class="icon">
+               
+      <a href="/partner">
+        <i class='bx bxs-hand' ></i>
+         <span class="link_name">partners</span>
+               
+
+       </a>
+          
+       
+       </div>
+
+       
+     </li>
+     <li>
+        <div class="icon">
+               
+      <a href="#">
+        
+         <span class="link_name"></span>
+               
+
+       </a>
+
+       
+       </div>
+
+        
+     </li>
 
 
+   <% if(user){%>
+   
+   <li>
 
+   <div class="profile-detail">
+    
+   
+       <div class="profile-content">
+      
+         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
+       </div>
+       <div class="profile-name"><%=user.username%></div>
+         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
+     </div>
+     </li>
+     <% }%>
+       <% if(!user){%>
+         <div class="profile-detail">
+           <div class="profile-content">
+             <div class="profile-name">login<a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+             <% }%>-->
+     </ul>
+    <% }%>
+   <% })%>
+           </div>
+         </div>
+         </div>
+  
+   
+   
+    
+    
+  <div class="home-section">
+    <div class="home-img">
+      <a href="/"> <img src="<%=bot.user.displayAvatarURL()%>"/></a>
+    </div>
+    <div class="home-content">
+      
+      <span class="text"><i class="fa-solid fa-bars"></i></span>
+    </div>
 
+       </div>
+       </div>
+  
 <script>
-    function PopupCenter(e, n, t, i) {
-        var o = void 0 != window.screenLeft ? window.screenLeft : screen.left,
-            d = void 0 != window.screenTop ? window.screenTop : screen.top,
-            c = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width,
-            w = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height,
-            r = c / 2 - t / 2 + o, h = w / 2 - i / 2 + d,
-            s = window.open(e, n, "scrollbars=yes, width=" + t + ", height=" + i + ", top=" + h + ", left=" + r);
-        window.focus && s.focus()
-    }
+  let arrow = document.querySelectorAll(".link_name")
+  
+  for(i=0; i < arrow.length;i++){
+    arrow[i].addEventListener("click",(e)=>{
+      let target = e.target.parentElement.parentElement.parentElement;
+      
+      target.classList.toggle("showMenu")
+    })
+    
+  }
+  let sidebar= document.querySelector(".sidebar");
+  let sidebarBtn= document.querySelector(".text");
+  sidebarBtn.addEventListener('click',()=>{
+    
+    sidebar.classList.toggle("close");
+   // console.log(sidebar);
+  })
+  
+ 
 </script>
-<%- include ("../parts/foot.ejs")%>
+
+  
+  <br><br>
+  
