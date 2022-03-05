@@ -27,7 +27,7 @@
      
      <li>
           
-        <div class="icon">
+        
                
       <a href="/dashboard/guild/<%=guild.id%>">
         <img src="<%= iconurl %>"/>
@@ -39,7 +39,7 @@
        </a>
  
        
-       </div>
+  
        
        
        
@@ -102,7 +102,7 @@
        </div>
 
         
-     </li>
+     </li-->
 
 
    <% if(user){%>
@@ -113,19 +113,21 @@
     
    
        <div class="profile-content">
-      
+      <a href="/profile/<%=user.id%>">
          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
-       </div>
-       <div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
+         </a>
+        
+        </div>
+       <!--<div class="profile-name"><%=user.username%></div>
+         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>-->
      </div>
      </li>
      <% }%>
        <% if(!user){%>
          <div class="profile-detail">
            <div class="profile-content">
-             <div class="profile-name">login<a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
-             <% }%>-->
+             <div class="profile-name"><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+             <% }%>
      </ul>
     <% }%>
    <% })%>

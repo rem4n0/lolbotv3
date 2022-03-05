@@ -1,4 +1,4 @@
-<%- include ('./meta.ejs')%>
+<%- include('./meta.ejs')%>
   
     
   <div class="sidebar">
@@ -7,7 +7,7 @@
    <ul class="list">
      <li>
        <div class="icon">
-         <a href="/dashboard/<%=guild.id%>/setting">
+         <a href="/dashboard/guild/<%=guild.id%>/setting">
            <i class="fa-solid fa-gear"></i>
            <span class="link_name">SETTING</span>
          </a>
@@ -16,9 +16,9 @@
 
      <li>
           
-        <div class="icon">
+    <div class="icon">
                
-      <a href="/dashboard/<%=guild.id%>/xp">
+      <a href="/dashboard/guild/<%=guild.id%>/xp">
         <i class='bx bx-grid-alt'></i>
          <span class="link_name">XP SYSTEM</span>
                
@@ -26,12 +26,12 @@
        </a>
  
        
-       </div>
+     </div>
      </li>
           <li>
         <div class="icon">
                
-      <a href="/dashboard/<%=guild.id%>/welcome">
+      <a href="/dashboard/guild/<%=guild.id%>/welcome">
         <i class='bx bx-info-circle' ></i>
          <span class="link_name">WELCOME</span>
                
@@ -46,7 +46,7 @@
      <li>
         <div class="icon">
                
-      <a href="/dashboard/<%=guild.id%>/log">
+      <a href="/dashboard/guild/<%=guild.id%>/log">
         <i class='bx bxs-hand' ></i>
          <span class="link_name">LOGS SYSTEM</span>
                
