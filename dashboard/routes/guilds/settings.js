@@ -1,7 +1,7 @@
 const app = require("express").Router();
 const path = require("path");
 
-app.get("/dashboard/guild/:",global.checkAuth,async(req, res,next)=> {
+app.get("/dashboard/guild/:guildID/setting",global.checkAuth,async(req, res,next)=> {
   
   let data = await Guild.findOne({guildID: req.params.guildID})
   const guild = bot.guilds.cache.get(req.params.guildID);
@@ -16,7 +16,7 @@ app.get("/dashboard/guild/:",global.checkAuth,async(req, res,next)=> {
   })});
 
 
-app.post("/dashboard/guild/:", global.checkAuth, async (req,res) => {
+app.post("/dashboard/guild/:guildID/setting", global.checkAuth, async (req,res) => {
   
       let rbody = req.body;
 let data = await Guild.findOne({guildID: req.params.guildID})

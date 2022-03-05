@@ -118,7 +118,7 @@ z-index:1;
   color: var(--white);
   width: 100%;
 } 
-.sidebar .nav-list .list li:hover{
+.sidebar .nav-list .list li a:hover{
 background: var(--sharabi);
   border-radius:50%;
   
@@ -150,11 +150,12 @@ background: var(--sharabi);
   margin-left: 90px;
 }
 
+
 .sidebar .nav-list .profile-detail .profile-name {
   margin-right: 14px;
   color: var(--white);
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 
