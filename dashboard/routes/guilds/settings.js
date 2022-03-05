@@ -1,6 +1,6 @@
 const app = require("express").Router();
 const path = require("path");
-
+console.log("setting router loaded");
 app.get("/dashboard/guild/:guildID/sss",global.checkAuth,async(req, res,next)=> {
   
   let data = await Guild.findOne({guildID: req.params.guildID})
