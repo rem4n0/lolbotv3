@@ -117,7 +117,7 @@ z-index:1;
   text-decoration: none;
   color: var(--white);
   width: 100%;
-} 
+}
 .sidebar .nav-list .list li .icon a:hover{
 background: var(--sharabi);
   border-radius:50%;
