@@ -6,11 +6,10 @@ app.get(
   global.checkAuth,
   async (req, res, next) => {
     const guild = bot.guilds.cache.get(req.params.guildID)
-      let data = await Guild.findOne({ guildID: guild.id });
-
+  
       res.render("./guild/setting.ejs", {
         config: config,
-        data: data,
+        
         req: req,
         bot: bot,
         guild: guild,
@@ -30,17 +29,18 @@ app.get(
             "?error=true&message=You cant add up 5 words to prefix..");}
         
         
-        await Guild.findOneAndUpdate({
-          guildID: req.params.guildID
-        },{
+        await Guild.findOne({
+          
+          guildID: req.params.guildID},{
           $set:{
             
             prefix:rbody["prefix"],
-            $xp:{ onoff:rbody["xp"],}
+            $xp:{ onoff:rbody["xp"],
+                }
             
             
             
-          }}, function (error,docs){})
+          }}, function (error,docs){});
           
           
         /*if (data) {
