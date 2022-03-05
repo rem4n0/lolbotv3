@@ -1,4 +1,4 @@
-/*const app = require("express").Router();
+const app = require("express").Router();
 const path = require("path");
 
 app.get("/dashboard/guild/:guildID/setting",global.checkAuth,async(req, res,next)=> {
