@@ -27,14 +27,26 @@ app.get(
        if (rbody["prefix"].length > 5){
           return res.redirect( 
             "?error=true&message=You cant add up 5 words to prefix..");}
-        if (data) {
+        
+        
+        await Guild.findOneAndUpdate({
+          guildID: a.id},{
+          $set:{
+            prefix:rbody["prefix"],
+            
+            
+            
+            
+          }}, function (error,docs){})
+          
+          
+        /*if (data) {
           data.prefix = rbody["prefix"];
           data.xp.onoff = rbody["xp"];
           data.channels.xp = rbody["xpchannel"];
       data.save();
         
-          
-        }
+          */
         
       
         res.redirect(
