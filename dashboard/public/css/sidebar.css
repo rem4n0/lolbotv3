@@ -6,6 +6,7 @@
   --nilikall: #363a68;
   --nili: #1c1e3a;
 --grey: #212122;
+  --sharabi:#f734ca;
 }
 /*
 
@@ -116,10 +117,12 @@ z-index:1;
   text-decoration: none;
   color: var(--white);
   width: 100%;
-} /*
+} 
 .sidebar .nav-list .list li:hover{
-background: var(--nilikall);
-}*/
+background: var(--sharabi);
+  border-radius:50%;
+  
+}
 /*
 .sidebar .nav-list .list li:hover .sub-menu{
   display: block;
@@ -153,6 +156,8 @@ background: var(--nilikall);
   font-size: 25px;
   font-weight: 500;
 }
+
+
 .home-section {
   position: relative;
   left: 0px;
