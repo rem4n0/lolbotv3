@@ -34,7 +34,7 @@ app.get(
           guildID: req.params.guildID},{
           $set:{
             
-            prefix:rbody["prefix"],
+            prefix:rbody['prefix'],
         
             
             
