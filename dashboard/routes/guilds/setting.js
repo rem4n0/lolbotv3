@@ -24,10 +24,10 @@ app.get(
       async (req, res) => {
         let rbody = req.body;
         let data = await Guild.findOne({ guildID: req.params.guildID });
-       /* if (rbody["prefix"].length > 5){
+       if (rbody["prefix"].length > 5){
           return res.redirect( 
             "?error=true&message=You cant add up 5 words to prefix..");}
-        */if (data) {
+        if (data) {
           data.prefix = rbody["prefix"];
           data.xp.onoff = rbody["xp"];
           data.channels.xp = rbody["xpchannel"];
@@ -36,7 +36,7 @@ app.get(
         }
       
         res.redirect(
-          `?success=true&message=Your changes have been successfully applied .&guildID=${req.params.guildID}`
+          `?success=true&message=Your changes have been successfully applied`
         );
       }
     );

@@ -32,12 +32,7 @@
               </div>
               <br><br>
             
-            <!-- Rounded switch -->
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-            </label>
-                                        <div class="form-group">
+                           <div class="form-group">
                                           <label><i class='bx bx-bar-chart-alt-2' ></i> XP SYSTEM <span style="color: rgb(175, 22, 22)">*</span></label>
            <br>
                <br>
@@ -53,16 +48,7 @@
               </div>        
               
       </div>  
-      <br><br>
-
-
-
-
-
-
-      <p class="text-muted">Spaces with <span style="color: rgb(175, 22, 22)">*</span> next to it are required.</p>
-
-      
+      <br><br>      
       <br/>
    
       
@@ -103,9 +89,9 @@ Toast.fire({
   text:urlParams.get('message'),
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
-}).then(()=>{
+})/*.then(()=>{
   window.location.href ='/dashboard/guild/<%=guild.id%>';
-})
+})*/
 }
     if(urlParams.has('error') && urlParams.get('error')){
       const Toast = Swal.mixin({
