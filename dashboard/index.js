@@ -55,7 +55,8 @@ const secret = config.secret;
     }));
 
     app.set('views', path.join(__dirname, '/views'));
-   app .use(express.static(path.join(__dirname, "/public")))
+  app.use(express.static(path.join(__dirname, "/public")))
+  
 		
     passport.serializeUser((user, done) => done(null, user));
     passport.deserializeUser((obj, done) => done(null, obj));
