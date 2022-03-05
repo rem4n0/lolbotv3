@@ -53,7 +53,7 @@ display: flex;
 .button-container {
 
   display: block;
-padding-left: 40px;
+
 }
 
 .button-container li{
@@ -75,7 +75,7 @@ padding-left: 40px;
 }
 .button-container li a:hover{
   color: white;
-  background-color: hotpink;
+  background-color: #f734ca;
 }/*
 .btn-down{
   position: absolute;
