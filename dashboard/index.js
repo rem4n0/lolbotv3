@@ -172,7 +172,7 @@ const secret = config.secret;
     })*/
 app.use('/', require ('./routes/index.js'));
     app.use('/', require ('./routes/users/dashboard.js'))
-  app.use('/', require ('./routes/guilds/settings.js'));
+  app.use('/', require ('./routes/guilds/setting.js'));
     app.use('/', require ('./routes/guilds/dashboard.js'))
     app.use('/', require ("./routes/guilds/discord-guild.js"))
         app.use((req, res) => {
