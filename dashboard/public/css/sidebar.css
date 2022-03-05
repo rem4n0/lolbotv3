@@ -27,6 +27,7 @@
   background: var(--nili);
 }
 
+
 .sidebar.guild{
 z-index:1;
   top:-10%;
@@ -234,14 +235,16 @@ background: var(--sharabi);
   transition: transform 0.5s
   
 }
+
 .sidebar.guild .nav-list .list li a:hover img{
+  
   --webkit-filter: none;
   filter: none;
-  
   animation: guildimg  1.3s ease-in-out infinite alternate;
   transform: translateY(-30px):
   
 }
+
 @keyframes guildimg{
   from{ 
     box-shadow:00 1px lightcyan 00 1px lightcyan 00 1px lightblue 00 1px lightcyan 00 1px lightcyan;}
