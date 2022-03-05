@@ -16,14 +16,15 @@ app.get(
         guild: a,
         user: req.isAuthenticated() ? req.user : null,
       });
-    });
+    });})
 
     app.post(
       "/dashboard/guild/:guildID/setting",
       global.checkAuth,
       async (req, res) => {
+        const guild = bot.guilds.cache.get(
         let rbody = req.body;
-        let data = await Guild.findOne({ guildID: req.params.guildID });
+        let data = await Guild.findOne({ guildID: a.id });
        if (rbody["prefix"].length > 5){
           return res.redirect( 
             "?error=true&message=You cant add up 5 words to prefix..");}
@@ -32,8 +33,9 @@ app.get(
         await Guild.findOneAndUpdate({
           guildID: a.id},{
           $set:{
-            prefix:rbody["prefix"],
             
+            prefix:rbody["prefix"],
+            $xp:{ onoff:rbody["xp"],}
             
             
             
@@ -53,7 +55,5 @@ app.get(
           `?success=true&message=Your changes have been successfully applied`
         );
       }
-    );
-  }
-);
+    );})
 module.exports = app;
