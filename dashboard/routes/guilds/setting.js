@@ -29,20 +29,18 @@ app.get(
             "?error=true&message=You cant add up 5 words to prefix..");}
         
         
-        await Guild.findOne({
+        await Guild.findOneAndUpdate({
           
           guildID: req.params.guildID},{
           $set:{
             
             prefix:rbody["prefix"],
-            $xp:{ onoff:rbody["xp"],
-                }
+        
             
             
             
-          }}, function (error,docs){});
-          
-          
+          }}).catch(err=> console.log(err))
+                
         /*if (data) {
           data.prefix = rbody["prefix"];
           data.xp.onoff = rbody["xp"];
