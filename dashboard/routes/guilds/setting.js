@@ -31,9 +31,11 @@ app.get(
           data.prefix = rbody["prefix"];
           data.xp.onoff = rbody["xp"];
           data.channels.xp = rbody["xpchannel"];
-       data.save();
+      data.save();
         
+          
         }
+        
       
         res.redirect(
           `?success=true&message=Your changes have been successfully applied`
