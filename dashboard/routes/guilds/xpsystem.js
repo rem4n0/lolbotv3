@@ -38,8 +38,11 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
           guildID: req.params.guildID},{
           $set:{
   
-            prefix:req.body.prefix,
-           "xp.onoff":req.body.xp, 
+            "channels.xp":req.body.xpchannel,
+            "xp.max":req.body.max,
+            "xp.min": req.body.min,     
+            "xp.onoff":req.body.xp, 
+            
           }})
                 
       
