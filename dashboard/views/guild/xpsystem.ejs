@@ -28,11 +28,11 @@
   <label> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
                               <br>
 <select name="xpchannel" id="xpchannel">
-  <% guild.channels.cache.forEach((channel)=>{ %>
+  <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
   
-    <option class="options" value="<%= channel.id %>"><%= channel.name%></option>
+    <option class="options" value="<%= channel.id %>"><%=channel.name%></option>
     <% }) %>
       </select>
     
@@ -98,7 +98,7 @@
 
 
 
-    if(urlParams.has('success') && urlParams.get('success')){
+ //   if(urlParams.has('success') && urlParams.get('success')){
       
 
       const Toast = Swal.mixin({
