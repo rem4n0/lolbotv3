@@ -67,23 +67,23 @@
   while (_xp.local.next < 1){
     serverdata.level++
 
-    if(guild){
-    /*  let xpmessage = guild.xp.message
-      .replace(/{user}/, message.author.toString())
-      .replace(/{level}/, serverdata.level);*/
-      let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
     
-     if(channel){channel.send({content:"hhh"}).catch(()=>{})
-       
-       
+      let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
+  if(channel){
+    let xpmessage = guild.xp.message
+    .replace(/{user}/, message.author.toString())
+    .replace(/{level}/, serverdata.level);
+    
+    channel.send({content: xpmessage});
+  
      
-    }}else{/*
+    }else{
   let xpmessage = guild.xp.message
   .replace(/{user}/, message.author.toString())
-  .replace(/{level}/, serverdata.level);*/
-    return message.channel.send({content:"hh"}).catch(()=>{})
+  .replace(/{level}/, serverdata.level);
+     message.channel.send({content: xpmessage }).catch(()=>{})
 
-  }}
+    }}
 
   // Add xpdata again to the xp array of the profile
   // index = where the serverdata is inserted
