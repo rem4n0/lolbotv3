@@ -29,7 +29,12 @@
                             <div class="form-group">
                               <label><i class='bx bx-bot'></i> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
 <select name="xpchannel" id="xpchannel">
-  <% guild.channels.forEach
+  <% guild.channels.map(channel=>{%>
+    <option value="<%= a %>"><%= a %></option>
+    <% })%>
+    
+    
+    
     
               </div>
               <br><br>
