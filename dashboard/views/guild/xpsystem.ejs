@@ -40,7 +40,7 @@
             
               <br><br>
                             <div class="form-group">
-                              <label><i class='bx bx-bot'></i> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
+  <label><i class='bx bx-bot'></i> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
 <select name="xpchannel" id="xpchannel">
   <% guild.channels.cache.forEach((channel)=>{ %>
 <% if(!channel.type === "GUILD_TEXT")return;%>
@@ -51,6 +51,12 @@
     
     
               </div>
+    <div class="form-group">
+      
+      <label> xp message <span></span></label>
+      <input type="text" name="xpmessage" id="xpmessage" value=""/>
+      
+    </div>
               <br><br>
             
                            <div class="form-group">
