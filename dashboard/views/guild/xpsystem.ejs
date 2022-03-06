@@ -29,7 +29,7 @@
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
   
-    <option id="options"value="<%= channel.id %>">#<%= channel.name%></option>
+    <option cid="options"value="<%= channel.id %>"><%= channel.name%></option>
     <% }) %>
       </select>
     
@@ -47,8 +47,8 @@
     
     <h6> Variables:</h6>
       
-    <p style="color:#A60C44"> {user} </p><p style="color:#4F5255;">to mention member</p>
-    <p style="color:#A60C44"> {level} </p> <p style="color:> new level of. user</p>
+    <p style="color:#A60C44"> {user} </p><p style="color:#6E7277;">to mention member</p>
+    <p style="color:#A60C44"> {level} </p> <p style="color:#6E7277;"> new level of. user</p>
 
       
       
