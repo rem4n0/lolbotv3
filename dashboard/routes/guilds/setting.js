@@ -30,7 +30,7 @@ app.get(
         let data = await Guild.findOne({guildID: guild.id})
         
           
-          data.prefix = req.body.prefix
+          data.prefix =req.body.prefix
         data.save();
         
         
