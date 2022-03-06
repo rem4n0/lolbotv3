@@ -86,7 +86,7 @@ body {
     display: block;
     font-size: 30px;
   }
-} 
+}
 /*---------*/
 
 /*---max text*/
@@ -255,7 +255,7 @@ body {
 background: var(--grey);
   margin-top: 10%;
   margin-bottom: 5%;
-  width: 70%;
+  width: 100%;
 }
 .contact-form input {
   background-color: #2c2f33;
@@ -325,6 +325,7 @@ background: var(--grey);
   cursor: pointer;
 }
 .contact-form label {
+
   color: #fff;
 }
 .contact-form label i {
