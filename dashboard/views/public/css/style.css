@@ -263,6 +263,9 @@ background: var(--grey);
   border: none;
 }
 .contact-form textarea {
+
+  width:270px;
+  height:150px;
   background-color: #2c2f33;
   color: #fff;
  border: none;
