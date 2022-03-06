@@ -49,9 +49,9 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
       
         
       
-        res.redirect(
+        /*res.redirect(
           `?success=true&message= your applied  `
-        );
+        );*/
       }
     );
 module.exports = app;

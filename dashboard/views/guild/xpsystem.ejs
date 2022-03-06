@@ -80,7 +80,7 @@
       <br/>
    
       
-      <button type="submit" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
+      <button type="submit"id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
     </div>
     
   </form>
@@ -99,8 +99,10 @@
 
 
  //   if(urlParams.has('success') && urlParams.get('success')){
-      
-
+    function clickOnAdd() {  
+$("#myButton").attr("disabled", true);
+    $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
+    setTimeout(() => {
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -117,11 +119,15 @@ Toast.fire({
   text:urlParams.get('message'),
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
-})/*.then(()=>{
+})
+  $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
+                    $("#myButton").attr("disabled", false);
+                    return;    
+      /*.then(()=>{
   window.location.href ='/dashboard/guild/<%=guild.id%>';
 })*/
-}
-    if(urlParams.has('error') && urlParams.get('error')){
+},2000)}
+   /* if(urlParams.has('error') && urlParams.get('error')){
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -145,6 +151,6 @@ Toast.fire({
   window.location.href ='/dashboard/guild/<%=guild.id%>';
 })
 
-    }
+    }*/
    </script>
 <%- include("../parts/foot.ejs")%>
