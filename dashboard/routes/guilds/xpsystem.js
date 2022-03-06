@@ -2,12 +2,12 @@ const app = require("express").Router();
 const path = require("path");
 console.log("setting router loaded");
 app.get(
-  "/dashboard/guild/:guildID/setting",
+  "/dashboard/guild/:guildID/xpsystem",
   global.checkAuth,
   async (req, res, next) => {
     const guild = bot.guilds.cache.get(req.params.guildID)
   let data = await Guild.findOne({guildID: guild.id});
-      res.render("./guild/setting.ejs", {
+      res.render("./guild/xpsystem.ejs", {
         config: config,
         data:data,
         req: req,
@@ -18,7 +18,7 @@ app.get(
     });
 
     app.post(
-      "/dashboard/guild/:guildID/setting",
+      "/dashboard/guild/:guildID/xpsystem",
       global.checkAuth,
       async (req, res) => {
         const guild = bot.guilds.cache.get(req.params.guildID);
@@ -26,7 +26,8 @@ app.get(
       
        if (req.body.max.length > 10){
           return res.redirect( 
-            "?error=true&message=You cant add up 10..");}
+            "?error=true&message=You cant add up 10 point of maximum xp..");}
+if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't add up 5 point of minimum xp")}
         let data = await Guild.findOne({guildID: guild.id})
         
         
