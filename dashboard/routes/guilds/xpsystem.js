@@ -42,6 +42,7 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
             "xp.max":req.body.max,
             "xp.min": req.body.min,     
             "xp.onoff":req.body.xp, 
+            "xp.message": req.body.xpmessage,
             
           }})
                 
