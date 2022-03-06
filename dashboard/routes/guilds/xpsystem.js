@@ -1,41 +1,52 @@
 const app = require("express").Router();
 const path = require("path");
+console.log("setting router loaded");
+app.get(
+  "/dashboard/guild/:guildID/setting",
+  global.checkAuth,
+  async (req, res, next) => {
+    const guild = bot.guilds.cache.get(req.params.guildID)
+  let data = await Guild.findOne({guildID: guild.id});
+      res.render("./guild/setting.ejs", {
+        config: config,
+        data:data,
+        req: req,
+        bot: bot,
+        guild: guild,
+        user: req.isAuthenticated() ? req.user : null,
+      })
+    });
 
-app.get("/dashboard/guild/:guildID/xpsystem",global.checkAuth,async(req, res,next)=> {
+    app.post(
+      "/dashboard/guild/:guildID/setting",
+      global.checkAuth,
+      async (req, res) => {
+        const guild = bot.guilds.cache.get(req.params.guildID);
+        let rbody = req.body;
+      
+       if (req.body.max.length > 10){
+          return res.redirect( 
+            "?error=true&message=You cant add up 10..");}
+        let data = await Guild.findOne({guildID: guild.id})
+        
+        
+        
+        
+        await Guild.findOneAndUpdate({
+          
+          guildID: req.params.guildID},{
+          $set:{
   
-  let data = await Guild.findOne({guildID: req.params.guildID})
-  const guild = bot.guilds.cache.get(req.params.guildID);
-  res.render("./guild/xpsystem.ejs", {
-    config: config,
-    support:config.support,
-    data:data,
-    req:req,
-    bot: bot,
-    guild:guild,
-    user:req.isAuthenticated() ? req.user : null,
-  })});
-
-
-app.post("/dashboard/guild/:guildID/xpsystem", global.checkAuth, async (req,res) => {
-  
-      let rbody = req.body;
-let data = await Guild.findOne({guildID: req.params.guildID})
-
-if(data){
-  data.xp.message= rbody["xpmessage"]
-  data.channels.xp= rbody["xpchannel"]
-  data.xp.max =rbody["xpmax"]
-  data.xp.min= rbody["xpmin"]
-  
-  
-}
-  
-  
-data.save();
-  
-  
-res.redirect(`?success=true&message=Your changes have been successfully applied .&guildID=${req.params.guildID}`)
-
-  
-})
+            prefix:req.body.prefix,
+           "xp.onoff":req.body.xp, 
+          }})
+                
+      
+        
+      
+        res.redirect(
+          `?success=true&message= your applied  `
+        );
+      }
+    );
 module.exports = app;
