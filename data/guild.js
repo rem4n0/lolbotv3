@@ -14,7 +14,7 @@ const schema = mongoose.Schema({
     min:{type: Number, default:1},
   },
   voice:{ type: Array, default:[]},
-  premium: {
+ /* premium: {
     redeemedBy: {
       id: { type: String, default: null },
       tag: { type: String, default: null }
@@ -25,7 +25,7 @@ const schema = mongoose.Schema({
     expiresAt: { type: String, default: null },
 
     plan: { type: String, default: null }
-  },
+  },*/
   channels:{
     xp:{type: String, default:null}
   },

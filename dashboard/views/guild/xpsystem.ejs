@@ -25,7 +25,8 @@
             
               <br><br>
                             <div class="form-group">
-  <label><i class='bx bx-bot'></i> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
+  <label> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
+                              <br>
 <select name="xpchannel" id="xpchannel">
   <% guild.channels.cache.forEach((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
@@ -45,7 +46,7 @@
   <div class="form-group"> 
     
     
-    <label> Send xp message to channel</label>
+    <label>xp variables</label>
     
     <h6> Variables:</h6>
       
