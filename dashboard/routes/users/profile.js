@@ -12,6 +12,7 @@ app.get(
         data:data,
         req: req,
         bot: bot,
+        userr:a,
         user: req.isAuthenticated() ? req.user : null,
       })
     })});

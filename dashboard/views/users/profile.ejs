@@ -4,7 +4,7 @@
 <title><%= user.username %> | Profile</title>
 <head>
     <meta name="og:title" content="<%= user.username %> | Profile">
-    <meta name="og:description" content="<%= data ? (data.info ? data.info : user.username+' has no have any biography.') : member.username+' has no have any biography.'%>">
+    <meta name="og:description" content="<%= data ? (data.info ? data.info : user.username+' has no have any biography.') :user.username+' has no have any biography.'%>">
     <meta name="og:image" content="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png">
 </head>
 
@@ -12,9 +12,18 @@
   <div class="container px-3 px-3 mt-5 pt-5">
     <div class="columns container px-3 is-multiline">
         <div class="column is-2">
-            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=member.presence.status%>"  onerror=" imgerror(this);"="" src="<%= member.avatarURL({dynamic: true}) %>" style="width: 300px; border-radius: 50%;">
+            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=user.presence%>"  onerror=" imgerror(this);"="" src="<%=userr.displayAvatarURL({dynamic:true}) %>" style="width: 300px; border-radius: 50%;">
         </div>
-  
+      
+      
+       <div class="column is-6">
+          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= user.username %><span class="is-size-4" style="opacity: 0.7;">#<%= user.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=user.presence%>"></i></p>
+           <div class="user-badges">
+             <span><%= data.data.badge%></span>
+               </div>
+            </div>
+            </div>
+      </div>
   
   
   
