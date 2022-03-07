@@ -26,13 +26,14 @@
               <br><br>
                             <div class="form-group">
   <label> Xp message channel <span style="color: rgb(175, 22, 22)">*</span></label>
-   <div class="custom-select">               <br>
-<select name="xpchannel" class="xpchannel">
+   <div class="custom-select"style="width:200px;">
+     <br>
+<select >
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
   
-    <option class="options" value="<%= channel.id %>"><%=channel.name%></option>
+    <option value="<%= channel.id %>"><%=channel.name%></option>
     <% }) %>
       </select>
     </div>

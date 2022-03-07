@@ -68,6 +68,7 @@ module.exports = async (bot) => {
     "/css",
     express.static(path.resolve(`${templateDir}${path.sep}public/css`))
   );
+  app.use("/js", express.static(path.resolve(`${templateDir}${path.sep} public/js`))
 
   passport.serializeUser((user, done) => done(null, user));
   passport.deserializeUser((obj, done) => done(null, obj));

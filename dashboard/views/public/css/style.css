@@ -352,11 +352,10 @@ background: var(--grey);
 }
 .custom-select {
   position: relative;
-  font-family: Arial;
 }
 
 .custom-select select {
-  display: none; /*hide original SELECT element: */
+  display: flex; /*hide original SELECT element: */
 }
 
 .select-selected {
