@@ -129,10 +129,10 @@ background: url('');
     background-color: var(--black);
     background-position: 0% 50%;
   }
-  /*50% {
+  50% {
     background-color: var(--nilitox);
     background-position: 100% 50%;
-  }*/
+  }
 
   100% {
     background-color: var(--black);
