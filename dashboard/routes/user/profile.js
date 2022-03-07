@@ -2,20 +2,21 @@ const app = require("express").Router();
 const path = require("path");
 console.log("setting router loaded");
 app.get(
-  "/dashboard/guild/:guildID/setting",
+  "/profile/:userID",
   global.checkAuth,
   async (req, res, next) => {
-    const guild = bot.guilds.cache.get(req.params.guildID)
-  let data = await Guild.findOne({guildID: guild.id});
-      res.render("./guild/setting.ejs", {
+    const user = bot.users.cache.get(req.params.userID)
+  let data = await User.findOne({userID: user.id});
+      res.render("./user/user.ejs", {
         config: config,
         data:data,
         req: req,
         bot: bot,
-        guild: guild,
         user: req.isAuthenticated() ? req.user : null,
       })
     });
+
+/*
 
     app.post(
       "/dashboard/guild/:guildID/setting",
@@ -48,5 +49,5 @@ app.get(
           `?success=true&message= your applied  `
         );
       }
-    );
+    );*/
 module.exports = app;
