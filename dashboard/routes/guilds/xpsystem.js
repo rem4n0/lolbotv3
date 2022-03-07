@@ -53,7 +53,7 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
       res.redirect(
           `?success=true&message= applied`
         );*/
-      //return res.send({ success: true, message: "Server succesfuly added." });
+      return res.send({ success: true, message: "Server succesfuly added." });
       }
     );
 module.exports = app;
