@@ -1,33 +1,53 @@
-(() => {
-        const optionValues = document.querySelectorAll(".options");
-        const searchOptions = document.querySelector(".custom-select");
-        const dropdown = document.querySelector(".xpmessage");
-        const input = document.getElementById("search-form-loc");
-        const selectorText = document.querySelector(".search-form__label--loc");
+/*
+Reference: http://jsfiddle.net/BB3JK/47/
+*/
 
-        searchOptions.addEventListener("click", function () {
-          dropdownHandler();
+$('select').each(function(){
+    var $this = $(this), numberOfOptions = $(this).children('option').length;
+  
+    $this.addClass('select-hidden'); 
+    $this.wrap('<div class="select"></div>');
+    $this.after('<div class="select-styled"></div>');
+
+    var $styledSelect = $this.next('div.select-styled');
+    $styledSelect.text($this.children('option').eq(0).text());
+  
+    var $list = $('<ul />', {
+        'class': 'select-options'
+    }).insertAfter($styledSelect);
+  
+    for (var i = 0; i < numberOfOptions; i++) {
+        $('<li />', {
+            text: $this.children('option').eq(i).text(),
+            rel: $this.children('option').eq(i).val()
+        }).appendTo($list);
+        //if ($this.children('option').eq(i).is(':selected')){
+        //  $('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected')
+        //}
+    }
+  
+    var $listItems = $list.children('li');
+  
+    $styledSelect.click(function(e) {
+        e.stopPropagation();
+        $('div.select-styled.active').not(this).each(function(){
+            $(this).removeClass('active').next('ul.select-options').hide();
         });
+        $(this).toggleClass('active').next('ul.select-options').toggle();
+    });
+  
+    $listItems.click(function(e) {
+        e.stopPropagation();
+        $styledSelect.text($(this).text()).removeClass('active');
+        $this.val($(this).attr('rel'));
+        $list.hide();
+        //console.log($this.val());
+    });
+  
+    $(document).click(function() {
+        $styledSelect.removeClass('active');
+        $list.hide();
+    });
 
-        optionValues.forEach((option) => {
-          option.addEventListener("click", function () {
-            updateUI(input, selectorText, this);
-          });
-        });
+});
 
-        window.addEventListener("mouseup", function (event) {
-          if (event.target != dropdown) {
-            dropdown.classList.remove("search-form__dropdown--show");
-          }
-        });
-
-        function dropdownHandler() {
-          dropdown.classList.toggle("search-form__dropdown--show");
-        }
-
-        function updateUI(input, selectorText, referedThis) {
-          input.value = referedThis.textContent.trim();
-          selectorText.textContent = referedThis.textContent.trim();
-          dropdown.classList.remove("search-form__dropdown--show");
-        }
-      })();
