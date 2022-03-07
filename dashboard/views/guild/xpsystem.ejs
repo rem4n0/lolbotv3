@@ -109,7 +109,6 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
               $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
                 xpchannel:$('#xpchannel').val(),
-                
                 xpmax:$('#max').val(),
                 xpmin:$('#min').val(),
                 xpmessage:$('#xpmessage').val()
