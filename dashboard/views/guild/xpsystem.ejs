@@ -102,15 +102,15 @@
 
 
    //if(urlParams.has('success') && urlParams.get('success')){
-    function clickOnAdd() { 
+    function clickOnAdd() {
     
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
     setTimeout(() => {
-              
-
-                
-                
+              $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
+                xpchannel:$('#xpchannel').val(),
+              }).done(function (data){
+                if(data.error){
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -121,6 +121,7 @@ $("#myButton").attr("disabled", true);
     toast.addEventListener('mouseleave', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
     }})
+      
 Toast.fire({
   icon: 'success',
   title: 'applied successfully',
@@ -135,9 +136,9 @@ Toast.fire({
     
     
     
-    },2000)}
+    }else{
      
-   if(urlParams.has('error') && urlParams.get('error')){
+  // if(urlParams.has('error') && urlParams.get('error')){
      
       const Toast = Swal.mixin({
   toast: true,
@@ -157,11 +158,11 @@ Toast.fire({
   title: 'opps...',
   text:urlParams.get('message'),
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
-  
-}).then(()=>{
-  window.location.href ='/dashboard/guild/<%=guild.id%>';
-})
-
-    }
+    
+  })}
+              },2000
+        $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
+                    $("#myButton").attr("disabled", false);
+                    return;
    </script>
 <%- include("../parts/foot.ejs")%>
