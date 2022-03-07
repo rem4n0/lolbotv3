@@ -355,7 +355,7 @@ background: var(--grey);
 }
 
 .custom-select select {
-  display: flex; /*hide original SELECT element: */
+  display: none; /*hide original SELECT element: */
 }
 
 .select-selected {
