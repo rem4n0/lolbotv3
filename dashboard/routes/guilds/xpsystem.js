@@ -25,9 +25,9 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let { xpchannel, xpmax, xpmin, xpmessage } = req.body;
 
-    if (xpmessage.length > 200) {
-      res.send({ error: true, message: " level message too long" });
-    }
+  /*  if (xpmessage.length > 200) {
+      res.send({ error: true, message: " level message too long", });
+    }*/
     if (xpmax > 10) {
       return res.send({
         error: true,

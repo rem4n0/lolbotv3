@@ -121,11 +121,6 @@
         
         
         
- var urlParams = new URLSearchParams(window.location.search);
-
-
-
-   //if(urlParams.has('success') && urlParams.get('success')){
     function clickOnAdd() {
     
 $("#myButton").attr("disabled", true);
@@ -135,7 +130,7 @@ $("#myButton").attr("disabled", true);
                 xpchannel:$('#xpchannel').val(),
                 xpmax:$('#max').val(),
                 xpmin:$('#min').val(),
-                xpmessage:$('#xpmessage').val()
+                xpmessage:$('#xpmessage').val(),
                 
                 
                 
@@ -161,14 +156,7 @@ Toast.fire({
   text: data.message,
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
-})/*
-                  Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        closeOnConfirm: false,
-                        text: data.message,
-                        footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
-                    })*/
+})
                   
   $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
@@ -179,8 +167,7 @@ Toast.fire({
     
     }else{
      
-  // if(urlParams.has('error') && urlParams.get('error')){
-     
+  
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -200,14 +187,7 @@ Toast.fire({
   text:data.message,
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
-  })/*
-      Swal.fire({
-                        icon: 'success',
-                        title: 'Nice...',
-                        closeOnConfirm: false,
-                        text: data.message,
-                        footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
-                    })*/
+  })
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
