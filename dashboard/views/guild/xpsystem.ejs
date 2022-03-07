@@ -29,10 +29,11 @@
    <div class="custom-select">
      <br>
 <select class="xpmessage">
+  <option value="">select</option>
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
-  
+    
     <option value="<%= channel.id %>"><%=channel.name%></option>
     <% }) %>
       </select>
@@ -43,14 +44,6 @@
   
   
   <br><br><br><br><br>
-   <select id="mounth"> 
-    <option value="hide">-- Month --</option>
-    <option value="january">January</option>
-    <option value="february">February</option>
-    
-    </select>
-     <br><br><br><br>
-    
   <div class="form-group"> 
     
     

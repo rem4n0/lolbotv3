@@ -350,4 +350,10 @@ background: var(--grey);
   }
   
 }
- 
+ .contact-form select {
+   color:#4E5053;
+   border:2px solid var(--black);
+   background:var(--grey);
+   
+   width:200px;
+     }
