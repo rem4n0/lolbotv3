@@ -4,19 +4,23 @@
   <style>
     
     .contact-form .variables{
-    display: flex;
-      line-height:30px;
-      margin-right:140px;
+     display:flex;
+      line-height:40px;
+    /*  margin-right:140px;*/
 
     }
-    .contact-form .variables .color-text{
+    .contact-form .variables span{
+      
   color:#A60C44;
       
     }
-    .contact-form .variables .detail{
-      margin
+    .contact-form .variables p{
+      font-size:16px;
       
+      margin-left:10px;
+      color:#454546;
     }
+    
   </style>
    <div class="container">
 <div class="container contact-form">
@@ -69,20 +73,20 @@
     
     <h6> VARIABLES:</h6>
       <div class="variables">
-<p class="color-text">{user}</p>    
-<p class="detail">Mention member</p>
-        
-  
-    
+        <span>{user}</span> <p>mention member</p>
     </div>
-      
+    <div class="variables">
+ <span>{level}</span> <p>target new level of member</p>
+    
+
+    </div>
     
     
     
     <textarea name="xpmessage" id="xpmessage"></textarea>
   </div>       <br><br><br><br><br><br><br>     
                          <div class="form-group">
-                                          <label> XP SYSTEM <span style="color: rgb(175, 22, 22)">*</span></label>
+                                          <label> XP POINTS  <span style="color: rgb(175, 22, 22)">*</span></label>
            <br>   <br>
                              <label for="max">Maximum Point </label>                                     
   <input type="number" name="max" value="" id="max" />
