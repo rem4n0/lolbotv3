@@ -25,10 +25,10 @@ app.get(
         let { xpchannel }= req.body;
         
       
-      if (req.body.max.length > 10){
+/*      if (req.body.max.length > 10){
           return res.redirect( 
             "?error=true&message=You cant add up 10 point of maximum xp..");}
-if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't add up 5 point of minimum xp")}
+if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't add up 5 point of minimum xp")}*/
         let data = await Guild.findOne({guildID: guild.id})
         
         

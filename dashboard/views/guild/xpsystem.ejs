@@ -108,10 +108,10 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
     setTimeout(() => {
               $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
-                xpchannel:$('#xpchannel').val(),
+                xpchannel:$('#xpchannel').val()
               }).done(function(data){
                 if(data.error){
-      const Toast = Swal.mixin({
+   /*   const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
@@ -121,8 +121,8 @@ $("#myButton").attr("disabled", true);
     toast.addEventListener('mouseleave', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
     }})
-      
-Toast.fire({
+      */
+Swal.fire({
   icon: 'error',
   title: 'applied successfully',
   text:urlParams.get('message'),
@@ -140,7 +140,7 @@ Toast.fire({
      
   // if(urlParams.has('error') && urlParams.get('error')){
      
-      const Toast = Swal.mixin({
+      /*const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
@@ -150,20 +150,23 @@ Toast.fire({
     toast.addEventListener('mouseenter', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
-})
+})*/
 
       
-  Toast.fire({
+  Swal.fire({
   icon: 'success',
   title: 'opps...',
   text:urlParams.get('message'),
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
   })
+            $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
+                    $("#myButton").attr("disabled", false);
+                    return;
     
     }
               });
-    },3000 )
+    },2000 )
     }
       
         
