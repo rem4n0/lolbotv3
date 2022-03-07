@@ -7,12 +7,16 @@ const moment = require("moment");
 moment.suppressDeprecationWarnings = true;
 const wait = require("util").promisify(setTimeout);
 module.exports = {
-name:'profile',
-  description:'profile of user',
+  name:"profile",
+  description:"user profile",
   options:[{
     User:{
-      name:'profile_user', description:'target someone',
-      required:false,}}],
+      name:"target_user",
+      description:"target user profile",
+      required:false,
+    }
+    
+  }],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
@@ -23,7 +27,7 @@ name:'profile',
   prime: false,
   run: async (interaction, bot, data) => {
     const member =
-      interaction.options.getUser("profile_user") || interaction.user;
+      interaction.options.getUser("target_user") || interaction.user;
     if (member.bot) {
       return interaction.reply({
         content: `sir I don't have data in databse please mention user not bot `,
@@ -203,11 +207,11 @@ name:'profile',
     ctx.beginPath();
     ctx.font = "bold 30px sans-serif";
     ctx.textAlign = "right";
-    ctx.fillText(doc.data.tips.received, canvas.width - 30, 50, 120);
-
+    ctx.fillText(doc.data.reps.received, canvas.width - 30, 50, 120);
+ctx.shadowOffsetY = 0;
     // reset shadow
     if (badge) {
-      /* ctx.beginPath();
+    ctx.beginPath();
     ctx.moveTo(800, 0);
     ctx.lineTo(575, 10);
     ctx.lineTo(600, 80);
@@ -216,7 +220,7 @@ name:'profile',
     ctx.shadowBlur = 30;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 30;
-    ctx.fill();*/
+    ctx.fill();
 
       ctx.shadowOffsetY = 0;
       ctx.beginPath();
@@ -366,9 +370,9 @@ name:'profile',
     }
 
     await interaction.deferReply();
-    await wait(6000);
+    await wait(5000);
     await interaction.followUp({
-      files: [{ attachment: canvas.toBuffer(), name: "profile.png" }],
+      files: [{ attachment: canvas.toBuffer(), name: "rank.png" }],
     }).catch(()=>{});
   },
 };
