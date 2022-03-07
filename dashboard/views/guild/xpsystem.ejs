@@ -29,7 +29,7 @@
    <div class="custom-select">
      <br>
 <select class="xpmessage">
-  <option value="">select</option>
+  <option value="null">select</option>
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
@@ -104,6 +104,12 @@
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
     setTimeout(() => {
+              $.post("/dashboard/guild/<%=guild.id%>/xpsystem", {
+                max: $(#max).val()}).done(function (data){
+                if(data){
+
+                
+                
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -127,7 +133,7 @@ Toast.fire({
       /*.then(()=>{
   window.location.href ='/dashboard/guild/<%=guild.id%>';
 })*/
-},2000)}
+}})},2000)}
    /* if(urlParams.has('error') && urlParams.get('error')){
       const Toast = Swal.mixin({
   toast: true,
