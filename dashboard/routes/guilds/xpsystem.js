@@ -38,7 +38,7 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
           guildID: req.params.guildID},{
           $set:{
   
-            "channels.xp":req.body.xpchannel,
+            "channels.xp":req.body.xpchannelll,
             "xp.max":req.body.max,
             "xp.min": req.body.min,     
             "xp.onoff":req.body.xp, 
@@ -51,7 +51,7 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
       
         /*res.redirect(
           `?success=true&message= your applied  `
-        );*/
+        );*/return res.send({ success: true, message: "Server succesfuly added." });
       }
     );
 module.exports = app;
