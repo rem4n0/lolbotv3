@@ -205,6 +205,12 @@ module.exports = async (bot) => {
            next();
        }
     })*/
+  
+  ///////user
+
+  app.use("/", require ("./routes/users/profile.js"));
+  
+  ///
   app.use("/", require("./routes/index.js"));
   app.use("/", require("./routes/users/dashboard.js"));
   app.use("/", require("./routes/guilds/setting.js"));

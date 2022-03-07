@@ -1,0 +1,22 @@
+<%- include ('../parts/head',{bot,user})%>
+
+
+<title><%= user.username %> | Profile</title>
+<head>
+    <meta name="og:title" content="<%= user.username %> | Profile">
+    <meta name="og:description" content="<%= data ? (data.info ? data.info : user.username+' has no have any biography.') : member.username+' has no have any biography.'%>">
+    <meta name="og:image" content="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png">
+</head>
+
+  
+  <div class="container px-3 px-3 mt-5 pt-5">
+    <div class="columns container px-3 is-multiline">
+        <div class="column is-2">
+            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=member.presence.status%>"  onerror=" imgerror(this);"="" src="<%= member.avatarURL({dynamic: true}) %>" style="width: 300px; border-radius: 50%;">
+        </div>
+  
+  
+  
+  
+  
+  <%- include ('../parts/foot')%>
