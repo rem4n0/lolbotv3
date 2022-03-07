@@ -201,7 +201,7 @@ module.exports = {
 
     // reset shadow
     if(badge){
-   /* ctx.beginPath();
+    ctx.beginPath();
     ctx.moveTo(800, 0);
     ctx.lineTo(575, 10);
     ctx.lineTo(600, 80);
@@ -210,7 +210,7 @@ module.exports = {
     ctx.shadowBlur = 30;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 30;
-    ctx.fill();*/
+    ctx.fill();
 
     ctx.shadowOffsetY = 0;
     ctx.beginPath();

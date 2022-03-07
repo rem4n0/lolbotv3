@@ -7,7 +7,7 @@ const moment = require("moment");
 moment.suppressDeprecationWarnings = true;
 const wait = require("util").promisify(setTimeout);
 module.exports = {
-name:' profile',
+name:'profile',
   description:'profile of user',
   options:[{
     User:{
@@ -366,9 +366,9 @@ name:' profile',
     }
 
     await interaction.deferReply();
-    await wait(5000);
+    await wait(6000);
     await interaction.followUp({
-      files: [{ attachment: canvas.toBuffer(), name: "rank.png" }],
+      files: [{ attachment: canvas.toBuffer(), name: "profile.png" }],
     }).catch(()=>{});
   },
 };
