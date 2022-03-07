@@ -1,7 +1,7 @@
 (() => {
         const optionValues = document.querySelectorAll(".options");
-        const searchOptions = document.querySelector(".search-form__selector");
-        const dropdown = document.querySelector(".search-form__dropdown");
+        const searchOptions = document.querySelector(".custom-select");
+        const dropdown = document.querySelector(".xpmessage");
         const input = document.getElementById("search-form-loc");
         const selectorText = document.querySelector(".search-form__label--loc");
 
