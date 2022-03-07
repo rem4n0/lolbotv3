@@ -22,7 +22,7 @@ app.get(
       global.checkAuth,
       async (req, res) => {
         const guild = bot.guilds.cache.get(req.params.guildID);
-        let rbody = req.body;
+        let { xpchannel }= req.body;
         
       
       if (req.body.max.length > 10){
@@ -39,7 +39,7 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
           guildID: req.params.guildID},{
           $set:{
   
-            "channels.xp":req.body.xpchannel||null,
+            "channels.xp":xpchannel||null,
             "xp.max":req.body.max,
             "xp.min": req.body.min,     
             "xp.onoff":req.body.xp, 
@@ -49,11 +49,11 @@ if(req.body.min.length > 5){ return res.redirect("?error=true&message= you can't
                 
       
         
-      
+   /*   
       res.redirect(
           `?success=true&message= applied`
-        );
-        //return res.send({ success: true, message: "Server succesfuly added." });
+        );*/
+      //return res.send({ success: true, message: "Server succesfuly added." });
       }
     );
 module.exports = app;
