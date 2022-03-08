@@ -45,13 +45,17 @@
             
             </div>
       </div>
+  <button type="sumbit" oneclick
   <canvas id="myCanvas"> 
     
     
   </canvas>
+
   <script>
+    function (){
     const canvas = document.getElementById("myCanvas")
-    //onst canvas = createCanvas(800, 600);
+  //  const canvas = canva.createCanvas(800, 600);
+    
     const ctx = canvas.getContext("2d");
     const avatar = await loadImage(member.displayAvatarURL({ format: "png" }));
       const color = data.attch.color || "rgb(255,182,193)";
@@ -115,7 +119,7 @@
     ctx.font = "15px sans-serif";
     ctx.fillStyle = "rgba(255, 255,255,225)";
     ctx.textAlign = "center";
-    ctx.fillText(doc.info || "Not set", 555, 368, 490);
+    ctx.fillText(data.info || "Not set", 555, 368, 490);
     // add birthday outline
     ctx.beginPath();
     ctx.moveTo(410, 419);
@@ -163,7 +167,7 @@
     ctx.beginPath();
     ctx.font = "18px sans-serif";
     ctx.fillStyle = "rgba(255,255,255,0.8)";
-    ctx.fillText(`💴: ${doc.money || "0"}`, 330, 512, 80);
+    ctx.fillText(`💴: ${data.money || "0"}`, 330, 512, 80);
     ///  ctx.fillText(`🏦: ${doc.bank || "0"}`, 430, 512, 80);
 
     // add emblem indicator
@@ -205,11 +209,11 @@
     ctx.beginPath();
     ctx.font = "bold 30px sans-serif";
     ctx.textAlign = "right";
-    ctx.fillText(doc.data.reps.received, canvas.width - 30, 50, 120);
+    ctx.fillText(data.data.reps.received, canvas.width - 30, 50, 120);
 ctx.shadowOffsetY = 0;
     // reset shadow
     if (badge) {
-      /* ctx.beginPath();
+       ctx.beginPath();
     ctx.moveTo(800, 0);
     ctx.lineTo(575, 10);
     ctx.lineTo(600, 80);
@@ -218,7 +222,7 @@ ctx.shadowOffsetY = 0;
     ctx.shadowBlur = 30;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 30;
-    ctx.fill();*/
+    ctx.fill();
 
       ctx.shadowOffsetY = 0;
       ctx.beginPath();
@@ -367,7 +371,7 @@ ctx.shadowOffsetY = 0;
     if (hat) {
       ctx.beginPath();
       ctx.drawImage(hat, 0, 0, 300, 300);
-    }
+    }}
   </script>
   
   
