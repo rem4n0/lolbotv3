@@ -1,6 +1,5 @@
 <%- include ('../parts/head',{bot,user})%>
-
-
+<!--
 <title><%= member.username %> | Profile</title>
 <head>
     <meta name="og:title" content="<%= member.username %> | Profile">
@@ -35,12 +34,12 @@
               </tr>
               </thead>
               <tbody>
-                
+                <tr>
                 <th scope="row">1</th>
                 <td>$<%=data.money.toLocaleString()%></td>
                 <td><%=data.info%></td>
                 </tbdoy>
-         
+              </tr>
          </table>
             
             
