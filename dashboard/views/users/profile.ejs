@@ -24,13 +24,13 @@
             </div>
             
             <table class="table">
-        
+        <% data.forEach(data=>{ %>
             <thead class="table-head">
-              <% data.forEach(user=>{
-                
+            
+              <% const xps = data.xp.filter(x = x.id === g) %>
               <tr>
-                <th> hama</th>
-                <th> lord</th>
+                <th><% xps.id%></th>
+                <th></th>
               </tr>
               </thead>
               <tbody class="tbody">
@@ -38,7 +38,7 @@
                 <td>kawa</td>
                 <td> wein</td>
                 </tbdoy>
-         
+         <% })%>
           
          </table>
             

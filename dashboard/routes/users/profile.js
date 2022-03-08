@@ -11,17 +11,17 @@ app.get(
     
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
   let data = await User.findOne({userID: a.id});
+    a.guilds.forEach(guild=>{
     
-      const hama = ctx.drawImage(def, 300, 65, 475, 250);
       res.render("./users/profile.ejs", {
         config: config,
         data:data,
         hama:hama,
         req: req,
         bot: bot,
-    
+        guild:guild,
         member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
-    })});
+    })});})
 module.exports = app;
