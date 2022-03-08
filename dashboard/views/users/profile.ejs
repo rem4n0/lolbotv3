@@ -45,18 +45,21 @@
             
             </div>
       </div>
-  <button type="sumbit" oneclick
-  <canvas id="myCanvas"> 
+  <button type="sumbit" onclick="onClickAdd()" class="btn btn-primary"></button>
+  <canvas id="myCanvas" style="width:300px; height:300px; background:red;"> 
     
     
   </canvas>
-
+  
   <script>
-    function (){
+    function onClickAdd(){
+      
+      
     const canvas = document.getElementById("myCanvas")
   //  const canvas = canva.createCanvas(800, 600);
-    
+    console.log(canvas);
     const ctx = canvas.getContext("2d");
+      setTimeout(async ()=>{
     const avatar = await loadImage(member.displayAvatarURL({ format: "png" }));
       const color = data.attch.color || "rgb(255,182,193)";
     const birthday = moment(data.birthdate).format("dddd, MMMM Do YYYY"); ///doc.birthdate
@@ -91,7 +94,7 @@
     ctx.shadowOffsetX = -10;
     ctx.shadowOffsetY = -40;
     ctx.fill();
-
+/*
     // add bio outline
     ctx.beginPath();
     ctx.moveTo(370, 338);
@@ -371,7 +374,7 @@ ctx.shadowOffsetY = 0;
     if (hat) {
       ctx.beginPath();
       ctx.drawImage(hat, 0, 0, 300, 300);
-    }}
+    }*/},5000)}
   </script>
   
   
