@@ -11,7 +11,7 @@ module.exports = {
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
   ownerOnly: false,			
-  cooldown: 10000,
+  cooldown:0,
   run: async (client, message, args, dev,dev2) => {
   let cooldown = 0//43200000;
       let data = await User.findOne({ userID: message.author.id });
@@ -20,10 +20,7 @@ module.exports = {
       let DR = Math.floor(Math.random() * 2000) + 1000
       
       message.channel.send({content:`**${message.author.username}** you get 💰$\`${DR}\` credits`})
-      /*
-      data.time = Date.now();
-      data.name = message.author.username
-    data.money += parseInt(DR);*/
+      
     
     await User.updateOne({
       userID: message.author.id},
