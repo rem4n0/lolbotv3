@@ -132,7 +132,7 @@ module.exports = async (bot) => {
       }
       next();
     },
-    passport.authenticate("discord", { prompt: "none" })
+    passport.authenticate("discord"/* { prompt: "none" }*/)
   );
   app.get(
     `/callback`,
