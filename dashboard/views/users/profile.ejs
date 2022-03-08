@@ -39,28 +39,39 @@
          </table>
             
             
-            <canvas id="profile" style="width:300px; height:300px;">
-              
-              
-              
-      </canvas>
-            
+      
             
             
             
             </div>
       </div>
+  <canvas id="myCanvas" style="width:250px; height:300px;"> 
+    
+    
+  </canvas>
   <script>
-    const canvas = createCanvas(800, 600);
+    const canvas = document.getElementById("myCanvas")
+    //onst canvas = createCanvas(800, 600);
     const ctx = canvas.getContext("2d");
     const avatar = await loadImage(member.displayAvatarURL({ format: "png" }));
-  
-    const defpattern = doc.attch.pattern
-      ? await loadImage(doc.attch.pattern || "https://i.imgur.com/nx5qJUb.png")
+      const color = data.attch.color || "rgb(255,182,193)";
+    const birthday = moment(data.birthdate).format("dddd, MMMM Do YYYY"); ///doc.birthdate
+
+    const hat = data.attch.hat ? await loadImage(data.attch.hat) : null;
+    const emblem = data.attch.emblem ? await loadImage(data.attch.emblem) : null;
+    const wreath = data.attch.wreath ? await loadImage(data.attch.wreath) : null;
+    const def = await loadImage(
+      data.attch.background || "https://i.imgur.com/57eRI6H.jpg"
+    );
+    const defpattern = data.attch.pattern
+      ? await loadImage(data.attch.pattern || "https://i.imgur.com/nx5qJUb.png")
+      : null;
+    const defpattern = data.attch.pattern
+      ? await loadImage(data.attch.pattern || "https://i.imgur.com/nx5qJUb.png")
       : null;
     ///const m = docawait loadImage(doc.attch.background || "https://i.imuger.com/nx5qJUb.png");
     const avatar = await loadImage(member.displayAvatarURL({ format: "png" }));
-    const badge = doc.data.badge ? await loadImage(doc.data.badge) : null;
+    const badge = data.data.badge ? await loadImage(data.data.badge) : null;
     // add the wallpaper
     ctx.drawImage(def, 300, 65, 475, 250);
 
