@@ -93,14 +93,14 @@
             
           </tr>
         </thead>
-<% data.inventory.map((chunk, i, o) => {
+<% _.chunk(data.inventory, 25).map((chunk, i, o) => {
   chunk.sort((A,B) => A.id - B.id ).map(d => {
   const item = market.find(x => x.id == d.id);
   
   %>
         <tbody clSs="table-body">
           <tr>
-            <td><%= item.name%></td>
+            <td><%= item.name%> <img style="width:100px; height:90px; margin-left:30px; border-radius:25%;" src="<%=item.assets.link%>"/></td>
           </tr>
         </tbdoy>
       <% })})%>

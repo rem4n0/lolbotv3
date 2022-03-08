@@ -3,6 +3,7 @@ const path = require("path");
 const { createCanvas, loadImage } = require("canvas");
 const market = require (`${process.cwd()}/shop/market.json`);
 console.log("profile router loaded");
+const _ = require('lodash');
 
 app.get(
   "/profile/:userID",
@@ -20,7 +21,8 @@ app.get(
   
         req: req,
         bot: bot,
-      
+      _:_,
+        market:market,
         member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
