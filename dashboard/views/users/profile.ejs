@@ -75,14 +75,38 @@
                 
                 <td>$<%=data.money.toLocaleString()%></td>
                 <td><%=data.info%></td>
+                </tr>
                 </tbdoy>
-              </tr>
+            
          </table>
             
+      <br> 
+      <br>
+      <br>
       
       
-      
-      <table class="
+      <table class="table table-sm">
+        <thead class="table table-striped">
+          <tr>
+          
+            <th scope="col">Invntory</th>
+            
+          </tr>
+        </thead>
+<% data.inventory.map((chunk, i, o) => {
+  chunk.sort((A,B) => A.id - B.id ).map(d => {
+  const item = market.find(x => x.id == d.id);
+  
+  %>
+        <tbody clSs="table-body">
+          <tr>
+            <td><%= item.name%></td>
+          </tr>
+        </tbdoy>
+      <% })})%>
+      </table>
+                  
+  
             
       
             
