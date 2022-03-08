@@ -8,10 +8,14 @@
 </head>
 <style>
   
-  .container .table .table-warning th{
+  .container .table .table-striped th{
     color: var(--white);
     font-size:18px;
     
+  }
+  .container .table .table-body td{
+    
+    color: var(--white);
   }
   
   
@@ -41,9 +45,10 @@
               <tr>
                 <th scope="col">BALANCE</th>
                 <th scope="col">BIO</th>
+                <th scope="col">
               </tr>
               </thead>
-              <tbody>
+              <tbody class="table-body">
                 <tr>
                 
                 <td>$<%=data.money.toLocaleString()%></td>
