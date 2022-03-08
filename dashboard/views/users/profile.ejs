@@ -24,12 +24,13 @@
             </div>
             
             <table class="table">
-        <% data.forEach(data=>{ %>
-            <thead class="table-head">
             
-              <% const xps = data.xp.filter(x = x.id === g) %>
+        <% userdata.forEach(data=>{ %>
+            <thead class="table-head">
+          
+               
               <tr>
-                <th><% xps.id%></th>
+                <th><img src="<%=data.data.badgeinv%>" style="width:50px; height:50px;"/></th>
                 <th></th>
               </tr>
               </thead>
@@ -50,12 +51,9 @@
             </div>
       </div>
 
-  <canvas id="myCanvas" style="width:300px; height:300px;background: white;"> 
-    
-    <%=hama%>
-  </canvas>
   
-  <script>
+  
+
     
 
   
