@@ -3,19 +3,23 @@ const path = require("path");
 const { createCanvas, loadImage } = require("canvas");
 
 console.log("profile router loaded");
+
 app.get(
   "/profile/:userID",
   global.checkAuth,
   async (req, res, next) => {
+    
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
   let data = await User.findOne({userID: a.id});
+    
+      const hama = ctx.drawImage(def, 300, 65, 475, 250);
       res.render("./users/profile.ejs", {
         config: config,
         data:data,
+        hama:hama,
         req: req,
         bot: bot,
-        loadImage:loadImage,
-        createCanvas:createCanvas, 
+    
         member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
