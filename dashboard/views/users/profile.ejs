@@ -30,14 +30,15 @@
           
                
               <tr>
-                <th><%=item.name%></th>
-                <th><%=items.id%></th>
+                <th scope="col">Money</th>
+                <th scope="col">Bio</th>
               </tr>
               </thead>
-              <tbody class="tbody">
+              <tbody>
                 
-                <td><%=items.price%></td>
-                <td> wein</td>
+                <th scope="row">1</th>
+                <td>$<%=data.money.toLocaleString()%></td>
+                <td><%=data.info%></td>
                 </tbdoy>
          
          </table>

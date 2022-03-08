@@ -20,7 +20,7 @@ app.get(
   
         req: req,
         bot: bot,
-      userdata:userdata,
+      
         member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
