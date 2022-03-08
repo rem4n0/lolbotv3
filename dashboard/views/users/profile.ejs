@@ -1,12 +1,19 @@
 <%- include ('../parts/head',{bot,user})%>
-<!--
+
 <title><%= member.username %> | Profile</title>
 <head>
     <meta name="og:title" content="<%= member.username %> | Profile">
     <meta name="og:description" content="<%= data ? (data.info ? data.info : member.username+' has no have any biography.') :member.username+' has no have any biography.'%>">
     <meta name="og:image" content="https://cdn.discordapp.com/avatars/<%=member.id%>/<%=member.avatar%>.png">
 </head>
-
+<style>
+  
+  .container .table .table-warning th{
+    color: var(--white);
+    font-size:18px;
+    
+  }
+  </style>
   
   <div class="container px-3 px-3 mt-5 pt-5">
     <div class="columns container px-3 is-multiline">
@@ -22,20 +29,20 @@
                </div>
             </div>
             
-            <table class="table">
+            <table class="table table-sm">
             
     
-            <thead class="table-head">
+            <thead class="table-warning">
           
                
               <tr>
-                <th scope="col">Money</th>
-                <th scope="col">Bio</th>
+                <th scope="col">BALANCE</th>
+                <th scope="col">BIO</th>
               </tr>
               </thead>
               <tbody>
                 <tr>
-                <th scope="row">1</th>
+                
                 <td>$<%=data.money.toLocaleString()%></td>
                 <td><%=data.info%></td>
                 </tbdoy>
