@@ -1,5 +1,7 @@
 const app = require("express").Router();
 const path = require("path");
+const { createCanvas, loadImage } = require("canvas");
+
 console.log("profile router loaded");
 app.get(
   "/profile/:userID",
@@ -12,6 +14,8 @@ app.get(
         data:data,
         req: req,
         bot: bot,
+        loadImage:loadImage,
+        createCanvas:createCanvas, 
         member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
