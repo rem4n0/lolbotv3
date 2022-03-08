@@ -12,7 +12,7 @@ app.get(
         data:data,
         req: req,
         bot: bot,
-        userr:a,
+        member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
     })});
