@@ -23,6 +23,7 @@
                </div>
             </div>
             <table class="table">
+              <%= data.forEach(userdata=> { %>
             <thead class="table-head">
               <tr>
                 <th> hama</th>
@@ -31,9 +32,10 @@
               </thead>
               <tbody class="tbody">
                 
-                <td> winer</td>
+                <td><%=userdata.data.xp%></td>
                 <td> wein</td>
-              
+                </tbdoy>
+              <% }) %>
          </table>
             
             
