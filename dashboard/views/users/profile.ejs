@@ -108,9 +108,9 @@
            
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
-        const item = market.find(x=> x.id== d.i);%>
-        <div class="card" style="width: 13rem; ">
-<img src="<%=item.assets.link%>" class="ard-img-top">
+        const item = market.find(x=> x.id== d.id);%>
+        <div class="card">
+<img src="<%=item.assets.link%>" class="card-img-top" alt="<%=item.name%>">
 <div class="card-body">
 <h5 class="card-title"><%= item.name%></h5>
 <p class="card-text"><%= item.description%>.</p>
@@ -119,10 +119,15 @@
 <li class="list-group-item"><%= item.price%></li>
 <li class="list-group-item">id of item: <%= item.id%></li>
       </ul>
-     <!-- <a href="#" class="card-link">Another link</a>
-<a href="#" class="card-link">Card link</a>-->
+     <a href="#" class="card-link">Another link</a>
+<a href="#" class="card-link">Card link</a>
 </div>
-</div>   <% })})%>
+</div> 
+          
+      <br>
+          <br>
+          
+          <% })})%>
             
             
             </div>
