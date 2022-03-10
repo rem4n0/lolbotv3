@@ -87,29 +87,7 @@
       <br> 
       <br>
       <br>
-      
-      <!--
-      <table class="table table-sm">
-        <thead class="table table-striped">
-          <tr>
-          
-            <th scope="col">Invntory</th>
-            
-          </tr>
-        </thead>
-<% _.chunk(data.inventory, 25).map((chunk, i, o) => {
-  chunk.sort((A,B) => A.id - B.id ).map(d => {
-  const item = market.find(x => x.id == d.id);
-  
-  %>
-        <tbody clSs="table-body">
-          <tr>
-            <td><%= item.name%> <img style="width:100px; height:90px; margin-left:30px; border-radius:25%;" src="<%=item.assets.link%>"/></td>
-          </tr>
-        </tbdoy>
-      <% })})%>
-      </table>--->
-       <div class="inventory">    
+           
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
@@ -118,7 +96,7 @@
 <div class="card-body">
 <h5 class="card-title" style="color:black;"><%= item.name%></h5>
 <p class="card-text" style="color:black;"><%= item.description%></p>
-   <!--<ul class="list-group list-group-flush">
+   <ul class="list-group list-group-flush">
   
 <li class="list-group-item">item type: <%= item.type%></li>
 <li class="list-group-item"><%= item.price%></li>
@@ -126,11 +104,7 @@
       </ul>
      <!--<a href="#" class="card-link">Another link</a>
 <a href="#" class="card-link">Card link</a>-->
-  <ul> 
-    
-    
-    <li> <%= item.name%></li>
-  </ul>
+  
   </div>
 </div> 
           
@@ -138,7 +112,7 @@
           <br>
           
           <% })})%>
-            </div>
+        
             
             </div>
           
