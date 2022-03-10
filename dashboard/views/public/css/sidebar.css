@@ -161,6 +161,7 @@ background: var(--sharabi);
 
 
 .home-section {
+  z-index:1;
   position: relative;
   left: 0px;
   width: calc(100% - 230px);
@@ -175,6 +176,7 @@ background: var(--sharabi);
   align-items: center;
 }
 .sidebar .home-section {
+  
   display: flex;
 
   left: 0px;
