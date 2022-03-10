@@ -40,15 +40,17 @@
   
   .inventory .card{
 
-    display:none;
+    display:block;
   }
-.inventory i{
-  font-size:30px;
-  position: absolute:
-  color:white;
-  
-  
-  
+  .inventory span{
+    font-size:26px;
+    color:white;
+    
+  }
+  .inventory i{
+    font-size:22px;
+    
+    
   }
   
   </style>
@@ -95,8 +97,9 @@
       <br> 
       <br>
       <br>
+      
       <div class="inventory">
-        <i class="fa-solid fa-down"></i>
+        <span>INVENTORY</span> <i class="fa-solid fa-angle-down"></i>
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
