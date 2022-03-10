@@ -38,6 +38,10 @@
     
   }
   
+  .inventory {
+
+    display:block;
+  }
   
   </style>
 
@@ -105,32 +109,39 @@
         </tbdoy>
       <% })})%>
       </table>--->
-           
+       <div class="inventory">    
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
-        <div class="card" style="width:18rem;border-radius:5%;">
+        <div class="card" style="width:18rem;border-radius:5%; position:static;">
 <img src="<%=item.assets.link%>" style="border-radius:8%;"class="card-img-top" alt="<%=item.name%>">
 <div class="card-body">
 <h5 class="card-title" style="color:black;"><%= item.name%></h5>
-<p class="card-text" style="color:black;"><%= item.description%>.</p>
-      <ul class="list-group list-group-flush">
+<p class="card-text" style="color:black;"><%= item.description%></p>
+   <!--<ul class="list-group list-group-flush">
+  
 <li class="list-group-item">item type: <%= item.type%></li>
 <li class="list-group-item"><%= item.price%></li>
 <li class="list-group-item">id of item: <%= item.id%></li>
       </ul>
      <!--<a href="#" class="card-link">Another link</a>
 <a href="#" class="card-link">Card link</a>-->
-</div>
+  <ul> 
+    
+    
+    <li> <%= item.name%></li>
+  </ul>
+  </div>
 </div> 
           
       <br>
           <br>
           
           <% })})%>
-            
+            </div>
             
             </div>
+          
       </div>
 
   
