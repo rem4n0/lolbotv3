@@ -106,21 +106,23 @@
       <% })})%>
       </table>--->
            
-      
+      <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
+        chunk.sort((A,B)=>A.id - B.id).map(d=>{
+        const item = market.find(x=> x.id== d.i);%>
         <div class="card" style="width: 13rem; ">
-<img src="" class="ard-img-top">
+<img src="<%=item.assets.link%>" class="ard-img-top">
 <div class="card-body">
-<h5 class="card-title">Card title</h5>
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
+<h5 class="card-title"><%= item.name%></h5>
+<p class="card-text"><%= item.description%>.</p>
       <ul class="list-group list-group-flush">
-<li class="list-group-item">An item</li>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
+<li class="list-group-item">item type: <%= item.type%></li>
+<li class="list-group-item"><%= item.price%></li>
+<li class="list-group-item">id of item: <%= item.id%></li>
       </ul>
-      <a href="#" class="card-link">Another link</a>
-<a href="#" class="card-link">Card link</a>
+     <!-- <a href="#" class="card-link">Another link</a>
+<a href="#" class="card-link">Card link</a>-->
 </div>
-</div>   
+</div>   <% })})%>
             
             
             </div>
