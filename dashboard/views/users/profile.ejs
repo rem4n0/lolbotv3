@@ -42,10 +42,16 @@
 
     display:none;
   }
-  .inventory span{
-    font-size:26px;
-    color:white;
+  .drop-down{
+    display:block;
     
+    
+  }
+.drop-down .text{
+display:block;
+  font-size: 24px;
+  color:white;
+  
   }
   .inventory i{
     font-size:22px;
@@ -102,9 +108,12 @@
       <br> 
       <br>
       <br>
-      <div class="open">INVENTORY</div>
+      
       <div class="inventory">
-        
+        <div class="home-section">
+          
+          <span class="text"> INVENTORY</span>
+        </div>
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
@@ -142,7 +151,7 @@
 
   <script>
     let sidebar= document.querySelector(".inventory");
-  let sidebarBtn= document.querySelector(".open");
+  let sidebarBtn= document.querySelector(".text");
   sidebarBtn.addEventListener('click',()=>{
     
     sidebar.classList.toggle("open");
