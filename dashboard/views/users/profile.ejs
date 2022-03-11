@@ -42,27 +42,8 @@
 
     display:none;
   }
-  .drop-down{
-    display:block;
-    
-    
-  }
-.drop-down .text{
-display:block;
-  font-size: 24px;
-  color:white;
   
-  }
-  .inventory i{
-    font-size:22px;
-  
-    
-  }
-.inventory.open {
 
-  display:block;
-  
-  }
   
   </style>
 
@@ -110,9 +91,7 @@ display:block;
       <br>
       
       <div class="inventory">
-        <div class="home-section">
-          
-          <span class="text"> INVENTORY</span>
+      <div class="n class=" INVENTORY</span>
         </div>
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
@@ -137,12 +116,13 @@ display:block;
       <br>
           <br>
           
-          <% })})%>
+      
+            <% })})%>
             </div>
             
             </div>
           
-      </div>
+  <!--    </div>
 
   
   
@@ -151,11 +131,10 @@ display:block;
 
   <script>
     let sidebar= document.querySelector(".inventory");
-  let sidebarBtn= document.querySelector(".text");
+  let sidebinvn= document.querySelector(".text");
   sidebarBtn.addEventListener('click',()=>{
-    
-    sidebar.classList.toggle("open");
-  console.log(sidebar);
+   xx  side"open");
+  cons-->ole.log(sidebar);
   })
 </script>
   
