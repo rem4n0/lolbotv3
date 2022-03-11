@@ -64,14 +64,6 @@
     
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
-      var switchStatus = false;
-$(".form-check-input").on('change', function() {
-if ($(this).is(':checked')) {
-    switchStatus = $(this).is(':checked');
-}
-else {
-   switchStatus = $(this).is(':checked');
-}
 
     setTimeout(() => {
               $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
@@ -83,12 +75,8 @@ else {
                  roleDelete:$('#roleDeletr').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
-                
-                
-                
-                
-                
-              }).done(function(data){
+        
+    }).done(function(data){
                 if(data.error){
       const Toast = Swal.mixin({
   toast: true,
