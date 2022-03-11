@@ -29,6 +29,7 @@ const schema = mongoose.Schema({
   channels:{
     xp:{type: String, default:null}
   },
+  
   plugins: { type: Object, default: { // Plugins data
   welcome: {
 			enabled: false, // Whether the welcome messages are enabled
@@ -48,10 +49,16 @@ const schema = mongoose.Schema({
 			role: null // The role to add when a member join the server
 		},
 		// modlgs
-modlogs: false, // the channel in which the moderation logs (mute, kick, ban, etc...) will be sent
-		reports: false, // the channel in which the reports will be sent
+    logs:{
+       logchannel: false, // the channel in which the moderation logs (mute, kick, ban, etc...) will be sent
+      roleDelete:false,
+      roleCreate: false,
+      roleUpdate:false,
+      channelCreate:false,
+      channelDelete:false,
+       on:false, // the channel in which the reports will be sent
 	
-	
+    }
   
   }
            },

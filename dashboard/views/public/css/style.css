@@ -360,3 +360,21 @@ background: var(--grey);
    
    width:200px;
      }
+/*command*/
+  .contact-form .variables{
+     display:flex;
+      line-height:40px;
+    /*  margin-right:140px;*/
+
+    }
+    .contact-form .variables span{
+      
+  color:#A60C44;
+      
+    }
+    .contact-form .variables p{
+      font-size:16px;
+      
+      margin-left:10px;
+      color:#454546;
+    }
