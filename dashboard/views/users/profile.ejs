@@ -38,7 +38,7 @@
     
   }
   
-  .inventory .card{
+  .inventory{
 
     display:none;
   }
@@ -52,7 +52,7 @@
   
     
   }
-.inventory.open .card{
+.inventory.open {
 
   display:block;
   
@@ -102,9 +102,9 @@
       <br> 
       <br>
       <br>
-      
+      <div class="open">INVENTORY</div>
       <div class="inventory">
-        <div class="open">INVENTORY</div>
+        
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
