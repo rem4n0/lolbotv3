@@ -335,7 +335,9 @@ background: var(--grey);
   cursor: pointer;
 }
 .contact-form label {
-
+ font-size:24x;
+  line-height:22px;
+  
   color: #fff;
 }
 .contact-form label i {
