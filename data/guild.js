@@ -47,20 +47,20 @@ const schema = mongoose.Schema({
     autorole: {
 			enabled: false, // Whether the autorole is enabled
 			role: null // The role to add when a member join the server
-		},
+		},},
 		// modlgs
     logs:{
-       logchannel: false, // the channel in which the moderation logs (mute, kick, ban, etc...) will be sent
-      roleDelete:false,
-      roleCreate: false,
-      roleUpdate:false,
-      channelCreate:false,
-      channelDelete:false,
-       on:false, // the channel in which the reports will be sent
+      
+       logchannel:{type:String, default: null}, 
+      roleDelete:{type:String, default:null},
+      roleCreate: {type:String, default:null},
+      roleUpdate:{type:String, default:null},
+      channelCreate:{type:String, default:null},
+      channelDelete:{type:String, default:null},
+       on:{type:String, default:null},
 	
     }
   
-  }
            },
   member:{ type: Object, default:{
     user:null,

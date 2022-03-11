@@ -8,7 +8,7 @@
           
        let res = await User.findOne({userID: message.author.id}) ||
           await new User({userID: message.author.id}).save();
- 
+ if(guild){
           const max = guild.xp.max || 3;
   const min = guild.xp.min || 1;
   const points = Math.floor(Math.random() * (max-min)) + min;
@@ -101,7 +101,7 @@
   })
   .catch(() => {
     return { xpAdded: false, reason: 'DB_ERROR_ON_SAVE' }
-  });}
+  });}}
         
         module.exports = xp;
         
