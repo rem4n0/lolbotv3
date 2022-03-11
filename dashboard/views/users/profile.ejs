@@ -52,7 +52,7 @@
   
     
   }
-.inventory i:hover .card{
+.inventory.open .card{
 
   display:block;
   
@@ -104,7 +104,7 @@
       <br>
       
       <div class="inventory">
-        <span>INVENTORY</span> <i class="fa-solid fa-angle-down"></i>
+        <div class="open">INVENTORY</div>
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
@@ -140,7 +140,15 @@
   </div>
     
 
-  
+  <script>
+    let sidebar= document.querySelector(".inventory");
+  let sidebarBtn= document.querySelector(".open");
+  sidebarBtn.addEventListener('click',()=>{
+    
+    sidebar.classList.toggle("open");
+  console.log(sidebar);
+  })
+</script>
   
   
   <%- include ('../parts/foot')%>
