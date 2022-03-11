@@ -35,7 +35,7 @@
   <br><br><br><br><br>
   <div class="form-group">
    <div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" value="" id="roleCreate">
+  <input class="form-check-input" type="checkbox" value=":checked" id="roleCreate">
   <label class="form-check-label" for="roleCreate"> RoleCreate</label>
 </div>
     </div>
@@ -56,18 +56,7 @@
   
   
       <script>
-     var switchStatus = false;
-$("#togBtn").on('change', function() {
-if ($(this).is(':checked')) {
-    switchStatus = $(this).is(':checked');
-}
-else {
-   switchStatus = $(this).is(':checked');
-}
-console.log(switchStatus);
-        
-        
-})
+    
     function clickOnAdd() {
     
 $("#myButton").attr("disabled", true);
@@ -79,7 +68,7 @@ $("#myButton").attr("disabled", true);
                 logon:$('#logon').val(),
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
-                roleCreate:switchStatus,
+                roleCreate:$('#chammelCreate').val(),
                  roleDelete:$('#roleDeletr').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
