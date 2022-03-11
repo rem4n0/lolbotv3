@@ -48,6 +48,20 @@ app.post(
         },
       }
     );
+    if(roleCreate === "true"){
+      await Guild.UpdateOne({
+        guildID: req.params.guildID},
+                            
+                            {
+        $set:{
+          
+          "logs.logchannel": 
+                            
+                            
+      
+      
+      
+    }
 
     return res.send({ success: true, message: "successfully" });
   }
