@@ -23,23 +23,12 @@ app.post(
   global.checkAuth,
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let { logchannel, logon, xpmin, xpmessage } = req.body;
+    let { logchannel, logon, roleCrrat, xpmessage } = req.body;
 
   /*  if (xpmessage.length > 200) {
       res.send({ error: true, message: " level message too long", });
     }*/
-    if (xpmax > 10) {
-      return res.send({
-        error: true,
-        message: " maximum of xp point should less than 10",
-      });
-    }
-    if (xpmin > 5) {
-      return res.send({
-        error: true,
-        message: " minimum xp points should less than 5",
-      });
-    }
+    
     let data = await Guild.findOne({ guildID: guild.id });
 
     await Guild.findOneAndUpdate(
