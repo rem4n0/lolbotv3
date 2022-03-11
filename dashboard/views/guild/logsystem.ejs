@@ -1,43 +1,10 @@
 <%- include ("../parts/sidebarguild",{bot,user}) %>
 
-  
-  <style>
-    
-    .contact-form .variables{
-     display:flex;
-      line-height:40px;
-    /*  margin-right:140px;*/
-
-    }
-    .contact-form .variables span{
-      
-  color:#A60C44;
-      
-    }
-    .contact-form .variables p{
-      font-size:16px;
-      
-      margin-left:10px;
-      color:#454546;
-    }
-    
-  </style>
    <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
       <i></i>
   </div>
-  
-
-  <script>
-        (function(){
-        var txt = $("input#logchannel");
-        var func = function() {
-            txt.val(txt.val().replace(/\s/g, ''));
-        }
-        txt.keyup(func).blur(func);
-    });
-  </script>
   
   <form method="POST">
   
@@ -50,8 +17,8 @@
   <label> TEXT LEVELING UP CHANNEL<span style="color: rgb(175, 22, 22)">*</span></label>
    <div class="custom-select">
      <br>
-<select  name ="logchannel" id="logchannel">
-  <option value="<%=data.plugins.logs.logchannel%>">select</option>
+<select name ="logchannel" id="logchannel">
+  <option value="<%=data.logs.logchannel%>">select</option>
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
@@ -80,6 +47,7 @@
     
 
     </div>
+    
     
 
                          <div class="form-group">
@@ -123,7 +91,7 @@
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
     setTimeout(() => {
-              $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
+              $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
                 logchannel:$('#logchannel').val(),
                 logon:$('#logon').val(),
                 channelCreate:$('#channelCreate').val(),

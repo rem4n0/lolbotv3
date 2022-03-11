@@ -47,7 +47,7 @@ const schema = mongoose.Schema({
     autorole: {
 			enabled: false, // Whether the autorole is enabled
 			role: null // The role to add when a member join the server
-		},},
+		},},},
 		// modlgs
     logs:{
       
@@ -59,9 +59,9 @@ const schema = mongoose.Schema({
       channelDelete:{type:String, default:null},
        on:{type:String, default:null},
 	
-    }
-  
-           },
+    },
+      
+           
   member:{ type: Object, default:{
     user:null,
     mute:false,

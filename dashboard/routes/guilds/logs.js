@@ -37,13 +37,13 @@ app.post(
       },
       {
         $set: {
-          "plugins.logs.logchannel": logchannel || null,
-          "plugins.logs.on": logon,
-          "plugins.logs.roleCreate": roleCreate,
-          "plugins.logs.roleDelete": roleDelete,
-          "plugins.logs.roleUpdate": roleUpdate,
-          "plugins.logs.channelCreate":channelCreate,
-          "plugins.logs.channelDelete":channelDelete,
+          "logs.logchannel": logchannel,
+          "logs.on": logon,
+          "logs.roleCreate": roleCreate,
+          "logs.roleDelete": roleDelete,
+          "logs.roleUpdate": roleUpdate,
+          "logs.channelCreate":channelCreate,
+          "logs.channelDelete":channelDelete,
 
         },
       }

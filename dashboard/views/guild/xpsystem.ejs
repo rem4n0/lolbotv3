@@ -1,27 +1,7 @@
 <%- include ("../parts/sidebarguild",{bot,user}) %>
 
   
-  <style>
-    
-    .contact-form .variables{
-     display:flex;
-      line-height:40px;
-    /*  margin-right:140px;*/
 
-    }
-    .contact-form .variables span{
-      
-  color:#A60C44;
-      
-    }
-    .contact-form .variables p{
-      font-size:16px;
-      
-      margin-left:10px;
-      color:#454546;
-    }
-    
-  </style>
    <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
@@ -29,15 +9,7 @@
   </div>
   
 
-  <script>
-        (function(){
-        var txt = $("input#guildID");
-        var func = function() {
-            txt.val(txt.val().replace(/\s/g, ''));
-        }
-        txt.keyup(func).blur(func);
-    });
-  </script>
+
   
   <form method="POST">
   
