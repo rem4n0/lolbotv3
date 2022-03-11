@@ -31,7 +31,7 @@
 
   <script>
         (function(){
-        var txt = $("input#guildID");
+        var txt = $("input#logchannel");
         var func = function() {
             txt.val(txt.val().replace(/\s/g, ''));
         }
@@ -50,8 +50,8 @@
   <label> TEXT LEVELING UP CHANNEL<span style="color: rgb(175, 22, 22)">*</span></label>
    <div class="custom-select">
      <br>
-<select class="xpchannel" name ="xpchannel" id="xpchannel">
-  <option value="">select</option>
+<select  name ="logchannel" id="logchannel">
+  <option value="<%=data.plugins.logs.logchannel%>">select</option>
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
@@ -124,10 +124,13 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
     setTimeout(() => {
               $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
-                xpchannel:$('#xpchannel').val(),
-                xpmax:$('#max').val(),
-                xpmin:$('#min').val(),
-                xpmessage:$('#xpmessage').val(),
+                logchannel:$('#logchannel').val(),
+                logon:$('#logon').val(),
+                channelCreate:$('#channelCreate').val(),
+                channelDelete:$('#channelDelete').val(),
+                roleCreate:$('#roleCreate').val(),
+                 roleDelete:$('#roleDeletr').val(),
+                roleUpdate:$('#roleUpdate').val(),
                 
                 
                 

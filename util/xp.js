@@ -8,8 +8,9 @@
           
        let res = await User.findOne({userID: message.author.id}) ||
           await new User({userID: message.author.id}).save();
-  const max = guild.xp.max;
-  const min = guild.xp.min;
+ 
+          const max = guild.xp.max || 3;
+  const min = guild.xp.min || 1;
   const points = Math.floor(Math.random() * (max-min)) + min;
 //const guild = await Guild.findOne({guildID: message.guild.id})
 

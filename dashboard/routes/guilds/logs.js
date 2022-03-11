@@ -23,7 +23,7 @@ app.post(
   global.checkAuth,
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let { logchannel, logon, roleCrrat, xpmessage } = req.body;
+    let { logchannel, logon, roleCreate, roleDelete, channelDelete,channelCreate,roleUpdate } = req.body;
 
   /*  if (xpmessage.length > 200) {
       res.send({ error: true, message: " level message too long", });
@@ -41,6 +41,9 @@ app.post(
           "plugins.logs.on": logon,
           "plugins.logs.roleCreate": roleCreate,
           "plugins.logs.roleDelete": roleDelete,
+          "plugins.logs.roleUpdate": roleUpdate,
+          "plugins.logs.channelCreate":channelCreate,
+          "plugins.logs.channelDelete":channelDelete,
 
         },
       }
