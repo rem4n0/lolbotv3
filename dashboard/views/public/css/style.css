@@ -363,6 +363,11 @@ background: var(--grey);
    width:200px;
      }
 /*command*/
+.contact-form .col{
+  
+  line-height: 90px;
+  
+}
   .contact-form .variables{
      display:flex;
       line-height:40px;
