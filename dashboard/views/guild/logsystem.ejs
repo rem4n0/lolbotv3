@@ -35,32 +35,7 @@
   <br><br><br><br><br>
   <div class="form-group">
       
-           <br>   <br>
-    <label>ROLE CREATE</label>
-    <br><br>
-                   
-  <input type="radio" name="roleCreate" value="on" id="roleCreate" />
-    <label for="on"> ON </label>                   
-    
-   <input  type="radio" name="roleCreate" value="off" id="roleCreate" />
-    <label for="off"> OFF</label>
-                               
-      </div>
-    <br><br><br><br>
-    <div class="form-group">
-      <label> ROLE DELETE</label>
-      <br>
-      <br>
-      
-      
-      <input class="form-check-input" type="radio" name="roleDelete" value="on" id="roleDeleteOn"/>
-      
-      <label for="roleDeleteOn"> ON </label>
-  
-      <input class="form-check-input" type="radio" name="roleDelete" value="off" id="roleDeleteOff"/>
-      
-      <label for="roleDeleteOff">OFF</label>       
-        
+          
     </div>
      <br>
     <br>
@@ -91,7 +66,7 @@ $("#myButton").attr("disabled", true);
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
                 roleCreate:$('#roleCreate').val(),
-                roleDelete:$('#roleDeleteOn'||'#roleDeleteOff').val(),
+                roleDelete:$('#roleDelete').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
         
