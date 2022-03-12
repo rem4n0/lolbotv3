@@ -39,10 +39,10 @@
     <label>ROLE CREATE</label>
     <br><br>
                    
-  <input class="form-check-input" type="radio" name="roleCreate" value="on" id="roleCreate" />
+  <input type="radio" name="roleCreate" value="on" id="roleCreate" />
     <label for="on"> ON </label>                   
     
-   <input class="form-check-input" type="radio" name="roleCreate" value="off" id="roleCreate" />
+   <input  type="radio" name="roleCreate" value="off" id="roleCreate" />
     <label for="off"> OFF</label>
                                
       </div>
@@ -53,13 +53,13 @@
       <br>
       
       
-      <input class="form-check-input" type="radio" name="roleDelete" value="on" id="roleDelete"/>
+      <input class="form-check-input" type="radio" name="roleDelete" value="on" id="roleDeleteOn"/>
       
-      <label for="on"> ON </label>
+      <label for="roleDeleteOn"> ON </label>
   
-      <input class="form-check-input" type="radio" name="roleDelete" value="off" id="roleDelete"/>
+      <input class="form-check-input" type="radio" name="roleDelete" value="off" id="roleDeleteOff"/>
       
-      <label for="off">OFF</label>       
+      <label for="roleDeleteOff">OFF</label>       
         
     </div>
      <br>
@@ -91,7 +91,7 @@ $("#myButton").attr("disabled", true);
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
                 roleCreate:$('#roleCreate').val(),
-                roleDelete:$('#roleDelete').val(),
+                roleDelete:$('#roleDeleteOn'||'#roleDeleteOff').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
         
