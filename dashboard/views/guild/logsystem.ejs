@@ -55,7 +55,7 @@
       <script>
   
     function clickOnAdd() {
-    
+    var value = $(":radio:checked").val();
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
@@ -66,7 +66,7 @@ $("#myButton").attr("disabled", true);
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
                 roleCreate:$('#roleCreate').val(),
-                roleDelete:$('#roleDelete').val(),
+                roleDelete:value,
                 roleUpdate:$('#roleUpdate').val(),
                 
         
