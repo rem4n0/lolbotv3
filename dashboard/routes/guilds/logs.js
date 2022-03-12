@@ -23,7 +23,7 @@ app.post(
   global.checkAuth,
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let { logchannel, logon, channelDelete,channelCreate,roleUpdate } = req.body;
+    let { logchannel, logon, channelCreate,channelDelete,roleCreate,roleDelete,roleUpdate } = req.body;
 
     
     let data = await Guild.findOne({ guildID: guild.id });
