@@ -27,7 +27,7 @@ app.post(
 
   /*  if (xpmessage.length > 200) {
       res.send({ error: true, message: " level message too long", });
-    }*/
+    }*
     
     let data = await Guild.findOne({ guildID: guild.id });
 
