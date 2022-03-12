@@ -34,7 +34,10 @@
   
   <br><br><br><br><br>
   <div class="form-group">
-      
+      <input type="radio" name="roleDelete" value="on" id="roleDelete"/>
+    <label>on</label>
+    <input type="radio" value="off" name="roleDelete" id="roleDelete"/>
+    <label>off</label>
           
     </div>
      <br>
@@ -55,7 +58,7 @@
       <script>
   
     function clickOnAdd() {
-    var value = $(":radio:checked").val();
+    var value = $("radio[name='roleDelete']:checked").val();
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
