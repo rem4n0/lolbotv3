@@ -1,18 +1,22 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   
   <div class="container">
+    <% market.forEach((item)=>{%>
+      
     
-    
-    
+    <img src="<%= item.assets.link%>" style="position: relative; width:190px; height:140px;"/>
+      
+                                        
  <div class="amount">
    
-   <span>
+   <span><%= item.price%></span>
    
     </div>  
+   <% })%>
   </div>
     
     
   
   
   
-  <%- include ('..parts/foot')%>
+  <%- include ('../parts/foot')%>

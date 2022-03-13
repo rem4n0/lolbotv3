@@ -206,6 +206,8 @@ module.exports = async (bot) => {
        }
     })*/
   
+  //////bot
+app.use("/", require ("./routes/bot/background.js"));
   ///////user
 
   app.use("/", require ("./routes/users/profile.js"));

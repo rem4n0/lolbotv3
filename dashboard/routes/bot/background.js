@@ -3,7 +3,7 @@ const path = require("path");
 console.log("setting router loaded");
 const market= require(`${process.cwd()}/shop/market.json`);
 app.get(
-  "/dashboard/guild/:guildID/logsystem",
+  "/bgs",
   global.checkAuth,
   async (req, res, next) => {
     const guild = bot.users.cache.get(req.user.id);
