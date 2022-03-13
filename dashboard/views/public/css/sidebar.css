@@ -119,10 +119,7 @@ background: var(--sharabi);
   border-radius:50%;
   
 }
-/*
-.sidebar .nav-list .list li:hover .sub-menu{
-  display: block;
-}*/
+
 .sidebar .nav-list .profile-detail {
   position: fixed;
   bottom: 0;
@@ -178,15 +175,16 @@ background: var(--sharabi);
   width: calc(100% - 78px);
 }
 .sidebar.close {
+  
   top: 50px;
   border-top-right-radius: 30px;
   display: block;
   position: fixed;
-  animation: fadeIn ease 1s;
+  animation: fadeIn ease 0.5s;
 }
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+  opacity:0;
   }
   100% {
     opacity: 1;

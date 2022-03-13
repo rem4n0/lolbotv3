@@ -19,8 +19,8 @@
 body {
   
   
-background: url('');
-  animation: fadein 30s ease-out infinite;
+background: var(--bg-color);
+  animation: 30s ease-out infinite;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -126,20 +126,13 @@ background: url('');
 /**-----fadin*/
 @keyframes fadein {
   0% {
-    background-color: var(--black);
+    background-color: var(--bg-color);
     background-position: 0% 50%;
   }
   50% {
-    background-color: var(--nilitox);
+    background-color: var(--bg-color);
     background-position: 100% 50%;
-  }
-
-  100% {
-    background-color: var(--black);
-    background-position: 0% 50%;
-  }
-}
-
+  }}
 
   .boxs {
   display: grid;
