@@ -30,7 +30,11 @@
     
     
               </div>
-  
+  <br>
+    <div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="roleCreate" checked>
+  <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+    </div>
   
   <br><br><br><br><br>
   <div class="form-group">
@@ -64,17 +68,30 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-              $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
+      var switchStatus = false;
+      $("#roleCreate").on('change', function() {
+if ($(this).is(':checked')) {
+    switchStatus = $(this).is(':checked');
+}
+else {
+   switchStatus = $(this).is(':checked');
+}
+console.log(switchStatus);
+        $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
                 logchannel:$('#logchannel').val(),
                 logon:$('#logon').val(),
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
-                roleCreate:$('#roleCreate').val(),
+                roleCreate:switchStatus,
                 roleDelete:$('#roleDelete').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
         
     }).done(function(data){
+                
+                
+                
+                
                 if(data.error){
       const Toast = Swal.mixin({
   toast: true,
