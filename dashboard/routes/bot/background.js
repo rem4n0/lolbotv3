@@ -1,15 +1,16 @@
 const app = require("express").Router();
 const path = require("path");
 console.log("setting router loaded");
+const market= require(`${process.cwd()}/shop/market.json`);
 app.get(
   "/dashboard/guild/:guildID/logsystem",
   global.checkAuth,
   async (req, res, next) => {
-    const guild = bot.guilds.cache.get(req.params.guildID);
-    let data = await Guild.findOne({ guildID: guild.id });
+    const guild = bot.users.cache.get(req.user.id);
+    let data = await User.findOne({ userID: req.user.id});
     res.render("./bot/background.ejs", {
       config: config,
-      
+      market: market,
       data: data,
       req: req,
       bot: bot,
@@ -22,26 +23,19 @@ app.get(
 app.post( "/bgs",
   global.checkAuth,
   async (req, res) => {
-    const guild = bot.guilds.cache.get(req.params.guildID);
-    let { logchannel, logon, channelCreate,channelDelete,roleCreate,roleDelete,roleUpdate } = req.body;
+    
+    let {  } = req.body;
 
     
-    let data = await Guild.findOne({ guildID: guild.id });
+    let data = await User.findOne({ userID: req.user.id });
 
-    await Guild.findOneAndUpdate(
+    await User.findOneAndUpdate(
       {
-        guildID: req.params.guildID,
+        userID: req.user.id,
       },
       {
         $set: {
-          "logs.logchannel": logchannel,
-          "logs.on": logon,
-          "logs.roleCreate": roleCreate,
-          "logs.roleDelete": roleDelete,
-          "logs.roleUpdate": roleUpdate,
-          "logs.channelCreate":channelCreate,
-          "logs.channelDelete":channelDelete,
-
+          
         },
       }
     );
