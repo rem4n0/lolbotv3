@@ -63,7 +63,7 @@
       <script>
   
     function clickOnAdd() {
-    var value = $("radio[name='roleDelete']:checked").val();
+    
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
@@ -76,7 +76,7 @@ if ($(this).is(':checked')) {
 else {
    switchStatus = $(this).is(':checked');
 }
-console.log(switchStatus);
+console.log(switchStatus);})
         $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
                 logchannel:$('#logchannel').val(),
                 logon:$('#logon').val(),
