@@ -96,7 +96,7 @@
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
-        <div class="card" style="width:18rem; position:relative;">
+        <div class="card" style="width:18rem; ">
 <img src="<%=item.assets.link%>" style="border-radius:8%;"class="card-img-top" alt="<%=item.name%>">
 <div class="card-body">
 <h5 class="card-title" style="color:black;"><%= item.name%></h5>
