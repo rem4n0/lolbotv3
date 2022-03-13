@@ -8,14 +8,7 @@
 --grey: #212122;
   --sharabi:#f734ca;
 }
-/*
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}*/
 .sidebar {
   z-index: 1;
   top: -10%;
@@ -39,6 +32,7 @@ z-index:1;
   background:var(--grey);
   
 }
+
 .sidebar .logo-name {
   color: var(--white);
   font-size: 22px;
@@ -181,14 +175,7 @@ background: var(--sharabi);
 
   left: 0px;
   width: calc(100% - 78px);
-} /*
-  .sidebar.close ~ .home-section .home-content .text i{
-    left: 240px;
-  transition: all 1.3s ease;
-    width: calc(100% - 240px);
-    
-  }
- */
+}
 .sidebar.close {
   top: 50px;
   border-top-right-radius: 30px;
