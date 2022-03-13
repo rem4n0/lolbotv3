@@ -23,5 +23,13 @@
   "webhook":{
   "id":"898151785783508993",
   "token":"pNBxD74wVmXvUTdgG5KmEEA_lfrXxorLOZzA96KJ9EY6FDqJd0fOPUrlfPNEXjOI0ag3"
-  } 
+  } ,
+  
+  "img":{
+    
+    "blue":"https://imgur.com/wgljRvr.png",
+    "mor":"https://imgur.com/wH8wcgv.png",
+    "bainjani":"https://imgur.com/StTO12l.png",
+    "prtaqali":"https://imgur.com/MZzt9zF.png"
+  }
 }
