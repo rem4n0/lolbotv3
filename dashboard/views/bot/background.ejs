@@ -4,15 +4,22 @@
       position: absolute;
       z-index:1;
       background:#717173;
-      
+      width:50px;
+      border-bottom-right-radius:15%;
+      border-top-left-radius:15%;
       opacity:0.6;
-      left:80px;
-     margin-top:24px;
+      left:81.3px;
+     margin-top:24.1px;
     }
     .amount span{
       color: var (--white);
       opacity:1;
     }
+    .purchase{
+      
+      display: none;
+    }
+    
   </style>
   <div class="container">
     <% market.forEach((item)=>{%>
@@ -23,10 +30,26 @@
                                         
  <div class="amount">
    
-   <span><%= item.price%></span>
+   <span>$<%= item.price%></span>
    
     </div>  
    <% })%>
+     
+     <div class="purchase">
+     <div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
+    </div>
+        </div>
+      </div>
+    
+</div>  
+       
+       
+       
+     </div>
   </div>
     
     
