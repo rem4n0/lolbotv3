@@ -23,7 +23,7 @@
 
 
 .sidebar.guild{
-z-index:1;
+z-index:1:
   top:-10%;
   left:0;
   width:100px;

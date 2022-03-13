@@ -1,5 +1,7 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
+    
+    
     .amount{
       position: absolute;
       z-index:1;
@@ -9,9 +11,11 @@
       border-top-left-radius:15%;
       opacity:0.6;
       left:81.3px;
+      
      margin-top:24.1px;
     }
     .amount span{
+      
       color: var (--white);
       opacity:1;
     }
@@ -19,19 +23,22 @@
       
       display: none;
     }
+  
     
+    .
   </style>
   <div class="container">
     <% market.forEach((item)=>{%>
       
     <br><br>
-    <img src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%;"/>
+    <img  class="img"src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
       
                                         
  <div class="amount">
    
+     
    <span>$<%= item.price%></span>
-   
+     
     </div>  
    <% })%>
      
@@ -52,7 +59,11 @@
      </div>
   </div>
     
-    
+    <script>
+      let container = document.querySelector(".purchease")
+      let bnt = document.querySelector(".img")
+      
+      </script>
   
   
   
