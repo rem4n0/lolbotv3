@@ -5,7 +5,8 @@
   --red: red;
   --nilikall: #363a68;
   --nili: #1c1e3a;
---grey: #212122;
+--nav-color: #212122;
+--navlist-color:#474A4E;
   --sharabi:#f734ca;
 }
 
@@ -17,7 +18,7 @@
   height: 100%;
   display: none;
   position: fixed;
-  background: var(--grey);
+  background: var(--nav-color);
 }
 
 
@@ -29,7 +30,7 @@ z-index:1;
   height:100%;
   display:none;
   position: fixed;
-  background:var(--grey);
+  background:var(--nav-color);
   
 }
 
@@ -46,7 +47,7 @@ z-index:1;
 }
 .sidebar .nav-list {
   left: 40px;
-  background: var(--nili);
+  background: var(--navlist-color);
   height: 100%;
   line-height: px;
 }
