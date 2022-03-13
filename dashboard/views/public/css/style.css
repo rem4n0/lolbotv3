@@ -135,9 +135,8 @@ background: var(--bg-color);
   }}
 
   .boxs {
-  display: grid;
-  position:static;
-  
+  display: inline-flex;
+  position:relative;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
@@ -155,11 +154,10 @@ background: var(--bg-color);
 }
 
 .boxs .box1 {
-  border-radius:20px;
+  
   background: url("https://imgur.com/wgljRvr.png");
   background-position: center;
   width: 400px;
-  left: 10px;
   background-size: 100%;
 }
 
