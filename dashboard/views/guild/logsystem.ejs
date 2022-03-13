@@ -17,7 +17,7 @@
     
   
   <div class="form-group">
-  <label for="exampleDataList" class="form-label">LOGS CHANNEL </label>
+  <label for="exampleDataList" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
 <input class="form-control" list="datalistOptions" id="logchannel" placeholder="Type to search...">
 <datalist id="datalistOptions">
 <% guild.channels.cache.map((channel)=>{%>
@@ -34,11 +34,12 @@
   
   <br><br><br><br><br>
   <div class="form-group">
-      <input type="radio" name="roleDelete" value="on" id="roleDelete"/>
-    <label>on</label>
-    <input type="radio" value="off" name="roleDelete" id="roleDelete"/>
-    <label>off</label>
-          
+    <label for="roleCreate">ROLE CREATE <span style="color:rgba(175,22,22)">*</span></label>
+  <select class="form-control" id="roleCreate" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="on">ON</option>
+ <option value="off">OFF</option>
+    </select>
     </div>
      <br>
     <br>
@@ -69,7 +70,7 @@ $("#myButton").attr("disabled", true);
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
                 roleCreate:$('#roleCreate').val(),
-                roleDelete:value,
+                roleDelete:$('#
                 roleUpdate:$('#roleUpdate').val(),
                 
         
