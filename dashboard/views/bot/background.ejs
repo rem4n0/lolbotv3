@@ -20,8 +20,8 @@
       opacity:1;
     }
     .purchase{
-      
-      display:block ;
+      color:white;
+      display:none;
     }
   .purchase.open{
     display:block;
@@ -45,22 +45,25 @@
     </div>  
    <% })%>
      </div>
+   
      <div class="purchase">
-    
        
-       <div class="modal-body">
-  <h5>Popover in a modal</h5>
-  <p>This <a href="#" role="button" clas
+       <span>hama</span>
+   </div>
+      </div>
+
+   
      
   
     
     <script>
-      let container = document.querySelector(".purchase");
-      let bnt = document.querySelector(".img");
+      let container = document.getElementsByClassName(".purchase");
+    console.log(conainer);
+      let bnt = document.getElementsByClassName(".img");
 btn.addEventListener('click', ()=>{
   
   container.classList.toggle("open");
-  console.log(container)
+  
   
 })
       
