@@ -7,7 +7,7 @@
   --nili: #00031c;
   --nilitox: #0d0027;
   --grey: #23272a;
-  --bg-color: #0b0a15;
+  --bg-color: #282D35;
 }
 
 * {
@@ -31,11 +31,11 @@ background: url('');
 
 @keyframes hama {
   from {
-    background: gold;
+    background: var(--bg-color);
     right: 10px;
   }
   to {
-    background: var(--black);
+    background: var(--bg-color);
     right: 100px;
   }
 }
