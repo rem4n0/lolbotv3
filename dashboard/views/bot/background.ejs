@@ -1,16 +1,25 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
+    .container .col-3{
+  
+    
+      position: absolute;
+      
+      
+      
+    }
     
     
     .amount{
-      position: absolute;
+      position: relative;
       z-index:1;
       background:#717173;
       width:50px;
+      left:140px;
       border-bottom-right-radius:15%;
       border-top-left-radius:15%;
       opacity:0.6;
-      left:81.3px;
+    
       
      margin-top:48.1px;
     }
@@ -48,8 +57,8 @@
     @media only screen and (min-height:800px){
       
       .container{
-        display:table-header-group;
-        left:400px;
+        display:block;
+        
   display: absolute;
       }
       
@@ -60,7 +69,8 @@
     <% market.forEach((item)=>{%>
       
     <br><br><br>
-    
+      <div class="row">
+    <div class="col">
     <img   src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
       
 <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-secondary"><i class="fad fa-save"></i></button>
@@ -76,7 +86,7 @@
    
    <% })%>
      
-     
+     </div></div>
      
      
      
