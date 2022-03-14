@@ -6,12 +6,12 @@
       
     }*/
     
-   
-    .bgs{
-    position: absolute;
+  
+   .bgs{
+    
       width:40px;
       background:#717173;
-    
+    position: absolute;
     
       margin-left:69px;
      
@@ -19,10 +19,9 @@
       border-top-left-radius:15%;
       opacity:0.6;
   
-  
     }
 
-      .bgs strong{
+    .bgs strong{
     pointer-events:none;
   
       color: var(--white);
@@ -34,7 +33,9 @@
     
     @media only screen and (min-height:800px){
       .bgs{
-        position: absolute;
+     display:inline-flex;
+        margin-left:-230px;
+        
       }
   
   
@@ -51,16 +52,13 @@
         <% market.map((item)=>{%>
   
   
+    
+        
       
-  
-
-        
-      <div class="bgs">
-        
+        <div class="bgs">
       <strong>$<%=item.price%></strong> 
+        
         </div>
-        
-        
    <img  class="card-img-top" onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
     
