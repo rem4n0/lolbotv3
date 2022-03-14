@@ -1,23 +1,20 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
-    .container .col{
+    .container{
   
-    
       position: relative;
-      
-      
       
     }
     
    
-   .container .row .col .bgs{
-      position: static;
-     
-      
+   .container w .col .bgs{
+    position:absolute;
+      width:40px;
       background:#717173;
-      width:50px;
     
-      margin-left:100px;
+    
+      margin-left:69px;
+     
       border-bottom-right-radius:15%;
       border-top-left-radius:15%;
       opacity:0.6;
@@ -25,9 +22,9 @@
   
     }
 
-    .row .col  .bgs strong{
+     .col .bgs strong{
     pointer-events:none;
-    position:static;
+  
       color: var(--white);
       left:60px;
       z-index:1;
@@ -69,6 +66,10 @@
       
         
       }
+      .container{
+        display:inline-grid;
+        
+      }
       
       
     }
@@ -78,7 +79,7 @@
     <% market.forEach((item)=>{%>
       
 
-      <div class="row">
+      
     <div class="col">
       <br>
       <br>
@@ -86,7 +87,7 @@
       <div class="bgs">
       <strong>$<%=item.price%></strong> 
         </div>
-   <img   onclick="clickAdd()" src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
+   <img   onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
    <!--   
 <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-secondary"><i class="fad fa-save"></i></button>
@@ -98,7 +99,7 @@
     
   
      </div>
-    </div>  
+  
     
    <% })%>
      
