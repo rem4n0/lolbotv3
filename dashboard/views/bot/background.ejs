@@ -3,7 +3,7 @@
     
     
     .amount{
-      position: fixed;
+      position: absolute;
       z-index:1;
       background:#717173;
       width:50px;
@@ -12,12 +12,12 @@
       opacity:0.6;
       left:81.3px;
       
-     margin-top:24.1px;
+     margin-top:48.1px;
     }
-    .amount span{
+    .amount strong{
       
       color: var (--white);
-      opacity:1;
+      
     }
     .purchase{
       color:white;
@@ -31,32 +31,45 @@
     #myButton{
     position: absolute;
       width:50px;
-      height:20px;
-  margin-top:170px;
-      left:265px;
+      height:30px;
+  margin-top:140px;
+      left:262px;
+      border:none;
+      
       font-size:15px;
       
       
     }
     
-    
+    #myButton strong{
+    position: relative;
+      margin-bottom:8px;
+    }
+    @media only screen and (min-height:800px){
+      .container{
+        width:400px;
+        height:100%;
+        display: flex;
+      }
+      
+    }
     
   </style>
   <div class="container">
     <% market.forEach((item)=>{%>
       
-    <br><br>
+    <br><br><br>
     
     <img   src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
       
-     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-secondary"></i>buy</button>
+<button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-secondary"><i class="fad fa-save"></i></button>
 
       
       
  <div class="amount">
    
      
-   <span>$<%= item.price%></span>
+   <strong>$<%= item.price%></strong>
      
     </div>  
    
