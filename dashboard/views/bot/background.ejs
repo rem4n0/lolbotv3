@@ -1,14 +1,14 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
-  .container{
+  /*.container{
   
       position: relative;
       
-    }
+    }*/
     
    
     .bgs{
-    position:absolute;
+    position: absolute;
       width:40px;
       background:#717173;
     
@@ -31,35 +31,11 @@
   
       
     }
-    .purchase{
-      color:white;
-      display:block;
-    }
     
-    .purchase.open{
-      
-      display:block;
-    }/*
-    #myButton{
-    position: absolute;
-      width:50px;
-      height:30px;
-  margin-top:140px;
-      left:262px;
-      border:none;
-      
-      font-size:15px;
-      
-      
-    }
-    
-    #myButton strong{
-    position: relative;
-    
-      margin-bottom:8px;
-    }*/
     @media only screen and (min-height:800px){
-      
+      .bgs{
+        position: absolute;
+      }
   
   
       
@@ -68,32 +44,36 @@
     
   </style>
   <div class="container">
-    <br>
-    <br>
+    
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-    <% market.map((item)=>{%>
+  
+        <% market.map((item)=>{%>
   
   
       
   
-<div class="card-footer">
-        
-      <div class="bg">
+
+        <!--
+      <div class="bgs">
       <strong>$<%=item.price%></strong> 
         </div>
-  </div>
+
    <img   onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
-   
-      
+   -->
+      <div class="card" style="width: 18rem;">
+  <img src="<%=item.assets.link%>" class="card-img-top" alt="<%= item.name%>">
+  <div class="card-body">
+    <p class="card-text"><%=item.description%></p>
+  </div>
+</div>
  
    
     
       
   
         
-    
    <% })%>
      
      </div>
