@@ -24,9 +24,9 @@
       display:none;
     }
     
-    .container img:active .purchase{
-      display:block;
+    .purchase.open{
       
+      display:block;
     }
     
     
@@ -64,7 +64,7 @@
       let bnt = document.querySelector(".img");
 btn.addEventListener('click', ()=>{
   
-  container.classList.toggle("close");
+  container.classList.toggle("open");
   
   
 })
