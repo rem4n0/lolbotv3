@@ -23,7 +23,7 @@
       color:white;
       display:none;
     }
-  .purchase .open{
+  .purchase.close{
     display:block;
     
     }
@@ -46,7 +46,7 @@
    <% })%>
      </div>
    
-     <div class="purchase">
+     <div class="purchase" id="purchase">
        
        <span>hama</span>
    </div>
@@ -57,12 +57,12 @@
   
     
     <script>
-      let container = document.getElementsByClassName("purchase");
+      let container = document.querySelector(".purchase");
     console.log(conainer);
-      let bnt = document.getElementsByClassName("img");
+      let bnt = document.querySelector(".img");
 btn.addEventListener('click', ()=>{
   
-  container.classList.toggle("open");
+  container.classList.toggle("close");
   
   
 })
