@@ -23,9 +23,13 @@
     
   margin-top:50px;
     }*/
-  
+  .row .col .bg{
+    background:#717173;
+    
+    }
     .row .col  strong{
-      
+    
+    
       color: var (--white);
       position: absolute;
       left:80px;
@@ -80,9 +84,9 @@
       <br>
       <br>
       <br>
-      
-      
-      
+      <div class="bg">
+      <strong>$<%=item.price%></strong> 
+        </div>
     <img   src="<%= item.assets.link%>" style="position: relative; width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
       
 <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-secondary"><i class="fad fa-save"></i></button>
@@ -92,7 +96,7 @@
  
    
     
-   <strong>$<%= item.price%></strong>
+  
      </div>
     </div>  
     
