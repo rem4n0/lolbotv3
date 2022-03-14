@@ -57,33 +57,32 @@
     position: relative;
     
       margin-bottom:8px;
-    }*//*
+    }*/
     @media only screen and (min-height:800px){
       
-      .container{ 
-      
-    
-
-      
-        
-      }
+  
   
       
       
-    }*/
+    }
     
   </style>
   <div class="container">
-    
+    <br>
+    <br>
+    <div class="column">
+      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
     <% market.map((item)=>{%>
   
   
       
   
-
-      <div class="bgs">
+<div class="card-footer">
+        
+      <div class="bg">
       <strong>$<%=item.price%></strong> 
         </div>
+  </div>
    <img   onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
    
@@ -93,10 +92,12 @@
     
       
   
-        </div>
+        
     
    <% })%>
      
+     </div>
+      </div>
      </div>
      
      
