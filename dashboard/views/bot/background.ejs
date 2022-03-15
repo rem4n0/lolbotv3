@@ -62,11 +62,10 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-      <input type="hidden" value="<%= item.price%>" id="price"/>
-                                
+                              
   
-   <img id="imageid" onclick="clickOnAdd();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.name%>" value="<%= item.id %>"/>
-        
+   <img onclick="clickOnAdd();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.name%>" value="<%=item.price%>"/>
+  <input type="hidden" id="imageid" value="<%=item.price%>"/>
        
    <% } ) %>
      
@@ -76,21 +75,18 @@
      </div>
         
         
-        <script>
+        <script type="text/javascript">
           
           
-   //    document.getElementById('imageid').addEventListener('click',()=>{
-         
-        
-    
+  
   function clickOnAdd(){
     
-  setTimeout(()=>{
+  
       $.post('/bgs',{
            image: $('#imageid').val(),   
-            price:$('#price').val(),
+            price:$('#imageid').val(),
         
-    })},3000)
+    })
     
     
   setTimeout(()=>{
