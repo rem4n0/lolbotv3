@@ -42,10 +42,11 @@ app.post( "/bgs",
 
       
       
+    res.redirect(`?success=true&message=Your background has been successfully added`)
       
     
 
-    return res.redirect({ success: true, message: "successfully" });
+    //return res.redirect({ success: true, message: "successfully" });
   }
 );
 module.exports = app;

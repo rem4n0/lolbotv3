@@ -64,7 +64,7 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-   <img role="button" id="imageid" value="<%= item.id %>" onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
+   <img onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
     
     
@@ -80,7 +80,7 @@
      
      
 <script>
-  
+  function clickAdd(){
   var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
@@ -88,7 +88,7 @@
      title: 'Succesfull...',
      closeOnConfirm: false,
      text: urlParams.get('message'),
-     footer: ''
+     footer: 'h'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = `/bgs`;
@@ -100,13 +100,13 @@
      icon: 'error',
      title: 'Oops...',
      text: urlParams.get('message'),
-     footer: ''
+     footer: 'h'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = '/bgs';
       }    
     })
-    }
+    }}
   
   
   
