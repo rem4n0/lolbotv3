@@ -64,7 +64,7 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-        <button type="submit" name="btnSubmit" onclick="clickOnAdd()"class="btn btn-vcodes">
+        <button type="submit" name="btnSubmit" onclick="clickOnAdd()" id="myButton">
 
    <img src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" id="imageid" value="<%= item.id%>"/>
         
@@ -83,12 +83,9 @@
         <script>
           function clickOnAdd() {
     
-$("#myButton").attr("disabled", true);
-    $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
     
-console.log(switchStatus);
         $.post('/bgs',{
                 iamge:$('#imageid').val(),
                 
@@ -97,7 +94,7 @@ console.log(switchStatus);
                 
                 
                 
-                console.log(
+                console.log(data);
                 if(data.error){
                   
       const Toast = Swal.mixin({
@@ -119,10 +116,7 @@ Toast.fire({
   
 })
                   
-  $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
-                    $("#myButton").attr("disabled", false);
-                    return;    
-      
+ 
     
     
     
@@ -149,9 +143,7 @@ document.getElement
   footer: 'BoBo Dashboard',
     
   })
-            $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
-                    $("#myButton").attr("disabled", false);
-                    return;
+          
     
     }
               });});
