@@ -23,8 +23,8 @@ app.get(
 app.post( "/bgs",
   global.checkAuth,
   async (req, res) => {
-    
-    let {  } = req.body;
+    let { image} = req.body;
+
 
     
     let data = await User.findOne({ userID: req.user.id });
@@ -35,6 +35,7 @@ app.post( "/bgs",
       },
       {
         $set: {
+          "data.background": image
           
         },
       }
@@ -42,11 +43,11 @@ app.post( "/bgs",
 
       
       
-    res.redirect(`?success=true&message=Your background has been successfully added`)
+  //  res.redirect(`?success=true&message=Your background has been successfully added`)
       
     
 
-    //return res.redirect({ success: true, message: "successfully" });
+    return res.redirect({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
