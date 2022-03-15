@@ -11,7 +11,7 @@
     "giftable": false,
     "emoji":"<:galary:898575691824635944>",
 
-    "price": 0,
+    "price": 3,
     "assets": {
       "link": "https://i.imgur.com/57eRI6H.jpg"
     }
@@ -23,7 +23,7 @@
     "type": "pattern",
     "deletable": false,
     "giftable": false,
-    "price": 0,
+    "price": 8,
     "assets": {
     "link": "https://i.imgur.com/nx5qJUb.png"
     }
