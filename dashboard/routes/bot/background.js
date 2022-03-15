@@ -25,8 +25,7 @@ app.post( "/bgs",
   async (req, res) => {
     let { image} = req.body;
 
-if(image){ res.send({message:`hi`})
-         }
+
     let data = await User.findOne({ userID: req.user.id });
 
     await User.findOneAndUpdate(
