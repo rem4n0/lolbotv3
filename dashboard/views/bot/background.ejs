@@ -64,7 +64,7 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-   <img  class="card-img-top" onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
+   <img  id="imageid" value="<%= item.id %>" onclick="clickAdd()" src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>"/>
         
     
     
@@ -87,7 +87,55 @@
    
     
     <script>
-      
+      function clickAdd(){
+       setTimeout(()=>{ 
+        $.post('/bgs',{
+              id:$('$imageid').val(),
+                
+        }).done(function(data){
+          
+          
+          const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your imaginary file is safe :)',
+      'error'
+    )
+  }
+})
+          
+          
+          
+        }) } , 2000 )
+        
+        
+      }
       
       </script>
   
