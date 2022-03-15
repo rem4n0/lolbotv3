@@ -27,6 +27,7 @@ app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
         $set: {
             info: rBody['biography'],
             website: rBody['website'],
+            "laschange.date":Data.now(),
             github: rBody['github'],
             twitter: rBody['twitter'],
             instagram: rBody['instagram']

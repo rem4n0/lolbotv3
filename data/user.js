@@ -2,9 +2,15 @@ const schema = mongoose.Schema({
   userID: String,
   name: { type: String },
   info: { type: String, default: null },
-
-
-
+  website:{type: String, default:null},
+  github:{type:String, default:null},
+  twitter:{type: String, default:null},
+ lastchange:{
+date:{ type:Date, default:null},
+   
+   
+ }
+,
   birthdate: { type: Number }, // Birthdate of the user (the timestamp)
   money: { type: Number, default: 0 },
   time: { type: Number, default: 0 },
