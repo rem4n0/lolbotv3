@@ -45,7 +45,7 @@ app.post( "/bgs",
       
     
 
-    return res.send({ success: true, message: "successfully" });
+    return res.redirect({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
