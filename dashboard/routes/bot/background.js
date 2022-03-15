@@ -33,8 +33,8 @@ app.post( "/bgs",
         userID: req.user.id,
       },
       {
-        $set: {
-          "data.background": image
+        $push: {
+          "data.inventory": image,
           
         },
       }

@@ -88,64 +88,14 @@
       $.post('/bgs',{
            image: $('#imageid').val(),   
         
-    }).done(function(data){
-                
-       alert('hi')         
-      
-                if(data.error){
-                
-      const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 4000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseleave', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }})
-    
-  
-Toast.fire({
-  icon: 'error',
-  title: 'we have problem',
-  text: data.message,
-  footer: 'BoBo Dashboard',
-  
-})
-        
-    return;              
- 
+    })},3000)
     
     
-  
-    }else{
-     
-  
-      const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
-})
- 
-  Toast.fire({
-  icon: 'success',
-  title: 'successful...',
-  text:data.message,
-  footer: 'BoBo Dashboard',
+  setTimeout(()=>{
     
-  })
-    return;      
+    alert('hama')
     
-    }})},2000)
-       
-       }
+  },2000)}
         </script>
   
   
