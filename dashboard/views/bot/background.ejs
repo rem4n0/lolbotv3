@@ -62,9 +62,10 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-  <a onclick="clickOnAdd()">
-   <img src="<%= item.assets.link%>" onerror="imgError(this)" style="width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" id="imageid" onclick="clickOnAdd()"/>
-          </a>      
+          <a>
+  
+   <img id="imageid" onclick="clickOnAdd();"src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" />
+          </a>     
    <% } ) %>
      
      </div>
@@ -74,9 +75,9 @@
         
         <script>
     
-     function clickOnAdd(){
+     function clickOnAdd() {
     
-    
+    setTimeout(()=>{
     
         $.post('/bgs',{
                 iamge:$('#imageid').val(),
@@ -138,7 +139,7 @@ document.getElement
           
     
     }
-              });})
+              });},1000)}
 
           
   
