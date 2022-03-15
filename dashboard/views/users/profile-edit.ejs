@@ -33,7 +33,7 @@ input[type="text"]:disabled {
   </h3>
   </center>
   <form method="POST">
-<% if(!pdata) {%>
+<% if(!data) {%>
 <label for="basic-url"><i class="fab fa-github"></i> Github (Optional)</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -73,33 +73,33 @@ input[type="text"]:disabled {
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">https://github.com/</span>
   </div>
-  <input type="text" class="form-control" value="<%= pdata.github %>" name="github" id="github" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="<%= data.github %>" name="github" id="github" aria-describedby="basic-addon3">
 </div>
 <label for="basic-url"><i class="fab fa-twitter"></i> Twitter (Optional)</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">https://twitter.com/</span>
   </div>
-  <input type="text" class="form-control" value="<%= pdata.twitter %>" name="twitter" id="twitter" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="<%= data.twitter %>" name="twitter" id="twitter" aria-describedby="basic-addon3">
 </div>
 <label for="basic-url"><i class="fab fa-instagram"></i> Instagram (Optional)</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">https://instagram.com/</span>
   </div>
-  <input type="text" class="form-control" value="<%= pdata.instagram %>" name="instagram" id="instagram" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="<%= data.instagram %>" name="instagram" id="instagram" aria-describedby="basic-addon3">
 </div>
 <label for="basic-url"><i class="fad fa-globe"></i> Website (Optional)</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">Straight URL</span>
   </div>
-  <input type="text" class="form-control" value="<%= pdata.website %>" name="website" id="website" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="<%= data.website %>" name="website" id="website" aria-describedby="basic-addon3">
 </div>
 
 <label for="basic-url"><i class="fad fa-text"></i> Biography (Optional)</label>
 <div class="input-group mb-3">
-  <textarea id="biography" class="form-control" name="biography" maxlength="250"><%= pdata.biography %></textarea>
+  <textarea id="biography" class="form-control" name="biography" maxlength="250"><%= data.biography %></textarea>
 </div>
 <% } %>
   <br>
@@ -120,7 +120,7 @@ input[type="text"]:disabled {
      footer: 'Copyright 2021 &copy  - All right reserved.'
     }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = '/user/<%=req.params.userID%>';
+    window.location.href = '/profile/<%=req.params.userID%>';
   }
 })
     }
@@ -132,7 +132,7 @@ input[type="text"]:disabled {
      footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
     }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = '/user/<%=req.params.userID%>/edit';
+    window.location.href = '/profile/<%=req.params.userID%>/edit';
   }    
 })
     }

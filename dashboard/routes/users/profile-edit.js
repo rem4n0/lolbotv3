@@ -21,20 +21,22 @@ app.get("/profile/:userID/edit", global.checkAuth, async (req, res) => {
 });
 app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
     let rBody = req.body;
+  const d = new Date();
+  bot.users.fetch(req.user.id).then(async (member)=>{
     await User.findOneAndUpdate({
-        userID: req.user.id
+        userID: member.id
     }, {
         $set: {
             info: rBody['biography'],
             website: rBody['website'],
-            "laschange.date":Data.now(),
+            "laschange.date": d.getFullYear(),
             github: rBody['github'],
             twitter: rBody['twitter'],
             instagram: rBody['instagram']
         }
     }, {
         upsert: true
-    })
+    })})
     return res.redirect('?success=true&message=Your profile has been successfully edited.');
 });
 

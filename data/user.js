@@ -5,6 +5,7 @@ const schema = mongoose.Schema({
   website:{type: String, default:null},
   github:{type:String, default:null},
   twitter:{type: String, default:null},
+  instagram:{type:String, default:null},
  lastchange:{
 date:{ type:Date, default:null},
    
