@@ -54,7 +54,7 @@
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
   
-        <% market.map((item)=>{%>
+        <% market.map((item)=>{ %>
   
   
     
@@ -64,14 +64,16 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
+        <button type="submit" name="btnSubmit" class="btn btn-vcodes">
+
    <img src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" role="button" onclick="onclick()"/>
         
-    
+          </button>
     
       
   
         
-   <% })%>
+   <% } ) %>
      
      </div>
       </div>
@@ -80,7 +82,7 @@
      
      
 <script>
-  function onclick(){
+
   var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
@@ -106,7 +108,7 @@
         window.location.href = '/bgs';
       }    
     })
-    }}
+    } 
   
   
   
