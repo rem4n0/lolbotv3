@@ -64,9 +64,9 @@
         </div>
       
   
-   <img id="imageid" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" />
+   <img id="imageid" onclick="clickOnAdd();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" />
         
-        
+       
    <% } ) %>
      
      </div>
@@ -89,7 +89,7 @@
               
           
                 if(data.error){
-                  
+                
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -112,7 +112,7 @@ Toast.fire({
  
     
     
-    
+  
     }else{
      
   
@@ -138,8 +138,7 @@ document.getElement
   })
           
     
-    }
-              });},4000)}
+    }})},2000)}
 
           
   
