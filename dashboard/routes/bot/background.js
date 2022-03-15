@@ -6,8 +6,8 @@ app.get(
   "/bgs",
   global.checkAuth,
   async (req, res, next) => {
-    const guild = bot.users.cache.get(req.user.id);
-    let data = await User.findOne({ userID: req.user.id});
+    const user = bot.users.cache.get(req.user.id);
+    let data = await User.findOne({ userID: user.id});
     res.render("./bot/background.ejs", {
       config: config,
       market: market,
@@ -23,22 +23,35 @@ app.get(
 app.post( "/bgs",
   global.checkAuth,
   async (req, res) => {
-    let { image} = req.body;
+    let { image, price} = req.body;
 
+let user = bot.users.cache.get(req.user.id);
+    let data = await User.findOne({ userID:user.id });
 
-    let data = await User.findOne({ userID: req.user.id });
-
-    await User.findOneAndUpdate(
+  
+  
+  
+   data.inventory.push({
+     
+     id:image,
+     amount: price
+   })
+data.save();
+  /*  await User.findOneAndUpdate(
       {
-        userID: req.user.id,
+        userID: user.id,
       },
       {
         $push: {
-          "data.inventory": image,
+          "inventory.id":image,
+          "inventory.amount": price,
+        }
+          
+            
+            
           
         },
-      }
-    );
+    );*/
 
       
       

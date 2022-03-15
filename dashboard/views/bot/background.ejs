@@ -62,9 +62,10 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-      
+      <input type="hidden" value="<%= item.price%>" id="price"/>
+                                
   
-   <img id="imageid" onclick="clickOnAdd();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.name%>" value="<%= item.id%>"/>
+   <img id="imageid" onclick="clickOnAdd();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.name%>" value="<%= item.id %>"/>
         
        
    <% } ) %>
@@ -87,6 +88,7 @@
   setTimeout(()=>{
       $.post('/bgs',{
            image: $('#imageid').val(),   
+            price:$('#price').val(),
         
     })},3000)
     
