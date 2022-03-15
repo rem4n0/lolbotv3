@@ -80,16 +80,12 @@
           
        document.getElementById('imageid').addEventListener('click',()=>{
          
-         alert('got')
-      
-         
-          
-          
+        
     
-    setTimeout(()=>{
+  
     
-        $.post('/bgs',{
-              
+      $.post('/bgs',{
+           image: $('#imageid'),   
         
     }).done(function(data){
                 
@@ -109,13 +105,15 @@
     toast.addEventListener('mouseleave', Swal.resumeTimer)
     }})
     
-Toast.fire({
+  
+Swal.fire({
   icon: 'error',
   title: 'we have problem',
   text: data.message,
   footer: 'BoBo Dashboard',
   
 })
+         alert('go')
                   
  
     
@@ -135,8 +133,7 @@ Toast.fire({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 })
-document.getElement
-      
+ 
   Toast.fire({
   icon: 'success',
   title: 'successful...',
@@ -146,7 +143,7 @@ document.getElement
   })
           
     
-    }})},2000)}
+    }})})
         </script>
   
   
