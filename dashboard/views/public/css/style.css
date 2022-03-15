@@ -376,3 +376,11 @@ background: var(--grey);
       margin-left:10px;
       color:#454546;
     }
+.preloader{
+  width:100%;
+  background:url('https://imgur.com/gZhSSPv.png');
+  height:400px;
+  display:block;
+  
+  
+}
