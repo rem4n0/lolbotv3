@@ -62,14 +62,9 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-    
-   <img src="<%= item.assets.link%>" style=" width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" id="imageid" value="<%= item.id%>"/>
-        <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-  
-          
-      
-  
-        
+  <a onclick="clickOnAdd()">
+   <img src="<%= item.assets.link%>" onerror="imgError(this)" style="width:230px; height:170px; border-radius:3%; z-index:0.5;" alt="<%=item.name%>" id="imageid" onclick="clickOnAdd()"/>
+          </a>      
    <% } ) %>
      
      </div>
@@ -78,13 +73,9 @@
         
         
         <script>
-          
-          
-          
-          
-          function clickOnAdd(){
     
-
+     function clickOnAdd(){
+    
     
     
         $.post('/bgs',{
@@ -147,7 +138,7 @@ document.getElement
           
     
     }
-              });}
+              });})
 
           
   
