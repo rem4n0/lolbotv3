@@ -54,9 +54,7 @@
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
   
-        <% market.map((item)=>{ %>
-  
-  
+        <% market.forEach((item)=>{ %>
     
         
       
@@ -81,10 +79,10 @@
         
         
         <script>
-          function clickOnAdd() {
+          function clickOnAdd(){
     
 
-    setTimeout(() => {
+    
     
         $.post('/bgs',{
                 iamge:$('#imageid').val(),
@@ -93,8 +91,8 @@
     }).done(function(data){
                 
                 
-                
-                console.log(data);
+              
+          
                 if(data.error){
                   
       const Toast = Swal.mixin({
@@ -146,9 +144,10 @@ document.getElement
           
     
     }
-              });});
-    },2000)
-    }
+              });}
+
+          
+  
           
         </script>
   
