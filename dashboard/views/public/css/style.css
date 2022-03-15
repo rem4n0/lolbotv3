@@ -8,6 +8,12 @@
   --nilitox: #0d0027;
   --grey: #23272a;
   --bg-color: #282D35;
+  --form-input: #1E2023;
+  --input-disabled: #26282B;
+  --label-color: #fff;
+  --form-background: #18191C;
+  --button-green: #5865F2;
+  --button-green-hover: #4554F2;
 }
 
 * {
