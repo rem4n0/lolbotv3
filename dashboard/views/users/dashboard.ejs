@@ -1,85 +1,78 @@
-<%- include ('../parts/head.ejs',{bot,user})%>
-  <style>
-  .container .column .columns img {
-    
-    justify-content:space-between;
-    padding-bottom:10px;
-  
-    }
-  
-    .container{
-      height:100vh;
-      width:100%;
-      
-    }
-   .bgs{
-    
-      
-      background:#717173;
-      position: absolute;
-    
-      margin-left:69px;
-     
-      border-bottom-right-radius:15%;
-      border-top-left-radius:15%;
-      opacity:0.6;
-  
-    }
 
-    .bgs strong{
-    pointer-events:none;
-  
-      color: var(--white);
-      left:60px;
-      z-index:1;
-  
-      
-    }
-    
-    @media only screen and (min-height:800px){
-      .bgs{
-     display:inline-flex;
-        margin-left:-220px;
-        
-      }
-  .container .column .columns img{
-    padding-left:10px; 
-    paddin-top:3px;
-    paddin-right:10px;
-    
-      }
-  
-      
-      
-    }
-    
-  </style>
-  <div class="container">
-    <br>
-    <br>
-    <div class="column">
-      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  
-    
-    
-        
-      
-        <div class="bgs">
-      <strong></strong> 
-        
-        </div>
-                            
+ <%- include ("../parts/guilds",{bot,user})%>
 
   
-    
-     
-     </div>
+  
+  <h3 class="all-header">Welcome to my dashboard </h3>
+
+  
+  
+         <div class ="row">
+<% if(user){%>
+<div class="boxs">
+<div class="box1 box">
+
+  <div class="containerB">
+    <h3 class="bigText"><i class="fa-solid fa-money-check-dollar"></i></h3>
+      <p class="heading"><%=data.money%></p>
+  </div>
+                                       
+</div>
+  
+<div class="box2 box">
+    <div class="containerB">
+      <h3 class="bigText"><i class="fa-solid fa-up"></i></h3>
+      <p class="heading"><%=data.info%></p>
+  </div>
+</div>
+
+  
+
+
+<div class="box3 box">
+
+    <div class="containerB">
+      <h3 class="bigText"><i class="fa-solid fa-signal"></i></h3>
+        
+    <p class="heading"></p>
       </div>
-        
-     </div>
-        
-        
+                                       
+</div>
+  
+<div class="box4 box">
+    <div class="containerB">
+      <h3 class="bigText"></i><i class="fa-solid fa-medal"></i></h3>
+  <p class="heading"></p>
+       </div>
+</div>
+
+
+
+   
+  
+  
+            </div>
+
+</div>
+   <% }%>         
     
+<div style="padding-bottom: 20px;"></div>
   
   
-  <%- include ('../parts/foot')%>
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <%- include ('../parts/foot.ejs')%>

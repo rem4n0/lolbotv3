@@ -132,16 +132,15 @@ background: var(--bg-color);*/
   50% {
     background-color: var(--bg-color);
     background-position: 100% 50%;
-  }}/*
+  }}
 
   .boxs { 
     
-    position: absolute;
-    height:100%;
+  position: relative;
+    height:100vh;
     width:100%;
-}*/
-
-.column .columns .boxs .box {
+}
+ .boxs .box {
 
   height: 100px;
   width:200px;
@@ -150,7 +149,7 @@ background: var(--bg-color);*/
   color: white;
 }
 
-.column .columns  .box {
+ .boxs .box1{
 
   background: url("https://imgur.com/wgljRvr.png");
   background-position: center;
@@ -158,7 +157,7 @@ background: var(--bg-color);*/
   background-size: 100%;
 }
 
-.column .columns .boxs .box2 {
+.boxs .box2 {
 
   background: url("https://imgur.com/wH8wcgv.png");
   width: 360px;
@@ -166,7 +165,7 @@ background: var(--bg-color);*/
   background-size: 100%;
 }
 
-.column .columns .boxs .box3 {
+ .boxs .box3 {
 
   background: url("https://imgur.com/StTO12l.png");
   width: 360px;
@@ -174,7 +173,7 @@ background: var(--bg-color);*/
   background-position: center;
   background-size: 100%;
 }
-.column .columns .boxs .box4 {
+ .boxs .box4 {
   
   width: 360px;
   background: url("https://imgur.com/MZzt9zF.png");
@@ -183,19 +182,19 @@ background: var(--bg-color);*/
   background-size: 100%;
 }
 
-.column .columns .boxs .box .containerB {
+.boxs .box .containerB {
   position: absolute;
   padding: 0 0 0 10px;
   /* color: var(--text);*/
   color: #e8e7e7;
 }
 
-.column .columns .boxs .box .containerB h3.bigText {
+ .boxs .box .containerB h3.bigText {
   font-size: 35px;
   position: static;
 }
 
-.column .columns .boxs .box .containerB h3.bigText input {
+.boxs .box .containerB h3.bigText input {
   font-size: 35px;
   background: transparent;
   color: #e9f2fa;
@@ -204,12 +203,11 @@ background: var(--bg-color);*/
   width: 150px;
 }
 
-.column .columns .boxs .statuses .containerB h3.bigText{
+.boxs .statuses .containerB h3.bigText{
   position: static;
   font-size: 30px;
 }
-
-.column .columns .boxs .box .containerB .heading {
+.boxs .box .containerB .heading {
   font-size: 17px;
   font-weight: 500;
   position: relative;
@@ -217,11 +215,10 @@ background: var(--bg-color);*/
   color: #e9f2fa;
 }
 
-.column .columns .boxs .statuses .containerB .heading {
+ .boxs .statuses .containerB .heading {
   top: -5px;
 }
-
-.column .columns .boxs .box .containerB .boxText {
+ .boxs .box .containerB .boxText {
   font-size: 13px;
   position: relative;
   top: -10px;
