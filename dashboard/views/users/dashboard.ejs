@@ -17,20 +17,22 @@
   <div class="container">
 <% if(data){%>
   
-
+<table class="table-row">
 <div class="boxs">
 <div class="box1 box">
 
        <div class="containerB">
-           <p class="text-break"><%=data.info%></p>
+           <h4 class="bigText"><%=data.info%></h4>
             
       </div>
                                        
 </div>
+  <br>
+  <br>
   <div class="box2 box">
     
     <div class="containerB">
-      <h3 class="bigText"><%= data.money%></h3>
+      <h4 class="bigText"><%= data.money%></h4>
         </div>
 
     </div>
@@ -38,6 +40,7 @@
   
   
   </div>
+  </table>
    <% }%> 
      </div>
     

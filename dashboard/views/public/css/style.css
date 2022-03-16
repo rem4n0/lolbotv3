@@ -169,6 +169,7 @@ background: var(--bg-color);*/
   background-size: 100%;
 }
 .boxs .box {
+  padding:10px 10px 10px 10px;
     height: 100px;
     box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
     position: relative;
