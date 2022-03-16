@@ -106,14 +106,14 @@ input[type="text"]:disabled {
     <input class°"form-control" list="datalistOption" id="background">
     <select id="datalistOption">
     <% _.chunk(data.inventory,25).map((chunk,o,i)=>{
-      chunk.sort((A,B)=> B.id, A.id).map((d) =>{
+      chunk.sort((B)=> B.id).map((d) =>{
       const item = market.find(x=> x.id === d.id)
 
       %>
       
       <% if(item.type==="background"){%>
       
-         <option value="<%= item.assets.link%>"><%= item.name%></option>
+        <option value="<%= item.assets.link%>"><%= item.name%><img width="50px;" height="50px"src="<%= item.assets.link%>"></option>
       
       <% }})})%>
       
