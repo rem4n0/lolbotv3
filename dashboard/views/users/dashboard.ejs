@@ -1,87 +1,84 @@
-
-
-  <%- include ("../parts/guilds",{bot,user})%>
+<%- include ('../parts/head.ejs',{bot,user})%>
+  <style>
+  .container .column .columns img {
     
-    
-    
-    
-<div class="container">
+    justify-content:space-between;
+    padding-bottom:10px;
   
+    }
   
- 
-  <% if(data){%>
-
-    <div class="column">
-        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-          
-          
-          
-<% if(user){%>
-  <!--
-<div class="boxs">
-<div class="box1 box">
-
-  <div class="containerB">
-    <h3 class="bigText"><i class="fa-solid fa-money-check-dollar"></i></h3>
-      <p class="heading"><%=data.money.toLocaleString()%>$</p>
-  </div>
-                                       
-</div>
-  
-<div class="box2 box">
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-address-card"></i></h3>
-      <p class="heading"><%=data.info%></p>
-  </div>
-</div>
-
-  
-
-
-<div class="box3 box">
-
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-signal"></i></h3>
-        
-    <p class="heading"><%=data.data.global_level%></p>
-      </div>
-                                       
-</div>
-  
-<div class="box4 box">
-    <div class="containerB">
-      <h3 class="bigText"></i><i class="fa-solid fa-medal"></i></h3>
-  <p class="heading"><%=user_rank%></p>
-       </div>
-</div>-->
-
-
-
-   
-  <div class="box">
-<div class="form-name">
-  <p class="text-break">
-   <%=data.info%> 
-  </p>
-    
-  </div>
-    
-    
-  </div>
-  
-          
-            <% }%>
-
-</div>
-      </div>
+    .container{
+      height:100vh;
+      width:100%;
       
+    }
+   .bgs{
+    
+      
+      background:#717173;
+      position: absolute;
+    
+      margin-left:69px;
+     
+      border-bottom-right-radius:15%;
+      border-top-left-radius:15%;
+      opacity:0.6;
   
-     <% }%>
-       </div>
+    }
+
+    .bgs strong{
+    pointer-events:none;
+  
+      color: var(--white);
+      left:60px;
+      z-index:1;
+  
+      
+    }
+    
+    @media only screen and (min-height:800px){
+      .bgs{
+     display:inline-flex;
+        margin-left:-220px;
+        
+      }
+  .container .column .columns img{
+    padding-left:10px; 
+    paddin-top:3px;
+    paddin-right:10px;
+    
+      }
+  
+      
+      
+    }
+    
+  </style>
+  <div class="container">
+    <
+    <div class="column">
+      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+  
+    
+    
+        
+      
+        <div class="bgs">
+      <strong></strong> 
+        
+        </div>
+                              
+
+  
+    
+     
+     </div>
+      </div>
+        
+     </div>
+        
+        
+    
   
   
-  
-  
-  
-  
-  <%- include ('../parts/foot.ejs')%>
+  <%- include ('../parts/foot')%>
