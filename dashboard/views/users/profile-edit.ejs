@@ -102,32 +102,32 @@ input[type="text"]:disabled {
   <textarea id="biography" class="form-control" name="biography" maxlength="250"><%= data.biography %></textarea>
 </div>
   
-  
-  
-  <label for="background">BACKGROUND</label>
-  <div class="form-group">
 
-    
-    
-  <select  id="select" width="300px">
-  <% _.chunk(data.inventory,25).map((chunk,o,i)=>{
-      chunk.sort((B)=> B.id).map((d) =>{
-      const item = market.find(x=> x.id === d.id)
+  
+      
+       <div class="form-group">
+  <label for="exampleDataList" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
+         <input class="form-control" list="datalistOptions" id="background">
+         <datalist id="datalistOptions">
+         <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
+           chunk.sort((B)=> B.id).map((d)=>{
+           const item = market.find(x=> x.id === d.id)%>
 
-      %>
-      
-      <% if(item.type==="background"){%>
-      
-        <option id="background" value="<%= item.assets.link%>" data-image_src="<%= item.assets.link%>"><%= item.name%></option>
-      <% }})})%>
-      
-      
+<% if(item.type === "background"){%>
+  
+  <option value="<%= item.assets.link %>"><%= item.name %></option>
+    <% }%>
+</datalist>
+    <% })})%>
     
-    </select>
+    
+              </div>
+    
+
       </div>
   
-  
-<% } %>
+  <% }%>
+
   <br>
   <button type="submit" class="btn btn-primary"><i class="fad fa-save"></i> Save</button>
 </form>
