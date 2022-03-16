@@ -103,8 +103,8 @@ input[type="text"]:disabled {
 </div>
   <label for="background">BACKGROUND</label>
   <div class="input-group mb-3">
-    <input class°"form-control" list="datalistOption" id="background">
-    <select id="datalistOption">
+  <!-- <input class°"form-control" id="background">-->
+    <select id="background">
     <% _.chunk(data.inventory,25).map((chunk,o,i)=>{
       chunk.sort((B)=> B.id).map((d) =>{
       const item = market.find(x=> x.id === d.id)
@@ -113,7 +113,7 @@ input[type="text"]:disabled {
       
       <% if(item.type==="background"){%>
       
-        <option value="<%= item.assets.link%>"><%= item.name%><img width="50px;" height="50px"src="<%= item.assets.link%>"></option>
+        <option value="<%= item.assets.link%>"data-style="background-image: url(<%=item.assets.link%>)"></option>
       
       <% }})})%>
       
