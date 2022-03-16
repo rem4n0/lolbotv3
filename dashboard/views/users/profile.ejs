@@ -8,9 +8,10 @@
 </head>
 <style>
   .container{
-    height:100vh;
+    
     position:relative;
-    top:44px;
+    
+    top:90px;
     
   }
   .container .columns{
@@ -51,15 +52,16 @@
   <div class="background-image"><img src="<%=data.attch.background%>"/>
   </div>
   
+  
   <div class="container px-3 px-3 mt-5 pt-5">
     <div class="columns container px-3 is-multiline">
         <div class="column is-2">
-            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=member.presence%>"  onerror=" imgerror(this);"="" src="<%=member.displayAvatarURL({dynamic:true}) %>" style="width: 100px; border-radius: 50%;">
+            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-green"  onerror="imgerror(this);" src="<%=member.displayAvatarURL({dynamic:true}) %>" style="width: 100px; border-radius: 50%;">
         </div>
       
       
        <div class="column is-6">
-          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.status%>"></i></p>
+          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.presence%>"></i></p>
            <div class="user-badges">
              <span><img src="<%= data.data.badge%>" style="width:40px;jeight:40px;"/></span>
                </div>
@@ -91,14 +93,16 @@
       <br>
       <br>
       
-    
-      
+    <div class="col">
+      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+        <br>
+        <br>
       <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
         chunk.sort((A,B)=>A.id - B.id).map(d=>{
         const item = market.find(x=> x.id== d.id);%>
   
-      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-        <div class="card rounded mx-auto d-block" style="width:18rem; ">
+      
+        <div class="card" style="width:18rem; display: inline-flex; ">
 <img src="<%=item.assets.link%>" style="border-radius:8%;"class="card-img-top" alt="<%=item.name%>">
 <div class="card-body">
 <h5 class="card-title" style="color:black;"><%= item.name%></h5>
@@ -114,18 +118,20 @@
 </div> 
           
       <br>
-          <br>
-          
-        </div>
-      </div>
+        <br>
+        <br>
+        <br>
+    
+
+      
             <% })})%>
             </div>
-            
+        </div>
+        </div>
             </div>
           
 
   
-</script>
   
   
   <%- include ('../parts/foot')%>
