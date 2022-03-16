@@ -105,11 +105,11 @@ input[type="text"]:disabled {
   
   
   <label for="background">BACKGROUND</label>
-  <div class="input-group mb-3">
+  <div class="form-group">
 
     
     
-  <select id="select" width="300px">
+  <select  id="select" width="300px">
   <% _.chunk(data.inventory,25).map((chunk,o,i)=>{
       chunk.sort((B)=> B.id).map((d) =>{
       const item = market.find(x=> x.id === d.id)
@@ -144,7 +144,12 @@ input[type="text"]:disabled {
            // var text = $(obj.element).text();
             if(data && data['img_src']){
                 img_src = data['img_src'];
-                template = $("<div><img src=\"" + img_src + "\" style=\"width:150px;height:150px; \"/><p style=\"font-weight: 700;font-size:14pt;text-align:center;\">")
+                template = $("<div><img src=\"" + img_src + "\" style=\"width:150px;height:150px;\"/>");
+     
+              
+              
+              
+              //<p style=\"font-weight: 700;font-size:14pt;text-align:center;\">")
                              /* + text + "</p></div>");*/
                 return template;
             }
