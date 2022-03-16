@@ -135,14 +135,16 @@ background: var(--bg-color);*/
   }}
 
   .boxs { 
-    display:inline-flex;
+    
+    
     height:100vh;
     width:100%;
 }
 
-.boxs .box {
-position: relative;
+.column .columns .boxs .box {
+padding-bottom:10px;
   height: 100px;
+
   width:200px;
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
@@ -150,54 +152,52 @@ position: relative;
   transition: 0.4s ease-out;
 }
 
-.boxs .box1 {
-  padding:5px 5px 5px 5px;
+.column .columns .boxs .box1 {
+  
   background: url("https://imgur.com/wgljRvr.png");
   background-position: center;
-  width: 400px;
+  width: 360px;
   background-size: 100%;
 }
 
-.boxs .box2 {
-padding:5px 5px 5px 5px;
+.column .columns .boxs .box2 {
+
   background: url("https://imgur.com/wH8wcgv.png");
-  width: 400px;
-  left: 10px;
+  width: 360px;
   background-position: center;
   background-size: 100%;
 }
 
-.boxs .box3 {
-  padding:5px 5px 5px 5px;
+.column .columns .boxs .box3 {
+
   background: url("https://imgur.com/StTO12l.png");
-  width: 400px;
-  left: 10px;
+  width: 360px;
+
   background-position: center;
   background-size: 100%;
 }
-.boxs .box4 {
+.column .columns .boxs .box4 {
   
-  left: 10px;
-  width: 400px;
+  width: 360px;
   background: url("https://imgur.com/MZzt9zF.png");
   background-position: center;
   
   background-size: 100%;
 }
 
-.boxs .box .containerB {
+.column .columns .boxs .box .containerB {
   position: absolute;
   padding: 0 0 0 10px;
   /* color: var(--text);*/
   color: #e8e7e7;
 }
 
-.boxs .box .containerB h3.bigText {
+.column .columns .boxs .box .containerB h3.bigText {
   font-size: 35px;
   position: static;
 }
 
-.boxs .box .containerB h3.bigText input {
+.column .columns .boxs .box .containerB h3.bigText input {
   font-size: 35px;
   background: transparent;
   color: #e9f2fa;
@@ -206,7 +206,7 @@ padding:5px 5px 5px 5px;
   width: 150px;
 }
 
-.boxs .statuses .containerB h3.bigText{
+.column .columns .boxs .statuses .containerB h3.bigText{
   position: static;
   font-size: 30px;
 }
