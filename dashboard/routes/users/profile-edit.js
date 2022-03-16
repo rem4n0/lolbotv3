@@ -1,6 +1,6 @@
 const app = require('express').Router();
-
-
+const market =require (`${process.cwd()}/shop/market.json`);
+const _ = require ('lodash');
 app.get("/profile/:userID/edit", global.checkAuth, async (req, res) => {
     if(req.params.userID != req.user.id) return res.redirect('/profile/'+req.user.id+'/edit');
     bot.users.fetch(req.user.id).then(async member => {
@@ -13,8 +13,9 @@ app.get("/profile/:userID/edit", global.checkAuth, async (req, res) => {
             config: config,
             user: req.isAuthenticated() ? req.user : null,
             req: req,
-            
+            market:market,
             data:data,
+          _:_,
             member: member
         });
     });
@@ -27,6 +28,7 @@ app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
         userID: member.id
     }, {
         $set: {
+          "attch.background": rBody['background'],
             info: rBody['biography'],
             website: rBody['website'],
             "laschange.date": d.getFullYear(),
