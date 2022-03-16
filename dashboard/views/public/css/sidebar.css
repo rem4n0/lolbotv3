@@ -47,7 +47,7 @@ z-index:1:
 }
 .sidebar .nav-list {
   left: 40px;
-  background: var(--navlist-color);
+  background: var(--nav-color);
   height: 100%;
   line-height: px;
 }
@@ -130,15 +130,16 @@ background: var(--sharabi);
 .sidebar .nav-list .profile-detail .profile-content img {
   width: 52px;
 
-  border-radius: 16px;
+  border-radius: 4%;
   object-fit: cover;
   height: 52px;
   margin-right: 25px;
-  background: var(--nili);
-  padding: 10px;
+ /* background: var(--nili);*/
+
 }
 .sidebar .nav-list .profile-detail .profile-name i {
   font-size: 37px;
+  display:none;
   color: var(--white);
   margin-left: 90px;
 }
@@ -194,21 +195,21 @@ background: var(--sharabi);
   position: fixed;
   color: var(--white);
   font-size: 30px;
-  top: 8px;
-  left: 5px;
+  top: px;
+  left: 20px;
 }
 
 .home-section .home-img {
-
+height:70px;
   position: fixed;
   width: 100%;
-  background: var(--grey);
+  background: var(--nav-color);
   text-align: center;
 }
 .home-section .home-img img {
-  width: 50px;
-  height: 50px;
-  top: 0px;
+  width: 60px;
+  height: 60px;
+  margin-top:7px;
   border-radius: 50%;
 }
 
