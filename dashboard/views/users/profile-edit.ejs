@@ -104,7 +104,7 @@ input[type="text"]:disabled {
   <label for="background">BACKGROUND</label>
   <div class="input-group mb-3">
   <!-- <input class°"form-control" id="background">-->
-    <select id="background" style="width: 200px;">
+    <select  id="select" style="width: 200px;">
     <% _.chunk(data.inventory,25).map((chunk,o,i)=>{
       chunk.sort((B)=> B.id).map((d) =>{
       const item = market.find(x=> x.id === d.id)
@@ -113,7 +113,7 @@ input[type="text"]:disabled {
       
       <% if(item.type==="background"){%>
       
-        <option value="<%= item.assets.link%>"data-img_src="https://data.world/api/datadotworld-apps/dataset/python/file/raw/logo.png">Python programming</option>
+        <option id="background" value="<%= item.assets.link%>" data-img_src="<%= item.assets.link%>"><%= item.name%></option>
       
       <% }})})%>
       
@@ -148,7 +148,7 @@ input[type="text"]:disabled {
         'templateSelection': custom_template,
         'templateResult': custom_template,
     }
-    $('#background').select2(options);
+    $('#select').select2(options);
     $('.select2-container--default .select2-selection--single').css({'height': '220px'});
 
 
