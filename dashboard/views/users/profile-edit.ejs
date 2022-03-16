@@ -105,27 +105,6 @@ input[type="text"]:disabled {
 
   
       
-       <div class="form-group">
-  <label for="exampleDataList" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
-         <input class="form-control" list="datalistOptions" id="background">
-         <datalist id="datalistOptions">
-         <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
-           chunk.sort((B)=> B.id).map((d)=>{
-           const item = market.find(x=> x.id === d.id)%>
-
-<% if(item.type === "background"){%>
-  
-  <option value="<%= item.assets.link %>"><%= item.name %></option>
-     
-    <% }%>
-</datalist>
-    <% })})%>
-    
-    
-              </div>
-    
-
-      </div>
   
   <% }%>
 
@@ -141,6 +120,9 @@ input[type="text"]:disabled {
 
 <script type="text/javascript">
 
+
+var carList = document.getElementById('hama');
+carList.addEventListener('change', changeCarImage, false)
   
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
