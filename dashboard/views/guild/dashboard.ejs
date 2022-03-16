@@ -1,60 +1,58 @@
 
- <%- include ("../parts/sidebarguild",{bot,user})%>
+ <%- include ("../parts/guilds",{bot,user})%>
+<style>
+  .container {
+    height:100vh;
+    
+  }
+  
 
+  
+   </style>
   
   
   <h3 class="all-header">Welcome to my dashboard </h3>
 
   
+  <div class="container">
+<% if(data){%>
   
-          <div class ="row">
-<% if(user){%>
+
 <div class="boxs">
 <div class="box1 box">
 
-  <div class="containerB">
-    <h3 class="bigText"><i class="fa-solid fa-money-check-dollar"></i></h3>
-      <p class="heading"><%=join1%></p>
-  </div>
-                                       
-</div>
-  
-<div class="box2 box">
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-up"></i></h3>
-      <p class="heading"><%=join2%></p>
-  </div>
-</div>
-
-  
-
-
-<div class="box3 box">
-
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-signal"></i></h3>
-        
-    <p class="heading"></p>
+       <div class="containerB">
+           <h4 class="bigText"><%=join1%></h4>
+            
       </div>
                                        
 </div>
   
-<div class="box4 box">
+  <br>
+  <br>
+
+  <div class="box2 box">
+    
     <div class="containerB">
-      <h3 class="bigText"></i><i class="fa-solid fa-medal"></i></h3>
-  <p class="heading"></p>
-       </div>
-</div>
+      <h4 class="bigText"><%=join2%></h4>
+        </div>
 
-
-
+    </div>
    
-  
-  
-            </div>
-
-</div>
-   <% }%>         
+  <br>
+    <br>
+  <div class="box3 box">
+    <div class="containerB">
+      <h4 class="bigText"><%= user_rank%></h4>
+        </div>
+  </div>
+<br>
+    <br>
+    
+  </div>
+   <% }%> 
+    
+     </div>
     
 <div style="padding-bottom: 20px;"></div>
   
