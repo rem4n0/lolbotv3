@@ -1,14 +1,14 @@
 
   <%- include ("../parts/guilds",{bot,user})%>
-
+<div class="container">
   
   
   <h3 class="all-header">Welcome to my dashboard </h3>
 
   <% if(data){%>
-  <div class="container">
-    
-          <div class ="row">
+
+    <div class="column">
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
 <% if(user){%>
 <div class="boxs">
 <div class="box1 box">
@@ -56,6 +56,8 @@
             <% }%>
 
 </div>
+      </div>
+      </div>
   
      <% }%>
   
