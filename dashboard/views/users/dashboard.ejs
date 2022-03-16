@@ -1,6 +1,14 @@
 
  <%- include ("../parts/guilds",{bot,user})%>
+<style>
+  .container {
+    height:100vh;
+    
+  }
+  
 
+  
+   </style>
   
   
   <h3 class="all-header">Welcome to my dashboard </h3>
@@ -14,7 +22,7 @@
 <div class="box1 box">
 
                                             <div class="containerB">
-                                                <h3 class="bigText"><%= guild.memberCount %></h3>
+                                                <h3 class="bigText"><%=data.info%></h3>
                                                 <p class="heading">Server members</p>
                                             </div>
                                        

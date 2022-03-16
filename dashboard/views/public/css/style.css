@@ -133,21 +133,7 @@ background: var(--bg-color);*/
     background-color: var(--bg-color);
     background-position: 100% 50%;
   }}
-/*
-  .boxs { 
-    
-  position: relative;
-    height:100vh;
-    width:100%;
-}
- .boxs .box {
 
-  height: 100px;
-  width:200px;
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-  color: white;
-}*/
 
  .boxs .box1{
 
@@ -188,32 +174,56 @@ background: var(--bg-color);*/
     border-radius: 4px;
     color: white;
   transition: all 0.4s;
-}/*
-
-.boxs .box1 {
-    background: url("<%=domain%>/cards/11.svg"), linear-gradient(150deg, #5A57C9, #44409A);
-    background-position: center;
-    background-size: 100%;
 }
 
-.boxs .box2 {
-    background: url("<%=domain%>/cards/8.svg"), linear-gradient(150deg, #FFD3A5a5, #FD6F88a5);
-    ;
-    background-position: center;
-    background-size: 100%;
+
+.boxs .box4 .containerB .heading, .boxs .box4 .container .boxText {
+    pointer-events: none;
 }
 
-.boxs .box3 {
-    background: url("<%=domain%>/cards/10.svg"), linear-gradient(150deg, #ABDCFFa5, #1BA0FFa5);
-    background-position: center;
-    background-size: 100%;
+
+
+.boxs .box .containerB {
+    position: absolute;
+    padding: 0 0 0 10px;
+    color: var(--text);
 }
-.boxs .box5 {
-    background: url(""), linear-gradient(150deg, #31A231, #90EE90);
-    
-    background-position: center;
-    background-size: 100%;
-}*/
+
+.boxs .box .containerB h3.bigText {
+    font-size: 35px;
+     position: relative;
+    top: -5px; 
+}
+
+.boxs .box .containerB h3.bigText input {
+    font-size: 35px;
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    width: 150px;
+}
+
+.boxs .statuses .containerB h3.bigText {
+    font-size: 30px;
+}
+
+.boxs .box .containerB .heading {
+    font-size: 17px;
+    font-weight: 500;
+    position: relative;
+    top: -10px;
+}
+
+.boxs .statuses .containerB .heading {
+    top: -5px;
+}
+
+.boxs .box .containerB .boxText {
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+}
 
 
 .servers {
@@ -326,7 +336,11 @@ background: var(--grey);
 
 /****---------end--------------***/
 @media only screen and (min-height:800px){
-  
+  .boxs .box{
+    position: relative;
+  display:flex;
+    
+  }
   .contact-form .col-md-6{
     
     margin-left: 120px;
