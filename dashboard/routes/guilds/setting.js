@@ -37,7 +37,7 @@ app.get(
           guildID: req.params.guildID},{
           $set:{
   
-            prefix:req.body.prefix,
+            prefix:rbody["prefixX,
            "xp.onoff":req.body.xp, 
           }})
                 

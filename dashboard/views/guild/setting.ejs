@@ -1,20 +1,13 @@
 <%- include ("../parts/sidebarguild",{bot,user}) %>
 
-
+<br>
+  <br>
    <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
       <i></i>
   </div>
-  <script>
-        (function(){
-        var txt = $("input#guildID");
-        var func = function() {
-            txt.val(txt.val().replace(/\s/g, ''));
-        }
-        txt.keyup(func).blur(func);
-    });
-  </script>
+
   
   <form method="POST">
   
@@ -25,7 +18,7 @@
               <br><br>
                             <div class="form-group">
                               <label><i class='bx bx-bot'></i>  PREFIX <span style="color: rgb(175, 22, 22)">*</span></label>
-                  <input type="text" name="prefix" id="prefix" class="form-control" placeholder="" value=""/>
+                  <input type="text" name="prefix" id="prefix" class="form-control" placeholder="<%=prefix%>" value=""/>
               </div>
               <br><br>
             
@@ -35,10 +28,10 @@
                <br>
                                           
   <input type="radio" name="xp" value="on" id="xp" />
-   <label for="on">on</label>
+   <label for="xp">on</label>
    
    <input type="radio" name="xp" value="off" id="xp" />
-   <label for="off"> off </label>
+   <label for="xp"> off </label>
                                           
    <br />
              
@@ -52,7 +45,7 @@
       <br/>
    
       
-      <button type="submit" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
+      <button type="submit" name="btnSubmit" onclick="clickOnAdd()" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
     </div>
     
   </form>
@@ -65,14 +58,25 @@
   
       <script>
      
-      
- var urlParams = new URLSearchParams(window.location.search);
+      function clickOnAdd() {
+    
+    
+$("#myButton").attr("disabled", true);
+    $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
-
-
-    if(urlParams.has('success') && urlParams.get('success')){
-      
-
+    setTimeout(() => {
+        $.post('/dashboard/guild/<%=guild.id%>/setting',{
+              onoff:$('#xp').val(),
+             prefix:$('#prefix').val(),
+            
+                
+        
+    }).done(function(data){
+                
+                
+                
+                
+                if(data.error){
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -83,17 +87,25 @@
     toast.addEventListener('mouseleave', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
     }})
+    
 Toast.fire({
-  icon: 'success',
-  title: 'applied successfully',
-  text:urlParams.get('message'),
+  icon: 'error',
+  title: 'we have problem',
+  text: data.message,
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
-})/*.then(()=>{
-  window.location.href ='/dashboard/guild/<%=guild.id%>';
-})*/
-}
-    if(urlParams.has('error') && urlParams.get('error')){
+})
+                  
+  $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
+                    $("#myButton").attr("disabled", false);
+                    return;    
+      
+    
+    
+    
+    }else{
+     
+  
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -108,15 +120,21 @@ Toast.fire({
 
       
   Toast.fire({
-  icon: 'error',
-  title: 'opps...',
-  text:urlParams.get('message'),
+  icon: 'success',
+  title: 'successful...',
+  text:data.message,
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
-  
-}).then(()=>{
-  window.location.href ='/dashboard/guild/<%=guild.id%>';
-})
-
+    
+  })
+            $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
+                    $("#myButton").attr("disabled", false);
+                    return;
+    
     }
+              });
+    },2000)
+    }
+
+
    </script>
 <%- include("../parts/foot.ejs")%>

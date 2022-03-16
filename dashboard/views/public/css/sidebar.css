@@ -49,7 +49,7 @@ z-index:1:
   left: 40px;
   background: var(--nav-color);
   height: 100%;
-  line-height: px;
+
 }
 .sidebar .nav-list .list li .link_name {
   color: var(--white);
@@ -195,7 +195,8 @@ background: var(--sharabi);
   position: fixed;
   color: var(--white);
   font-size: 30px;
-  top: px;
+  top: 17px;
+  opacity:0.5;
   left: 20px;
 }
 
