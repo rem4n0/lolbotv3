@@ -118,7 +118,7 @@ input[type="text"]:disabled {
       
       <% if(item.type==="background"){%>
       
-        <option id="background" value="<%= item.assets.link%>" data-img_src="<%= item.assets.link%>"><%= item.name%></option>
+        <option id="background" value="<%= item.assets.link%>" data-image_src="<%= item.assets.link%>"><%= item.name%></option>
       <% }})})%>
       
       
@@ -144,7 +144,7 @@ input[type="text"]:disabled {
            // var text = $(obj.element).text();
             if(data && data['img_src']){
                 img_src = data['img_src'];
-                template = $("<div><img src=\"" + img_src + "\" style=\"width:150px;height:150px;\"/>");
+        template = $("<div><img src=\"" + img_src + "\" style=\"width:150px;height:150px;\"/></div>");
      
               
               
