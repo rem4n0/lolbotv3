@@ -6,47 +6,19 @@
   <h3 class="all-header">Welcome to my dashboard </h3>
 
   
+  <div class="container">
+<% if(data){%>
   
-<div class ="row">
-  <div class="column">
-<% if(user){%>
+
 <div class="boxs">
 <div class="box1 box">
 
-  <div class="containerB">
-    <h3 class="bigText"><i class="fa-solid fa-money-check-dollar"></i></h3>
-      <p class="heading"><%=data.money%></p>
-  </div>
+                                            <div class="containerB">
+                                                <h3 class="bigText"><%= guild.memberCount %></h3>
+                                                <p class="heading">Server members</p>
+                                            </div>
                                        
 </div>
-  
-<div class="box2 box">
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-up"></i></h3>
-      <p class="heading"><%=data.info%></p>
-  </div>
-</div>
-
-  
-
-
-<div class="box3 box">
-
-    <div class="containerB">
-      <h3 class="bigText"><i class="fa-solid fa-signal"></i></h3>
-        
-    <p class="heading"></p>
-      </div>
-                                       
-</div>
-  
-<div class="box4 box">
-    <div class="containerB">
-      <h3 class="bigText"></i><i class="fa-solid fa-medal"></i></h3>
-  <p class="heading"></p>
-       </div>
-</div>
-
 
 
    
@@ -55,7 +27,6 @@
   </div>
    <% }%> 
      </div>
-  </div>
     
 <div style="padding-bottom: 20px;"></div>
   
