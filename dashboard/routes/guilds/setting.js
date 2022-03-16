@@ -7,8 +7,13 @@ app.get(
   async (req, res, next) => {
     const guild = bot.guilds.cache.get(req.params.guildID)
   let data = await Guild.findOne({guildID: guild.id});
-    const user= guild.users.cache.get(req.user.id);
-  if(!user.permissions.has("MANAGE_GUILD")){ res.redirect('/dashboard');}
+    const user= guild.members.cache.get(req.user.id);
+  if(!user.permissions.has("MANAGE_GUILD")){ 
+    
+    
+  
+    res.send(" You can't access")
+  }
       res.render("./guild/setting.ejs", {
         config: config,
         data:data,
