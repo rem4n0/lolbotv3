@@ -1,15 +1,23 @@
 
+
   <%- include ("../parts/guilds",{bot,user})%>
+    
+    
+    
+    
 <div class="container">
   
   
-  <h3 class="all-header">Welcome to my dashboard </h3>
-
+ 
   <% if(data){%>
 
     <div class="column">
         <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          
+          
+          
 <% if(user){%>
+  <!--
 <div class="boxs">
 <div class="box1 box">
 
@@ -45,14 +53,23 @@
       <h3 class="bigText"></i><i class="fa-solid fa-medal"></i></h3>
   <p class="heading"><%=user_rank%></p>
        </div>
-</div>
+</div>-->
 
 
 
    
+  <div class="box">
+<div class="form-name">
+  <p class="text-break">
+   <%=data.info%> 
+  </p>
+    
+  </div>
+    
+    
+  </div>
   
-  
-            </div>
+          
             <% }%>
 
 </div>

@@ -132,28 +132,26 @@ background: var(--bg-color);*/
   50% {
     background-color: var(--bg-color);
     background-position: 100% 50%;
-  }}
+  }}/*
 
   .boxs { 
     
-    
-    height:100vh;
+    position: absolute;
+    height:100%;
     width:100%;
-}
+}*/
 
 .column .columns .boxs .box {
-padding-bottom:10px;
-  height: 100px;
 
+  height: 100px;
   width:200px;
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   color: white;
-  transition: 0.4s ease-out;
 }
 
-.column .columns .boxs .box1 {
-  
+.column .columns  .box {
+
   background: url("https://imgur.com/wgljRvr.png");
   background-position: center;
   width: 360px;
@@ -211,7 +209,7 @@ padding-bottom:10px;
   font-size: 30px;
 }
 
-.boxs .box .containerB .heading {
+.column .columns .boxs .box .containerB .heading {
   font-size: 17px;
   font-weight: 500;
   position: relative;
@@ -219,11 +217,11 @@ padding-bottom:10px;
   color: #e9f2fa;
 }
 
-.boxs .statuses .containerB .heading {
+.column .columns .boxs .statuses .containerB .heading {
   top: -5px;
 }
 
-.boxs .box .containerB .boxText {
+.column .columns .boxs .box .containerB .boxText {
   font-size: 13px;
   position: relative;
   top: -10px;
