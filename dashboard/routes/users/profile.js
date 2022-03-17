@@ -11,7 +11,7 @@ app.get(
   async (req, res, next) => {
     
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
-      const member = bot.users.cache.get(a.id);
+    
   let data = await User.findOne({userID: a.id});
     
       res.render("./users/profile.ejs", {
@@ -22,7 +22,7 @@ app.get(
         bot: bot,
       _:_,
         market:market,
-        member:member,
+        member:a,
         user: req.isAuthenticated() ? req.user : null,
       })
     })});

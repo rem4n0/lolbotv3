@@ -51,9 +51,7 @@ app.get(
       
         
       
-        res.redirect(
-          `?success=true&message= your applied  `
-        );
+        res.send({success:true, message:` successfully`});
       }
     );
 module.exports = app;
