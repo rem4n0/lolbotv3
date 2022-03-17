@@ -29,7 +29,7 @@ app.post(
 
     
     let data = await Guild.findOne({ guildID: guild.id });
-if(!logon === "on" || "off"){res.redirect(`?error=true& message
+if(!roleCreate === "on" || "off"){res.redirect(`?error=true&message= logs must be on or off`)}
     await Guild.findOneAndUpdate(
       {
         guildID: req.params.guildID,

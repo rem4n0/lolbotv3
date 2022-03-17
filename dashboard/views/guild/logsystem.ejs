@@ -36,14 +36,15 @@
   <br><br><br><br><br>
   <div class="form-group">
     <label for="roleCreate">ROLE CREATE <span style="color:rgba(175,22,22)">*</span></label>
-    <input class="form-control" list="datalist" id="roleCreate"/>
-    <datalist id="datalist">
+    <input class="form-control" list="datalistOption" id="roleCreate"/>
+    <datalist id="datalistOption">
 
-  <select class="select" id="roleCreate" aria-label="Default select example">
+  <select>
 
-    <option value="on">ON</li>
- <option value="off">OFF</option>
+    <option value="on">ON</option>
+ <option value="off" selected>OFF</option>
     </select>
+    </datalist>
     </div>
      <br>
     <br>
@@ -61,17 +62,7 @@
   
   
       <script>
-        
-        /*
-         const select = document.querySelector(".form-select")
-         select.addEventListener('click',(e)=>{
-    
-           select.classList.toggle("open");
-           
-           
-         })
-        
-  */
+      
     function clickOnAdd() {
     
     
@@ -84,7 +75,7 @@ $("#myButton").attr("disabled", true);
                 logon:$('#logon').val(),
                 channelCreate:$('#channelCreate').val(),
                 channelDelete:$('#channelDelete').val(),
-                roleCreate:switchStatus,
+                roleCreate:$('#roleCreate').val(),
                 roleDelete:$('#roleDelete').val(),
                 roleUpdate:$('#roleUpdate').val(),
                 
