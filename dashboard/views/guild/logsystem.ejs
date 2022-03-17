@@ -20,7 +20,7 @@
     
   
   <div class="form-group">
-  <label for="channel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
+  <label for="logchannel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
 
 <select id="logchannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
@@ -63,7 +63,7 @@
   
       <script>
       
-    function clickOnAdd() {
+    function clickOnAdd(){
     
     
 $("#myButton").attr("disabled", true);

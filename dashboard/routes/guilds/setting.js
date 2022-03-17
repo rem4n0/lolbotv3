@@ -50,7 +50,7 @@ app.get(
       
         
       
-      return res.send({success:true, message:"successfully"});
+      return res.send({ success:true, message:"successfully" });
       }
     );
 module.exports = app;
