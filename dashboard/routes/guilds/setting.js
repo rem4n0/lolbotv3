@@ -32,8 +32,7 @@ app.get(
         let rbody = req.body;
       
        if (rbody["prefix"].length > 5){
-          return res.redirect( 
-            "?error=true&message=You cant add up 5 words to prefix..");}
+          return res.send({error:true, message:"you can't add up 5 words"});}
         let data = await Guild.findOne({guildID: guild.id})
         
         
@@ -51,7 +50,7 @@ app.get(
       
         
       
-        res.send({success:true, message:` successfully`});
+      return  res.send({success:true, message:"successfully"});
       }
     );
 module.exports = app;
