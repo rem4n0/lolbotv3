@@ -21,8 +21,8 @@
   
   <div class="form-group">
   <label for="channel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
-<div class="custom-select" style="width:200px;">
-<select>
+
+<select style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -30,10 +30,8 @@
   <option value="<%= channel.id %>"><%=channel.name%></option>
     <% })%>
 </select>
-   </div>
-    
-              </div>
-  <br>
+</div>
+
 
   <br><br><br><br><br>
   <div class="form-group">
@@ -42,8 +40,8 @@
     <datalist id="datalist">
 
   <select class="select" id="roleCreate" aria-label="Default select example">
-    <option selected>Open this select menu</option>
-    <option  value="on">ON</li>
+
+    <option value="on">ON</li>
  <option value="off">OFF</option>
     </select>
     </div>

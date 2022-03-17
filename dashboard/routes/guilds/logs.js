@@ -29,7 +29,7 @@ app.post(
 
     
     let data = await Guild.findOne({ guildID: guild.id });
-
+if(!logon === "on" || "off"){res.redirect(`?error=true& message
     await Guild.findOneAndUpdate(
       {
         guildID: req.params.guildID,
