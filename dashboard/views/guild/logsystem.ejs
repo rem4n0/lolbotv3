@@ -2,22 +2,7 @@
 <br>
   <br>
   
-  <style>
-    .container .form-select {
-     background:#717173;
-      border:none;
-      
-      
-    }
-    .container .form-select .option{
-  display:block;
-      background-color:#717173;
-      
-      
-    }
-    
-    
-  </style>
+  
    <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
@@ -36,16 +21,16 @@
   
   <div class="form-group">
   <label for="channel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
-
-<select class="form-select" id="channel">
+<div class="custom-select" style="width:200px;">
+<select>
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
   
-  <option class="option" value="<%= channel.id %>"><%=channel.name%></option>
+  <option value="<%= channel.id %>"><%=channel.name%></option>
     <% })%>
 </select>
-    
+   </div>
     
               </div>
   <br>
