@@ -12,9 +12,7 @@ app.get(
     
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
   let data = await User.findOne({userID: a.id});
-    /*  data.inventory.map((chunk, i, o)=>{
-      chunk.sort((A,B) => A.id - B.id ).map(d => {
-        const item = market.find(x => x.id == d.id);  */
+    
       res.render("./users/profile.ejs", {
         config: config,
         data:data,
