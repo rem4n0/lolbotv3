@@ -21,6 +21,10 @@ app.get(
     });
   }
 );
+app.get('/', async (res,req)=>{
+  res.render("./index.ejs")
+  
+})
 
 app.post(
   "/dashboard/guild/:guildID/setting",
@@ -50,4 +54,5 @@ app.post(
    return res.send({ success: true, message: "successfully" });
   }
 );
+
 module.exports = app;

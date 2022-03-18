@@ -128,19 +128,13 @@ Toast.fire({
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
   })
-      $.ajax({
-  type: 'GET,
-  url: '/dashboard/guild/<%=guild.id%>/setting',
-  data: "YOUR DATA"
-  success: function(data){
-   window.location = "/dashboard";
-  },
-  error: function(xhr, type, exception) { 
-    // if ajax fails display error alert
-    alert("ajax error response type "+type);
-  }
-});٫
-    */
+  
+    $.ajax({
+        type: "GET",
+        url: "/",
+      })/*.then(() => {
+         window.location.href = '/dashboard';
+      });*/
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
