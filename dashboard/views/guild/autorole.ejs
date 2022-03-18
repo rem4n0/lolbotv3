@@ -24,9 +24,12 @@
 <span class="selected"></span>
 <span class="selectArrow"></span>
 </div>
+      <% guild.roles.cache.forEach((role)=>{%>
+      
 <div class="selectOptions" id="style-1">
-  <span class="selectOption" value="option 1">Option 1</span>
+  <span class="selectOption" value="<=role.id%>"><%=role.name%></span>
       </div>
+        <% })%>
            </div>
             
             <br><br>

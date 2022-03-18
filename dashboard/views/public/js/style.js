@@ -1,40 +1,31 @@
-  document.addEventListener("DOMContentLoaded", function() {
-        var demo1 = new BVSelect({
-          selector: "#selectbox",
-          searchbox: false,
-          offset: false
-        });
-        var demo2 = new BVSelect({
-          selector: "#selectbox2",
-          searchbox: true,
-          search_autofocus: true,
-          offset: true,
-          width: "100%",
-          placeholder: "Select Option",
-          search_placeholder: "Search...",
-          breakpoint: 750
-        });
-        var demo3 = new BVSelect({
-          selector: "#selectbox3",
-          searchbox: true,
-          offset: true
-        });
-        var demo4 = new BVSelect({
-          selector: "#selectbox4",
-          searchbox: true,
-          offset: true
-        });
-        var demo5 = new BVSelect({
-          selector: "#selectbox5",
-          searchbox: true,
-          offset: true
-        });     
-        var demo6 = new BVSelect({
-          selector: "#selectbox6",
-          searchbox: true,
-          search_autofocus: false,
-          offset: true,
-          width: "100%",
-          search_placeholder: "Search..."
-        });  
-  });
+$(document).ready(function() {
+$('div.selectBox').each(function(){
+$(this).children('.selectdivx').children('span.selected').html($(this).children('div.selectOptions').children('span.selectOption:first').html());
+$(this).attr('value',$(this).children('div.selectOptions').children('span.selectOption:first').attr('value'));
+$(this).children('.selectdivx').click(function(){
+if($(this).parent().children('div.selectOptions').css('display') == 'none'){
+$(this).parent().children('div.selectOptions').slideDown();
+} else {
+$(this).parent().children('div.selectOptions').slideUp();
+} });
+
+$(this).find('span.selectOption').click(function(){	
+$(this).parent().slideUp();
+$(this).closest('div.selectBox').attr('value',$(this).attr('value'));
+
+$('div.selectBox').each(function(){
+var boxval = $(this).attr('value');
+$(this).children('.selectdivx').children('input.selected2').attr('value',boxval);   
+}); 
+$(this).parent().siblings('.selectdivx').children('span.selected').html($(this).html());
+});
+});    
+var boxval = $('div.selectBox').attr('value');
+$('input.selected2').attr('value',boxval);   
+
+$(".selectOption").on("click", function() {
+  $(this).parents(".selectOptions").find(".selectOption").removeClass("renk");
+  $(this).addClass("renk");
+});
+
+}); 
