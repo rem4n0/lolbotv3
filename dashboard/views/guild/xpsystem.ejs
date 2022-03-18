@@ -91,26 +91,26 @@
   
       <script>
      
-        
-        
-        
+         
     function clickOnAdd() {
     
 $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
+
     setTimeout(() => {
-              $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
-                xpchannel:$('#xpchannel').val(),
-                xpmax:$('#max').val(),
-                xpmin:$('#min').val(),
-                xpmessage:$('#xpmessage').val(),
+
+   
+        $.post('/dashboard/guild/<%=guild.id%>/setting',{
+                onoff:$('#xp').val(),
+                prefix:$('#prefix').val(),
+                
+                
+        
+    }).done(function(data){
                 
                 
                 
                 
-                
-                
-              }).done(function(data){
                 if(data.error){
       const Toast = Swal.mixin({
   toast: true,
@@ -152,7 +152,7 @@ Toast.fire({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 })
-
+document.getElement
       
   Toast.fire({
   icon: 'success',
@@ -166,10 +166,13 @@ Toast.fire({
                     return;
     
     }
-              });
-    },2000 )
+              });});
+    },2000)
     }
-      
+ 
+        
+        
+    
         
    </script>
 <%- include("../parts/foot.ejs")%>
