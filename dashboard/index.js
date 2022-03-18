@@ -212,7 +212,8 @@ app.use("/", require ("./routes/bot/background.js"));
   app.use("/", require ("./routes/users/profile-edit"));
   app.use("/", require ("./routes/users/profile.js"));
   
-  ///
+  ///guilds
+app.use("/", require ("./routes/guilds/autorole.js"));
   app.use("/", require ("./routes/guilds/logs.js"))
   app.use("/", require("./routes/index.js"));
   app.use("/", require("./routes/users/dashboard.js"));

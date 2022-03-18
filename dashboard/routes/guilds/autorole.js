@@ -41,8 +41,8 @@ app.post(
       },
       {
         $set: {
-          prefix: rbody["prefix"],
-          "xp.onoff": rbody["onoff"],
+          "plugins.autorole.enabled": rbody["enabled"],
+          "plugins.autorole.role": rbody["role"],
         },
       }
     );
