@@ -127,14 +127,11 @@ Toast.fire({
   text:data.message,
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
+  }).
+then(() => {
+         window.location.origin + '/dashboard';
   })
   
-    $.ajax({
-        type: "GET",
-        url: "/",
-      })/*.then(() => {
-         window.location.href = '/dashboard';
-      });*/
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
