@@ -29,9 +29,9 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
 
-    if (rbody["prefix"].length > 5) {
+   /* if (rbody["prefix"].length > 5) {
       return res.send({ error: true, message: "you can't add up 5 words" });
-    }
+    }*/
 
     let data = await Guild.findOne({ guildID: guild.id });
 
@@ -41,7 +41,7 @@ app.post(
       },
       {
         $set: {
-          "plugins.autorole.enabled": rbody["enabled"],
+          "plugins.autorole.enabled": rbody["enabled"] || false,
           "plugins.autorole.role": rbody["role"],
         },
       }

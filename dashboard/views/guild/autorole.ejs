@@ -24,10 +24,10 @@
 <span class="selected"></span>
 <span class="selectArrow"></span>
 </div>
-      <% guild.roles.cache.forEach((role)=>{%>
+      <% guild.roles.cache.forEach((role)=>{ %>
       
 <div class="selectOptions" id="style-1">
-  <span class="selectOption" value="<=role.id%>"><%=role.name%></span>
+  <span class="selectOption" id="role" value="<%= role.id %>"><%=role.name%></span>
       </div>
         <% })%>
            </div>
@@ -73,9 +73,9 @@ $("#myButton").attr("disabled", true);
  $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-        $.post('/dashboard/guild/<%=guild.id%>/setting',{
-              onoff:$('#xp').val(),
-             prefix:$('#prefix').val(),
+        $.post('/dashboard/guild/<%=guild.id%>/autorole',{
+            role:$('#role').val(),
+             enabled:$('#autorole').val(),
             
                 
         
