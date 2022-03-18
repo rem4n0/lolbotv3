@@ -59,10 +59,8 @@
       <script>
      
       function clickOnAdd() {
-          $.ajax({
-        type: "GET",
-        url: "/dashboard,
-      })
+       
+        
     
 $("#myButton").attr("disabled", true);
  $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
@@ -130,6 +128,12 @@ Toast.fire({
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
   })
+      
+      
+          $.ajax({
+        type: "GET",
+        url: "/",
+      })  
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
@@ -138,7 +142,7 @@ Toast.fire({
               });
     },2000)
         
-          
+        
         
     }
 
