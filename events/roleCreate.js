@@ -25,13 +25,14 @@ if(maintenance && maintenance.toggle == "true") return;
 
 if(cooldown.has(role.guild.id)) return;
 
-
+if(guild.logs.roleCreate==="off") return;
+                    
 if(guild){
-if(guild.plugins.modlogs){
+if(guild.logs.logchannel){
 
 
 
-const channelEmbed = await role.guild.channels.cache.get(guild.plugins.modlogs)
+const channelEmbed = await role.guild.channels.cache.get(guild.logs.logchannel)
 
 if(channelEmbed){
 

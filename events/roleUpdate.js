@@ -3,8 +3,10 @@ const Discord = require('discord.js');
 module.exports = class  {
 async run( newRole,oldRole){
   let data = await Guild.findOne({guildID: newRole.guild.id})
-    const logChannel = newRole.guild.channels.cache.get(data.plugins.modlogs);
+    const logChannel = newRole.guild.channels.cache.get(data.logs.logchannel);
     if (!logChannel) return;
+  if(guild.logs.roleUpdate==="off") return;
+                    
     const allLogs = await newRole.guild.fetchAuditLogs({ type: "ROLE_UPDATE" });
     const fetchModerator = await allLogs.entries.first();
     if (oldRole.color !== newRole.color) {

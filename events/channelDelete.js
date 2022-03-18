@@ -26,13 +26,14 @@ if(maintenance && maintenance.toggle == "true") return;
 if(cooldown.has(message.guild.id)) return;
 
 if (message.name.indexOf('Room') >= 0) return;
-
+if(guild.logs.channelDelete ==="off") return;
+                    
 if(guild){
-if(guild.plugins.modlogs){
+if(guild.logs.logchannel){
 
 
 
-const channelEmbed = await message.guild.channels.cache.get(guild.plugins.modlogs)
+const channelEmbed = await message.guild.channels.cache.get(guild.logs.logchannel)
 
 if(channelEmbed){
 
