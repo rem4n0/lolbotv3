@@ -43,6 +43,7 @@ app.post(
       data.plugins.autorole =autorole;
 		data.markModified("plugins.autorole");
 		await data.save();
+      return res.send({success: true, message: "successfully"});
       
     }
     if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable") || Object.prototype.hasOwnProperty.call(rbody, "autoroleUpdate")){
@@ -55,11 +56,11 @@ const autorole = {
 data.plugins.autorole = autorole;
       data.markModified("plugins.autorole")
       await data.save();
-    
+    return res.send({ success: true, message:" Successfully"});
 
       
     }
-   return res.send({ success: true, message: "successfully" });
+  /// return res.send({ success: true, message: "successfully" });
   }
 );
 
