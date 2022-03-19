@@ -62,7 +62,8 @@ app.post(
     if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable")){
 const autorole = {
   enable: true,
-  role:guild.roles.cache.find((ch) => "#"+ch.name === rbody.role).id,
+  role: guild.roles.cache.find((r) => "@"+r.name === rbody.role).id
+		
       
 }
 data.plugins.autorole = autorole;

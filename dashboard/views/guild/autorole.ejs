@@ -2,7 +2,7 @@
 
 <br>
   <br>
-   <div class="container">
+  <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
       <i></i>
@@ -15,55 +15,19 @@
      <div class="row">
          <div class="col-md-6">
             
-              <br><br>
-  
-            
-    <div class="selectBox" value="hh">
-<div class="selectdivx">
-<input type="hidden" class="selected2" value="" name="role">
-<span class="selected"></span>
-<span class="selectArrow"></span>
-</div>
-      <% guild.roles.cache.forEach((role)=>{ %>
-      
-<div class="selectOptions" name="role" id="style-1">
-  <span class="selectOption" ><%=role.name%></span>
-      </div>
-        <% })%>
-           </div>
-            
-            <br><br>
-            
-    <div class="form-group">
-  <label><i class='bx bx-bar-chart-alt-2' ></i>AUTOMATIC GIVE ROLE <span style="color: rgb(175, 22, 22)">*</span></label>
-           <br>
-               <br>
-                               
-   <div class="box-footer">   
-      
-<% if(data.plugins.autorole.enabled){%>
-  
-      <button type="submit" name="autoroleDisable" class="btn btn-danger">disable</button>
-                                            <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
-                                        <% } else { %>
-                                            <button type="submit" name="autoroleEnable" class="btn btn-success">enable</button>
-                                          </div>                                   <% } %>
-                           
-   <br />
-             
-</div>  
       <br><br>      
       <br/>
    
       
       <button type="submit" name="btnSubmit" id="myButton" onclick="clickOnAdd()" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-    </div>
+  <br>
+       <br>
      
      <div class="box box-warning">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title"><%= translate("dashboard:AUTOROLE_CONF") %></h3>
+                                    <h3 class="box-title">jj</h3>
                                 </div>
-                                <form role="form" action="/manage/<%= guild.id %>/" method="POST">
+                                
                                     <!-- /.box-header -->
                                     <div class="box-body">
                                         <!-- select -->
@@ -85,8 +49,8 @@
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-                                        <% if(guild.plugins.autorole.enabled){ %>
-                                            <button type="submit" name="autoroleDisable" class="btn btn-danger">disabled</button>
+                                        <% if(data.plugins.autorole.enabled){ %>
+                                            <button type="submit" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
                                             <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
                                         <% } else { %>
                                             <button type="submit" name="autoroleEnable" class="btn btn-success">Enable</button>
@@ -96,13 +60,15 @@
                             </div>
      
      
-     
+                                          </div>
     
+                </div>
   </form>
   
 
 </div>
-  </div>
+  
+             </div>
 <br><br>
   
   
