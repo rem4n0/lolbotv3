@@ -39,7 +39,7 @@
            <br>
                <br>
                                
-      
+   <div class="box-footer">   
       
 <% if(data.plugins.autorole.enabled){%>
   
@@ -47,7 +47,7 @@
                                             <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
                                         <% } else { %>
                                             <button type="submit" name="autoroleEnable" class="btn btn-success">enable</button>
-                                        <% } %>
+                                          </div>                                   <% } %>
                            
    <br />
              
@@ -58,6 +58,45 @@
       
       <button type="submit" name="btnSubmit" id="myButton" onclick="clickOnAdd()" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
     </div>
+     
+     <div class="box box-warning">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><%= translate("dashboard:AUTOROLE_CONF") %></h3>
+                                </div>
+                                <form role="form" action="/manage/<%= guild.id %>/" method="POST">
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <!-- select -->
+                                        <div class="form-group">
+          <label>gg</label>
+             <select class="form-control" name="role">
+           <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
+               <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
+  <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
+               <option>@<%= r.name %></option>
+              <% }); } else { %>
+  <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
+<% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
+                                                        <option>@<%= r.name %></option>
+                                                    <% }); %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <% if(guild.plugins.autorole.enabled){ %>
+                                            <button type="submit" name="autoroleDisable" class="btn btn-danger">disabled</button>
+                                            <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+                                        <% } else { %>
+                                            <button type="submit" name="autoroleEnable" class="btn btn-success">Enable</button>
+                                        <% } %>
+                                    </div>
+                              
+                            </div>
+     
+     
+     
     
   </form>
   
