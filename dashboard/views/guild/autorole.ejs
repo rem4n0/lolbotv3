@@ -40,7 +40,7 @@
               <% }); } else { %>
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
-                                                        <option>@<%= r.name %></option>
+                          <option>@<%= r.name %></option>
                                                     <% }); %>
                                                 <% } %>
                                             </select>
@@ -53,7 +53,7 @@
                                           
                <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
                                           
-                                        <% } else { %>
+                                        <% }else{ %>
 <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
                                         <% } %>
                                     </div>
@@ -66,7 +66,7 @@
                 </div>
   </form>
   
-
+    
 </div>
   
              </div>
