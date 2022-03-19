@@ -59,12 +59,17 @@ app.post(
 		await data.save();
       
     }
-    if(Object.prototype.hasOwnProperty.call(data, "autoroleEnable")){
+    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable")){
 const autorole = {
   enable: true,
-  role:guild.roles.cache.find((ch) => "#"+role.name === .channel).id,
+  role:guild.roles.cache.find((ch) => "#"+ch.name === rbody.role).id,
       
-      
+}
+data.plugins.autorole = autorole;
+      data.markModified("plugins.autorole")
+      await data.save();
+    
+
       
     }
    return res.send({ success: true, message: "successfully" });
