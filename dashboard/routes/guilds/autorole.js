@@ -46,26 +46,26 @@ app.post(
         },
       }
     );*/
-  if(rbody["enabled"] === "on"){ 
-    data.plugins.autorole = {
-      
-    enabled: true,
-      role: rbody["role"]
     
     
-  }
-    data.markModified("plugins.autorole");
-    await data.save();
-  }
-    if(rbody["enbaled"] === "off"){
-      
-      data.plugins.autorole ={
-        
-        enabled: false,
-        role: null,
+    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleDisable")){
+
+      const autorole ={
+        enabled:false,
+        role:null,
       }
-      data.markModified("plugins.autorole");
-   await   data.save();
+      data.plugins.autorole =autorole;
+		data.markModified("plugins.autorole");
+		await data.save();
+      
+    }
+    if(Object.prototype.hasOwnProperty.call(data, "autoroleEnable")){
+const autorole = {
+  enable: true,
+  role:guild.roles.cache.find((ch) => "#"+role.name === .channel).id,
+      
+      
+      
     }
    return res.send({ success: true, message: "successfully" });
   }

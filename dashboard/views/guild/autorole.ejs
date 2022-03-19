@@ -38,13 +38,17 @@
   <label><i class='bx bx-bar-chart-alt-2' ></i>AUTOMATIC GIVE ROLE <span style="color: rgb(175, 22, 22)">*</span></label>
            <br>
                <br>
-                                          
-  <input type="radio" name="autorole" value="" id="autorole" />
-   <label for="autorole">on</label>
-   
-   <input type="radio" name="autorole" value="" id="autorole" />
-   <label for="autorole"> off </label>
-                                          
+                               
+      
+      
+<% if(data.plugins.autorole.enabled){%>
+  
+      <button type="submit" name="autoroleDisable" class="btn btn-danger">disable</button>
+                                            <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+                                        <% } else { %>
+                                            <button type="submit" name="autoroleEnable" class="btn btn-success">enable</button>
+                                        <% } %>
+                           
    <br />
              
 </div>  
