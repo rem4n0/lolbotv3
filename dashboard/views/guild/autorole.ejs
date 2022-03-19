@@ -20,14 +20,14 @@
             
     <div class="selectBox" value="hh">
 <div class="selectdivx">
-<input type="hidden" class="selected2" value="" name="select">
+<input type="hidden" class="selected2" value="d" name="select">
 <span class="selected"></span>
 <span class="selectArrow"></span>
 </div>
       <% guild.roles.cache.forEach((role)=>{ %>
       
 <div class="selectOptions" id="style-1">
-  <span class="selectOption" id="role" value="<%= role.id %>"><%=role.name%></span>
+  <span class="selectOption" id="role" value="ff"><%=role.name%></span>
       </div>
         <% })%>
            </div>
@@ -39,10 +39,10 @@
            <br>
                <br>
                                           
-  <input type="radio" name="autorole" value="on" id="autorole" />
+  <input type="radio" name="autorole" value="" id="autorole" />
    <label for="autorole">on</label>
    
-   <input type="radio" name="autorole" value="off" id="autorole" />
+   <input type="radio" name="autorole" value="" id="autorole" />
    <label for="autorole"> off </label>
                                           
    <br />
