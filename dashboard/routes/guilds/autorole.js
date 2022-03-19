@@ -34,7 +34,7 @@ app.post(
     }*/
 
     let data = await Guild.findOne({ guildID: guild.id });
-
+/*
     await Guild.findOneAndUpdate(
       {
         guildID: req.params.guildID,
@@ -45,8 +45,28 @@ app.post(
           "plugins.autorole.role": rbody["role"],
         },
       }
-    );
-
+    );*/
+  if(rbody["enabled"] === "on"){ 
+    data.plugins.autorole = {
+      
+    enabled: true,
+      role: rbody["role"]
+    
+    
+  }
+    data.markModified("plugins.autorole");
+    await data.save();
+  }
+    if(rbody["enbaled"] === "off"){
+      
+      data.plugins.autorole ={
+        
+        enabled: false,
+        role: null,
+      }
+      data.markModified("plugins.autorole");
+   await   data.save();
+    }
    return res.send({ success: true, message: "successfully" });
   }
 );
