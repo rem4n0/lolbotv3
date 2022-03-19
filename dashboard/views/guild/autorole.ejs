@@ -48,11 +48,13 @@
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-                                        <% if(data.plugins.autorole.enabled){ %>
-                                            <button type="submit" id="myButton"onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
-                                            <button type="submit" id="myButton"nclick="clickOnAdd()"name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+                                        <% if(!data.plugins.autorole.enabled){ %>
+     <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
+                                          
+               <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+                                          
                                         <% } else { %>
-                                            <button type="submit" id="myButton"onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
+                                            <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
                                         <% } %>
                                     </div>
                               
@@ -73,13 +75,13 @@
   
       <script>
       
-      function clickOnAdd(data) {
+      function clickOnAdd() {
        
         
-    
+/*
 $("#myButton").attr("disabled", true);
  $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
-
+*/
     setTimeout(() => {
     
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
@@ -110,11 +112,11 @@ Toast.fire({
   text: data.message,
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
-})
+})/*
                   
   $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
-                    return;    
+                    return;    */
       
     
     
@@ -141,11 +143,11 @@ Toast.fire({
   text:data.message,
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
-  })
+  })/*
 
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
-                    return;
+                    return;*/
     
     }})
      },2000)
