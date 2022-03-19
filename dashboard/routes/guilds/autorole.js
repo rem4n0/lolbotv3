@@ -53,14 +53,14 @@ const autorole = {
 		
       
 }
-data.plugins.autorole = autorole;
+      data.plugins.autorole = autorole;
       data.markModified("plugins.autorole")
       await data.save();
-    return res.send({ success: true, message:" Successfully"});
+// return res.send({ success: true, message:" Successfully"});
 
       
     }
-  /// return res.send({ success: true, message: "successfully" });
+return res.send({ success: true, message: "successfully" });
   }
 );
 

@@ -48,13 +48,13 @@
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-       <% if(data.plugins.autorole.enabled){ %>
-     <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
+       <% if(!data.plugins.autorole.enabled){ %>
+     <!--<button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
                                           
-               <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+               <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>--->
                                           
-                                        <% }else{ %>
-<button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
+                                    
+<button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success pull-right">Enable</button>
                                         <% } %>
                                     </div>
                               
@@ -97,7 +97,7 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
     
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-        role,
+        hama,
           
                 
         
@@ -164,7 +164,7 @@ Toast.fire({
       
       
     
-    }})
+    }});
      },2000)
 
     }
