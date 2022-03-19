@@ -29,23 +29,9 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
 
-   /* if (rbody["prefix"].length > 5) {
-      return res.send({ error: true, message: "you can't add up 5 words" });
-    }*/
+   
 
     let data = await Guild.findOne({ guildID: guild.id });
-/*
-    await Guild.findOneAndUpdate(
-      {
-        guildID: req.params.guildID,
-      },
-      {
-        $set: {
-          "plugins.autorole.enabled": rbody["enabled"] || false,
-          "plugins.autorole.role": rbody["role"],
-        },
-      }
-    );*/
     
     
     if(Object.prototype.hasOwnProperty.call(rbody, "autoroleDisable")){
@@ -59,7 +45,7 @@ app.post(
 		await data.save();
       
     }
-    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable")){
+    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable") || Object.prototype.hasOwnProperty.call(rbody, "autoroleUpdate")){
 const autorole = {
   enable: true,
   role: guild.roles.cache.find((r) => "@"+r.name === rbody.role).id

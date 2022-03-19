@@ -51,9 +51,9 @@
                                     <div class="box-footer">
                                         <% if(data.plugins.autorole.enabled){ %>
                                             <button type="submit" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
-                                            <button type="submit" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
+                                            <button type="submit" onclick="clickOnAdd()"name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
                                         <% } else { %>
-                                            <button type="submit" name="autoroleEnable" class="btn btn-success">Enable</button>
+                                            <button type="submit" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
                                         <% } %>
                                     </div>
                               
@@ -74,7 +74,7 @@
   
       <script>
       
-      function clickOnAdd() {
+      function clickOnAdd(data) {
        
         
     
@@ -82,13 +82,12 @@ $("#myButton").attr("disabled", true);
  $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
+    /*
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-            role:$('#role').val(),
-             enabled:$('#autorole').val(),
-            
+        
                 
         
-    }).done(function(data){
+    }).done(function(data){*/
         
                 
                 
@@ -150,13 +149,12 @@ Toast.fire({
                     return;
     
     }
-              });
-    },2000)
-        
-        
-        
+              },2000)
     }
-
+        
+        
+        
+        
 
    </script>
 <%- include("../parts/foot.ejs")%>
