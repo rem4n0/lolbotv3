@@ -23,14 +23,14 @@
        <br>
      
      <div class="box box-warning">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">jj</h3>
-                                </div>
+    <div class="box-header with-border">
+  <h3 class="box-title">jj</h3>
+   </div>
                                 
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                        <!-- select -->
-                                        <div class="form-group">
+      <!-- /.box-header -->
+  <div class="box-body">
+        <!-- select -->
+    <div class="form-group">
           <label>gg</label>
              <select class="form-control" name="role">
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
@@ -41,21 +41,21 @@
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
                           <option>@<%= r.name %></option>
-                                                    <% }); %>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                    </div>
+                            <% }); %>
+                           <% } %>
+                        </select>
+                   </div>
+                      </div>
                                     <!-- /.box-body -->
-                                    <div class="box-footer">
+                        <div class="box-footer">
        <% if(data.plugins.autorole.enabled){ %>
-    
+         
       <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleDisable" class="btn btn-danger">disabled</button>
                                           
                <button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleUpdate" class="btn btn-primary pull-right">Update</button>
                                           
                                     <% }else {%>
-<button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success pull-right">Enable</button>
+<button type="submit" id="myButton" onclick="clickOnAdd()" name="autoroleEnable" class="btn btn-success">Enable</button>
                                         <% } %>
                                     </div>
                               
