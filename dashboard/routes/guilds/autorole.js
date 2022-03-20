@@ -46,7 +46,7 @@ app.post(
       return res.send({success: true, message: "successfully"});
       
     }
-    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleEnable") || Object.prototype.hasOwnProperty.call(rbody, "autoroleUpdate")){
+    if(Object.prototype.hasOwnProperty.call(rbody, "autoroleUpdate")){
 const autorole = {
   enable: true,
   role: guild.roles.cache.find((r) => "@"+r.name === rbody.role).id
@@ -56,7 +56,7 @@ const autorole = {
       data.plugins.autorole = autorole;
       data.markModified("plugins.autorole")
       await data.save();
- return res.send({ success: true, message:" Successfully"});
+/// return res.send({ success: true, message:" Successfuy"});
 
       
     }
