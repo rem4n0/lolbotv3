@@ -60,7 +60,7 @@ const autorole = {
 
       
     }
-//return res.send({ success: true, message: "successfully" });
+return res.send({ success: true, message: "successfully" });
   }
 );
 
