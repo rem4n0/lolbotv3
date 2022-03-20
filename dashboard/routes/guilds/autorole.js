@@ -37,7 +37,7 @@ app.post(
     if(Object.prototype.hasOwnProperty.call(rbody, "autoroleDisable")){
 
       const autorole ={
-        enabled:false,
+        enabled:"off",
         role:null,
       }
       data.plugins.autorole =autorole;
@@ -48,7 +48,7 @@ app.post(
     }
     if(Object.prototype.hasOwnProperty.call(rbody, "autoroleUpdate")){
 const autorole = {
-  enable: true,
+  enable: "on",
   role: guild.roles.cache.find((r) => "@"+r.name === rbody.role).id
 		
       
@@ -61,9 +61,8 @@ const autorole = {
       
     }
     
-   res.redirect(303, "/dashboard/guild/"+guild.id + "/autorole"); 
-    
-///return res.send({ success: true, message: "successfully" });
+   
+//return res.send({ success: true, message: "successfully" });
   }
 );
 
