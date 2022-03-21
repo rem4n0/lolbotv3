@@ -61,11 +61,11 @@
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
-               <option>@<%= r.name %></option>
+               <option value="<%= r.id%>">@<%= r.name %></option>
               <% }); } else { %>
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
-                          <option>@<%= r.name %></option>
+                          <option value="<%= r.id%>">@<%= r.name %></option>
                             <% }); %>
                            <% } %>
                         </select>
@@ -108,7 +108,7 @@ if(checkbox.checked){
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         onoff:true,
-  
+      
       })
       
       // do this
@@ -117,7 +117,7 @@ if(checkbox.checked){
       
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-        
+        onoff:false,
       
         
       })
@@ -143,7 +143,7 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-        role:$('#role'),
+        role:$('#role').val(),
         
           
         }).done(function(data){
