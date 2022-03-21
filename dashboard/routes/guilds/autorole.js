@@ -39,54 +39,12 @@ app.post(
       
       
       $set:{
-        "plugins.autorole.enable":Boolean(rbody.onoff),
+        "plugins.autorole.enable":Boolean(rbody.onoff)|| true,
        "plugins.autorole.role": rbody["role"]
 		
         
       },
-    })/*
-if(Boolean(rbody["role"]) === false){
-  await Guild.findOneAndUpdate({guildID: req.params.guildID},
-                               
-                               {
-    $set:{
-      "plugins.autorole.enable": false,
-      "plugins.autorole.role": null,
-    }});
-}*/
-                                  
-                                  
-                                  
-                                  
-                                  
-    
-    /*
-    if(Object.prototype.hasOwnProperty.call(rbody, "roleDisable")){
-
-      const autorole ={
-        enabled:false,
-        role:null,
-      }
-      data.plugins.autorole =autorole;
-		data.markModified("plugins.autorole");
-		await data.save();
-   return res.send({success: true, message: "successfully"});
-  } */
-    /*
-  if(Object.prototype.hasOwnProperty.call(rbody, "submit")){
-  
-const autorole = {
-  
-  role: rbody.role.id
-      
-}
-      data.plugins.autorole = autorole;
-      data.markModified("plugins.autorole")
-      await data.save();
-return res.send({ success: true, message:" Successfuy"});
-
-      
-    }*/
+    })
     
    
 return res.send({ success: true, message: "successfully" });
