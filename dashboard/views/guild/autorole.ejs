@@ -57,7 +57,7 @@
       <hr>
     <div class="form-group" id="hama">
           <label>CHOSE ROLE</label>
-             <select class="form-control" name="role" >
+             <select class="form-control" id="role" >
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
@@ -77,7 +77,7 @@
                             <br>
                             
       
-               <button type="submit" name="submit"  id="myButton" onclick="clickAdd()"class="btn btn-primary"><i class="fal fa-paper-plane"></i> Apply</button>
+               <button type="submit" onclick="clickAdd()" id="myButton" class="btn btn-primary"><i class="fal fa-paper-plane"></i> Apply</button>
     </div>
              </div>
   </form>
@@ -108,7 +108,6 @@ if(checkbox.checked){
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         onoff:true,
-        
   
       })
       
@@ -144,7 +143,7 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-          //role:$('#role').val(),
+        role:$('#role'),
         
           
         }).done(function(data){
