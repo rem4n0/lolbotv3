@@ -40,7 +40,7 @@ app.post(
       
       $set:{
         "plugins.autorole.enable":Boolean(rbody.onoff) || false,
-        "plugins.autorole.role":guild.roles.cache.find((r) => "@"+r.name === rbody["role"]) || null,
+        "plugins.autorole.role": guild.roles.cache.find((r) => "@"+r.name === rbody.role).id || null,
         
       },
     })/*
@@ -89,7 +89,7 @@ const autorole = {
     }
     */
    
-//return res.send({ success: true, message: "successfully" });
+return res.send({ success: true, message: "successfully" });
   }
 );
 

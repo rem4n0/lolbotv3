@@ -46,14 +46,18 @@
      <div class="form-group d-flex">
        <label><h4 class="head">AUTOROLE</h4></label>
      <div class="form-check form-switch">
-  <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+       <% if(data.plugins.autorole.enable){%>
+  <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+         <% } else{%>
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+           <% }%>
   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
 </div>      
            </div>
       <hr>
     <div class="form-group" id="hama">
           <label>CHOSE ROLE</label>
-             <select class="form-control"  id="role">
+             <select class="form-control" name="role" >
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
@@ -61,7 +65,7 @@
               <% }); } else { %>
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
-                          <option value="<%= r.id %>">@<%= r.name %></option>
+                          <option>@<%= r.name %></option>
                             <% }); %>
                            <% } %>
                         </select>
@@ -99,7 +103,7 @@
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         onoff:true,
-        role:$('#role').val(),
+        
   
       })
       
@@ -135,7 +139,7 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-          role:$('#roleonoff').val(),
+          //role:$('#role').val(),
         
           
         }).done(function(data){
