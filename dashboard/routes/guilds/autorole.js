@@ -34,6 +34,23 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     
     
+    
+    await Guild.findOneAndUpdate({ guildID: req.params.guildID},{
+      
+      
+      $set:{
+        "plugins.autorole.enabled":rbody["onoff"],
+        "plugins.autorole.role":rbody["role"]
+        
+      },
+    })
+                                  
+                                  
+                                  
+                                  
+                                  
+    
+    /*
     if(Object.prototype.hasOwnProperty.call(rbody, "roleDisable")){
 
       const autorole ={
@@ -61,7 +78,7 @@ const autorole = {
 
       
     }
-    
+    */
    
 //return res.send({ success: true, message: "successfully" });
   }

@@ -35,7 +35,9 @@
            </div>
            <br>
     
-    <div class="                        
+                           <label>
+  <input id="myCheckBox" type="checkbox" > Toggle me
+</label>
       
     <div class="form-group ">
           <label>CHOSE ROLE</label>
@@ -77,14 +79,39 @@
         
         
         
+       document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      
+      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+        onoff:true,
+        role:$('#role').val()
+  
+      })
+      
+      // do this
+      console.log('Checked');
+    } else {
+      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+        
+        onoff:false,
+        role:null,
+        
+      })
+      // do that
+      console.log('Not checked');
+    }
+  });
+}); 
         
         
         
         
         
         
-        
-        
+        /*
       function clickAdd() {
        
         
@@ -167,7 +194,7 @@ Toast.fire({
     }
         
         
-        
+        */
         
 
    </script>
