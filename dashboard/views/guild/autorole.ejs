@@ -36,7 +36,7 @@
            <br>
     
                            <label>
-  <input id="myCheckBox" type="checkbox" checked/> Toggle me
+  <input id="myCheckBox" type="checkbox"/> Toggle me
 </label>
       
     <div class="form-group" id="hama">
@@ -75,8 +75,7 @@
   
       <script>
       
-        $('#hama').hide
-        
+   document.getElementById("hama").style.display= "none";
         
         
        document.addEventListener('DOMContentLoaded', function () {
@@ -84,7 +83,7 @@
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
-    
+    document.getElementById("hama").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         onoff:true,
@@ -95,6 +94,8 @@
       // do this
       console.log('Checked');
     } else {
+      
+  document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         
       
