@@ -39,7 +39,7 @@ app.post(
       
       
       $set:{
-        "plugins.autorole.enabled":rbody["onoff"],
+        "plugins.autorole.enable":Boolean(rbody["onoff"]),
         "plugins.autorole.role":rbody["role"]
         
       },
