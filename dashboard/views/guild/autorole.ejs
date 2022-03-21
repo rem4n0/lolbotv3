@@ -8,10 +8,11 @@
   <style>
   
     .container .form-switch{
-    margin-top:
+    margin-bottom:10px;
       margin-left:80px;
     }
     .form-switch .form-check-input{
+      border: 1px solid white;
      height:30px;
        width:60px;
       -webkit-user-select: none;
@@ -20,6 +21,7 @@
   user-select: none;
     
     }
+    
   
   </style>
   <div class="container">
@@ -29,7 +31,7 @@
   </div>
 
   
-  <form method="POST" action="/dashboard/guild/<%=guild.id%>/autorole" >
+  <form method="POST" >
   
       
      <div class="row">
@@ -133,8 +135,8 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-          onoff:$('#roleonoff').val(),
-          role:$('#role').val()
+          role:$('#roleonoff').val(),
+        
           
         }).done(function(data){
         
@@ -200,7 +202,7 @@ Toast.fire({
       
     
     }});
-     },900)
+     },2000)
 
     }
         
