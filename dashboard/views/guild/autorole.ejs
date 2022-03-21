@@ -27,10 +27,10 @@
        <br>
   
   
-     <input type="radio" class="form-check-input" name="roleOn" value=""  id="roleOn" checked>  
+     <input type="radio" class="form-check-input" name="roleOn" value="true"  id="roleonoff" checked>  
 
     
-       <input type="radio" class="form-check-input" name="roleOn" value=""   id="roleOff">
+       <input type="radio" class="form-check-input" name="roleOn" value="false"   id="roleonoff">
     
            </div>
            <br>
@@ -94,7 +94,11 @@ $("#myButton").attr("disabled", true);
 
     setTimeout(() => {
       
-        $.post('/dashboard/guild/<%=guild.id%>/autorole',{}).done(function(data){
+        $.post('/dashboard/guild/<%=guild.id%>/autorole',{
+          onoff:$('roleonoff').val()
+          
+          
+        }).done(function(data){
         
                 
                 

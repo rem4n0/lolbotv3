@@ -34,8 +34,8 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     
     
-    if(Object.prototype.hasOwnProperty.call(rbody, "roleOff")){
-
+    /*(Object.prototype.hasOwnProperty.call(rbody, "onoff"))*/{
+ if(rbody["onoff"]
       const autorole ={
         enabled:false,
         role:null,
@@ -46,7 +46,7 @@ app.post(
     //  return res.send({success: true, message: "successfully"});
       
     }
-    if(Object.prototype.hasOwnProperty.call(rbody, "roleOn")){
+    if(Object.prototype.hasOwnProperty.call(rbody, "onoff")){
       
 const autorole = {
   enable: true,
