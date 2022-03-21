@@ -36,10 +36,10 @@
            <br>
     
                            <label>
-  <input id="myCheckBox" type="checkbox" checked > Toggle me
+  <input id="myCheckBox" type="checkbox" checked/> Toggle me
 </label>
       
-    <div class="form-group ">
+    <div class="form-group" id="hama">
           <label>CHOSE ROLE</label>
              <select class="form-control"  id="role">
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
@@ -75,7 +75,7 @@
   
       <script>
       
-        
+        $('#hama').hide
         
         
         
@@ -84,9 +84,10 @@
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
+    
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-        onoff:"true",
+        onoff:true,
         role:$('#role').val(),
   
       })
@@ -96,8 +97,7 @@
     } else {
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         
-        onoff:"false",
-        role:"null",
+      
         
       })
       // do that
@@ -111,7 +111,7 @@
         
         
         
-        /*
+        
       function clickAdd() {
        
         
@@ -194,7 +194,7 @@ Toast.fire({
     }
         
         
-        */
+        
         
 
    </script>
