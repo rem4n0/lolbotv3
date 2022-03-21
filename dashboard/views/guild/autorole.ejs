@@ -36,7 +36,7 @@
            <br>
     
                            <label>
-  <input id="myCheckBox" type="checkbox" > Toggle me
+  <input id="myCheckBox" type="checkbox" checked > Toggle me
 </label>
       
     <div class="form-group ">
@@ -49,7 +49,7 @@
               <% }); } else { %>
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
-                          <option value="<%= r.id%>">@<%= r.name %></option>
+                          <option value="<%= r.id %>">@<%= r.name %></option>
                             <% }); %>
                            <% } %>
                         </select>
@@ -86,7 +86,7 @@
     if (checkbox.checked) {
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-        onoff:true,
+        onoff:"true",
         role:$('#role').val(),
   
       })
@@ -96,8 +96,8 @@
     } else {
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         
-        onoff:false,
-        role:null,
+        onoff:"false",
+        role:"null",
         
       })
       // do that

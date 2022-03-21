@@ -34,16 +34,22 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     
     
-    
+    if(Boolean(rbody["onoff"]) === true){
     await Guild.findOneAndUpdate({ guildID: req.params.guildID},{
       
       
       $set:{
-        "plugins.autorole.enable":Boolean(rbody["onoff"]),
-        "plugins.autorole.role":guild.roles.cache.find((r) => "@"+r.name === rbody["role"])
+        "plugins.autorole.enable":true,
+        "plugins.autorole.role":guild.roles.cache.find((r) => "@"+r.name === rbody["role"]),
         
       },
-    })
+    })}
+if(Boolean(rbody["role"]) === false){
+  await Guild.findOneAndUpdate({guildID: req.params.guildID},
+                               
+                               {
+    $set:{
+      "plugins
                                   
                                   
                                   
