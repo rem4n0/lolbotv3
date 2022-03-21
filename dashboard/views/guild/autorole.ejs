@@ -87,7 +87,7 @@
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         onoff:true,
-        role:$('#role').val()
+        role:$('#role').val(),
   
       })
       
@@ -96,8 +96,8 @@
     } else {
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
         
-        onoff:Boolfalse,
-        role:Boolean(null),
+        onoff:false,
+        role:null,
         
       })
       // do that

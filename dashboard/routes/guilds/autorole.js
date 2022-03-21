@@ -40,7 +40,7 @@ app.post(
       
       $set:{
         "plugins.autorole.enable":Boolean(rbody["onoff"]),
-        "plugins.autorole.role":rbody["role"]
+        "plugins.autorole.role":guild.roles.cache.find((r) => "@"+r.name === rbody["role"])
         
       },
     })
