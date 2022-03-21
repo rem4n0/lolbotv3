@@ -34,8 +34,8 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     
     
-    /*(Object.prototype.hasOwnProperty.call(rbody, "onoff"))*/{
- if(rbody["onoff"]
+    /*(Object.prototype.hasOwnProperty.call(rbody, "onoff"))*/
+ if(rbody["onoff"]=== "false"){
       const autorole ={
         enabled:false,
         role:null,
@@ -43,27 +43,27 @@ app.post(
       data.plugins.autorole =autorole;
 		data.markModified("plugins.autorole");
 		await data.save();
-    //  return res.send({success: true, message: "successfully"});
+   return res.send({success: true, message: "successfully"});
       
     }
-    if(Object.prototype.hasOwnProperty.call(rbody, "onoff")){
-      
+  //  if(Object.prototype.hasOwnProperty.call(rbody, "onoff")){
+      if(rbody["onoff"] === "true"){
 const autorole = {
   enable: true,
-  role: guild.roles.cache.find((r) => "@"+r.name === rbody.role).id
+  role: guild.roles.cache.find((r) => "@"+r.name === rbody["role"])
 		
       
 }
       data.plugins.autorole = autorole;
       data.markModified("plugins.autorole")
       await data.save();
-/// return res.send({ success: true, message:" Successfuy"});
+ return res.send({ success: true, message:" Successfuy"});
 
       
     }
     
    
-return res.send({ success: true, message: "successfully" });
+//return res.send({ success: true, message: "successfully" });
   }
 );
 

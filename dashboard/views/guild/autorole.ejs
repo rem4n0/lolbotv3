@@ -39,7 +39,7 @@
       
     <div class="form-group">
           <label>CHOSE ROLE</label>
-             <select class="form-control" name="role">
+             <select class="form-control"  id="role">
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
@@ -47,7 +47,7 @@
               <% }); } else { %>
   <option selected="selected">@<%= guild.roles.cache.filter((r) => r.name !== "@everyone").first().name %></option>
 <% guild.roles.cache.filter((r) => r.id !== guild.roles.cache.filter((r) => r.name !== "@everyone").first().id && r.name !== "@everyone").forEach((r) => { %>
-                          <option>@<%= r.name %></option>
+                          <option value="<%= r.id%>">@<%= r.name %></option>
                             <% }); %>
                            <% } %>
                         </select>
@@ -95,8 +95,8 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
-          onoff:$('roleonoff').val()
-          
+          onoff:$('#roleonoff').val(),
+          role:$('#role').val()
           
         }).done(function(data){
         
