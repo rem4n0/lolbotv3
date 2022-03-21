@@ -45,12 +45,12 @@ app.post(
 		await data.save();
    return res.send({success: true, message: "successfully"});
       
-    }
+    
   //  if(Object.prototype.hasOwnProperty.call(rbody, "onoff")){
       if(rbody["onoff"] === "true"){
 const autorole = {
   enable: true,
-  role: guild.roles.cache.find((r) => "@"+r.name === rbody["role"])
+  role: guild.roles.cache.find((r) => "@"+r.name === rbody["role")
 		
       
 }
