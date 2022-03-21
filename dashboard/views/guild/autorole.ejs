@@ -24,14 +24,14 @@
      
      <div class="box box-warning">
     <div class="box-header with-border">
-  <h3 class="box-title">jj</h3>
+  <h3 class="box-title">AUTOROLE SYSTEM</h3>
    </div>
                                 
       <!-- /.box-header -->
   <div class="box-body">
         <!-- select -->
     <div class="form-group">
-          <label>gg</label>
+          <label>CHOSE ROLE</label>
              <select class="form-control" name="role">
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
@@ -47,16 +47,7 @@
                    </div>
                       </div>
                                     <!-- /.box-body -->
-                        <div class="box-footer">
                         
-                          <label for="onoff">ROLE</label>
-                          <select id="onoff" name="onoff">
-                            <option value="roleOn">ON</option>
-                            <option value="roleOff">OFF</option>
-                          </select>
-                          
-                          
-                                    </div>
                               
                             </div>
      
