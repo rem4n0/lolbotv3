@@ -79,7 +79,7 @@ if(checkbox.checked){
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
-      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
         onoff:true,
       
       })
@@ -88,7 +88,7 @@ if(checkbox.checked){
     } else {
       
   document.getElementById("hama").style.display = "none";
-      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
         onoff:false,
       
         

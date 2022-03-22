@@ -49,17 +49,7 @@ const schema = mongoose.Schema({
     
     ,},},
 		// modlgs
-    logs:{
-      
-      logchannel:{type:String, default: null}, 
-      roleDelete:{type:String, default:null},
-      roleCreate: {type:String, default:null},
-      roleUpdate:{type:String, default:null},
-      channelCreate:{type:String, default:null},
-      channelDelete:{type:String, default:null},
-      //on:{type:String, default:null},
-	
-    },
+    
       
            
   member:{ type: Object, default:{

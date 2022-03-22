@@ -25,11 +25,13 @@ if(maintenance && maintenance.toggle == "true") return;
   
 
 if(cooldown.has(role.guild.id)) return;
-if(guild.logs.roleDelete ==="off") return;
+if(!guild.plugins.logs.enabled)
+   return;
                     
 
 if(guild){
-if(guild.logs.logchannel){
+if(guild.plugins.logs.channel)
+{
 
 
 

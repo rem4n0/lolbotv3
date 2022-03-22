@@ -26,10 +26,11 @@ if(maintenance && maintenance.toggle == "true") return;
 if(cooldown.has(message.guild.id)) return;
 
 if (message.name.indexOf('Room') >= 0) return;
-if(guild.logs.channelDelete ==="off") return;
+if(!guild.plugins.logs.enabled) return;
+  
                     
 if(guild){
-if(guild.logs.logchannel){
+  if(guild.plugins.logs.channel){
 
 
 

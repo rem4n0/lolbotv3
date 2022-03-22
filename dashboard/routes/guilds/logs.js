@@ -25,7 +25,7 @@ app.post(
   global.checkAuth,
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let { logchannel, onoff} = req.body;
+    let rbody = req.body;
 
     
     let data = await Guild.findOne({ guildID: guild.id });
@@ -36,8 +36,8 @@ app.post(
       },
       {
         $set: {
-          "plugins.logs.channel": logchannel,
-          "plugins.logs.enable": Boolean(onoff)|| true,
+          "plugins.logs.channel": rbody["logchannel"],
+          "plugins.logs.enabled": Boolean(rbody["onoff"]) || true,
           
 
         },
