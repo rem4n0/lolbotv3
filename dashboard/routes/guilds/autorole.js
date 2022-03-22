@@ -31,11 +31,13 @@ app.post(
 
     let data = await Guild.findOne({ guildID: guild.id });
 
+     
+
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
         $set: {
-     "plugins.autorole.enabled": Boolean(rbody["onoff"])|| true,
+     "plugins.autorole.enabled": rbody["onoff"] === "true" || true,
           "plugins.autorole.role": rbody["role"],
         },
       }
