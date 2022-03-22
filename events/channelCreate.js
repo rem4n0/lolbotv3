@@ -24,7 +24,7 @@ const maintenance = await Maintenance.findOne({
 if(maintenance && maintenance.toggle == "true") return;
 
 if(cooldown.has(message.guild.id)) return;
-  if(guild.logs.channelCreate ==="off") return;
+  if(!guild.plugins.) return;
 
 if (message.name.indexOf('Room') >= 0) return;
 

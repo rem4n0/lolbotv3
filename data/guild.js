@@ -40,7 +40,14 @@ const schema = mongoose.Schema({
     autorole: {
 			enabled: false, // Whether the autorole is enabled
 			role: null // The role to add when a member join the server
-		},},},
+		},
+    logs:{
+   enabled: false,
+   channel:null
+    }
+  
+    
+    ,},},
 		// modlgs
     logs:{
       

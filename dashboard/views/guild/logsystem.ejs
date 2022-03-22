@@ -45,19 +45,7 @@
 </div>
 
 
-  <br><br><br><br><br>
-  <div class="form-group">
-    <label for="roleCreate">ROLE CREATE <span style="color:rgba(175,22,22)">*</span></label>
-    <input class="form-control" list="datalistOption" id="roleCreate"/>
-    <datalist id="datalistOption">
-
-  <select id="roleCreate">
-
-    <option value="on">ON</option>
- <option value="off" selected>OFF</option>
-    </select>
-    </datalist>
-    </div>
+  <br><br>
     </div>
      <br>
     <br>
@@ -120,14 +108,7 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
         $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
                 logchannel:$('#logchannel').val(),
-                logon:$('#logon').val(),
-                channelCreate:$('#channelCreate').val(),
-                channelDelete:$('#channelDelete').val(),
-                roleCreate:$('#roleCreate').val(),
-                roleDelete:$('#roleDelete').val(),
-                roleUpdate:$('#roleUpdate').val(),
-                
-        
+            
     }).done(function(data){
                 
                 
