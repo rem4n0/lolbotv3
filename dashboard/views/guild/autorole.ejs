@@ -57,7 +57,7 @@
       <hr>
     <div class="form-group" id="hama">
           <label>CHOSE ROLE</label>
-             <select class="form-control" id="role" >
+             <select class="form-control" name="role1" id="role" >
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
                <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
