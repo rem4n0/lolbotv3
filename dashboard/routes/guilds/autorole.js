@@ -29,8 +29,7 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
 
-   let role =guild.roles.cache.find((r) => "@"+r.name === rbody.role1).id
- console.log(role)
+  
     let data = await Guild.findOne({ guildID: guild.id });
     
     
@@ -40,7 +39,7 @@ app.post(
       
       $set:{
         "plugins.autorole.enabled":Boolean(rbody.onoff)|| true,
-       "plugins.autorole.role": role ||rbody["role"]
+       "plugins.autorole.role": rbody["role"] 
 		
         
       },
