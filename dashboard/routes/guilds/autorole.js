@@ -37,7 +37,7 @@ app.post(
       { guildID: req.params.guildID },
       {
         $set: {
-     "plugins.autorole.enabled": rbody["onoff"] === "true" || true,
+     "plugins.autorole.enabled": Boolean(rbody["onoff"]) || true,
           "plugins.autorole.role": rbody["role"],
         },
       }

@@ -82,13 +82,13 @@ if(checkbox.checked){
   document.getElementById("hama").style.display ="none";
 };
   checkbox.addEventListener('change', function () {
-    
+  let h = true;
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-        onoff: true,
-      
+        onoff: h,
+    
       })
       
       // do this
@@ -97,7 +97,7 @@ if(checkbox.checked){
       
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-        onoff: false,
+        onoff: !h,
         
         
       })
