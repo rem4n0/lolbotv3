@@ -73,9 +73,7 @@
   
       <script>
       
-   
-        
-       document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
   var checkbox = document.querySelector('input[type="checkbox"]');
 if(checkbox.checked){
   
@@ -92,16 +90,18 @@ if(checkbox.checked){
       
       })
       
-    
-    
+      // do this
+      console.log('Checked');
     } else {
       
   document.getElementById("hama").style.display = "none";
-      
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
-       onoff:false,
+        onoff:false,
+      
+        
       })
-    
+      // do that
+      console.log('Not checked');
     }
   });
 }); 
@@ -192,9 +192,9 @@ Toast.fire({
      },2000)
 
     }
+
         
-        
-        
+       
         
 
    </script>
