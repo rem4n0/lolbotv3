@@ -5,25 +5,7 @@
   <br>
   
   
-  <style>
   
-    .container .form-switch{
-    margin-bottom:10px;
-      margin-left:80px;
-    }
-    .form-switch .form-check-input{
-      border: 1px solid white;
-     height:30px;
-       width:60px;
-      -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-    
-    }
-    
-  
-  </style>
   <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
@@ -57,9 +39,9 @@
       <hr>
     <div class="form-group" id="hama">
           <label>CHOSE ROLE</label>
-             <select class="form-control" name="role" id="role" >
+             <select class="form-control"  id="role">
            <% if(data.plugins.autorole.enabled && guild.roles.cache.has(data.plugins.autorole.role)){ %>
-               <option value="<%= guild.roles.cache.get(data.plugins.autorole.role).id%>" selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
+               <option selected="selected">@<%= guild.roles.cache.get(data.plugins.autorole.role).name %></option>
   <% guild.roles.cache.filter((r) => r.id !== data.plugins.autorole.role && r.name !== "@everyone").forEach((r) => { %>
                <option value="<%= r.id%>">@<%= r.name %></option>
               <% }); } else { %>
@@ -91,8 +73,7 @@
   
       <script>
       
-  // document.getElementById("hama").style.display= "none";
-        
+   
         
        document.addEventListener('DOMContentLoaded', function () {
   var checkbox = document.querySelector('input[type="checkbox"]');
@@ -112,7 +93,7 @@ if(checkbox.checked){
       })
       
       // do this
-      console.log('Checked');
+    
     } else {
       
   document.getElementById("hama").style.display = "none";
@@ -122,7 +103,6 @@ if(checkbox.checked){
         
       })
       // do that
-      console.log('Not checked');
     }
   });
 }); 
