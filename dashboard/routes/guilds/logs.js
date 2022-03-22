@@ -37,7 +37,7 @@ app.post(
       {
         $set: {
           "logs.logchannel": logchannel,
-          "logs.on": logon,
+          "logs.on": Boolean["logon"]|| true,
           "logs.roleCreate": roleCreate,
           "logs.roleDelete": roleDelete,
           "logs.roleUpdate": roleUpdate,

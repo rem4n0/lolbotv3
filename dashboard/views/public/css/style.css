@@ -627,3 +627,19 @@ span.selectOption:hover {
   color: #f6f6f6;
   background: #ccc;
 }
+
+/***---switch box____*/
+    .container .form-switch{
+    margin-bottom:10px;
+      margin-left:80px;
+    }
+    .form-switch .form-check-input{
+      border: 1px solid white;
+     height:30px;
+       width:60px;
+      -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    
+    }

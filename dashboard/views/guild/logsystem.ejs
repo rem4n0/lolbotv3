@@ -18,7 +18,19 @@
     <br>
     <br>
     
-  
+       <div class="form-group d-flex">
+       <label><h4 class="head">AUTOROLE</h4></label>
+     <div class="form-check form-switch">
+       <% if(data.plugins.autorole.enable){%>
+  <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+         <% } else{%>
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+           <% }%>
+  <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+</div>      
+           </div>
+      <hr>
+<div id="hama">
   <div class="form-group">
   <label for="logchannel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
 
@@ -46,6 +58,7 @@
     </select>
     </datalist>
     </div>
+    </div>
      <br>
     <br>
     <br>
@@ -62,7 +75,42 @@
   
   
       <script>
+            
+  // document.getElementById("hama").style.display= "none";
+        
+        
+       document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+if(checkbox.checked){
+  
+  document.getElementById("hama").style.display ="block";
+}else{ 
+  document.getElementById("hama").style.display ="none";
+};
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+    document.getElementById("hama").style.display="block";
       
+      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+        onoff:true,
+      
+      })
+      
+      // do this
+    } else {
+      
+  document.getElementById("hama").style.display = "none";
+      $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+        onoff:false,
+      
+        
+      })
+      // do that
+    }
+  });
+}); 
+        
+
     function clickOnAdd(){
     
     

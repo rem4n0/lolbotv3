@@ -34,7 +34,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     
     
-    //if(Boolean(rbody["onoff"]) === true){
+    
     await Guild.findOneAndUpdate({ guildID: req.params.guildID},{
       
       
