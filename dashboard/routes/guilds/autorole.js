@@ -27,7 +27,7 @@ app.post(
   global.checkAuth,
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let rbody = req.body;
+    let { onoff, role} = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
 
@@ -35,8 +35,8 @@ app.post(
       { guildID: req.params.guildID },
       {
         $set: {
-          "plugins.autorole.enabled": Boolean(rbody["onoff"]) ||true,
-          "plugins.autorole.role": rbody["role"],
+          "plugins.autorole.enabled": Boolean(onoff),
+          "plugins.autorole.role": role
         },
       }
     );
