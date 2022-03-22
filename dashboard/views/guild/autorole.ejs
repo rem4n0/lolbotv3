@@ -28,7 +28,7 @@
      <div class="form-group d-flex">
        <label><h4 class="head">AUTOROLE</h4></label>
      <div class="form-check form-switch">
-       <% if(data.plugins.autorole.enabled){%>
+       <% if(data.plugins.autorole.enable){%>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
          <% } else{%>
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
@@ -92,17 +92,20 @@ if(checkbox.checked){
       
       })
       
-      // do this
+    
     
     } else {
       
   document.getElementById("hama").style.display = "none";
+      
       $.post("/dashboard/guild/<%=guild.id%>/autorole",{
+       
+        
         onoff:false,
       
         
       })
-      // do that
+    
     }
   });
 }); 
