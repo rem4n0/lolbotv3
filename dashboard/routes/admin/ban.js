@@ -5,7 +5,7 @@ console.log(" Admin/Ban router loaded.");
 
 app.get("/admin/userban", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-    let bandata = await banSchema.find();
+    let bandata = await Ban.ind();
     res.render("admin/administrator/user-ban.ejs", {
         bot: bot,
         path: req.path,
@@ -18,7 +18,7 @@ app.get("/admin/userban", global.checkAuth, async (req, res) => {
 });
 app.post("/admin/userban", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-    new banSchema({
+    new Ban({
         user: req.body.userID,
         reason: req.body.reason,
         moderator: req.user.id
@@ -27,7 +27,7 @@ app.post("/admin/userban", global.checkAuth, async (req, res) => {
 });
 app.post("/admin/userunban", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-    banSchema.deleteOne({
+    Ban.deleteOne({
         user: req.body.userID
     }, function(error, user) {
         if (error) console.log(error)

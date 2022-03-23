@@ -23,10 +23,10 @@ app.post("/admin/maintence", global.checkAuth, async (req, res) => {
     });
     if (bakimdata) return res.redirect('../admin/maintence?error=true&message=Maintenance mode has already been activated for this site.');
     bot.channels.cache.get(channels.webstatus).send(`<a:maintence:833375738547535913> BoBo website has been switched to __maintance__ due to **${req.body.reason}**`).then(a => {
-        new maintenceSchema({
+        new Maintenance({
             server: config.serverid,
             reason: req.body.reason,
-            bakimmsg: a.id
+            message: a.id
         }).save();
     })
     return res.redirect('../admin/maintence?success=true&message=Maintence opened.');
@@ -34,8 +34,8 @@ app.post("/admin/maintence", global.checkAuth, async (req, res) => {
 app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
     const dc = require("discord.js");
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-    let bakimdata = await maintenceSchema.findOne({
-        server: config.server.id
+    let bakimdata = await Maintenance.findOne({
+        server: config.serverid
     });
     if (!bakimdata) return res.redirect('../admin/maintence?error=true&message=The website is not in maintenance mode anyway.');
     const bakimsonaerdikardesvcodes = new dc.MessageEmbed()
@@ -52,7 +52,7 @@ app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
             timeout: 500
         })
     })
-    await maintenceSchema.deleteOne({
+    await Maintenance.deleteOne({
         server: config.serverid
     }, function(error, server) {
         if (error) console.log(error)

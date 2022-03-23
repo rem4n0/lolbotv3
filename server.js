@@ -27,6 +27,7 @@ const cmd = require("node-cmd");
 global.mongoose = require("mongoose");
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);
+global.Ban = require ("./data/ban.js");
 global.Guild = require("./data/guild.js");
 global.User = require("./data/user.js");
 global.Owner = require("./data/owner.js");
