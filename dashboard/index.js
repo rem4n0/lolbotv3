@@ -138,11 +138,9 @@ module.exports = async (bot) => {
     `/callback`,
     passport.authenticate(`discord`, { failureRedirect: "/" }),
     async (req, res) => {
-      let banned = await banSchema.findOne({user: req.user.id})
+      let banned = await Ban.findOne({user: req.user.id})
         if(banned) {
-        client.users.fetch(req.user.id).then(async a => {
-        client.channels.cache.get(channels.login).send(new Discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}](https://www.kurd-botlist.cf/user/${a.id}) has been logged on to the **site**`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
-        })
+      
         req.session.destroy(() => {
         res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
         req.logout();
@@ -150,18 +148,8 @@ module.exports = async (bot) => {
         } else {
 
       
-  /*
-      if (banned) {
-        req.session.destroy(() => {
-          res.json({
-            login: false,
-            message: `You have been blocked from the Dashboard.`,
-            logout: true,
-          });
-          req.logout();
-        });*/
-      } else {
-        res.redirect(`/`);
+
+        res.redirect(req.session.backURL || `/`);
       }
     }
   );
@@ -217,6 +205,15 @@ module.exports = async (bot) => {
            next();
        }
     })
+  
+  
+      console.log(" ")
+    console.log('\x1b[36m%s\x1b[0m', "Admin Panel system routers loading...");
+    
+    app.use("/", require('./routes/admin/index.js'))
+    app.use("/", require('./routes/admin/ban.js'))
+    app.use("/", require('./routes/admin/partner.js'))
+
   
   //////bot
 app.use("/", require ("./routes/bot/background.js"));

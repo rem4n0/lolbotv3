@@ -1,5 +1,4 @@
 const app = require('express').Router();
-const banSchema = require("../../data/site-ban.js");
 
 console.log(" Admin/Ban router loaded.");
 
