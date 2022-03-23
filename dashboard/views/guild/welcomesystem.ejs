@@ -55,7 +55,7 @@
     
     
     
-    <textarea name="xpmessage" id="xpmessage"></textarea>
+    <textarea name="welcomemessage" id="welcomemessage"></textarea>
   </div> 
     
     
@@ -125,7 +125,9 @@ $("#myButton").attr("disabled", true);
     setTimeout(() => {
         $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                 channel:$('#channel').val(),
-          onoff: true,
+                 message:$('#welcomemessage').val(),
+          
+                 onoff: true,
             
     }).done(function(data){
                 
