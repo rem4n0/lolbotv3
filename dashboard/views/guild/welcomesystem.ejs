@@ -61,12 +61,12 @@
     <br>
     
     <label>
-          <% if(data.plugins.welcome.withImage || !data.plugins.welcome.enabled) { %>
-         <input type="checkbox" name="withImage" checked> With Image
+          <% if(data.plugins.welcome.withImage) { %>
+         <input type="radio" name="withImage" checked> With Image
          <% } else { %>
-          <input type="checkbox" name="withImage"> without Image
+          <input type="radio"  name="withImage"> without Image
                 <% } %>
-                                                </label>
+                                                </label>-->
     <textarea name="welcomemessage" id="welcomemessage"></textarea>
   </div> 
     
@@ -110,6 +110,7 @@ if(checkbox.checked){
       
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:true,
+        
       
       })
       
@@ -138,7 +139,7 @@ $("#myButton").attr("disabled", true);
         $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                 channel:$('#channel').val(),
                  message:$('#welcomemessage').val(),
-          
+                
                  onoff: true,
             
     }).done(function(data){

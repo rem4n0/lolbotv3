@@ -30,7 +30,7 @@ app.post(
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
-let h = rbody["withImage"] === "true";
+let h = rbody["withImage"] === "on";
     console.log(h);
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
