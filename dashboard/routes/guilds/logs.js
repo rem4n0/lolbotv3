@@ -35,7 +35,7 @@ app.post(
       
       await Guild.findOneAndUpdate({ guildID: req.params.guildID},
                                    { $set:{
-                                     "plugins.logs.logchannel": rbody ["logchannel"],
+                                     "plugins.logs.channel": rbody ["logchannel"],
                                    }})
       res.send({ success:true, message:" successfully"})
       
@@ -61,7 +61,7 @@ app.post(
       
     
 
-    return res.send({ success: true, message: "successfully" });
+  ///  return res.send({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
