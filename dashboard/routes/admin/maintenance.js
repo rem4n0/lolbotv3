@@ -5,14 +5,14 @@ const channels = global.config.channels;
 console.log("Admin/Maintence router loaded.");
 
 app.get("/admin/maintence", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
-    res.render("admin/administrator/maintence.ejs", {
+    if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
+    res.render("admin/administrator/maintenance.ejs", {
         bot: global.Client,
         path: req.path,
         config: global.config,
         user: req.isAuthenticated() ? req.user : null,
         req: req,
-        roles:global.config.server.roles,
+      
         channels: global.config.server.channels
     })
 });
