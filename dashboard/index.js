@@ -213,7 +213,7 @@ app.use("/", require ("./routes/bot/background.js"));
   app.use("/", require ("./routes/users/profile.js"));
   
   ///guilds
-  app.use("/"
+  app.use("/", require ("./routes/guilds/welcome.js"));
 app.use("/", require ("./routes/guilds/autorole.js"));
   app.use("/", require ("./routes/guilds/logs.js"))
   app.use("/", require("./routes/index.js"));
