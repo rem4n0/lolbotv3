@@ -1,6 +1,6 @@
 const app = require("express").Router();
 const path = require("path");
-console.log("setting router loaded");
+console.log("settingrouter loaded");
 app.get(
   "/dashboard/guild/:guildID/xpsystem",
   global.checkAuth,
@@ -27,9 +27,9 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let { xpchannel, xpmax, xpmin, xpmessage } = req.body;
 
-  /*  if (xpmessage.length > 200) {
+    if (xpmessage.length > 200) {
       res.send({ error: true, message: " level message too long", });
-    }*/
+    }
     if (xpmax > 10) {
       return res.send({
         error: true,
