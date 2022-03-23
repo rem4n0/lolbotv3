@@ -192,7 +192,7 @@ module.exports = async (bot) => {
        app.use(async (req, res, next) => {
        if(req.path.includes('/admin')) {
         if (req.isAuthenticated()) {
-          if(client.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "768944616724103170") {
+          if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(config.server.role.administrator) || bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(config.server.role.moderator) || req.user.id === "768944616724103170") {
               next();
               } else {
               res.redirect("/error?code=403&message=You is not competent to do this.")
