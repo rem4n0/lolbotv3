@@ -124,7 +124,7 @@ $("#myButton").attr("disabled", true);
       
         $.post('/dashboard/guild/<%=guild.id%>/autorole',{
         role:$('#role').val(),
-        
+        onoff: true,
           
         }).done(function(data){
         

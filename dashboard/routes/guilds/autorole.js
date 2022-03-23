@@ -37,20 +37,24 @@ app.post(
 await Guild.findOneAndUpdate({ guildID: req.params.guildID}
                              ,{ $set:{
                                "plugins.autorole.role": rbody["role"],
-                               "plug
-       
+                               "plugins.autorole.enabled": true,
+                             }})
+     
+     res.send({ success: true, message:"successfully"})
      }
+       
+     
 
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
         $set: {
      "plugins.autorole.enabled": rbody["onoff"] === "true",
-          "plugins.autorole.role": rbody["role"],
+          "plugins.autorole.role": null,
         },
       }
     );
-    return res.send({ success: true, message: "successfully" });
+///    return res.send({ success: true, message: "successfully" });
   }
 );
 
