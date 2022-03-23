@@ -60,13 +60,7 @@
     <br>
     <br>
     
-    <label>
-          <% if(data.plugins.welcome.withImage) { %>
-         <input type="radio" name="withImage" checked> With Image
-         <% } else { %>
-          <input type="radio"  name="withImage"> without Image
-                <% } %>
-                                                </label>-->
+    
     <textarea name="welcomemessage" id="welcomemessage"></textarea>
   </div> 
     
@@ -120,7 +114,8 @@ if(checkbox.checked){
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
-      
+        channel:null,
+        
         
       })
       // do that
