@@ -34,7 +34,7 @@ const schema = mongoose.Schema({
 		goodbye: {
 			enabled: false, // Whether the goodbye messages are enabled
 			message: null, // The goodbye message
-		///	channel: null, // The channel to send the goodbye messages
+			channel: null, // The channel to send the goodbye messages
 			withImage: null // Whether the goodbye images are enabled
     },
     autorole: {
