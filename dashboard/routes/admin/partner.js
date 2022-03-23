@@ -4,7 +4,7 @@ const channels = global.config.server.channels,
 const client = global.clientSL;
 const path = require("path");
 const config = global.config
-const db = require("../../database/models/partner.js")
+
 console.log(": Admin/Partner router loaded.");
 function createID(length) {
     var result = '';
@@ -18,16 +18,15 @@ function createID(length) {
 app.get("/admin/partners", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
     
-   const data = await db.find()
+   const data = await Partner.find()
   
-	res.render("admin/administrator/partners.ejs", {
+	res.render("admin/administrator/partner.ejs", {
 	    bot:bot,
 	    path: req.path,
 	    config: config,
 	    user: req.isAuthenticated() ? req.user : null,
 	    req: req,
-	    roles:config.server.roles,
-	    channels:
+	    
 	    db: data
 	 })
 });
