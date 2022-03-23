@@ -51,9 +51,22 @@
  <span>{server}</span> <p>server name </p>
     </div>
     <div class="variables">
-      <span>{member
+      <span>{membercount}</span><p>member count of server</p>
+      
+    </div>
+    <div class="variables">
+      <span>{inviter}</span><p>Mention inviter</p>
+    </div>
+    <br>
+    <br>
     
-    
+    <label>
+          <% if(data plugins.welcome.withImage || !data.plugins.welcome.enabled) { %>
+         <input type="checkbox" name="withImage" checked>
+         <% } else { %>
+          <input type="checkbox" name="withImage"><%= translate("dashboard:WELCOME_IMG") %>
+                <% } %>
+                                                </label>
     <textarea name="welcomemessage" id="welcomemessage"></textarea>
   </div> 
     

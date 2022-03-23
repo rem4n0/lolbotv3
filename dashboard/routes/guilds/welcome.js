@@ -35,7 +35,9 @@ app.post(
      if(Object.prototype.hasOwnProperty.call(rbody, "channel")){
 await Guild.findOneAndUpdate({ guildID: req.params.guildID}
                              ,{ $set:{
-                               "plugins.autorole.role": rbody["channel"],
+"plugins.welcome.message":rbody["welcomemessage"],
+                               "plugins.welcome.withImage": 
+                               "plugins.welcome.channel": rbody["channel"],
                               
                              }})
      
