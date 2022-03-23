@@ -78,15 +78,15 @@
        <label><h4 class="head">welcome</h4></label>
      <div class="form-check form-switch">
        <% if(data.plugins.logs.enabled){ %>
-  <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+  <input  class="form-check-input" type="checkbox" id="flex" checked>
          <% } else{%>
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+          <input class="form-check-input" type="checkbox" id="flex">
            <% }%>
   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
 </div>      
            </div>
       <hr>
-<div id="hama">
+<div id="hama2">
   <div class="form-group">
   <label for="channel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
 
@@ -145,8 +145,49 @@
             
   // document.getElementById("hama").style.display= "none";
         
+     
+        
         
        document.addEventListener('DOMContentLoaded', function () {
+   
+            
+        
+  var checkbox = document.querySelector('input[id="flex"]');
+if(checkbox.checked){
+  
+  document.getElementById("hama2").style.display ="block";
+}else{ 
+  document.getElementById("hama2").style.display ="none";
+};
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+    document.getElementById("hama2").style.display="block";
+      
+      $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
+        onoff:true,
+        
+      
+      })
+      
+      // do this
+    } else {
+      
+  document.getElementById("hama2").style.display = "none";
+      $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
+        onoff:false,
+        
+      
+        
+        
+      })
+      // do that
+    }
+  });
+}); 
+         
+         
+         
+         //////////////   
   var checkbox = document.querySelector('input[type="checkbox"]');
 if(checkbox.checked){
   
@@ -191,8 +232,7 @@ $("#myButton").attr("disabled", true);
         $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                  channel:$('#channel').val(),
                  message:$('#welcomemessage').val(),
-                 goodbyechannel:$('#goodbyechannel').val(),
-                 goodbyemessage:$('#goobyemessage').val(),
+                 
                  onoff: true,
             
     }).done(function(data){
