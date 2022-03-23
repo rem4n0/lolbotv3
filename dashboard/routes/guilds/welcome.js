@@ -24,18 +24,18 @@ app.get(
 app.post(
   "/dashboard/guild/:guildID/goodbye",
   global.checkAuth,
-  async (req,rws) => {
+  async(req,res) => {
     const guild =bot.guilds.cache.get(req.params.guildID)
     let rbody = req.body;
     let data = await Guild.findOne({ guildID: guild.id});
-    if (Object.prototype.hasOwnProperty.call(rbody, "goodbyechannel")) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
 
         {
           $set: {
-            "plugins.goodbye.message": rbody["goodbyemessage"],
-            "plugins.goodbye.channel": rbody["goodbyechannel"],
+            "plugins.goodbye.message": rbody["message"],
+            "plugins.goodbye.channel": rbody["channel"],
             "plugins.goodbye.withImage": false,
           },
         }
@@ -57,12 +57,7 @@ app.post(
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
-    if (!rbody["channel"]) {
-      return res.send({
-        error: true,
-        message: " Something went worng like channel",
-      });
-    }
+  
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(

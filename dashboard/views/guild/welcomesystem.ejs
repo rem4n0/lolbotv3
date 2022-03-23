@@ -227,7 +227,18 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-        $.post('/dashboard/guild/<%=guild.id%>/welcome',{
+
+      
+      
+      $.post('/dashboard/guild/<%= guild.id%>/goodbye',{
+        channel:$('#goodbyechannel').val(),
+        message:$('#goodbyemessage').val(),
+        goodbyeonoff: true
+      })
+      
+      
+      
+              $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                  channel:$('#channel').val(),
                  message:$('#welcomemessage').val(),
                  

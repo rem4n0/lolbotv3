@@ -28,8 +28,6 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-if(!rbody["role"]){ return res.send({ error: true, message: "Set Role please"})}
-    
     let data = await Guild.findOne({ guildID: guild.id });
 
     
