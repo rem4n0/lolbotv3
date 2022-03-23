@@ -32,49 +32,8 @@
             </li>
             <hr class="sidebar-divider">
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>Bot List</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-dark-200 py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Bot List</h6>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/unapproved">UnApproved Bots</a>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/approved">Approved Bots</a>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/certificate-apps">Certificate Apps</a>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/certified-bots">Certified Bots</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagess"
-                    aria-expanded="true" aria-controls="collapsePagess">
-                    <i class="fas fa-fw fa-sync-alt"></i>
-                    <span>Uptime</span>
-                </a>
-                <div id="collapsePagess" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-dark-200 py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Uptime Links</h6>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/uptimes">Links</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesss"
-                    aria-expanded="true" aria-controls="collapsePagesss">
-                    <i class="fas fa-fw fa-code"></i>
-                    <span>Code Share</span>
-                </a>
-                <div id="collapsePagesss" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-dark-200 py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Code Share</h6>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/addcode">Add Code</a>
-                        <a class="bg-dark-200 text-white collapse-item" href="/admin/codes">Codes</a>
-                    </div>
-                </div>
-            </li>
+          
+            
             <% if(config.owners.includes(req.user.id)) { %>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vCodesAdmin"

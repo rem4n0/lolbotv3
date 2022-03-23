@@ -56,8 +56,8 @@
                 <% bandata.map(a => { %>
                     <tr>
                         <td><%= a.user %></td>
-                        <td><%= a.sebep %></td>
-                        <td><%= a.yetkili %></td>
+                        <td><%= a.reason%></td>
+                        <td><%=bot.users.cache.get(a.moderator).username%></td>
                     </tr>
                 <% }) %>
                 </tbody>
