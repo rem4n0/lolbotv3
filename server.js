@@ -32,6 +32,7 @@ global.Guild = require("./data/guild.js");
 global.User = require("./data/user.js");
 global.Owner = require("./data/owner.js");
 global.Prime = require("./data/prime.js");
+global.Partner = require ("./data/partner.js");
 global.Mute = require("./data/mute.js");
 global.Site= require("./data/analysts.js");
 global.News = require("./data/news.js");
