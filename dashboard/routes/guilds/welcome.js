@@ -30,32 +30,31 @@ app.post(
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
+let h = rbody["withImage"] === "true";
+    console.log(h);
+    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "plugins.welcome.message": rbody["welcomemessage"],
+            "plugins.welcome.withImage": rbody["withImage"] === "true",
+            "plugins.welcome.channel": rbody["channel"],
+          },
+        }
+      );
 
-    
-     if(Object.prototype.hasOwnProperty.call(rbody, "channel")){
-await Guild.findOneAndUpdate({ guildID: req.params.guildID}
-                             ,{ $set:{
-"plugins.welcome.message":rbody["welcomemessage"],
-                               "plugins.welcome.withImage": 
-                               "plugins.welcome.channel": rbody["channel"],
-                              
-                             }})
-     
-     res.send({ success: true, message:"successfully"})
-     }
-       
-     
+      res.send({ success: true, message: "successfully" });
+    }
 
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
         $set: {
-     "plugins.autorole.enabled": rbody["onoff"] === "true",
-  
+          "plugins.autorole.enabled": rbody["onoff"] === "true",
         },
       }
     );
-
   }
 );
 

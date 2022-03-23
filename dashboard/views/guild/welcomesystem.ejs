@@ -61,10 +61,10 @@
     <br>
     
     <label>
-          <% if(data plugins.welcome.withImage || !data.plugins.welcome.enabled) { %>
-         <input type="checkbox" name="withImage" checked>
+          <% if(data.plugins.welcome.withImage || !data.plugins.welcome.enabled) { %>
+         <input type="checkbox" name="withImage" checked> With Image
          <% } else { %>
-          <input type="checkbox" name="withImage"><%= translate("dashboard:WELCOME_IMG") %>
+          <input type="checkbox" name="withImage"> without Image
                 <% } %>
                                                 </label>
     <textarea name="welcomemessage" id="welcomemessage"></textarea>
