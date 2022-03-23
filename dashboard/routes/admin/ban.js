@@ -4,7 +4,7 @@ console.log(" Admin/Ban router loaded.");
 
 app.get("/admin/userban", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-    let bandata = await Ban.ind();
+    let bandata = await Ban.find();
     res.render("admin/administrator/user-ban.ejs", {
         bot: bot,
         path: req.path,
