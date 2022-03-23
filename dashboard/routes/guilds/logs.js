@@ -30,14 +30,26 @@ app.post(
     
     let data = await Guild.findOne({ guildID: guild.id });
 
+    
+    if(Object.prototype.hasOwnProperty.call(rbody, "logchannel")){
+      
+      await Guild.findOneAndUpdate({ guildID: req.params.guildID},
+                                   { $set:{
+                                     "plugins.logs.logchannel": rbody ["logchannel"],
+                                   }})
+      res.send({ success:true, message:" successfully"})
+      
+      
+    }
+    
     await Guild.findOneAndUpdate(
       {
         guildID: req.params.guildID,
       },
       {
         $set: {
-          "plugins.logs.channel": rbody["logchannel"],
-          "plugins.logs.enabled": Boolean(rbody["onoff"]) || true,
+        //  "plugins.logs.channel": rbody["logchannel"],
+          "plugins.logs.enabled": rbody["onoff"] ==="true",
           
 
         },

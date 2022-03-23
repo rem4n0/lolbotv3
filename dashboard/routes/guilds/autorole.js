@@ -31,13 +31,12 @@ app.post(
 
     let data = await Guild.findOne({ guildID: guild.id });
 
-     let h = rbody["onoff"] === "true";
-    console.log(h);
+    
      if(Object.prototype.hasOwnProperty.call(rbody, "role")){
 await Guild.findOneAndUpdate({ guildID: req.params.guildID}
                              ,{ $set:{
                                "plugins.autorole.role": rbody["role"],
-                               "plugins.autorole.enabled": true,
+                              /// "plugins.autorole.enabled": true,
                              }})
      
      res.send({ success: true, message:"successfully"})
@@ -50,11 +49,11 @@ await Guild.findOneAndUpdate({ guildID: req.params.guildID}
       {
         $set: {
      "plugins.autorole.enabled": rbody["onoff"] === "true",
-          "plugins.autorole.role": null,
+  
         },
       }
     );
-///    return res.send({ success: true, message: "successfully" });
+
   }
 );
 
