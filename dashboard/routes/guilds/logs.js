@@ -26,6 +26,8 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
+    if(!rbody["logchannel"]){ return res.send({ error: true, message:"SET CHANNEL PLEASE"})};
+    
 
     
     let data = await Guild.findOne({ guildID: guild.id });

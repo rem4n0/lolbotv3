@@ -30,7 +30,8 @@ app.post(
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
-
+if(!rbody["channel"]){ return res.send({ error: true, message:" Something went worng like channel"})}
+  
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },

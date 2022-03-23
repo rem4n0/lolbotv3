@@ -32,7 +32,7 @@
       <hr>
 <div id="hama">
   <div class="form-group">
-  <label for="logchannel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
+  <label for="channel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
 
 <select id="channel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
@@ -62,6 +62,62 @@
     
     
     <textarea name="welcomemessage" id="welcomemessage"></textarea>
+  </div> 
+    
+    
+</div>
+<hr>
+  
+  
+  <br>
+  <br>
+      <br>
+    <br>
+    
+       <div class="form-group d-flex">
+       <label><h4 class="head">welcome</h4></label>
+     <div class="form-check form-switch">
+       <% if(data.plugins.logs.enabled){ %>
+  <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+         <% } else{%>
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+           <% }%>
+  <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+</div>      
+           </div>
+      <hr>
+<div id="hama">
+  <div class="form-group">
+  <label for="channel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
+
+<select id="goodbyechannel" style="width:200px; background:#717179;color: white;">
+<% guild.channels.cache.map((channel)=>{%>
+  <% if(channel.type==="GUILD_CATEGORY") return;%>
+ <% if(channel.type === "GUILD_VOICE") return; %>
+  
+  <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% })%>
+</select>
+    
+        <h6> VARIABLES:</h6>
+      <div class="variables">
+        <span>{user}</span> <p>mention member</p>
+    </div>
+    <div class="variables">
+ <span>{server}</span> <p>server name </p>
+    </div>
+    <div class="variables">
+      <span>{membercount}</span><p>member count of server</p>
+      
+    </div>
+    <div class="variables">
+      <span>{inviter}</span><p>Mention inviter</p>
+    </div>
+    <br>
+    <br>
+    
+    
+    <textarea name="goodbyemessage" id="goodbyemessage"></textarea>
   </div> 
     
     
@@ -114,7 +170,8 @@ if(checkbox.checked){
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
-        channel:null,
+        g
+      
         
         
       })
@@ -132,9 +189,10 @@ $("#myButton").attr("disabled", true);
 
     setTimeout(() => {
         $.post('/dashboard/guild/<%=guild.id%>/welcome',{
-                channel:$('#channel').val(),
+                 channel:$('#channel').val(),
                  message:$('#welcomemessage').val(),
-                
+                 goodbyechannel:$('#goodbyechannel').val(),
+                 goodbyemessage:$('#goobyemessage').val(),
                  onoff: true,
             
     }).done(function(data){
