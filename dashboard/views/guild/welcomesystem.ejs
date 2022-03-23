@@ -19,7 +19,7 @@
     <br>
     
        <div class="form-group d-flex">
-       <label><h4 class="head">LOGS</h4></label>
+       <label><h4 class="head">welcome</h4></label>
      <div class="form-check form-switch">
        <% if(data.plugins.logs.enabled){ %>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
@@ -32,9 +32,9 @@
       <hr>
 <div id="hama">
   <div class="form-group">
-  <label for="logchannel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
+  <label for="logchannel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
 
-<select id="logchannel" style="width:200px; background:#717179;color: white;">
+<select id="channel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -42,6 +42,23 @@
   <option value="<%= channel.id %>"><%=channel.name%></option>
     <% })%>
 </select>
+    
+        <h6> VARIABLES:</h6>
+      <div class="variables">
+        <span>{user}</span> <p>mention member</p>
+    </div>
+    <div class="variables">
+ <span>{level}</span> <p>target new level of member</p>
+    
+
+    </div>
+    
+    
+    
+    <textarea name="xpmessage" id="xpmessage"></textarea>
+  </div> 
+    
+    
 </div>
 
 
@@ -79,7 +96,7 @@ if(checkbox.checked){
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
-      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:true,
       
       })
@@ -88,7 +105,7 @@ if(checkbox.checked){
     } else {
       
   document.getElementById("hama").style.display = "none";
-      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
       
         
@@ -106,8 +123,8 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-        $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
-                logchannel:$('#logchannel').val(),
+        $.post('/dashboard/guild/<%=guild.id%>/welcome',{
+                channel:$('#channel').val(),
           onoff: true,
             
     }).done(function(data){
