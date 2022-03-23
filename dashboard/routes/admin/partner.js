@@ -1,6 +1,5 @@
 const app = require('express').Router();
-const channels = global.config.server.channels,
-      roles = global.config.server.roles;
+
 const client = global.clientSL;
 const path = require("path");
 const config = global.config
@@ -42,7 +41,7 @@ app.post("/admin/partners", global.checkAuth, async (req, res) => {
    description:req.body.partnerDesc,
    status:req.body["Approved"],
    backgroundUrl: req.body.background}).save()
-    let x = client.guilds.cache.get(global.config.serverid).members.cache.get(req.body.ownerID)
+    let x = bot.guilds.cache.get(global.config.serverid).members.cache.get(req.body.ownerID)
     if (x) {
         x.roles.add(global.config.server.partnerRole)
     }

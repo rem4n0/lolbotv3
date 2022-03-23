@@ -213,7 +213,7 @@ module.exports = async (bot) => {
     app.use("/", require('./routes/admin/index.js'))
     app.use("/", require('./routes/admin/ban.js'))
     app.use("/", require('./routes/admin/partner.js'))
-
+app.use("/", require ("./routes/admin/maintenance.js"));
   
   //////bot
 app.use("/", require ("./routes/bot/background.js"));

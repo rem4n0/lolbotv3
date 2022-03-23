@@ -1,6 +1,6 @@
 const app = require('express').Router();
-const maintenceSchema = require("../../database/models/maintence.js");
-const channels = global.config.server.channels,
+
+const channels = global.config.channels;
 	  
 console.log("Admin/Maintence router loaded.");
 
