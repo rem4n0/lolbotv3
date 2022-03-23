@@ -21,34 +21,34 @@ app.get(
     });
   }
 );
-app.post("/dashboard/guild/:guildID/goodbye", global.checkAuth, async (res,req)=>{
-  const guild = bot.guilds.cache.get(req.params.guildID);
-  let rbody = req.body;
-  let data = await Guild.findOne({ guildID: guild.id});
-  if(Object.prototype.hasOwnProperty.call(rbody, "goodbyechannel")){
+app.post(
+  "/dashboard/guild/:guildID/goodbye",
+  global.checkAuth,
+  async (req,rws) => {
+    const guild =bot.guilds.cache.get(req.params.guildID)
+    let rbody = req.body;
+    let data = await Guild.findOne({ guildID: guild.id});
+    if (Object.prototype.hasOwnProperty.call(rbody, "goodbyechannel")) {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
 
-    await Guild.findOneAndUpdate({guildID: req.params.guildID},
-                                 
-                                 { $set:{
-                                   "plugins.goodbye.message": rbody["goodbyemessage"],
-                                   "plugins.goodbye.channel":rbody["goodbyechannel"],
-                                   "plugins.goodbye.withImage": false,
-                                   
-                                   
-                                   
-                                 }})
-    res.send({ success: true, message:"successfully"})
-    
-    
-    
-    
+        {
+          $set: {
+            "plugins.goodbye.message": rbody["goodbyemessage"],
+            "plugins.goodbye.channel": rbody["goodbyechannel"],
+            "plugins.goodbye.withImage": false,
+          },
+        }
+      );
+      res.send({ success: true, message: "successfully" });
+    }
+    await Guild.findOneAndUpdate(
+      { guildID: req.params.guildID },
+      { $set: { "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true" } }
+    );
   }
-  await Guild.findOneAndUpdate({ guildID: req.params.guildID},
-                               { $set:{ "plugins.goodbye.enabled": rbody["onoff"] === "true"}})
-  ;
-  
-})
-         
+);
+
 app.post(
   "/dashboard/guild/:guildID/welcome",
   global.checkAuth,
@@ -57,8 +57,13 @@ app.post(
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
-if(!rbody["channel"]){ return res.send({ error: true, message:" Something went worng like channel"})}
-  
+    if (!rbody["channel"]) {
+      return res.send({
+        error: true,
+        message: " Something went worng like channel",
+      });
+    }
+
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -79,7 +84,6 @@ if(!rbody["channel"]){ return res.send({ error: true, message:" Something went w
       {
         $set: {
           "plugins.welcome.enabled": rbody["onoff"] === "true",
-           
         },
       }
     );

@@ -21,7 +21,7 @@
        <div class="form-group d-flex">
        <label><h4 class="head">welcome</h4></label>
      <div class="form-check form-switch">
-       <% if(data.plugins.logs.enabled){ %>
+       <% if(data.plugins.welcome.enabled){ %>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
          <% } else{%>
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
@@ -75,20 +75,20 @@
     <br>
     
        <div class="form-group d-flex">
-       <label><h4 class="head">welcome</h4></label>
+       <label><h4 class="head">Goodbye</h4></label>
      <div class="form-check form-switch">
-       <% if(data.plugins.logs.enabled){ %>
+       <% if(data.plugins.goodbye.enabled){ %>
   <input  class="form-check-input" type="checkbox" id="flex" checked>
          <% } else{%>
           <input class="form-check-input" type="checkbox" id="flex">
            <% }%>
-  <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+  <label class="form-check-label" for="flex"></label>
 </div>      
            </div>
       <hr>
 <div id="hama2">
   <div class="form-group">
-  <label for="channel" class="form-label">Welcome Channel <span style="color:rgba(175,22,22)">*</span></label>
+  <label for="channel" class="form-label">Goodbye Channel <span style="color:rgba(175,22,22)">*</span></label>
 
 <select id="goodbyechannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
@@ -152,19 +152,19 @@
    
             
         
-  var checkbox = document.querySelector('input[id="flex"]');
-if(checkbox.checked){
+  var check = document.querySelector('input[id="flex"]');
+if(check.checked){
   
   document.getElementById("hama2").style.display ="block";
 }else{ 
   document.getElementById("hama2").style.display ="none";
 };
-  checkbox.addEventListener('change', function () {
-    if (checkbox.checked) {
+  check.addEventListener('change', function () {
+    if (check.checked) {
     document.getElementById("hama2").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
-        onoff:true,
+        goodbyeonoff:true,
         
       
       })
@@ -174,7 +174,7 @@ if(checkbox.checked){
       
   document.getElementById("hama2").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
-        onoff:false,
+        goodbyeonoff:false,
         
       
         
@@ -182,9 +182,7 @@ if(checkbox.checked){
       })
       // do that
     }
-  });
-}); 
-         
+  });           
          
          
          //////////////   
