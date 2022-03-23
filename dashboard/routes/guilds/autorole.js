@@ -31,13 +31,21 @@ app.post(
 
     let data = await Guild.findOne({ guildID: guild.id });
 
-     
+     let h = rbody["onoff"] === "true";
+    console.log(h);
+     if(Object.prototype.hasOwnProperty.call(rbody, "role")){
+await Guild.findOneAndUpdate({ guildID: req.params.guildID}
+                             ,{ $set:{
+                               "plugins.autorole.role": rbody["role"],
+                               "plug
+       
+     }
 
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
         $set: {
-     "plugins.autorole.enabled": Boolean(rbody.onoff)|| true,
+     "plugins.autorole.enabled": rbody["onoff"] === "true",
           "plugins.autorole.role": rbody["role"],
         },
       }
