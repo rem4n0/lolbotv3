@@ -17,6 +17,12 @@ const applyText = (canvas, text, defaultFontSize) => {
 
 module.exports = class {
   async run(member) {
+    
+    member.guild.invites.fetch().then(async(guildInvites) => {
+      const uses = guildInvites.find(codes => codes.uses);
+      const UserInvited = bot.users.cache.get(uses.inviter.id);
+    
+
     await member.guild.members.fetch();
 
     const guildData = await Guild.findOneAndUpdate({
@@ -33,8 +39,10 @@ module.exports = class {
         const message = guildData.plugins.goodbye.message
           .replace(/{user}/g, member.user.tag)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{membercount}/g, member.guild.memberCount);
+          .replace(/{membercount}/g, member.guild.memberCount)
+        .replace(/{inviter}/g, UserInvited.tag);
         if (guildData.plugins.goodbye.withImage) {
+        
           const canvas = Canvas.createCanvas(1024, 450),
             ctx = canvas.getContext("2d");
 
@@ -130,5 +138,5 @@ module.exports = class {
         }
       }
     }
-  }
+  })}
 };

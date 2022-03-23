@@ -188,11 +188,11 @@ module.exports = async (bot) => {
   //------------------- Routers -------------------//
 
   /* General */
-  /*
+  
        app.use(async (req, res, next) => {
        if(req.path.includes('/admin')) {
         if (req.isAuthenticated()) {
-          if(client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "714451348212678658") {
+          if(client.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "768944616724103170") {
               next();
               } else {
               res.redirect("/error?code=403&message=You is not competent to do this.")
@@ -204,7 +204,7 @@ module.exports = async (bot) => {
        } else {
            next();
        }
-    })*/
+    })
   
   //////bot
 app.use("/", require ("./routes/bot/background.js"));
