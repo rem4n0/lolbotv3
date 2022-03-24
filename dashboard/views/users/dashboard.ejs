@@ -1,5 +1,6 @@
 
  <%- include ("../parts/guilds",{bot,user})%>
+   <% include ("../admin/static/head.ejs")%>
 <style>
   .container {
     height:100vh;
@@ -42,11 +43,28 @@
    
   <br>
     <br>
+    <!--
   <div class="box3 box">
     <div class="containerB">
       <h4 class="bigText"><%= user_rank%></h4>
         </div>
-  </div>
+  </div>-->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-dark-200 border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Uptimes</div>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= user_rank %></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fal fa-sync-alt fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
 <br>
     <br>
     
