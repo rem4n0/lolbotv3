@@ -209,7 +209,7 @@ module.exports = async (bot) => {
   
       console.log(" ")
     console.log('\x1b[36m%s\x1b[0m', "Admin Panel system routers loading...");
-    
+    sleep(3000);
     app.use("/", require('./routes/admin/index.js'))
     app.use("/", require('./routes/admin/ban.js'))
     app.use("/", require('./routes/admin/partner.js'))
@@ -231,13 +231,16 @@ app.use("/", require ("./routes/guilds/autorole.js"));
   app.use("/", require("./routes/guilds/dashboard.js"));
   app.use("/", require("./routes/guilds/discord-guild.js"));
   app.use("/", require("./routes/guilds/xpsystem"));
+ 
+  
+  
   app.use((req, res) => {
     req.query.code = 404;
     req.query.message = `Page not found.`;
     res.status(404).render("error.ejs", {
       bot: bot,
       path: req.path,
-      config: global.config,
+      config: config,
       user: req.isAuthenticated() ? req.user : null,
       req: req,
     });
