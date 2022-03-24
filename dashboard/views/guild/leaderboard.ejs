@@ -1,5 +1,4 @@
-<!--<%- include ("../parts/head.ejs",{bot,user})%>-->
-  <- include("../admin/static/head.ejs")%>
+<%- include ("../parts/head.ejs",{bot,user})%>
   
   <br>
   <br>
@@ -11,7 +10,7 @@
                     <table id="default-ordering" class="table table-hover" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Country</th>
+                                <th>Xp</th>
                                 <th>Total viewers</th>
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
@@ -24,7 +23,7 @@
   const rank = String(i+1);  %>
                             <tr>
              <td translate="no"><span style="display: flex; align-items: center;">&nbsp;<%= 6-rank.length + rank%></span></td>
-<td><span style="display: flex; align-items: center;"><%= (5-String(u.data.level).length) + u.data.level%></span></td>
+<td><span style="display: flex; align-items: center;"><%= (5-String(u.data.level).length) + u.data.level.length%></span></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
