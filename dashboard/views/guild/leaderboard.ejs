@@ -8,16 +8,29 @@
     position: relative;  
       border: 2px solid var(--nav-color);
       width:100%;
-      left:5px;
+      left:10px;
       
       background: var(--nav-color);
       margin-top:80px;
     }
-    .row .table
+    .row .table{
+      
     
+      border-color: var(--nav-color);
+    }
+    .row .table th:hover{
+      background: var(--sharabi);
+      
+      
+    }
+    .row .table td:hover{
+      background: var(--sharabi);
+    
+    }
     
     
   </style>
+  <h1 class="text-head">GUID LEADERBOARD</h1>
         
         <div class="row layout-top-spacing" id="cancel-row">
         
@@ -75,7 +88,10 @@
           </div>
   
   
-  
+  <br>
+                  <br>
+                  <br>
+                  <br>
   
   
   <%- include ("../parts/foot.ejs")%>
