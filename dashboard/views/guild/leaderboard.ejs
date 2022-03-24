@@ -1,0 +1,52 @@
+<%- include ("../parts/head.ejs",{bot,user,path})%>
+        
+        <div class="row layout-top-spacing" id="cancel-row">
+        
+            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                <div class="widget-content widget-content-area br-6">
+                    <table id="default-ordering" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Total viewers</th>
+                                <th class="invisible"></th>
+                                <th class="invisible"></th>
+                                <th class="invisible"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                            if(siteD.country) {
+                            Object.keys(siteD.country[0]).sort((a,b) => siteD.country[0][b] - siteD.country[0][a]).map(b => {
+                            %>
+                            <tr>
+             <td translate="no"><span style="display: flex; align-items: center;"><img src="https://flagcdn.com/16x12/<%= b.toLowerCase()%>.png"></i>&nbsp;<%= b %></span></td>
+          <td><span style="display: flex; align-items: center;"><%= siteD.country[0][b] %></span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <% 
+                            })
+                            } 
+                            %>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Total User</th>
+                                <th class="invisible"></th>
+                                <th class="invisible"></th>
+                                <th class="invisible"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+  
+  
+  
+  
+  
+  <%- include ("../parts/foot.ejs")%>
