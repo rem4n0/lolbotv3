@@ -65,6 +65,7 @@ margin-right: 130px;
 .sidebar .nav-list .list li {
   position: relative;
   list-style: none;
+
   transition: all 0.4s ease;
 }
 .sidebar .nav-list .list li a {
@@ -108,7 +109,13 @@ margin-right: 130px;
   color: var(--white);
   width: 100%;
 }
+.sidebar .nav-list .list li .icon{
+  border-left: 4px solid var(--sharabi);
+  justify-content: space-between;
+  
+}
 .sidebar .nav-list .list li .icon a:hover{
+  
 background: var(--sharabi);
 
   
@@ -248,8 +255,8 @@ height:70px;
   }
 /**-++++-+++++admin section-------*/
 .sidebar .nav-list .list li .admin {
-  border-right: 4px solid yellow;
-  width:160px;
+  
+  margin-right:20px;
   border-left:4px solid yellow;
   
   
