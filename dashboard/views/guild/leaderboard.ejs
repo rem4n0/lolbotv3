@@ -30,12 +30,15 @@
  
 <td><span style="color:white; display: flex; align-items: center;"><%=u.data.level %></span></td>
                                <% }) %>
-                            <%  docs.filter(x => x.id === req.user.id).map((u,i,a) => {
+                                 
+                                 
+                                 
+                            <%  docs.filter(x => x.id === req.user).map((u,i,a) => {
             const user = a.find(x => x.id === req.user.id);
             
             const rank = docs.findIndex(x => x.id === req.user.id) + 1;%>
                               
-                              <td><span style="color:white; display:flex; align-items: center;"><%= rank%></span></td>
+                              <td><span style="color:white; display:flex; align-items: center;">hh<%= rank%></span></td>
                                 <% })%>
                               <td></td>
                                 <td></td>
