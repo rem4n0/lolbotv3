@@ -192,22 +192,24 @@ body {
   color: var(--text);
 }
 
-.boxs .box .containerB h3.bigText {
+.boxs .box .containerB h4.bigText {
   font-size: 35px;
   position: relative;
-  top: -5px;
+  margin-right:100px;
+  top:-40px;
 }
 
-.boxs .box .containerB h3.bigText input {
-  font-size: 35px;
+.boxs .box .containerB h4.bigText input {
+  font-size: 25px;
   background: transparent;
   color: white;
   outline: none;
+  
   border: none;
   width: 150px;
 }
 
-.boxs .statuses .containerB h3.bigText {
+.boxs .statuses .containerB h4.bigText {
   font-size: 30px;
 }
 
