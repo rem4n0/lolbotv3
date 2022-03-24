@@ -53,7 +53,7 @@ z-index:1;
 }
 .sidebar .nav-list .list li .link_name {
   color: var(--white);
-
+margin-right: 130px;
   font-size: 18px;
 }
 .sidebar .nav-list .list li i {
@@ -116,7 +116,7 @@ z-index:1;
 }
 .sidebar .nav-list .list li .icon a:hover{
 background: var(--sharabi);
-  border-radius:50%;
+
   
 }
 
@@ -130,7 +130,7 @@ background: var(--sharabi);
 .sidebar .nav-list .profile-detail .profile-content img {
   width: 52px;
 
-  border-radius: 4%;
+  border-radius: 50%;
   object-fit: cover;
   height: 52px;
   margin-right: 25px;
