@@ -18,7 +18,7 @@ const members = await guild.members
 
   res.render("./guild/leaderboard.ejs", {
     config: config,
-    membera: members,
+    members: members,
     docs:docs,
     req: req,
  guild:guild,
