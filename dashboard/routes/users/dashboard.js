@@ -24,6 +24,7 @@ app.get("/dashboard", global.checkAuth, async (req, res, next) => {
       support: config.support,
       data: data,
       user_rank: user_rank,
+      req:req,
       res: res,
       perms: Discord.Permissions,
       guildID: req.params.guildID,
