@@ -29,11 +29,19 @@
   <td><span style="color:white; display:flex; align-items: center;">&nbsp;<%=  u.data.xp.toLocaleString()%></span> </td>
  
 <td><span style="color:white; display: flex; align-items: center;"><%=u.data.level %></span></td>
-                                <td></td>
+                               <% }) %>
+                            <%  docs.filter(x => x.id === req.user.id).map((u,i,a) => {
+            const user = a.find(x => x.id === req.user.id);
+            
+            const rank = docs.findIndex(x => x.id === req.user.id) + 1;%>
+                              
+                              <td><span style="color:white; display:flex; align-items: center;"><%= rank%></span></td>
+                                <% })%>
+                              <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
-                            <% })%>
+                      
                         </tbody>
                         <tfoot>
                             <tr>
@@ -46,7 +54,7 @@
                     </table>
                 </div>
             </div>
-
+          </div>
   
   
   
