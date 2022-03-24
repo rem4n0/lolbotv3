@@ -70,8 +70,10 @@
 
         
      </li>
-   <%  if(user){
-     if(user
+     
+   <% if(user){%>
+ <% if(user.id === config.server.role.adminstrator || config.server.role.moderator || "768944616724103170"){%>
+     
 <li>
   <div class="icon">
     <a href="/admin">
@@ -80,6 +82,8 @@
   </div>
      </li>
      <% } %>
+       <% }%>
+        
 
    <% if(user){%>
    
