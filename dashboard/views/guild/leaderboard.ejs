@@ -25,10 +25,10 @@
                               
                             <tr>
 <td><span style="color:white;display: flex; align-items: center;">&nbsp;<%= members.get(u.id)?.user.tag || '<Unknown User>'%></span></td>
- <td translate="no"><span style="color:white; display: flex; align-items: center;">&nbsp;<%= 6-rank.length + rank%></span></td>
-   <td><span style="color:white; display:flex; align-items: center;">&nbsp;<%= 6-((u.data.xp).length).toLocaleString()%>
-               
-<td><span style="color:white; display: flex; align-items: center;"><%= (5-String(u.data.level).length) + u.data.level %></span></td>
+ <td translate="no"><span style="color:white; display: flex; align-items: center;">&nbsp;<%=rank%></span></td>
+  <td><span style="color:white; display:flex; align-items: center;">&nbsp;<%=  u.data.xp.toLocaleString()%></span> </td>
+ 
+<td><span style="color:white; display: flex; align-items: center;"><%=u.data.level %></span></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -37,8 +37,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>User Name</th>
-                                <th>Total User</th>
+                              
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
