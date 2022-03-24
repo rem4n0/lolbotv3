@@ -13,6 +13,10 @@ app.get("/admin", global.checkAuth, async (req, res) => {
     	bot: bot,
       userdata:userdata,
       guilddata:guilddata,
+      mutedata: mutedata,
+      partnerdata: partnerdata,
+      primedata: primedata,
+      
         path: req.path,
         config: config,
         user: req.isAuthenticated() ? req.user : null,
