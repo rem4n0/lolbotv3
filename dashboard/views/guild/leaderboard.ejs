@@ -1,4 +1,8 @@
-<%- include ("../parts/head.ejs",{bot,user,path})%>
+<!--<%- include ("../parts/head.ejs",{bot,user})%>-->
+  <- include("../admin/static/head.ejs")%>
+  
+  <br>
+  <br>
         
         <div class="row layout-top-spacing" id="cancel-row">
         
@@ -17,19 +21,15 @@
                         <tbody>
                             <% docs.slice(0,10).map((u,i) => {
             
-            const rank = String(i+1);%>
+  const rank = String(i+1);  %>
                             <tr>
              <td translate="no"><span style="display: flex; align-items: center;">&nbsp;<%= 6-rank.length + rank%></span></td>
-          <td><span style="display: flex; align-items: center;"><%=5-String(u.data.level).length) + u.data.level,
-          </span></td>
+<td><span style="display: flex; align-items: center;"><%= (5-String(u.data.level).length) + u.data.level%></span></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
-                            <% 
-                            })
-                            } 
-                            %>
+                            <% })%>
                         </tbody>
                         <tfoot>
                             <tr>
