@@ -6,7 +6,14 @@
     
     .row{
     position: relative;  
+      border: 2px solid var(--nav-color);
+      width:100%;
+      left:5px;
+      
+      background: var(--nav-color);
+      margin-top:80px;
     }
+    .row .table
     
     
     
@@ -23,9 +30,10 @@
                                 <th style="color:white;">Rank</th>
                                 <th style="color:white;">Total Xp</th>
                                 <th style="color:white;">Level</th>
+                              
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
-                            </tr>
+                          </tr>
                         </thead>
                         <tbody>
                             <% docs.slice(0,10).map((u,i) => {
@@ -49,9 +57,7 @@
                               
                               <td><span style="color:white; display:flex; align-items: center;">hh<%= rank%></span></td>
                                 <% })%>
-                              <td></td>
-                                <td></td>
-                                <td></td>
+                      
                             </tr>
                       
                         </tbody>
