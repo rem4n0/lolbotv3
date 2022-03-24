@@ -645,3 +645,20 @@ span.selectOption:hover {
   user-select: none;
     
     }
+  .container .boxs .box .containerB i {
+    
+    margin-left:220px;
+    font-size:45px;
+    margin-top:14px;
+    
+    
+    
+  }
+.container .boxs .box .containerB .text{
+  font-size:15px;
+  top:0;
+  position: absolute;
+  color:var(--white);
+  
+  }
+  
