@@ -10,8 +10,9 @@
       }
       .guild-img img{
         position: relative;
-        width:200px;
-        margin-left:80px;
+        width:300px;
+        object-fit: cover;
+        margin-left:30px;
         height:100px;
       }
   </style>
@@ -29,6 +30,7 @@
 %>
      <div class="guild-img">
     <img src="<%= iconurl%>" alt="<%= guild.name%>">
+       <p style="color:var(--white);"><%= guild.name%></p>
      </div>
      
      
