@@ -246,3 +246,12 @@ height:70px;
   }
     
   }
+/**-++++-+++++admin section-------*/
+.sidebar .nav-list .list li .admin {
+  border-right: 4px solid yellow;
+  width:160px;
+  border-left:4px solid yellow;
+  
+  
+  
+}
