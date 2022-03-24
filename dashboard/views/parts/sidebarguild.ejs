@@ -1,15 +1,34 @@
 <%- include('./meta.ejs')%>
   
+    <style>
+      .guild-img{
+        
+      
+        margin-left:30px;
     
+        
+      }
+      .guild-img img{
+        position: relative;
+        width:200px;
+        margin-left:80px;
+        height:100px;
+      }
+  </style>
   <div class="sidebar">
   <div class="logo-detail">
     <br>
     <br>
  <div class="nav-list">
    <ul class="list">
-     
+     <% if (guild.icon) {
+ iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=300";
+} else {
+ iconurl = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404-dark.png?v=1602427904949";
+}
+%>
      <div class="guild-img">
-    <img src="https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=70">
+    <img src="<%= iconurl%>" alt="<%= guild.name%>">
      </div>
      
      
