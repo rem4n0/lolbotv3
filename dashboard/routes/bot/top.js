@@ -8,14 +8,20 @@ app.get("/dashboard/top", global.checkAuth, async (req, res, next) => {
         .map((x) => {
           return { xp: x.data.global_xp };
         })
-        .sort((A, B) => B.data.global_xp - A.data.global_xp) // Arrange by points, descending.
-        .filter((x) => x.global_xp); // Remove document where xp is 0.
-
+        .sort((A, B) => B.global_xp - A.global_xp) // Arrange by points, descending.
+   // Remove document where xp is 0.
+   const a = bot.users.fetch({user:docs.slice(0,50).map(x => x.id)})
+   
+   
+   
+   
+   
       res.render("./bot/top.ejs", {
+        a:a,
         config: config,
         support: config.support,
-        data: docs,
-        top: top,
+      docs: docs,
+      
         req: req,
         res: res,
 
@@ -24,5 +30,4 @@ app.get("/dashboard/top", global.checkAuth, async (req, res, next) => {
       });
     });
   });
-});
 module.exports = app;
