@@ -6,18 +6,19 @@ app.get("/dashboard/top", global.checkAuth, async (req, res, next) => {
     return User.find({}).exec(async (err, docs) => {
       docs = docs
         .map((x) => {
-          return { xp: x.data.global_xp };
+          return { id: x.userID, data:x.data.global.xp };
         })
-        .sort((A, B) => B.global_xp - A.global_xp) // Arrange by points, descending.
+        .sort((A, B) => B.data.global_xp - A.data.global_xp) // Arrange by points, descending.
    // Remove document where xp is 0.
-   const a = bot.users.fetch({user:docs.slice(0,50).map(x => x.id)})
+   const users = await bot.users.fetch({ user: docs.slice(0,10).map(x => x.id) })
+      .catch(() => null)
    
    
    
    
    
       res.render("./bot/top.ejs", {
-        a:a,
+        users:users,
         config: config,
         support: config.support,
       docs: docs,
