@@ -216,6 +216,7 @@ module.exports = async (bot) => {
 app.use("/", require ("./routes/admin/maintenance.js"));
   
   //////bot
+  app.use("/", require ("./routes/bot/top.js"));
 app.use("/", require ("./routes/bot/background.js"));
   ///////user
   app.use("/", require ("./routes/users/profile-edit"));
