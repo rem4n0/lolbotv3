@@ -6,7 +6,7 @@ app.get("/dashboard/top", global.checkAuth, async (req, res, next) => {
     return User.find({}).exec(async (err, docs) => {
       docs = docs
         .map((x) => {
-          return { id: x.userID, data:x.data.global.xp };
+          return { id: x.userID, data:x.data.global_xp };
         })
         .sort((A, B) => B.data.global_xp - A.data.global_xp) // Arrange by points, descending.
    // Remove document where xp is 0.
