@@ -124,7 +124,7 @@ background: var(--sharabi);
 .sidebar .nav-list .profile-detail {
   position: absolute;
   bottom: 0;
-  display: block;
+  display: fixed;
   align-items: center;
   justify-content: center;
 }
