@@ -58,7 +58,6 @@
        
      </div>
      </li>
-       
           <li>
         <div class="icon">
                
@@ -74,7 +73,6 @@
 
         
      </li>
-       
      <li>
         <div class="icon">
                
@@ -90,7 +88,6 @@
 
        
      </li>
-       
      <li>
         <div class="icon">
                
@@ -104,19 +101,17 @@
        
        </div>
        </li>
-    
        <li>
          <div class="icon">
            <a href="/dashboard/<%=guild.id%>/leaderboard">
-            <i class="fas fa-medal"></i> 
-             <span class="link_name">LeadrBoard</span>
+             <span class="linke_name">LeadrBoard</span>
            </a>
          </div>
          
 
         
      </li>
-       
+<br>
         <% if(user){%>
  <% if(user.id === config.server.role.adminstrator || config.server.role.moderator || "768944616724103170"){%>
      
@@ -131,20 +126,19 @@
      <% } %>
        <% }%>
         
+<br.
 
    <% if(user){%>
-  
+   
    <li>
 
    <div class="profile-detail">
     
    
        <div class="profile-content">
-      <a href="/profile/<%= user.id%>">
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" alt="profile"/>
-         </a>
-        
-        </div>
+      
+         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
+       </div>
        <div class="profile-name"><%=user.username%></div>
          <div class="profile-badge"></div>
      </div>
