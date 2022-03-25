@@ -38,16 +38,31 @@
     .container .top-img img{
       width:23px;
       height:23px;
-      margin-top:20px;
+      
+      margin-top:10px;
       
     }
     .container .row .top-section .top-img{
       position: relative;
-      
+    background:red;
+      width:60px;
+      height:60px;
       margin-left:300px;
       
     }
-    
+    @media screen and (min-height:800px;){
+      
+      .container .row .top-section.top-img{
+        margin-left:300px;
+        position: relative;
+        
+      }
+      .container .row .top-section{
+        width:100%;
+        height:900px;
+        
+      }
+    }
     .container .row .top-section .top-number {
     margin-right: 250px;
       width:20px;
@@ -58,7 +73,8 @@
     
     }
     .container .row .top-section p{
-  
+  color:var(--white);
+      font-weght:400;
       z-index:1;
       
     
@@ -87,9 +103,9 @@
           <div class="top-img">
             <img src="https://imgur.com/h1bWdKL.png">
           </div>
-          <p><%= rank%></p>
+        
         <div class="top-number">
-          <p></p>
+          <p><%= rank%></p>
         </div>
             </div>
         <% })%>  
