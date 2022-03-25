@@ -122,9 +122,9 @@ background: var(--sharabi);
 }
 
 .sidebar .nav-list .profile-detail {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
 }

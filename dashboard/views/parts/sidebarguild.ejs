@@ -141,9 +141,11 @@
     
    
        <div class="profile-content">
-      
+      <a href="/profile/<%= user.id%>">
          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
-       </div>
+         </a>
+        
+        </div>
        <div class="profile-name"><%=user.username%></div>
          <div class="profile-badge"></div>
      </div>
