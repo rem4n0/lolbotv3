@@ -10,6 +10,7 @@
       position: relative;
       width:100%;
       left:0;
+      border-radius :10%;
     
     
       background:var(--nav-color);
@@ -17,15 +18,33 @@
       
     }
     .container .row .top-section .name{
-      
+      margin-left: 50px;
       position: absolute;
     
+      
+    }
+    .container .row .top-section .user-img{
+      position: absolute;
+      
+    }
+    .container .row .top-section .user-img img{
+      margin-top:10px;
+      width:35px;
+      margin-left:8px;
+      height:35px;
+      border-radius:50%;
       
     }
     .container .top-img img{
       width:23px;
       height:23px;
+      margin-top:20px;
       
+    }
+    .container .row .top-section .top-img{
+      position: relative;
+      
+      margin-left:300px;
       
     }
   </style>
@@ -38,7 +57,7 @@
           const rank = String(i+1);%>
           <div class="top-section">
             <div class="user-img">
-              <img src="<%= https://cdn.discordapp.com/avatars/<%= %>">
+              <img src=" https://cdn.discordapp.com/avatars/<%= h.id%>/<%= h.avatar%>.png">
             </div>
         <div class="name">
       
