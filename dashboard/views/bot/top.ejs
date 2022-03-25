@@ -6,6 +6,18 @@
   <style>
     
     
+    .container .top-section{
+      background:var(--nav-color);
+      width:400px;
+      position: relative;
+      
+    }
+    .container .top-img img{
+      width:23px;
+      height:23px;
+      
+      
+    }
   </style>
   <div class="container">
     
@@ -13,15 +25,19 @@
       <div class="col-2 md">
         <% docs.slice(0,10).map((u,i) => {
           const rank = String(i+1);%>
+          <div class="top-section">
         <div class="name">
       
           <span> <%= bot.users.cache.get(u.id).username%></span>
           
         </div>
+          <div class="top-img">
+            <img src="https://imgur.com/h1bWdKL.png">
+          </div>
         <div class="top-number">
           <p><%= rank%></p>
         </div>
-    
+            </div>
         <% })%>  
       </div>
     </div>
