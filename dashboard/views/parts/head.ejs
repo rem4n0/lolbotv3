@@ -80,9 +80,11 @@
     
    
        <div class="profile-content">
-      
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
-       </div>
+      <a href="/profile/<%= user.id%>">
+         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" alt="profile"/>
+         </a>
+        
+        </div>
        <div class="profile-name"><%=user.username%></div>
          <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
      </div>
