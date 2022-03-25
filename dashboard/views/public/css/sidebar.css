@@ -122,18 +122,18 @@ background: var(--sharabi);
 }
 
 .sidebar .nav-list .profile-detail {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  display: fixed;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 .sidebar .nav-list .profile-detail .profile-content img {
-  width: 52px;
+  width: 50px;
 
   border-radius: 50%;
   object-fit: cover;
-  height: 52px;
+  height: 50px;
   margin-right: 25px;
   
   
