@@ -58,7 +58,7 @@
   margin-left:-25px;
 }
 .sidebar .nav-list .list li .link_name {
-  color: var(--navlist-color);
+  color: #7C7C7D;
   
 margin-left:60px;
   font-size: 18px;
@@ -127,6 +127,7 @@ margin-left:0;
 }
 .sidebar .nav-list .list li .link_name:hover {
   font-size: 22px;
+  color:var(--white);
   opacity:1;
 }
 
