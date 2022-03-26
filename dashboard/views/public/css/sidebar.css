@@ -92,6 +92,7 @@ margin-right: 130px;
   color: var(--white);
 }
 .sidebar .nav-list  .list li.showMenu i.arrow{
+  margin-left:-80px;
   transform: rotate(-180deg);
 
   transition:all 0.1s ease;
