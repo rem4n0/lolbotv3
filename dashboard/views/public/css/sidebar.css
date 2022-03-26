@@ -70,7 +70,7 @@ margin-right: 130px;
   align-items: center;
   display:flex;
   min-width: 78px;
-  transition:all 0.5s ease;
+  transition:all 0.01s ease;
   margin-left:-20px;
 }
 
@@ -80,7 +80,7 @@ margin-right: 130px;
   position: relative;
   list-style: none;
 
-  transition: all 0.4s ease;
+  transition: all 0.01s ease;
 }
 .sidebar .nav-list .list li a {
   text-decoration: none;
@@ -92,10 +92,10 @@ margin-right: 130px;
   color: var(--white);
 }
 .sidebar .nav-list  .list li.showMenu i.arrow{
-  margin-left:-80px;
+  margin-left:-90px;
   transform: rotate(-180deg);
 
-  transition:all 0.1s ease;
+  transition:all 0.01s ease;
 }
 
 .sidebar .nav-list li .sub-menu {
