@@ -76,14 +76,14 @@ margin-right: 130px;
 
 .sidebar .nav-list .list li:hover .link_name {
   color: var(--white);
-}
+}/*
 .sidebar .nav-list .list li i {
   color: var(--white);
   display: flex;
   align-items: center;
   font-size: 18px;
   justify-content: space-between;
-}
+}*/
 .sidebar .nav-list .list .sub-menu {
   padding: 6px 6px 10px 100px;
   margin-top: -10px;
@@ -102,6 +102,11 @@ margin-right: 130px;
 
 .sidebar .nav-list .list .sub-menu li {
   list-style: none;
+  
+}
+.sidebar .nav-list .list .sub-menu li i{
+  
+  
 }
 
 .sidebar .nav-list .list .sub-menu a {

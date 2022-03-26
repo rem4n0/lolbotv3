@@ -15,7 +15,8 @@
         <div class="icon">
               
       <a href="/dashboard">
-        <i class='bx bx-grid-alt'></i>
+        
+        
          <span class="link_name">DASHBOARD</span>
                
   
@@ -23,13 +24,14 @@
  
        
        </div>
+       
         
      </li>
           <li>
         <div class="icon">
                
       <a href="/about">
-        <i class='bx bx-info-circle' ></i>
+        
          <span class="link_name">information</span>
                
 
@@ -44,14 +46,24 @@
         <div class="icon">
                
       <a href="/partner">
-        <i class='bx bxs-hand' ></i>
+      
          <span class="link_name">partners</span>
                
-
+<i class="fas fa-arrow-alt-circle-down"></i>
        </a>
           
        
        </div>
+       <ul class="sub-menu">
+         <li>
+        <a href="/">
+          <span class="link_name">h</span>
+           </a>
+         </li>
+       </ul>
+         
+         
+         
 
        
      </li>
@@ -117,7 +129,7 @@
   
 <script>
 
-  /*
+  
   let arrow = document.querySelectorAll(".link_name")
   
   for(i=0; i < arrow.length;i++){
@@ -127,7 +139,7 @@
       target.classList.toggle("showMenu")
     })
     
-  }*/
+  }
   let sidebar= document.querySelector(".sidebar");
   let sidebarBtn= document.querySelector(".text");
   sidebarBtn.addEventListener('click',()=>{
