@@ -49,9 +49,15 @@ z-index:1;
 .sidebar .nav-list {
   position: relative;
   left:0;
+  
   background: var(--nav-color);
   height: 100%;
 
+}
+.sidebar .nav-list .list{
+  
+  display: block;
+  line-height: 40px;
 }
 
 .sidebar .nav-list .list li .link_name {
