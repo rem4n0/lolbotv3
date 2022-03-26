@@ -68,13 +68,13 @@ margin-left:60px;
 .sidebar .nav-list .list li i {
   height: 50px;
   color: var(--white);
-  align-items: center;
+  text-align: center;
   display: flex;
+  line-height:50px;
   min-width: 78px;
-
   transition: all 0.01s ease;
-  margin-left: 60px;
-  font-size: 24px;
+  /*margin-left: 60px;*/
+  font-size: 18px;
 }
 
 .sidebar .nav-list .list li {
@@ -101,7 +101,7 @@ margin-left:0;
 }
 
 .sidebar .nav-list li .sub-menu {
-  padding-left: 90px;
+ /* padding-left: 80px;*/
 
 
   display: none;
@@ -109,12 +109,13 @@ margin-left:0;
   width: 100%;
   
   border-radius:4%;
-  font-size: 15px;
+
   background: var(--navlist-color);
 
 }
 .sidebar .nav-list li .sub-menu a {
   color: var(--white);
+  padding-left:30px;
   font-size: 15px;
 }
 .sidebar .nav-list .showMenu .sub-menu {
@@ -122,6 +123,8 @@ margin-left:0;
   display: block;
 }
 .sidebar .nav-list .list li .icon {
+  align-items: center;
+  display:flex;
   border-left: 4px solid var(--sharabi);
   justify-content: space-between;
 }
