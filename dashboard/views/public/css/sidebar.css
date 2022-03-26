@@ -55,10 +55,11 @@ z-index:1;
 
 }
 .sidebar .nav-list .list{
+  line-height:50px;
   
-  display: block;
-  line-height: 40px;
 }
+
+
 
 .sidebar .nav-list .list li .link_name {
   color: var(--white);
@@ -68,9 +69,12 @@ margin-right: 130px;
 .sidebar .nav-list .list li i {
   height: 50px;
   color: var(--white);
-  line-height: 10px;
+  align-items: center;
+  display:flex;
   min-width: 78px;
+  margin-left:-20px;
 }
+
 .sidebar .nav-list .list li {
   position: relative;
   list-style: none;
@@ -85,7 +89,7 @@ margin-right: 130px;
 
 .sidebar .nav-list .list li:hover .link_name {
   color: var(--white);
-}
+}/*
 .sidebar .nav-list .list li i {
   color: var(--white);
   
@@ -93,7 +97,7 @@ margin-right: 130px;
   align-items: center;
   font-size: 18px;
   margin-left:-20px;
-}
+}*/
 
 .sidebar .nav-list li .sub-menu {
   padding: 6px 6px 10px 100px;
