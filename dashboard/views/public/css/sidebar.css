@@ -79,7 +79,7 @@ margin-left:60px;
   text-align: center;
   margin-left:190px;
    display:flex;
-  line-height:50px;
+  line-height:20px;
   min-width: 78px;
   transition: all 0s ease;
 
@@ -107,19 +107,19 @@ margin-left:140px;
 
 .sidebar .nav-list li .sub-menu {
  /* padding-left: 80px;*/
-
+text-align: center;
 
   display: none;
   width: 100%;
   border-radius:4%;
-
   background: var(--navlist-color);
 
 }
 .sidebar .nav-list li .sub-menu a {
+
   color: var(--white);
-  padding-left:30px;
-  font-size: 15px;
+padding-left:30px;
+  font-size: 18px;
 }
 .sidebar .nav-list .showMenu .sub-menu {
   transition: all 0s ease;
