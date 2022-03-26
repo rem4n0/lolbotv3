@@ -56,10 +56,10 @@
        </div>
        <ul class="sub-menu">
          <li>
-        <a href="/">
-          <span>h</span>
+        <a href="/">h
            </a>
          </li>
+         <li> <a href="#">H</a></li>
        </ul>
          
          
@@ -67,6 +67,7 @@
 
        
      </li>
+     
     
      
    <% if(user){%>
@@ -96,14 +97,14 @@
          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
        <div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
+         <div class="profile-badge"><a href="profile/<%=user.id%>"></a></div>
      </div>
      </li>
      <% }%>
        <% if(!user){%>
          <div class="profile-detail">
            <div class="profile-content">
-             <div class="profile-name">login<a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
+             <div class="profile-name">login<a href="/login"></a></div>
              <% }%>
      </ul>
    

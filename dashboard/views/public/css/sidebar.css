@@ -89,14 +89,23 @@ margin-right: 130px;
 .sidebar .nav-list li .sub-menu {
   padding: 6px 6px 10px 100px;
   margin-top: -10px;
-  display: none;
+  
   line-height: 50px;
-display:block;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  width: 100%;
+display:none;
+  margin-left:10px;
+  width: 90%;
   font-size: 15px;
   background: var(--nilikall);
+}
+.sidebar .nav-list li .sub-menu a{
+  color:var(--white);
+  font-size:15px;
+  
+  
+}
+.sidebar .nav-list .showMenu .sub-menu{
+  display:block;
+  
 }
 .sidebar .nav-list .list li .icon{
   border-left: 4px solid var(--sharabi);
