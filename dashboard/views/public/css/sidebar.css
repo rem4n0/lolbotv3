@@ -51,12 +51,20 @@
   height: 100%;
 }
 
-.sidebar .nav-list .list {
+.sidebar.guild .nav-list .list {
   
   position: relative;
   left:0;
-  margin-left:-25px;
+  margin-left:0px;
 }
+
+.sidebar .nav-list .list{
+  
+  position: relative;
+  left:0;
+    margin-left:-30px;
+}
+
 .sidebar .nav-list .list li .link_name {
   color: #7C7C7D;
   
@@ -66,14 +74,15 @@ margin-left:60px;
 
 
 .sidebar .nav-list .list li i {
-  height: 50px;
+  position: fixed;
   color: var(--white);
   text-align: center;
-  display: flex;
+  margin-left:190px;
+   display:flex;
   line-height:50px;
   min-width: 78px;
-  transition: all 0.01s ease;
-  /*margin-left: 60px;*/
+  transition: all 0s ease;
+
   font-size: 18px;
 }
 
@@ -81,23 +90,19 @@ margin-left:60px;
   padding-bottom: 40px;
   position: relative;
   list-style: none;
-
-  transition: all 0.01s ease;
+  transition: all 0s ease;
 }
 .sidebar .nav-list .list li a {
   text-decoration: none;
   display: flex;
   align-items: center;
 }
-/*
-.sidebar .nav-list .list li:hover .link_name {
-  color: var(--white);
-}*/
+
 .sidebar .nav-list .list li.showMenu i.arrow {
   
   transform: rotate(-180deg);
-margin-left:0;
-  transition: all 0.01s ease;
+margin-left:140px;
+  transition: all 0s ease;
 }
 
 .sidebar .nav-list li .sub-menu {
@@ -119,13 +124,12 @@ margin-left:0;
   font-size: 15px;
 }
 .sidebar .nav-list .showMenu .sub-menu {
-  transition: all 1s ease;
+  transition: all 0s ease;
   display: block;
 }
 .sidebar .nav-list .list li .icon {
   align-items: center;
   display:flex;
-  border-left: 4px solid var(--sharabi);
   justify-content: space-between;
 }
 .sidebar .nav-list .list li .link_name:hover {
