@@ -41,16 +41,19 @@ z-index:1;
 }
 .sidebar .logo-detail img {
   width: 40px;
+  
 
   line-height: 4px;
   min-width: 70px;
 }
 .sidebar .nav-list {
-  left: 40px;
+  position: relative;
+  left:0;
   background: var(--nav-color);
   height: 100%;
 
 }
+
 .sidebar .nav-list .list li .link_name {
   color: var(--white);
 margin-right: 130px;
@@ -88,7 +91,7 @@ margin-right: 130px;
 
 .sidebar .nav-list li .sub-menu {
   padding: 6px 6px 10px 100px;
-  margin-top: -10px;
+  
   
   line-height: 50px;
 display:none;
@@ -104,6 +107,7 @@ display:none;
   
 }
 .sidebar .nav-list .showMenu .sub-menu{
+  transition: all 1s ease;
   display:block;
   
 }
