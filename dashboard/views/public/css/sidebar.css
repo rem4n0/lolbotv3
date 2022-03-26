@@ -55,7 +55,7 @@ z-index:1;
 
 }
 .sidebar .nav-list .list {
-  
+  padding-bottom:40px;
   
 }
 
@@ -76,6 +76,7 @@ margin-right: 130px;
 }
 
 .sidebar .nav-list .list li {
+  padding-bottom:40px;
   position: relative;
   list-style: none;
 
