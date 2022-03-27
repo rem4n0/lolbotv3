@@ -141,13 +141,16 @@
       <a href="/"> <img src="<%=bot.user.displayAvatarURL()%>"/></a>
    
      </div>
+    <% if(user){%>
 <div class="home-profile">
-  <img src="https://cdn.discord.com/avatars/
+  <img src="https://cdn.discordapp.com/avatars/<%= user.id%>/<%= user.avatar%>"/>
+  
   <ul>
     
     <li> <a href="/profile/<%= user.id%>">PROFILE</a></li> 
   </ul>
     </div>
+      <% } %>
     <div class="home-content">
       
       <span class="text"><i class="fa-solid fa-bars"></i></span>

@@ -137,26 +137,36 @@ text-align: center;
   opacity:1;
 }
 
-.sidebar .nav-list .profile-detail {
+ .home-section .home-profile {
   position: fixed;
-  bottom: 0;
-  display: flex;
+  top: 5px;
+   right:0;
+   text-align: center;
+  display: block;
   align-items: center;
   justify-content: center;
 }
-.sidebar .nav-list .profile-detail .profile-content img {
+ .home-section .home-profile img {
   width: 52px;
 
   border-radius: 50%;
   object-fit: cover;
   height: 52px;
-  margin-right: 25px;
+  
 }
-.sidebar .nav-list .profile-detail .profile-name i {
-  font-size: 37px;
-  display: none;
+ .home-section .home-profile ul{
+   
+  font-size: 15px;
+  display: block;
   color: var(--white);
-  margin-left: 90px;
+  position: fixed;
+   left:0;
+}
+
+.home-section .home-profile ul li{
+  list-style: none;
+  
+  
 }
 
 .sidebar .nav-list .profile-detail .profile-name {
