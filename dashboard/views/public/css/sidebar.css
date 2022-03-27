@@ -138,13 +138,9 @@ text-align: center;
 }
 
  .home-section .home-profile {
-  position: fixed;
-  top: 5px;
-   right:0;
-   text-align: center;
-  display: block;
-  align-items: center;
-  justify-content: center;
+position: absolute;
+align-items: center;
+   
 }
  .home-section .home-profile img {
   width: 52px;
@@ -155,14 +151,13 @@ text-align: center;
   
 }
  .home-section .home-profile .list2{
-   width:350px;
-   text-align: left;
+
    background:var(--nav-color);
   font-size: 15px;
   display:none;
   color: var(--white);
-  position: fixed;
-   left:30px;
+  position:fixed;
+   
    height:60px;
    
    
@@ -180,24 +175,17 @@ text-align: center;
   
   
 }
-.home-section .home-profile .list2.open{
+.home-section .home-profile .list2.close{
   display:flex;
 }
-.sidebar .nav-list .profile-detail .profile-name {
-  margin-right: 7px;
 
-  color: var(--white);
-
-  font-size: 20px;
-
-  font-weight: 300;
-}
 
 .home-section {
   z-index: 1;
   position: relative;
   left: 0px;
   width: calc(100% - 230px);
+
 
   transition: all 1.3s ease;
 }
