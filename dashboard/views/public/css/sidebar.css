@@ -137,29 +137,31 @@ text-align: center;
   opacity:1;
 }
 
-.sidebar .nav-list .profile-detail {
+.home-section .profile-detail {
   position: fixed;
-top:0;
+top:50px;
+right:0;
+  z-index:1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.sidebar .nav-list .profile-detail .profile-content img {
+.sidebar .home-section .profile-detail .profile-content img {
   width: 52px;
-
+z-index:1;
   border-radius: 50%;
   object-fit: cover;
   height: 52px;
   margin-right: 25px;
 }
-.sidebar .nav-list .profile-detail .profile-name i {
+.sidebar .home-section  .profile-detail .profile-name i {
   font-size: 37px;
   display: none;
   color: var(--white);
   margin-left: 90px;
 }
 
-.sidebar .nav-list .profile-detail .profile-name {
+.sidebar .home-section .profile-detail .profile-name {
   margin-right: 7px;
 
   color: var(--white);
