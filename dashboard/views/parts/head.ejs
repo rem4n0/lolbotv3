@@ -102,12 +102,10 @@
      <% } %>
        <% }%>
         
-
+         </ul>
    <% if(user){%>
    
-   <li>
-
-   <div class="profile-detail d-flex flex-column">
+   <div class="profile-detail">
     
    
        <div class="profile-content">
@@ -128,7 +126,7 @@
          </div>
          <div class="profile-badge"><a href="profile/<%=user.id%>"></a></div>
      </div>
-     </li>
+     
      <% }%>
        <% if(!user){%>
          <div class="profile-detail">
@@ -136,7 +134,7 @@
              <div class="profile-name">login<a href="/login"></a></div>
              <% }%>
          
-     </ul>
+     
    
            </div>
          </div>
