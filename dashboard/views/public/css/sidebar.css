@@ -190,7 +190,7 @@ align-items: center;
   transition: all 1.3s ease;
 }
 
-.sidebar .home-section .home-content {
+.home-section .home-content {
   position: absolute;
   display: flex;
   height: 60px;

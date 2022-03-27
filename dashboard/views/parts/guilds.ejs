@@ -3,8 +3,10 @@
     
 
   <div class="sidebar guild">
+    <% if(user){%>
   
  <div class="nav-list">
+  
    
    
    <% user.guilds.forEach(guild => {
@@ -27,28 +29,12 @@
     <br>
    <ul class="list">
      
-     <li>
-          
-        
-            
+     <li>         
       <a href="/dashboard/guild/<%=guild.id%>">
         <img src="<%= iconurl %>"/>
-        
-        
-         
-               
-  
-       </a>
- 
-       
-    
-       
-       
-       
-  
-        
+       </a>  
      </li>
-    
+  <!--  
    <% if(user){%>
    
    <li>
@@ -62,24 +48,17 @@
          </a>
         
         </div>
-       <!--<div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>-->
+       <div class="profile-name"><%=user.username%></div>
+         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
      </div>
      </li>
-     <% }%>
-       <% if(!user){%>
-         <div class="profile-detail">
-           <div class="profile-content">
-             <div class="profile-name"><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></div>
-             <% }%>
-     </ul>
-    <% }%>
-   <% })%>
+     <% }%>-->
+    </ul>
+    <% }})%>
+      
+
            </div>
-         </div>
-         </div>
-  
-   
+      
    
     
     
@@ -93,6 +72,7 @@
     </div>
 
        </div>
+    <% }%>
        </div>
          
 <script>
