@@ -3,7 +3,6 @@
     
 
   <div class="sidebar guild">
-    <% if(user){%>
   
  <div class="nav-list">
   
@@ -33,26 +32,8 @@
       <a href="/dashboard/guild/<%=guild.id%>">
         <img src="<%= iconurl %>"/>
        </a>  
-     </li>
-  <!--  
-   <% if(user){%>
-   
-   <li>
 
-   <div class="profile-detail">
-    
-   
-       <div class="profile-content">
-      <a href="/profile/<%=user.id%>">
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
-         </a>
-        
-        </div>
-       <div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"><a href="profile/<%=user.id%>"><i class='bx bx-cog'></i></a></div>
-     </div>
      </li>
-     <% }%>-->
     </ul>
     <% }})%>
       
@@ -72,7 +53,7 @@
     </div>
 
        </div>
-    <% }%>
+  
        </div>
          
 <script>
@@ -98,5 +79,5 @@
 </script>
 
   
-  <br><br>
+  
   
