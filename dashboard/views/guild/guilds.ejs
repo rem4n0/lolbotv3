@@ -25,9 +25,14 @@
   }
   
   </style>
+  
+  
+  <br>
+  <br>
+  
   <div class="container">
     <div class="row">
-      <div class="col-3 md-3">
+     <div class="col">
     
    
    
@@ -55,14 +60,25 @@
       <a href="/dashboard/guild/<%=guild.id%>">
         <img src="<%= iconurl %>"/>
        </a>  
-       <% if(bot.guilds.cache.get(guild.id)){%>
+       
        <a class="btn btn-success" href="/dashboard/guild/<%= guild.id%>">Dashboard</a>
-<% } else{%>
-  <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=838593240328044554&permissions=67206193&scope=bot&guild_id=<%=guild.id%>">Invite</a>
-  <% }%>
+  
      </li>
     </ul>
-    <% }})%>
+    <% }%>
+     <% if(!bot.guilds.cache.get(guild.id)){%>
+       <br>
+       <br>
+       <ul class="guild-list">
+         <li> 
+           <img src="<%= iconurl%>"/>
+           <a class="btn btn-primary" href="">invite</a>
+         </li>
+       </ul>
+       <% }%>
+       
+       
+    <%   })%>
     
 
            </div>
