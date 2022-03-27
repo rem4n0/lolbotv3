@@ -112,9 +112,20 @@
    
        <div class="profile-content">
       
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
+         <img class="img-profile" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
-       <div class="profile-name d-none"><%=user.username%></div>
+       <div class="profile-name d-none"><%=user.username%>#<%=user.discriminator%>
+         
+      <a href="/profile/<%=user.id%>"><i class="fas fa-user fa-sm fa-fw mr-2"></i>
+                                    Profile
+         </a>
+       <%  if(user.id === config.server.role.moderator || config.server.role.adminstrator || config.owners){%>
+         <a href="/admin">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2"></i>
+                                    Profile
+         </a>
+         <% }%>
+         </div>
          <div class="profile-badge"><a href="profile/<%=user.id%>"></a></div>
      </div>
      </li>
