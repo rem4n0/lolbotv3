@@ -9,7 +9,7 @@
   --navlist-color: #282d35;
   --sharabi: #f734ca;
 }
- 
+
 .sidebar {
   z-index: 1;
   top: -10%;
@@ -140,16 +140,14 @@ text-align: center;
  .home-section .home-profile {
 position: absolute;
 align-items: center;
-  width:60px;
-   top:13px;
-   right:-230px;
+   
 }
  .home-section .home-profile img {
-  width: 42px;
+  width: 52px;
 
   border-radius: 50%;
   object-fit: cover;
-  height: 42px;
+  height: 52px;
   
 }
  .home-section .home-profile .list2{
@@ -159,8 +157,7 @@ align-items: center;
   display:none;
   color: var(--white);
   position:fixed;
-   left:20px;
-   width:95%;
+   
    height:60px;
    
    
@@ -193,7 +190,7 @@ align-items: center;
   transition: all 1.3s ease;
 }
 
- .sidebar .home-section .home-content {
+.sidebar .home-section .home-content {
   position: absolute;
   display: flex;
   height: 60px;
