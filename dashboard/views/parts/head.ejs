@@ -107,14 +107,14 @@
    
    <li>
 
-   <div class="profile-detail">
+   <div class="profile-detail d-flex flex-column">
     
    
        <div class="profile-content">
       
          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
-       <div class="profile-name"><%=user.username%></div>
+       <div class="profile-name d-none"><%=user.username%></div>
          <div class="profile-badge"><a href="profile/<%=user.id%>"></a></div>
      </div>
      </li>
@@ -124,6 +124,7 @@
            <div class="profile-content">
              <div class="profile-name">login<a href="/login"></a></div>
              <% }%>
+         
      </ul>
    
            </div>
