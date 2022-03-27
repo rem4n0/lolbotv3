@@ -147,8 +147,11 @@
   
   <ul class="list2">
     
-    <li> <a href="/profile/<%= user.id%>">PROFILE</a></li> 
-  </ul>
+    <li class="dropdown-item"> <a href="/profile/<%= user.id%>">Profile</a></li> 
+    <% if(user.id === config.server.role.administrator || config.server.role.moderator || config.owners){%>
+      <li class="dropdown-item"><a href="/admin">Admin Panel</a></li>
+      <% }%>
+      </ul>
     </div>
       <% } %>
     <div class="home-content">
