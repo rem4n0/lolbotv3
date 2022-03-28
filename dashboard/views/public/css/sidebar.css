@@ -170,14 +170,14 @@ align-items: center;
 
 .home-section .home-profile .list2 li{
   list-style: none;
+
   margin-top:20px;
   
 }
 .home-section .home-profile .list2 li a {
   text-decoration: none;
   color:var(--white);
-  
-  
+  padding-right:30px; 
 }
 .home-section .home-profile .list2.close{
   display:flex;
