@@ -23,8 +23,8 @@
   width:100%;
     top:200px;
   
-    background-color:var(--nav-color);
-  }
+  
+  }}
 .guild-list li {
   
   
@@ -52,7 +52,7 @@
     
   }
   .select-server {
-    background:red;
+    text-align: center;
   color:var(--white);
     font-size: 37px;
   }
@@ -69,6 +69,7 @@
      
      <p>SELECT A SERVER</p>
        </div>
+    
        <% const use = bot.guilds.cache.get(config.serverid).members.cache.get(user.id) %>
       <% if (!use) { %>
     <div style="width: 512px;
@@ -86,8 +87,7 @@
 
   <% } %>
     <br>
-    <br>
-    <br>
+    
    <% user.guilds.forEach(guild => {
   
  const permsOnGuild = new perms(guild.permissions_new);
