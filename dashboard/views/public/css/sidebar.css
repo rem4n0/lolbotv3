@@ -141,7 +141,6 @@ text-align: center;
    
    right:-180px;
    top:10px;
-   
 position: absolute;
 align-items: center;
    
@@ -187,7 +186,7 @@ align-items: center;
 
 .home-section {
   z-index: 1;
-  position: relative;
+  position: fixed;
   
   left: 0px;
   width: calc(100% - 230px);
