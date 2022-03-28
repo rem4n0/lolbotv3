@@ -1,5 +1,8 @@
 <%- include ('./meta.ejs')%>
-
+<style>
+  
+  
+  </style>
   <div class="sidebar">
   <div class="logo-detail">
   <br>
@@ -108,6 +111,7 @@
      </div>
     <% if(user){%>
 <div class="home-profile">
+  <i class="status-circle fad fa-circle status-online"></i>
   <img class="buttonimg" src="https://cdn.discordapp.com/avatars/<%= user.id%>/<%= user.avatar%>"/>
   
   <ul class="list2">
