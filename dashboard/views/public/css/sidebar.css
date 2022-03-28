@@ -16,7 +16,7 @@
   left: 0;
   width: 240px;
   height: 100%;
-  display: block;
+  display: none;
   position: fixed;
   background: var(--nav-color);
 }
