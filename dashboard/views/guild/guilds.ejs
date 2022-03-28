@@ -10,10 +10,14 @@
   }*/
   .guild-list li .btn{
     border:none;
-    
+    right:80px;
+    position: absolute;
     margin-top:10px;
   }
-  .guild-list
+  .guild-list li img{
+    position: absolute;
+    left:50px;
+    
   }
   .guild-list{
   width:100%;
@@ -34,17 +38,14 @@
   .guild-list li img{
   
     margin-top:10px;
-    margin-right:450px;
     width: 52px;
     height:52px;
     object-cover: center;
     border-radius:50%;
   }
   .guild-list li .btn {
-    margin-top:-80px;
-    margin-left:80px;
-    border:none;
-    position: relative;
+    margin-left:180px;
+    border:none
   
     
     
@@ -84,6 +85,9 @@
     </div>
 
   <% } %>
+    <br>
+    <br>
+    <br>
    <% user.guilds.forEach(guild => {
   
  const permsOnGuild = new perms(guild.permissions_new);
