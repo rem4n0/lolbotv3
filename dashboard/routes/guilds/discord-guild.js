@@ -12,7 +12,7 @@ const flags = [
 	
 ];
 app.get("/dashboard/guild", global.checkAuth, async (req,res) => {
-  
+  const member = bot.users.fetch(req.user.id).then(async (a)=>{
   
   
   
@@ -26,11 +26,12 @@ app.get("/dashboard/guild", global.checkAuth, async (req,res) => {
         req: req,
       flag:flags,
       res:res,
+      member:a,
         perms: Discord.Permissions,
         guildID: req.params.guildID,
 
 	})
   
 })
-
+  })
 module.exports = app;
