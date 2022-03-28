@@ -111,19 +111,18 @@ text-align: center;
 left:0;
   position: relative;
   display: none;
-  width: 100%;
+  
   border-radius:4%;
   background: var(--navlist-color);
 
 }
 .sidebar .nav-list li .sub-menu li{
-  
+  width:100%;
   position: relative;
-  left:0;
-  
+left:-30px;
 }
 .sidebar .nav-list li .sub-menu a {
-margin-left:-20px;
+text-align: center;
   color: var(--white);
 /*padding-left:30px;*/
   font-size: 18px;
