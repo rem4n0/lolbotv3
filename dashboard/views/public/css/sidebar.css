@@ -16,7 +16,7 @@
   left: 0;
   width: 240px;
   height: 100%;
-  display: none;
+  display: block;
   position: fixed;
   background: var(--nav-color);
 }
@@ -188,6 +188,7 @@ align-items: center;
 .home-section {
   z-index: 1;
   position: relative;
+  
   left: 0px;
   width: calc(100% - 230px);
 
@@ -197,7 +198,7 @@ align-items: center;
 
 .home-section .home-content {
   position: absolute;
-  display: flex;
+  display:flex;
   height: 60px;
   align-items: center;
 }
