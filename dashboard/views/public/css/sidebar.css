@@ -108,12 +108,19 @@ margin-left:140px;
 .sidebar .nav-list li .sub-menu {
  /* padding-left: 80px;*/
 text-align: center;
-
+left:0;
+  position: relative;
   display: none;
   width: 100%;
   border-radius:4%;
   background: var(--navlist-color);
 
+}
+.sidebar .nav-list li .sub-menu li{
+  
+  position: relative;
+  left:0;
+  
 }
 .sidebar .nav-list li .sub-menu a {
 
