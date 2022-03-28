@@ -138,6 +138,10 @@ text-align: center;
 }
 
  .home-section .home-profile {
+   
+   right:-180px;
+   top:10px;
+   
 position: absolute;
 align-items: center;
    
@@ -151,13 +155,14 @@ align-items: center;
   
 }
  .home-section .home-profile .list2{
+   width:100%;
 
    background:var(--nav-color);
   font-size: 15px;
   display:none;
   color: var(--white);
   position:fixed;
-   
+   left:0;
    height:60px;
    
    
@@ -242,7 +247,7 @@ align-items: center;
 
   margin-top: 7px;
   border-radius: 50%;
-}
+}/*
 
 .sidebar.guild .nav-list .list li a img {
   width: 70px;
@@ -250,10 +255,10 @@ align-items: center;
   margin-left: -20px;
   margin-top: 0px;
   border-radius: 50%;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%); 
   filter: grayscale(100%);
   transition: all 0.5s ease;
-}
+}*//*
 
 .sidebar.guild .nav-list .list li a:hover img {
   --webkit-filter: none;
