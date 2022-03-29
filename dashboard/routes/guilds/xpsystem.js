@@ -37,7 +37,7 @@ app.post(
           {
             $set: {
               "xp.channel": rbody["channel"],
-              "xp.message": rbody["xpmessage"],
+              "xp.message": rbody.xpmessage,
               "xp.max": rbody["max"],
               "xp.min": rbody["min"],
             },
