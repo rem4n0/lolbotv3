@@ -10,15 +10,16 @@
       }
       .guild-img img{
         position: relative;
-        width:300px;
+        width:130px;
         object-fit: cover;
         margin-left:30px;
-        height:100px;
+        height:130px;
       }
   </style>
   <div class="sidebar">
   <div class="logo-detail">
     <br>
+    </div>
     <br>
  <div class="nav-list">
    <ul class="list">
@@ -112,44 +113,10 @@
         
      </li>
 <br>
-        <% if(user){%>
- <% if(user.id === config.server.role.adminstrator || config.server.role.moderator || "768944616724103170"){%>
-     
-<li>
-  <div class="admin">
-    <a href="/admin">
-      <i class="fas fa-tools"></i>
-      <span class="link_name">Admin</span>
-    </a>
-  </div>
-     </li>
-     <% } %>
-       <% }%>
-        
-<br.
-
-   <% if(user){%>
-   
-   <li>
-
-   <div class="profile-detail">
-    
-   
-       <div class="profile-content">
-      
-         <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png"/>
        </div>
-       <div class="profile-name"><%=user.username%></div>
-         <div class="profile-badge"></div>
-     </div>
-     </li>
-     <% }%>
-     </ul>
-   
-           </div>
+       </ul>
          </div>
-         </div>
-  
+         
    
    
     
@@ -158,6 +125,21 @@
     <div class="home-img">
       <a href="/"> <img src="<%=bot.user.displayAvatarURL()%>"/></a>
     </div>
+        <% if(user){%>
+<div class="home-profile">
+  <i class="status-circle fad fa-circle status-online"></i>
+  <img class="buttonimg" src="https://cdn.discordapp.com/avatars/<%= user.id%>/<%= user.avatar%>"/>
+  
+  <ul class="list2">
+    
+    <li><i class="fa-solid fa-address-card"></i> <a href="/profile/<%= user.id%>">PROFILE</a></li>
+    <% if(user.id === config.owners || config.server.role.moderator || config.server.role.moderator){%>
+      <li><i class="fa-solid fa-gear"></i><a href="/admin">ADMIN</a></li>
+      <% }%>
+      </ul>
+    </div>
+      <% } %>
+
     <div class="home-content">
       
       <span class="text"><i class="fa-solid fa-bars"></i></span>
@@ -167,16 +149,7 @@
        </div>
   
 <script>
-  let arrow = document.querySelectorAll(".link_name")
   
-  for(i=0; i < arrow.length;i++){
-    arrow[i].addEventListener("click",(e)=>{
-      let target = e.target.parentElement.parentElement.parentElement;
-      
-      target.classList.toggle("showMenu")
-    })
-    
-  }
   let sidebar= document.querySelector(".sidebar");
   let sidebarBtn= document.querySelector(".text");
   sidebarBtn.addEventListener('click',()=>{
@@ -185,7 +158,13 @@
    // console.log(sidebar);
   })
   
- 
+ let profile = document.querySelector(".list2");
+let profilebtn = document.querySelector(".buttonimg");
+  profilebtn.addEventListener('click',()=>{
+    profile.classList.toggle("close");
+  })
+  
+
 </script>
 
   
