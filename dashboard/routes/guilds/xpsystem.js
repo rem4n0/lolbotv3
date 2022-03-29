@@ -30,19 +30,20 @@ app.post(
     let rbody = req.body;
   let r = rbody["onoff"]=== "true";
     console.log(r);
-   if (Object.prototype.hasOwnProperty.call(rbody, "btnSubmit")) {
+   if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
     
         await Guild.findOneAndUpdate(
-          { guildID: guild.id },
+          { guildID: req.params.guildID },
           {
             $set: {
               "xp.channel": rbody["channel"],
-              "xp.message": rbody["message"],
+            //  "xp.message": rbody["message"],
               "xp.max": rbody["max"],
               "xp.min": rbody["min"],
             },
           }
         );
+return res.send({ success:true, message:"successfully"});
       }
   
     let data = await Guild.findOne({ guildID: req.params.guildID });

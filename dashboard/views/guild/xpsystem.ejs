@@ -42,7 +42,7 @@
   <label> TEXT LEVELING UP CHANNEL<span style="color: rgb(175, 22, 22)">*</span></label>
    
      <br>
-<select class="xpchannel" name ="xpchannel" id="xpchannel">
+<select class="custom-select" name ="xpchannel" id="xpchannel">
   <option></option>
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
@@ -85,10 +85,10 @@
                                           <label> XP POINTS  <span style="color: rgb(175, 22, 22)">*</span></label>
            <br>   <br>
                              <label for="max">Maximum Point </label>                                     
-  <input type="number" name="max" value="" id="max" />
+  <input type="number" name="max" value="" id="max" placeholder="<%= data.xp.max%>"/>
                              <label for="min">Minimum Points</label>
    
-   <input type="number" name="min" value="" id="min" />
+   <input type="number" name="min" value="" id="min" placeholder="<%= data.xp.min%>"/>
   
                                           
    
@@ -166,9 +166,9 @@ $("#myButton").attr("disabled", true);
 
     setTimeout(() => {
       
-        $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
+        $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
         channel:$('#xpchannel').val(),
-          message:$('#xpmessage').val(),
+        
           max:$('#max').val(),
           min:$('#min').val(),
         
