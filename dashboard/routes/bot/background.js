@@ -23,7 +23,7 @@ app.get(
 app.post( "/bgs",
   global.checkAuth,
   async (req, res) => {
-    let { image, price} = req.body;
+    let rbody = req.body;
 
 let user = bot.users.cache.get(req.user.id);
     let data = await User.findOne({ userID:user.id });
@@ -33,8 +33,8 @@ let user = bot.users.cache.get(req.user.id);
   
    data.inventory.push({
      
-     id:image,
-     amount: price
+     id:rbody["id"],
+    
    })
 data.save();
   /*  await User.findOneAndUpdate(
