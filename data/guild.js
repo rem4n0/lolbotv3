@@ -11,6 +11,7 @@ const schema = mongoose.Schema({
   xp: {
     onoff: { type: String, default: "on" },
     message: {type:String, default: "Congratulations {user}, your leveled up to {level}!!"},
+    channel:{type:String, default: null},
     max:{type: Number, default: 3},
     min:{type: Number, default:1},
   },

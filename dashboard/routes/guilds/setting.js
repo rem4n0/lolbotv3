@@ -46,7 +46,6 @@ app.post(
       {
         $set: {
           prefix: rbody["prefix"],
-          "xp.onoff": rbody["onoff"],
         },
       }
     );

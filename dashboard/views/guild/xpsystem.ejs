@@ -28,8 +28,12 @@
   <% guild.channels.cache.map((channel)=>{ %>
 <% if(channel.type === "GUILD_CATEGORY")return;%>
   <% if(channel.type ==="GUILD_VOICE") return;%>
-    
-    <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% if(data.xp.channel){%>
+    <option value="<%= guild.channels.cache.get(data.xp.channel).id %>"><%=guild.channels.cache.get(data.xp.channel).name%></option>
+    <% } else{%>
+      <option value="<%= channel.id%>">#<%=channel.name%></option>
+        <% }%>
+                     
     <% }) %>
       </select>
     </div>
@@ -101,9 +105,11 @@ $("#myButton").attr("disabled", true);
 
    
         $.post('/dashboard/guild/<%=guild.id%>/setting',{
-                onoff:$('#xp').val(),
-                prefix:$('#prefix').val(),
-                
+                onoff:
+                message:$('#xpmessage').val(),
+                 max: $('#max').val(),
+                  min:$('#min').val(),
+          
                 
         
     }).done(function(data){
