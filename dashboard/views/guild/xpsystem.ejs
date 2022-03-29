@@ -78,8 +78,8 @@
     </div>
     
     
-    
-    <textarea name="xpmessage" id="xpmessage"></textarea>
+   
+    <input name="xpmessage" id="xpmessage"></input>
   </div>       <br><br><br><br><br><br><br>     
                          <div class="form-group">
                                           <label> XP POINTS  <span style="color: rgb(175, 22, 22)">*</span></label>
@@ -168,6 +168,7 @@ $("#myButton").attr("disabled", true);
       
         $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
         channel:$('#xpchannel').val(),
+          message: $('#xpmessage').val(),
           max:$('#max').val(),
           min:$('#min').val(),
         
