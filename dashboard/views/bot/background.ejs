@@ -88,22 +88,29 @@
         
         <script>
           
-          
-  
-  let toast = document.querySelector(".toast");
-let imgbtn = document.querySelecotor(".img");
-         imgbtn.addEventListner('click',()=>{
-           toast.classList.toggle('show');
-    
-    
-    
-  })
+        
           function oneClick(){
             $.post("/bgs",{
-              imgid: $('#imgid').val(),
-            }) setTimeout(()=>{ },2000)};
+             imgid:$('#imageid').val(),
+            }).done(function (data){
               
-            
+            Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})})}
             
             
         </script>
