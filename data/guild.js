@@ -9,7 +9,7 @@ const schema = mongoose.Schema({
     default: false
   },
   xp: {
-    onoff: { type: String, default: "on" },
+    onoff: { type: Boolean, default: true},
     message: {type:String, default: "Congratulations {user}, your leveled up to {level}!!"},
     channel:{type:String, default: null},
     max:{type: Number, default: 3},
@@ -20,9 +20,7 @@ const schema = mongoose.Schema({
 
   
   
-  channels:{
-    xp:{type: String, default:null}
-  },
+
   
   plugins: { type: Object, default: { // Plugins data
   welcome: {

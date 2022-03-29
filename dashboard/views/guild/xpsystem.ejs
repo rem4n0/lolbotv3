@@ -20,7 +20,7 @@
                 <div class="form-group d-flex">
        <label><h4 class="head">LEVELING</h4></label>
      <div class="form-check form-switch">
-       <% if(data.xp.onoff ==="on"){ %>
+       <% if(data.xp.onoff){ %>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
          <% } else{%>
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
@@ -88,13 +88,15 @@
           <br>
                              <br>
               </div>        
-      </div>
-      </div>  
+    
+     
       <br><br>      
-      <br/>
-   
       
       <button type="submit"id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
+   
+      </div>  
+      
+      </div>
     </div>
     
   </form>
@@ -119,7 +121,7 @@ if(checkbox.checked){
     document.getElementById("hama").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
-        onoff:"on",
+        onoff:true,
       
       })
       
@@ -128,7 +130,7 @@ if(checkbox.checked){
       
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
-        onoff:"off",
+        onoff:false,
       
         
       })
@@ -148,7 +150,7 @@ $("#myButton").attr("disabled", true);
 
    
         $.post('/dashboard/guild/<%=guild.id%>/setting',{
-                onoff:"on",
+                onoff:true,
                 message:$('#xpmessage').val(),
                  max: $('#max').val(),
                   min:$('#min').val(),
