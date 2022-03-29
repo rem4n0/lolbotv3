@@ -1,14 +1,11 @@
 <%- include ('./meta.ejs')%>
 <style>
 
- .status-circle{
-   background:var(--navlist-color);
-   
-  }
+ 
   .status-online{
     
     color:green;
-    background:green;
+    
   }
   </style>
   <div class="sidebar">
@@ -46,7 +43,7 @@
              
          <li> <a href="/bgs">Backgrounds</a></li>
              <li> <a href="/dashboard">Overview</a></li>
-             <li class="dropdown-item"> <a href="/dashboard/guild">Guilds</a></li>
+             <li> <a href="/dashboard/guild">Guilds</a></li>
           
        </ul>
 
@@ -124,7 +121,7 @@
      </div>
     <% if(user){%>
 <div class="home-profile">
-  <i class="status-circle fad fa-circle status-<%=member.presence%>"></i>
+  <i class="status-circle fad fa-circle status-online"></i>
   <img class="buttonimg" src="https://cdn.discordapp.com/avatars/<%= user.id%>/<%= user.avatar%>"/>
   
   <ul class="list2">
