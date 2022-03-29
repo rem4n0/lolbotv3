@@ -28,8 +28,8 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-    if (Object.prototype.hasOwnProperty.call(rbody, "onoff")) {
-      if (rbody["message"].length > 200) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "btnSubmit")) {
+      if (rbody["xpmessage"].length > 200) {
         res.send({ error: true, message: " level message too long" });
       }
       if (rbody["max"] > 10) {
@@ -48,7 +48,7 @@ app.post(
           {
             $set: {
               "xp.channel": rbody["channel"],
-              "xp.message": rbody["message"],
+              "xp.message": rbody["xpmessage"],
               "xp.max": rbody["max"],
               "xp.min": rbody["min"],
             },
@@ -69,7 +69,7 @@ app.post(
       }
     );
 
-    return res.send({ success: true, message: "successfully" });
+    //return res.send({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
