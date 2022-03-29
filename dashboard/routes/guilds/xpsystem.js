@@ -28,21 +28,10 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-    if (Object.prototype.hasOwnProperty.call(rbody, "btnSubmit")) {
-      if (rbody["xpmessage"].length > 200) {
-        res.send({ error: true, message: " level message too long" });
-      }
-      if (rbody["max"] > 10) {
-        return res.send({
-          error: true,
-          message: " maximum of xp point should less than 10",
-        });
-      }
-      if (rbody["min"] > 5) {
-        return res.send({
-          error: true,
-          message: " minimum xp points should less than 5",
-        });
+  let r = rbody["onoff"]=== "true";
+    console.log(r);
+   if (Object.prototype.hasOwnProperty.call(rbody, "xpmessage")) {
+    
         await Guild.findOneAndUpdate(
           { guildID: guild.id },
           {
@@ -55,12 +44,12 @@ app.post(
           }
         );
       }
-    }
-    let data = await Guild.findOne({ guildID: guild.id });
+  
+    let data = await Guild.findOne({ guildID: req.params.guildID });
 
     await Guild.findOneAndUpdate(
       {
-        guildID: guild.id,
+        guildID: req.params.guildID,
       },
       {
         $set: {
