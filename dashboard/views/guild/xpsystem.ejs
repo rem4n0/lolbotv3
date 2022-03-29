@@ -1,38 +1,44 @@
 <%- include ("../parts/sidebarguild",{bot,user}) %>
 
-  
 <br>
+
   <br>
-   <div class="container">
+  
+  
+  
+  <div class="container">
 <div class="container contact-form">
 <div class="contact-image">
       <i></i>
   </div>
-  
-
 
   
-  <form method="POST">
+  <form method="POST" >
   
       
      <div class="row">
-          <div class="col-md-6">
-                <div class="form-group d-flex">
+         <div class="col-md-6">
+            
+      <br><br>      
+      <br/>
+   
+      
+    
+       <br>
+     <div class="form-group d-flex">
        <label><h4 class="head">LEVELING</h4></label>
      <div class="form-check form-switch">
-       <% if(data.xp.onoff){ %>
+       <% if(data.xp.onoff){%>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-         <% } else{ %>
+         <% } else{%>
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-           <% } %>
+           <% }%>
   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
 </div>      
            </div>
-   
-              <br><br>
+      <hr>
          <div id="hama">
-           
-       <div class="form-group">
+     <div class="form-group" >
   <label> TEXT LEVELING UP CHANNEL<span style="color: rgb(175, 22, 22)">*</span></label>
    
      <br>
@@ -90,74 +96,86 @@
                              <br>
               </div>        
     
-     
-      <br>
-      
-      <button type="submit"id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-   
-      </div>  
-      
       </div>
+                        
+     
+     <br>
+                            <br>
+                            
+      
+               <button type="submit" onclick="clickAdd()" id="myButton" class="btn btn-primary"><i class="fal fa-paper-plane"></i> Apply</button>
     </div>
-    
+             </div>
   </form>
   
-
+    
 </div>
-  </div>
-
+  
+             </div>
+<br><br>
+  
   
       <script>
-    document.addEventListener('DOMContentLoaded', function () {
+      
+   document.addEventListener('DOMContentLoaded', function () {
   var checkbox = document.querySelector('input[type="checkbox"]');
 if(checkbox.checked){
-
+  
   document.getElementById("hama").style.display ="block";
 }else{ 
   document.getElementById("hama").style.display ="none";
 };
   checkbox.addEventListener('change', function () {
+
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
         onoff:true,
-      
+    
       })
       
       // do this
+      console.log('Checked');
     } else {
       
   document.getElementById("hama").style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
-        onoff:false,
-      
+        onoff: false,
+        
         
       })
       // do that
+      console.log('Not checked');
     }
   });
 }); 
         
- 
-         
-    function clickOnAdd() {
-    
+        
+        
+        
+        
+        
+        
+      function clickAdd() {
+       
+        
+
 $("#myButton").attr("disabled", true);
-    $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
+ $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-
-   
+      
         $.post('/dashboard/guild/<%=guild.id%>/xpsystem',{
-                onoff:true,
-          
-                 max: $('#max').val(),
-                  min:$('#min').val(),
-          channel:$('#xpchannel').val(),
-                
+        channel:$('#xpchannel').val(),
+          message:$('#xpmessage').val(),
+          max:$('#max').val(),
+          min:$('#min').val(),
         
-    }).done(function(data){
+        onoff: true,
+          
+        }).done(function(data){
+        
                 
                 
                 
@@ -181,7 +199,6 @@ Toast.fire({
   footer: `<%=guild.name%>` + '<br>' + 'BoBo Dashboard',
   
 })
-                  
   $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;    
@@ -203,7 +220,7 @@ Toast.fire({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 })
-document.getElement
+
       
   Toast.fire({
   icon: 'success',
@@ -212,17 +229,22 @@ document.getElement
   footer:`<%=guild.name%>` + 'BoBo Dashboard',
     
   })
+
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
+                      
+      
+      
     
+    }});
+     },2000)
+
     }
-              });}2000)
-    }
- 
+
         
+       
         
-    
-        
+
    </script>
 <%- include("../parts/foot.ejs")%>

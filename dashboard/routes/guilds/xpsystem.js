@@ -30,14 +30,14 @@ app.post(
     let rbody = req.body;
   let r = rbody["onoff"]=== "true";
     console.log(r);
-   if (Object.prototype.hasOwnProperty.call(rbody, "xpmessage")) {
+   if (Object.prototype.hasOwnProperty.call(rbody, "btnSubmit")) {
     
         await Guild.findOneAndUpdate(
           { guildID: guild.id },
           {
             $set: {
               "xp.channel": rbody["channel"],
-              "xp.message": rbody["xpmessage"],
+              "xp.message": rbody["message"],
               "xp.max": rbody["max"],
               "xp.min": rbody["min"],
             },
