@@ -64,22 +64,12 @@
         </div>
                               
 
-   <img class="img" onclick="oneClick();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>" value="<%= item.id %>" id="imageid"/>
+   <img  onclick="oneClick();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" value="<%= item.id %>" id="imageid"/>
       
    <% } ) %>
      
      
-     <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
-  <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
-    <strong class="me-auto">Bootstrap</strong>
-    <small>11 mins ago</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-  <div class="toast-body">
-    Hello, world! This is a toast message.
-  </div>
-</div>
+
      </div>
       </div>
           </form>
@@ -89,8 +79,7 @@
         <script>
           
         
-          function oneClick(data) {
-          alert('hama')
+          function oneClick() {
               
             Swal.fire({
   title: 'Are you sure?',
