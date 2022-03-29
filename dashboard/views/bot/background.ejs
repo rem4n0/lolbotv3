@@ -50,7 +50,7 @@
     
   </style>
   <div class="container">
-    <form method="POST">
+    <form method="post">
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
   
@@ -64,7 +64,7 @@
         </div>
                               
 
-   <img  onclick="oneClick();" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" value="<%= item.id %>" id="imageid"/>
+   <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" value="<%= item.id %>" id="img">
       
    <% } ) %>
      
@@ -79,8 +79,11 @@
         <script>
           
         
-          function oneClick() {
-              
+  let m= document.getElementById('img');
+          console.log(m);
+  m.addEventListener('click', function (){
+       alert('ih');  
+
             Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
@@ -101,7 +104,7 @@
     )}, 2000 )
     
   }
-})}
+})})
             
             
         </script>
