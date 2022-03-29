@@ -50,10 +50,10 @@
     
   </style>
   <div class="container">
-    <form method="post">
+    
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  
+  <form method="POST">
         <% market.forEach((item)=>{ %>
     
         
@@ -64,25 +64,21 @@
         </div>
                               
 
-   <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" value="<%= item.id %>" id="img">
+   <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
       
    <% } ) %>
      
      
-
+     </form>
      </div>
       </div>
-          </form>
+        
      </div>
         
         
-        <script>
-          
-        
-  let m= document.getElementById('img');
-          console.log(m);
-  m.addEventListener('click', function (){
-      
+   <script>          
+      alert('hh')  
+  $("img").click(function() {
             Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
@@ -104,10 +100,6 @@
     
   }
 })})
-            
-            
-        </script>
-  
-  
+        </script>   
   
   <%- include ('../parts/foot')%>
