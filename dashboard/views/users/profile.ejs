@@ -44,6 +44,9 @@
     
     
   }
+  .container .table td{
+    border:none;
+  }
   
   .container .table .table-striped th{
     color: var(--white);
@@ -68,6 +71,7 @@
     
   }
   
+
   
   
   </style>
@@ -85,9 +89,6 @@
       
        <div class="column is-6">
           <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.presence%>"></i></p>
-           <div class="user-badges">
-             <span>&nbsp;<img src="<%= data.data.badge%>" style="width:40px;height:40px;"/></span>
-               </div>
             </div>
             
             <table class="table table-sm">
@@ -99,7 +100,7 @@
               <tr>
                 <th scope="col">BALANCE</th>
                 <th scope="col">BIO</th>
-              
+                <th scope="col">badge</th>
               </tr>
               </thead>
               <tbody class="table-body">
@@ -107,6 +108,7 @@
                 
                 <td>$<%=data.money.toLocaleString()%></td>
                 <td><%=data.info%></td>
+                  <td><img src="<%= data.data.badge%>" style="height:80px; width:80px; border-radius:40%;"></td>
                 </tr>
                 </tbdoy>
             
@@ -151,9 +153,7 @@
             </div>
         </div>
         </div>
-            </div>
-          
-
+        </div>
   
   
   
