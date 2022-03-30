@@ -96,7 +96,20 @@ input[type="text"]:disabled {
   </div>
   <input type="text" class="form-control" value="<%= data.website %>" name="website" id="website" aria-describedby="basic-addon3">
 </div>
+  <br>
+  <br>
   
+     <div class="form-group">
+  <select>
+          <% _.chunk(data.inventory,25).map((chunk,i,o)=>{
+        chunk.sort((A,B)=>A.id - B.id).map(d=>{
+        const item = market.find(x=> x.id== d.id);%>
+
+    
+    <option style="background-image: url(<%=item.assets.link%>);">#hh</option>
+            <% }) })%>
+  </select>
+                   </div>
 
 <label for="basic-url"><i class="fad fa-text"></i> Biography (Optional)</label>
 <div class="input-group mb-3">
