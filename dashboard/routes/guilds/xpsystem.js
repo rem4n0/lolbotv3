@@ -30,6 +30,8 @@ app.post(
     let rbody = req.body;
   let r = rbody["onoff"]=== "true";
     console.log(r);
+    let d =rbody["xpmessage"];
+    console.log(d);
    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
     
         await Guild.findOneAndUpdate(
