@@ -40,8 +40,8 @@ app.post(
             
               "xp.channel": rbody["channel"],
               "xp.message": rbody['message'],
-              "xp.max": rbody["max"],
-              "xp.min": rbody["min"],
+         /*     "xp.max": rbody["max"],
+              "xp.min": rbody["min"],*/
             },
           }
         );
