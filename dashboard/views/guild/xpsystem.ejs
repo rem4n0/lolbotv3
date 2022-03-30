@@ -151,14 +151,14 @@ if(checkbox.checked){
       console.log('Not checked');
     }
   });
-}); 
+});
         
         
         
         
         
         
-      /*
+    
       function clickAdd() {
        
         
@@ -171,20 +171,14 @@ $("#myButton").attr("disabled", true);
         $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
         channel:$('#xpchannel').val(),
           max:$('#max').val(),
-          message:$('#xpmessage').name(),
+          message:$('#xpmessage').val(),
           min:$('#min').val(),
         
         onoff: true,
           
-        }).done(function(data){*/
-        /*
-        var urlParams = new URLSearchParams(window.location.search);
-    if(urlParams.has('error') && urlParams.get('error')){
+        }).done(function(data){       
                 
-                
-                
-                
-            
+            if(data.error){
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -210,9 +204,7 @@ Toast.fire({
     
     
     
-    }
-    if(urlParams.has('success') && urlParams.get('success')){ 
-  
+    }else{
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -239,37 +231,10 @@ Toast.fire({
                     return;
       
     
-    }}
+    }})}, 2000)}
 
         
-       */
-        
-      var urlParams = new URLSearchParams(window.location.search);
-    if(urlParams.has('success') && urlParams.get('success')){
-    Swal.fire({
-     icon: 'success',
-     title: 'Succesfull...',
-     closeOnConfirm: false,
-     text: urlParams.get('message'),
-     footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = `/dashboard/guild/<%= guild.id%>/xpsystem`;
-      }
-    })
-    }
-    if(urlParams.has('error') && urlParams.get('error')){
-    Swal.fire({
-     icon: 'error',
-     title: 'Oops...',
-     text: urlParams.get('message'),
-     footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = '/dashboard/guild/<%= guild.id%>/xpsystem';
-      }    
-    })
-    }  
+
 
    </script>
 <%- include("../parts/foot.ejs")%>

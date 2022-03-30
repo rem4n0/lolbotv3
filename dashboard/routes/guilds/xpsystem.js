@@ -1,6 +1,6 @@
 const app = require("express").Router();
 const path = require("path");
-console.log("settingrouter loaded");
+console.log("setting  router loaded");
 app.get(
   "/dashboard/guild/:guildID/xpsystem",
   global.checkAuth,
@@ -38,15 +38,15 @@ app.post(
           { guildID: req.params.guildID },
           {
             $set: {
-              "xp.onoff": true,
+            
               "xp.channel": rbody["channel"],
-              "xp.message": rbody['xpmessage'],
+              "xp.message": rbody['message'],
               "xp.max": rbody["max"],
               "xp.min": rbody["min"],
             },
           }
         );
-return res.redirect({ success:true, message:"successfully"});
+return res.send({ success:true, message:"successfully"});
       }
   
     let data = await Guild.findOne({ guildID: req.params.guildID });
