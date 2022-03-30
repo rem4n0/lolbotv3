@@ -36,7 +36,11 @@ app.post(
     if (rbody["prefix"].length > 5) {
       return res.send({ error: true, message: "you can't add up 5 words" });
     }
-
+if(!rbody["prefix"]){ res.send({error:true, message:" Prefix field empty"})
+                     
+                     
+                    }else{
+    
     let data = await Guild.findOne({ guildID: guild.id });
 
     await Guild.findOneAndUpdate(
@@ -51,7 +55,7 @@ app.post(
     );
 
    return res.send({ success: true, message: "successfully" });
-  }
+  }}
 );
 
 module.exports = app;
