@@ -38,6 +38,7 @@ app.post(
           { guildID: req.params.guildID },
           {
             $set: {
+              "xp.onoff": true,
               "xp.channel": rbody["channel"],
               "xp.message": rbody['xpmessage'],
               "xp.max": rbody["max"],
@@ -45,7 +46,7 @@ app.post(
             },
           }
         );
-return res.send({ success:true, message:"successfully"});
+return res.redirect({ success:true, message:"successfully"});
       }
   
     let data = await Guild.findOne({ guildID: req.params.guildID });

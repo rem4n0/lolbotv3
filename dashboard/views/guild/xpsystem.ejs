@@ -158,7 +158,7 @@ if(checkbox.checked){
         
         
         
-        
+      /*
       function clickAdd() {
        
         
@@ -176,13 +176,15 @@ $("#myButton").attr("disabled", true);
         
         onoff: true,
           
-        }).done(function(data){
-        
+        }).done(function(data){*/
+        /*
+        var urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('error') && urlParams.get('error')){
                 
                 
                 
                 
-                if(data.error){
+            
       const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -208,8 +210,8 @@ Toast.fire({
     
     
     
-    }else{
-     
+    }
+    if(urlParams.has('success') && urlParams.get('success')){ 
   
       const Toast = Swal.mixin({
   toast: true,
@@ -235,18 +237,39 @@ Toast.fire({
             $("#myButton").html('<i class="fal fa-paper-plane"></i>&nbsp;Submit');
                     $("#myButton").attr("disabled", false);
                     return;
-                      
-      
       
     
-    }});
-     },2000)
+    }}
 
+        
+       */
+        
+      var urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('success') && urlParams.get('success')){
+    Swal.fire({
+     icon: 'success',
+     title: 'Succesfull...',
+     closeOnConfirm: false,
+     text: urlParams.get('message'),
+     footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = `/dashboard/guild/<%= guild.id%>/xpsystem`;
+      }
+    })
     }
-
-        
-       
-        
+    if(urlParams.has('error') && urlParams.get('error')){
+    Swal.fire({
+     icon: 'error',
+     title: 'Oops...',
+     text: urlParams.get('message'),
+     footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = '/dashboard/guild/<%= guild.id%>/xpsystem';
+      }    
+    })
+    }  
 
    </script>
 <%- include("../parts/foot.ejs")%>
