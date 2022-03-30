@@ -79,7 +79,7 @@
         </div>
     
   
- <textarea name="xpmessage" id="xpmessage"  style="width: 100%; height: 300px;"></textarea>       
+ <textarea id="message" class="form-control" style="width: 100%; height: 300px;"></textarea>       
         
         
    <br><br><br><br><br><br><br>     
@@ -171,7 +171,7 @@ $("#myButton").attr("disabled", true);
         $.post("/dashboard/guild/<%=guild.id%>/xpsystem",{
         channel:$('#xpchannel').val(),
           max:$('#max').val(),
-          message:$('#xpmessage').val(),
+          message:$('#message').val(),
           min:$('#min').val(),
         
         onoff: true,
