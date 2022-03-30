@@ -44,8 +44,14 @@
     
     
   }
+  .container .table th{
+    
+    
+    
+  }
   .container .table td{
     border:none;
+
   }
   
   .container .table .table-striped th{
@@ -83,12 +89,12 @@
   <div class="container px-3 px-3 mt-5 pt-5">
     <div class="columns container px-3 is-multiline">
         <div class="column is-2">
-            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-<%=member.presence%>"onerror="imgError(this);" ="" src="<%=member.displayAvatarURL({dynamic:true}) %>" style="width: 100px; border-radius: 50%;">
+            <img onerror="imgError(this);" draggable="false" class="pulse-avatar-online" onerror="imgError(this);" ="" src="<%=member.displayAvatarURL({dynamic:true}) %>" style="width: 100px; border-radius: 50%;">
         </div>
       
       
        <div class="column is-6">
-          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-<%=member.presence%>"></i></p>
+          <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= member.username %><span class="is-size-4" style="opacity: 0.7;">#<%= member.discriminator %></span>&nbsp;<i class="status-circle fad fa-circle status-online"></i></p>
             </div>
             
             <table class="table table-sm">
@@ -100,7 +106,7 @@
               <tr>
                 <th scope="col">BALANCE</th>
                 <th scope="col">BIO</th>
-                <th scope="col">badge</th>
+                <th scope="col">BADGE</th>
               </tr>
               </thead>
               <tbody class="table-body">
@@ -113,7 +119,8 @@
                 </tbdoy>
             
          </table>
-            
+      <a class="btn btn-warning" href="/profile/<%= user.id%>/edit">Edit profile</a>
+            <hr>
       <br> 
       <br>
       <br>
