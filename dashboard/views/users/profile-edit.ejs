@@ -115,15 +115,10 @@ input[type="text"]:disabled {
 </div>
 
 <br><br>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script type="text/javascript">
+<script>
 
 
-var carList = document.getElementById('hama');
-carList.addEventListener('change', changeCarImage, false)
-  
+
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
@@ -131,10 +126,10 @@ carList.addEventListener('change', changeCarImage, false)
      title: 'Successful...',
      closeOnConfirm: false,
      text: urlParams.get('message'),
-     footer: 'Copyright 2021 &copy  - All right reserved.'
+     footer: 'All right reserved.'
     }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = '/profile/<%=req.params.userID%>';
+    window.location.href = '/profile/<%=user.id%>';
   }
 })
     }
@@ -143,10 +138,10 @@ carList.addEventListener('change', changeCarImage, false)
      icon: 'error',
      title: 'Oops...',
      text: urlParams.get('message'),
-     footer: 'Copyright 2021 &copy www.kurd-botlist.cf - All right reserved.'
+     footer: 'All right reserved.'
     }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = '/profile/<%=req.params.userID%>/edit';
+    window.location.href = '/profile/<%=user.id%>/edit';
   }    
 })
     }
