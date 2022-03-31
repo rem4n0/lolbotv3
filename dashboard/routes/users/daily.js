@@ -16,16 +16,22 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
         `/error?code=404&message= I can't fetch you, you must be a user of bot then try again`
       );
     }
-    let cooldown =43200000;
+    let cooldown = 43200000;
     
     
     
     
     
-  let countdown= setInterval(function() {ms(cooldown-(Date.now()-data.time))
-                                         
-                                  var distance = coo       
-                                         
+  let countdown= setInterval(function() {
+  var now = Date.now();
+  
+  var times = cooldown - (now - data.time);
+    
+
+        var hours = Math.floor((times % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));                                 
+ 
+                                      if (< 0) {
+    clearInterval(countdown);  }},1000)
                                          
     
     
