@@ -15,8 +15,8 @@ function createID(length) {
     return result;
   }
 app.get("/admin/partners", global.checkAuth, async (req, res) => {
-    if (!config.server.role.administrator || config.server.role.moderator) return res.redirect('../admin');
-    
+    //if (!config.server.role.administrator || config.server.role.moderator) return res.redirect('../admin');
+   if (!config.owners.includes(req.user.id)) return res.redirect('../admin'); 
    const data = await Partner.find()
   
 	res.render("admin/administrator/partner.ejs", {
@@ -44,7 +44,7 @@ let data = require(`${process.cwd()}/data/partner.js`)
     let x = bot.guilds.cache.get(global.config.serverid).members.cache.get(req.body.ownerID)
     
     if (x) {
-        x.roles.add(global.config.server.partnerRole)
+        x.roles.add(global.config.server.role.partnerRole)
     }
     return res.redirect('/admin/partners?success=true&message=Partner added.')
 });
