@@ -2,24 +2,27 @@
   
   <br>
   <br>
-  
+  <h3 style="margin-left:20px;"><a class="bg-dark btn btn-danger" disabled> Some Of commands Transferred to dashboard</a></h3>
   <div class="container">
-    <table class="table">
+    <table class="table table-dark table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
     </tr>
   </thead>
   <tbody>
+    <% bot.commands.map((a)=>{%>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"></th>
+      <td><%= a.name%></td>
+      <td><%= a.category%></td>
+      <td><%= a.description%></td>
     </tr>
+      
+      <% })%><!--
     <tr>
       <th scope="row">2</th>
       <td>Jacob</td>
@@ -31,6 +34,25 @@
       <td colspan="2">Larry the Bird</td>
       <td>@twitter</td>
     </tr>
+    
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>-->
   </tbody>
 </table>
     

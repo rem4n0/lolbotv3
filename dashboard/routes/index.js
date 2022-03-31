@@ -19,9 +19,9 @@ app.get('/support',(req,res,next)=>{
   res.redirect(config.support)
   
 })
-app.get('commands',(req,res,next)=>{
-  res.render("/commands",{
-    
+app.get('/commands',(req,res,next)=>{
+  res.render("commands",{
+    user:req.isAuthenticated() ? req.user:null,
     req:req,
     bot:bot,
   })
