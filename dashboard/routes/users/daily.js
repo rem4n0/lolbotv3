@@ -17,7 +17,23 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
       );
     }
     let cooldown =43200000;
+    
+    
+    
+    
+    
+  let countdown= setInterval(function() {ms(cooldown-(Date.now()-data.time))
+                                         
+                                  var distance = coo       
+                                         
+                                         
+    
+    
+    
+    
+    
     res.render("./users/daily.ejs", {
+      countdown:countdown,
       config: config,
       support: config.support,
       data: data,

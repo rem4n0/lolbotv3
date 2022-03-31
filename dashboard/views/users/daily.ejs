@@ -44,7 +44,7 @@
          
          <h3> You Are claimed Your Daily</h3>
          <button  class="disable-button" disabled><i class="fa-solid fa-gift"></button>
-           <p id="time">fff</p>
+           <p id="time"><%= countdown%></p>
            </div>
          <% }else{%>
        <div class="form-group">
@@ -98,6 +98,7 @@ var urlParams = new URLSearchParams(window.location.search);
         window.location.href = '/daily';
       }
     })}
+    /*
     
     // Set the date we're counting down to
 var countDownDate = "<%= data.time%>"// new Date(data.time).getTime();
@@ -129,7 +130,7 @@ var x = setInterval(function() {
 }, 1000);
     
     
-    
+    */
 </script>
   
   
