@@ -32,6 +32,7 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
 
 
 app.post("/daily", global.checkAuth, async (res,req)=>{
+  let user
  let cooldown = 0//43200000;
       let data = await User.findOne({ userID:req.params.userID });
       if(data.time !== null && cooldown - (Date.now() - data.time) > 0){return res.send({error:true, message:`wait ${ms(cooldown - (Date.now() - data.time))} to daily again`})
