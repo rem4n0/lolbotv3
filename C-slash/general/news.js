@@ -8,10 +8,9 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
 name:"news",
 description:"all news about me",
-  enabled: true,			    
+  enabled: false,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
-  enabled:true,
   category:["general"],
   ownerOnly: false,			
   cooldown: 10000,

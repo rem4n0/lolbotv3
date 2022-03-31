@@ -210,7 +210,7 @@ module.exports = {
     ctx.fillText(doc.data.reps.received, canvas.width - 30, 50, 120);
 ctx.shadowOffsetY = 0;
     // reset shadow
-    if (badge) {
+
     ctx.beginPath();
     ctx.moveTo(800, 0);
     ctx.lineTo(575, 10);
@@ -223,6 +223,7 @@ ctx.shadowOffsetY = 0;
     ctx.fill();
 
       ctx.shadowOffsetY = 0;
+    /*
       ctx.beginPath();
       ctx.font = "bold 30px sans-serif";
       ctx.fillStyle = "rgba(255,255,255,0.8)";
@@ -234,7 +235,7 @@ ctx.shadowOffsetY = 0;
       ctx.font = "bold 40px sans-serif";
       ctx.textAlign = "center";
       ctx.drawImage(badge, 450, -30, 150, 130);
-    }
+    }*/
     // add card on left side
     // add pattern inside card
     if (defpattern) {

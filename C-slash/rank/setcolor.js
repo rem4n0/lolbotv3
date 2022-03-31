@@ -10,7 +10,7 @@ module.exports = {
       description:" put hex color code",
       required:true,
     }}],
-  enabled: true,
+  enabled: false,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   enabled: true,

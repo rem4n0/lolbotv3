@@ -34,6 +34,7 @@ module.exports = {
   cooldown: 10000,
   prime: false,
   run: async (interaction, bot, data) => {
+    interaction.reply({content:`Transfer to dashboard https://boboworld.tk/${interaction.guildId}/autrole`});
     let status = await interaction.options.getString("toggle");
     let role = await interaction.options.getRole("what_role");
 

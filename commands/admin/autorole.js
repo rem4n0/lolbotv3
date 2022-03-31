@@ -14,7 +14,7 @@ module.exports = {
   cooldown: 6000,
   run: async (bot, message, args, dev,prefix) => {
     
-  
+  message.reply({content:`
 let data = await Guild.findOneAndUpdate({guildID: message.guild.id})
 
 let role = await message.mentions.roles.first() || message.guild.roles.cache.get(args[2])

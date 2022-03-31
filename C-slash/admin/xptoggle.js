@@ -26,6 +26,8 @@ module.exports = {
   cooldown: 1000,
   prime: false,
   run: async (interaction, bot) => {
+    interaction.reply({ content:`Transfer to dashboard https://boboworld.tk/dashboard${interaction.guildId}/xpsystem`});
+    /*
     const toggle = interaction.options.getString("xp");
 const data = await Guild.findOneAndUpdate({guildID: interaction.guild.id})
     if (toggle === "on") {
@@ -42,6 +44,6 @@ const data = await Guild.findOneAndUpdate({guildID: interaction.guild.id})
       });
     }
 
-    return interaction.reply({ content: `error syntax [on,off] ` });
+    return interaction.reply({ content: `error syntax [on,off] ` });*/
   },
 };

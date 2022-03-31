@@ -13,6 +13,8 @@ module.exports = {
   cooldown: 10000,
   prime: false,
   run: async (interaction, bot) => {
+  interaction.reply({content:`Daily Command transfer to dashboard https://boboworld.tk/daily`});
+    /*
     let cooldown = 0; //43200000;
     let data = await User.findOne({ userID: interaction.user.id });
     if(!data) return;
@@ -31,10 +33,7 @@ module.exports = {
     interaction.reply({
       content: `**${interaction.user.username}** you get 💰$\`${DR}\` credits`,
     });
-    /*
-      data.time = Date.now();
-      data.name = message.author.username
-    data.money += parseInt(DR);*/
+
 
     await User.updateOne(
       {
@@ -56,6 +55,6 @@ module.exports = {
           money: DR,
         },
       }
-    );
+    );*/
   },
 };
