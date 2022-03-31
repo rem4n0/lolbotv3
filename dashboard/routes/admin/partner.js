@@ -42,6 +42,7 @@ app.post("/admin/partners", global.checkAuth, async (req, res) => {
    status:req.body["Approved"],
    backgroundUrl: req.body.background}).save()
     let x = bot.guilds.cache.get(global.config.serverid).members.cache.get(req.body.ownerID)
+    
     if (x) {
         x.roles.add(global.config.server.partnerRole)
     }

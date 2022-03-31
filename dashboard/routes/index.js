@@ -15,7 +15,7 @@ app.get("/",(req, res,next)=> {
     user:req.isAuthenticated() ? req.user : null,
   });
 }); 
-app.get('/dc',(req,res,next)=>{
+app.get('/support',(req,res,next)=>{
   res.redirect(config.support)
   
 })
