@@ -24,10 +24,10 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
   let times = cooldown - (Date.now()- data.time)
   
   //var days = Math.floor(times / (1000 * 60 * 60 * 24));
-  let d = setinterval{
+  let d = {
   h:Math.floor((times % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
   m: Math.floor((times% (1000 * 60 * 60)) / (1000 * 60)),
-  s: Math.floor((times % (1000 * 60)) / 1000),
+  s:Math.floor((times % (1000 * 60)) / 1000),
   }
   
  /// var countdown=Math.floor((hours % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))     

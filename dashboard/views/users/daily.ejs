@@ -46,12 +46,12 @@
          <button  class="disable-button" disabled><i class="fa-solid fa-gift"></button>
            
            
-           
+          
         
-           <p id="time"><%= times%></p>
+           <p id="time"><%= times.h%>H <%= times.m%>M <%=times.s%> S</p>
              
              
-        
+      
            </div>
          <% }else{%>
        <div class="form-group">
@@ -105,7 +105,19 @@ var urlParams = new URLSearchParams(window.location.search);
         window.location.href = '/daily';
       }
     })} 
-  
+  /*
+  function loadlink(){
+    $('#time').load('/',function () {
+         $(this).unwrap();
+    });
+}
+
+loadlink(); // This will run on page load
+setInterval(function(){
+    loadlink() // this will run after every 5 seconds
+}, 10000);*/
+    
+    
 </script>
   
   
