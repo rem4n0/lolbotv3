@@ -20,26 +20,20 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
     
     
     
-    
-    
-  let countdown= setInterval(function() {
-  var now = Date.now();
   
-  var times = cooldown - (now - data.time);
-    
-
-        var hours = Math.floor((times % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));                                 
+  let hours = cooldown - (Date.now()- data.time)
+  
+  var countdown=Math.floor((hours % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))     
  
-                                      if (< 0) {
-    clearInterval(countdown);  }},1000)
                                          
+  console.log(countdown);
     
     
     
     
     
     res.render("./users/daily.ejs", {
-      countdown:countdown,
+      countdown:countdowns,
       config: config,
       support: config.support,
       data: data,
@@ -50,7 +44,7 @@ cooldown:cooldown,
       bot: bot,
       user: req.isAuthenticated() ? req.user : null,
     });
-  });
+    })
 });
 
 
