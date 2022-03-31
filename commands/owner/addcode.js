@@ -5,6 +5,7 @@ var voucher_codes = require('voucher-code-generator');
 module.exports = {
   name: "addcode",
   aliases: ["addcode"],
+  category:["owner"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

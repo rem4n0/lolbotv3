@@ -7,6 +7,7 @@ module.exports = {
   name: "removemoney",
   aliases: ["removemoney","rm"],
   enabled: true,			    
+  category:["owner"],
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS" ],		
   ownerOnly: true,			

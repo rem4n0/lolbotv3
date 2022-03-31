@@ -5,6 +5,7 @@ module.exports = {
   name: "eval",
   aliases: [],
   enabled: true,			
+  category:["owner"],
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
   ownerOnly: true,			

@@ -9,6 +9,7 @@ module.exports = {
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
   ownerOnly: true,
   cooldown: 0,
+  category;["owner"],
   run: async (bot, message, args) => {
     if (message.author.id == ownerid) {
       /*if (!message.guild.me.hasPermission("SEND_MESSAGES"))

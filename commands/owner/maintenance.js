@@ -6,6 +6,7 @@
   usage: [],
   category: ["owner"],
   enabled: true,
+       category:["owner"],
   memberPermissions: [],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   ownerOnly: true,

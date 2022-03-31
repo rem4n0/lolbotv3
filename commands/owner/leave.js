@@ -9,6 +9,7 @@ module.exports = {
   memberPermissions: [ "SEND_MESSAGES" ],
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
   ownerOnly: false,
+  category:["owner"],
   cooldown: 0,
   run: async (bot, message, args) => {
     if (message.author.id == ownerid) {

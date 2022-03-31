@@ -18,6 +18,7 @@ module.exports = {
   name: "unblacklist",
   aliases: ["unblacklist","unblack"],
   enabled: true,			    
+  category
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS" ],		
   ownerOnly: true,			
