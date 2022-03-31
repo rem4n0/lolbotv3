@@ -9,11 +9,13 @@ app.get("/partners", async (req, res) => {
   
   res.render("partners.ejs", {
     bot: bot,
+    res:res,
+
     path: req.path,
     config: global.config,
     user: req.isAuthenticated() ? req.user : null,
     req: req,
-    db:Partner.find(),
+    db: await Partner.find(),
     
   });
 });
