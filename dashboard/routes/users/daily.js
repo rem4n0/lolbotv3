@@ -18,7 +18,7 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
     }
     let cooldown = 43200000;
     
-    
+  
    
   
   let times = cooldown - (Date.now()- data.time)
@@ -39,6 +39,7 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
     
     
     res.render("./users/daily.ejs", {
+      
        times:d,
       config: config,
       support: config.support,
@@ -49,8 +50,7 @@ cooldown:cooldown,
     
       bot: bot,
       user: req.isAuthenticated() ? req.user : null,
-    });
-    })
+    });})
 });
 
 
