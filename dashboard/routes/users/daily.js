@@ -16,7 +16,7 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
         `/error?code=404&message= I can't fetch you, you must be a user of bot then try again`
       );
     }
-    let cooldown = 20000//43200000;
+    let cooldown = 43200000;
     
   
    
