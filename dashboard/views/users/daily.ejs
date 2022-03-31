@@ -53,9 +53,32 @@ var urlParams = new URLSearchParams(window.location.search);
     }).then((result) => {
   if (result.isConfirmed) {
     window.location.href = `/daily`;
-  }
+  } 
+      setTimeout(()=>{
+    $("#myButton").attr("disabled", false);
+        
+        
+      }, 3000)
 })
+      
+      
+      
+      
 }
+    
+    
+  if(urlParams.has('error') && urlParams.get('error')){
+    Swal.fire({
+     icon: 'error',
+     title: 'Oops...',
+     text: urlParams.get('message'),
+     footer: ' - All right reserved.'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = '/daily';
+      }
+    })}
+    
 </script>
   
   
