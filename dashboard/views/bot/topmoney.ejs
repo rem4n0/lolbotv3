@@ -4,7 +4,7 @@
   <br>
   <br>
   <style>
-    .container .row .top-img #id{
+    .container .row .top-img #more{
       
       display:block;
       
@@ -19,7 +19,12 @@
       display:none;
       
     }
-    .container .row .top-section:hover .top-img  p{
+    .container .row .top-section .top-img #less{
+      display:none;
+      margin-left:-30px;
+      margin-top:10px;
+    }
+    .container .row .top-section:hover .top-img  #less{
       
       
       display:block;
@@ -46,10 +51,10 @@
         </div>
           <div class="top-img">
             <img src="https://imgur.com/5t6ElVi.png">
-            <% if(money >50000){ %>
-            <p id="id">$<%= money.toLocaleString()%></p>
-              <% } else{%>
-                <p id=">$<%= money.toLocaleString()%></p>
+            <% if(money < 50000){ %>
+            <p id="more">$<%= money.toLocaleString()%></p>
+              <% } else{ %>
+                <p id="less">$<%= money.toLocaleString()%></p>
                   <% }%>
           </div>
         
