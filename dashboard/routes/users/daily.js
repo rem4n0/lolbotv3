@@ -19,27 +19,27 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
     let cooldown = 43200000;
     
     
-    
+   
   
   let times = cooldown - (Date.now()- data.time)
   
   //var days = Math.floor(times / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((times % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((times% (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((times % (1000 * 60)) / 1000);
-  
+  let d = setinterval{
+  h:Math.floor((times % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+  m: Math.floor((times% (1000 * 60 * 60)) / (1000 * 60)),
+  s: Math.floor((times % (1000 * 60)) / 1000),
+  }
   
  /// var countdown=Math.floor((hours % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))     
  
                                          
-  console.log(hours, minutes ,seconds);
-    
+  console.log(d.h,d.m,d.s);
     
     
     
     
     res.render("./users/daily.ejs", {
-    times:times,
+       times:d,
       config: config,
       support: config.support,
       data: data,
