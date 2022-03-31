@@ -27,6 +27,8 @@
     <div class="row">
        <div class="form-group">
          <h3> Claim You Daily</h3>
+         
+         
        <button type="submit" id="myButton" onclick="onclick()">  <i class="fa-solid fa-gift"></i></button>
             </div>
        
@@ -38,6 +40,23 @@
     
     
   </div>
+  
+  <script>
+var urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('success') && urlParams.get('success')){
+    Swal.fire({
+     icon: 'success',
+     title: 'Successful...',
+     closeOnConfirm: false,
+     text: urlParams.get('message'),
+     footer: 'Copyright 2021 &copy  - All right reserved.'
+    }).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = `/user/<%= req.params.userID %>`;
+  }
+})
+}
+</script>
   
   
   <%- include ('../parts/foot.ejs')%>
