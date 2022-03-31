@@ -8,7 +8,7 @@ module.exports = {
   description: "C",
   usage: ["s"],
   category: ["Moderation"],
-  enabled: true,            
+  enabled: false,            
   memberPermissions: [ "SEND_MESSAGES" ],            
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],        
   ownerOnly: false,            

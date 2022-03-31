@@ -13,6 +13,8 @@ module.exports = {
   ownerOnly: false,			
   cooldown:0,
   run: async (client, message, args, dev,dev2) => {
+    message.reply({content:`tranafer to https://boboworld.tk/daily`});
+    /*
   let cooldown = 0//43200000;
       let data = await User.findOne({ userID: message.author.id });
       if(data.time !== null && cooldown - (Date.now() - data.time) > 0) return message.reply({content:` You need wait ${ms(cooldown - (Date.now() - data.time))} to daily again`})
@@ -34,7 +36,7 @@ module.exports = {
                          {
       $inc:{
         money: DR
-      }})
+      }})*/
     
     
   }};

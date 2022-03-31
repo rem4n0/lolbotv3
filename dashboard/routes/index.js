@@ -19,6 +19,13 @@ app.get('/support',(req,res,next)=>{
   res.redirect(config.support)
   
 })
+app.get('commands',(req,res,next)=>{
+  res.render("/commands",{
+    
+    req:req,
+    bot:bot,
+  })
+})
 app.get('/invite',(req,res,next)=>{
   
   res.redirect(config.invitelink)

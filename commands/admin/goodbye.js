@@ -16,15 +16,17 @@ module.exports = {
   ownerOnly: false,
   cooldown: 6000,
   run: async (bot, message, args, dev,prefix) => {
+    message.reply({content:`transfer to dashboard https://boboworld.tk/dashboard/guild/${message.guild.id}/welcome`});
+    /*
     let data = await Guild.findOneAndUpdate({guildID: message.guild.id});
-    	/*if (
+    	if (
 			args[0] === "test" &&
             data.plugins.goodbye.enabled
 		) {
 		bot.emit("guildMemberRemove", message.member);
 			return message.success("administration/goodbye:TEST_SUCCESS");
 		}
-*/
+
 		if (
 			(!args[0] || !["edit", "off"].includes(args[1])) &&
             data.plugins.goodbye.enabled
@@ -112,7 +114,7 @@ module.exports = {
 				}
 			});
 		}
-    
+    */
     
   }}
     

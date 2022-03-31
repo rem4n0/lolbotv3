@@ -8,7 +8,7 @@ module.exports = {
   description: "set welcome channel",
   usage: ["setwelcomech"],
   category: ["admin"],
-  enabled: true,
+  enabled: false,
   memberPermissions: ["MANAGE_CHANNELS","MANAGE_GUILD"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "MANAGE_CHANNELS"],
   ownerOnly: false,

@@ -8,7 +8,7 @@ module.exports = {
   description: "enabled and disabled xp system",
   usage: ["Boxp [on/off]"],
   category: ["admin"],
-  enabled: true,
+  enabled: false,
   memberPermissions: ["SEND_MESSAGES","ADMINISTRATOR"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   ownerOnly: false,

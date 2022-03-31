@@ -4,7 +4,7 @@ const profile = require(`${process.cwd()}/data/user.js`)
 module.exports = {
   name: "setcolor",
   aliases: ["setcolor"],
-  enabled: true,			    
+  enabled: false,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
   ownerOnly: false,			

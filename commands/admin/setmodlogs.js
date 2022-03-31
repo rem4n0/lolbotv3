@@ -11,6 +11,8 @@ module.exports = {
   ownerOnly: false,
   cooldown: 6000,
   run: async (bot, message, args, dev) => {
+    message.reply({content:`transfer to dashboard https://boboworld.tk/dashboard/guild/${message.guild.id}/logsystem`});
+    /*
     const data = await Guild.findOneAndUpdate({guildID: message.guild.id})
     const areModLogsEnabled = Boolean(data.plugins.modlogs);
     const sentChannel = await message.mentions.channels.first() || message.guild.channels.cache.get(args[1])/*await Resolvers.resolveChannel({
@@ -18,7 +20,6 @@ module.exports = {
       search: args.slice(1).join(" "),
       channelType: "GUILD_TEXT",
     });
-*/
     
     if (!sentChannel && areModLogsEnabled) {
       data.plugins.modlogs = null;
@@ -35,6 +36,6 @@ module.exports = {
       return message.channel.send({
         content: `Channel has been setup in **${channel.toString()}**`,
       });
-    }
+    }*/
   },
 };
