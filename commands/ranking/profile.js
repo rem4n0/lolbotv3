@@ -60,7 +60,7 @@ module.exports = {
     const defpattern = doc.attch.pattern ? await loadImage(doc.attch.pattern || "https://i.imgur.com/nx5qJUb.png"): null;
     ///const m = docawait loadImage(doc.attch.background || "https://i.imuger.com/nx5qJUb.png");
     const avatar = await loadImage(member.displayAvatarURL({ format: "png" }));
-    const badge = doc.data.badge ? await loadImage(doc.data.badge):null;
+    const badge = doc.data.badge ? *await loadImage(doc.data.badge || ""):null;
     // add the wallpaper
     ctx.drawImage(def, 300, 65, 475, 250);
     
@@ -200,7 +200,7 @@ module.exports = {
     ctx.fillText(doc.data.reps.received, canvas.width - 30, 50, 120);
 
     // reset shadow
-    if(badge){
+    
     ctx.beginPath();
     ctx.moveTo(800, 0);
     ctx.lineTo(575, 10);
@@ -223,8 +223,8 @@ module.exports = {
     ctx.beginPath();
     ctx.font = "bold 40px sans-serif";
     ctx.textAlign = "center";
-    ctx.drawImage(badge,450, -30, 150, 130);
-    }
+    ctx.drawImage(badge ,450, -30, 150, 130);
+    
     // add card on left side
     // add pattern inside card
     if(defpattern){
