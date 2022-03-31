@@ -6,6 +6,7 @@ module.exports = {
   name: "devs",
   aliases: ["ww"],
   enabled: true,			
+  category:["owner"],
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
   cooldown: 10000,
