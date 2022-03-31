@@ -6,11 +6,23 @@
   <style>
     .container .row .top-img p{
       
-      display:
+      display:block;
+      
       font-size:20px;
       margin-top:-20px;
       margin-left:-20px;
       
+    }
+    .container .row .top-section:hover .top-img img{
+      
+      display:none;
+      
+    }
+    .container .row .top-section:hover .top-img p{
+      
+      
+      display:block;
+      transition: all 1s ease;
     }
     
   </style>
@@ -32,8 +44,8 @@
           
         </div>
           <div class="top-img">
-            <img src="https://imgur.com/h1bWdKL.png">
-            <p><%= money%></p>
+            <img src="https://imgur.com/5t6ElVi.png">
+            <p><%= money.toLocaleString()%></p>
           </div>
         
         <div class="top-number">
