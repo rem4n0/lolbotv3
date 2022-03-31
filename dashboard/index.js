@@ -230,6 +230,7 @@ app.use("/", require ("./routes/bot/background.js"));
 app.use("/", require ("./routes/guilds/autorole.js"));
   app.use("/", require ("./routes/guilds/logs.js"))
   app.use("/", require("./routes/index.js"));
+  app.use("/", require("./routes/partners.js"));
   app.use("/", require("./routes/users/dashboard.js"));
   app.use("/", require("./routes/guilds/setting.js"));
   app.use("/", require("./routes/guilds/dashboard.js"));
