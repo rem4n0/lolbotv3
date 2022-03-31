@@ -31,28 +31,30 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
 });
 
 
-app.post("/daily", global.checkAuth, async (res,req)=>{
-  let user
- let cooldown = 0//43200000;
-      let data = await User.findOne({ userID:req.params.userID });
-      if(data.time !== null && cooldown - (Date.now() - data.time) > 0){return res.send({error:true, message:`wait ${ms(cooldown - (Date.now() - data.time))} to daily again`})
-                                                                       }else{  
+app.post("/daily", global.checkAuth, async (req,res)=>{
+ let user=  bot.users.cache.get(req.user.id);
+  console.log(user);
+  
+ let cooldown = 43200000;
+      let data = await User.findOne({ userID:user.id });
+  if(data.time !== null && cooldown - (Date.now() - data.time) > 0){return res.redirect(`error=true&message=wait ${ms(cooldown - (Date.now() - data.time))} to daily again`)
+                                                                   }else{
       let DR = Math.floor(Math.random() * 2000) + 1000 
     await User.updateOne({
-      userID: req.params.userID},
+      userID: user.id},
                         
                          {
       $set:{
       time: Date.now()
       }},)
     await User.updateOne({
-      userID: req.params.userID},
+      userID: user.id},
                          {
       $inc:{
         money: DR
       }})
   
-      res.send({success:true, message:"You got your daily"})
-      }
+    res.redirect(`?success=true&message=Your bot has`)
+}  
 })
 module.exports = app;
