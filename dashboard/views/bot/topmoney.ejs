@@ -10,6 +10,7 @@
       <div class="col">
         <% docs.slice(0,10).map((u,i) => {
         const h = bot.users.cache.get(u.id);
+          const money = u.money
           const rank = String(i+1);%>
           <div class="top-section">
             <div class="user-img">
@@ -22,7 +23,7 @@
         </div>
           <div class="top-img">
             <img src="https://imgur.com/h1bWdKL.png">
-            <p><%= h.money%></p>
+            <p style="color: white; font-size:37px;"><%= money%></p>
           </div>
         
         <div class="top-number">
