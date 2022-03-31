@@ -6,17 +6,24 @@
     
     .row{
     position: relative;  
-      border: 2px solid var(--nav-color);
+      border:none;
       width:100%;
       left:10px;
+
       
-      background: var(--nav-color);
+     /* background: var(--nav-color);*/
       margin-top:80px;
     }
-    .row .table{
-      
     
-      border-color: var(--nav-color);
+    .row .table{
+     /* background:var(--nav-color);*/
+    width:100%;
+      border:none;
+    }
+    .row .table th{
+  border:none;
+      
+      background:var(--nav-color);
     }
     .row .table th:hover{
       background: var(--sharabi);
@@ -53,7 +60,7 @@
             
   const rank = String(i+1);  %>
                               
-                            <tr>
+                            
 <td><span style="color:white;display: flex; align-items: center;">&nbsp;<%= members.get(u.id)?.user.tag || '<Unknown User>'%></span></td>
  <td translate="no"><span style="color:white; display: flex; align-items: center;">&nbsp;<%=rank%></span></td>
   <td><span style="color:white; display:flex; align-items: center;">&nbsp;<%=  u.data.xp.toLocaleString()%></span> </td>
@@ -61,7 +68,7 @@
 <td><span style="color:white; display: flex; align-items: center;"><%=u.data.level %></span></td>
                                <% }) %>
                                  
-                                 
+                                 <tr>
                                  
                             <%  docs.filter(x => x.id === req.user).map((u,i,a) => {
             const user = a.find(x => x.id === req.user.id);
@@ -71,16 +78,16 @@
                               <td><span style="color:white; display:flex; align-items: center;">hh<%= rank%></span></td>
                                 <% })%>
                       
-                            </tr>
+                                  </tr>
                       
                         </tbody>
                         <tfoot>
-                            <tr>
-                              
+                          
+                              <tr>
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
                                 <th class="invisible"></th>
-                            </tr>
+                              </tr>
                         </tfoot>
                     </table>
                 </div>
