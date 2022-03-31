@@ -1,7 +1,7 @@
 const app = require("express").Router();
 const path = require("path");
 const Discord = require("discord.js");
-app.get("/top", global.checkAuth, async (req, res, next) => {
+app.get("/top/xp", global.checkAuth, async (req, res, next) => {
      
     return User.find({}).exec(async (err, docs) => {
       docs = docs

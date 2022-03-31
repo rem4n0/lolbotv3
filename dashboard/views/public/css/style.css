@@ -715,3 +715,77 @@ span.selectOption:hover {
   color:var(--white);
     font-size: 37px;
   }
+/*---------- top csss*/
+ .container  .row .top-section{
+      position: relative;
+      width:100%;
+  
+    
+      background:var(--nav-color);
+      margin-bottom: 20px;
+      height:50px;
+      border-radius: 10%;
+      border:1px solid var(--sharabi);
+    }
+    .container .row .top-section .name{
+      margin-left: 50px;
+      position: absolute;
+    
+      
+    }
+    .container .row .top-section .user-img{
+      position: absolute;
+      
+    }
+    .container .row .top-section .user-img img{
+      margin-top:10px;
+      width:35px;
+      margin-left:8px;
+      height:35px;
+      border-radius:50%;
+      
+    }
+    .container .top-img img{
+      width:23px;
+      height:23px;
+      
+      margin-top:10px;
+      
+    }
+    .container .row .top-section .top-img{
+      position: fixed;
+    
+      width:60px;
+      height:60px;
+      right:0;
+      margin-left:300px;
+      
+    }
+    @media screen and (min-height:800px){
+      
+      .container .row .top-section .top-img{
+        right:150px;
+        position: fixed;
+        
+      }
+      
+    }
+    .container .row .top-section .top-number {
+    margin-right: 250px;
+      width:20px;
+    border-radius:50%;
+      opacity:0.7;
+    
+    background:var(--sharabi);
+    
+    }
+    .container .row .top-section p{
+  color:var(--white);
+      font-weght:400;
+      z-index:1;
+      
+    
+      
+    }
+    
+    
