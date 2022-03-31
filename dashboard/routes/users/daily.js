@@ -16,11 +16,12 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
         `/error?code=404&message= I can't fetch you, you must be a user of bot then try again`
       );
     }
+    let cooldown = 43200000;
     res.render("./users/daily.ejs", {
       config: config,
       support: config.support,
       data: data,
-
+cooldown:cooldown,
       req:req,
       res: res,
     
