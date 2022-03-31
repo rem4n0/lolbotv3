@@ -34,7 +34,7 @@
 
           
             
-            <% if(config.owners.includes(req.user.id)) { %>
+            <% if(config.owners.includes(req.user.id) || config.server.role.administrator || config.server.role.moderator) { %>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vCodesAdmin"
                         aria-expanded="true" aria-controls="vCodesAdmin">

@@ -15,7 +15,7 @@ function createID(length) {
     return result;
   }
 app.get("/admin/partners", global.checkAuth, async (req, res) => {
-    if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!config.server.role.administrator || config.server.role.moderator) return res.redirect('../admin');
     
    const data = await Partner.find()
   
@@ -30,9 +30,9 @@ app.get("/admin/partners", global.checkAuth, async (req, res) => {
 	 })
 });
 app.post("/admin/partners", global.checkAuth, async (req, res) => {
-    if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
-  
- await new db({
+    //if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
+let data = require(`${process.cwd()}/data/partner.js`)
+ await new data({
    code:createID(12),
    icon: req.body.icon,
    ownerID:req.body.ownerID,
