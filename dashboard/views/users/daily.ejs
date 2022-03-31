@@ -48,7 +48,7 @@
            
           
         
-           <p id="time">Time Left<%= times.h%>H <%= times.m%>M</p>
+           <p id="time">Time Left<%= times.h%>H <%= times.m%>M <%= times.s%>S</p>
              
              
       
@@ -72,13 +72,9 @@
   </div>
   
   <script>
-    /*
-  $("#time").load("/daily");
-  */
-      
-      
-      
-      
+    setInterval(function() {
+   $("#time").load(location.href + " #time");
+    },1000)
 var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({

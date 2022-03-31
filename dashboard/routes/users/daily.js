@@ -16,7 +16,7 @@ app.get("/daily", global.checkAuth, async (req, res, next) => {
         `/error?code=404&message= I can't fetch you, you must be a user of bot then try again`
       );
     }
-    let cooldown = 43200000;
+    let cooldown =0/// 43200000;
     
   
    
@@ -57,12 +57,12 @@ cooldown:cooldown,
 app.post("/daily", global.checkAuth, async (req,res)=>{
  let user=  bot.users.cache.get(req.user.id);
   console.log(user);
-  
+  /*
  let cooldown = 43200000;
       let data = await User.findOne({ userID:user.id });
   if(data.time !== null && cooldown - (Date.now() - data.time) > 0){
  res.redirect(`?error=true&message= wait ${ms(cooldown - (Date.now() - data.time))} to daily again`)
-                                                                   }else{
+                                                                   }else{*/
       let DR = Math.floor(Math.random() * 2000) + 1000 
     await User.updateOne({
       userID: user.id},
@@ -79,6 +79,6 @@ app.post("/daily", global.checkAuth, async (req,res)=>{
       }})
   
     res.redirect(`?success=true&message=Your bot has`)
-}  
+
 })
 module.exports = app;
