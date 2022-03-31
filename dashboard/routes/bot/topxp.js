@@ -17,7 +17,7 @@ app.get("/top/xp", global.checkAuth, async (req, res, next) => {
    
    
    
-      res.render("./bot/top.ejs", {
+      res.render("./bot/topxp.ejs", {
         users:users,
         config: config,
         support: config.support,
