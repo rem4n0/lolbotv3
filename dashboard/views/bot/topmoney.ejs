@@ -3,35 +3,7 @@
   
   <br>
   <br>
-  <style>
-    .container .row .top-img #more{
-      
-      display:block;
-      
-      font-size:20px;
-      margin-top:-20px;
-      margin-left:-120px;
-      
-    }
-    
-    .container .row .top-section:hover .top-img img{
-      
-      display:none;
-      
-    }
-    .container .row .top-section .top-img #less{
-      display:none;
-      margin-left:-30px;
-      margin-top:10px;
-    }
-    .container .row .top-section:hover .top-img  #less{
-      
-      
-      display:block;
-      transition: all 1s ease;
-    }
-    
-  </style>
+  
   <div class="container">
     
     <div class="row">
@@ -51,11 +23,9 @@
         </div>
           <div class="top-img">
             <img src="https://imgur.com/5t6ElVi.png">
-            <% if(money < 50000){ %>
-            <p id="more">$<%= money.toLocaleString()%></p>
-              <% } else{ %>
-                <p id="less">$<%= money.toLocaleString()%></p>
-                  <% }%>
+          
+            <p>$<%= money.toLocaleString()%></p>
+          
           </div>
         
         <div class="top-number">

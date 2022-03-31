@@ -789,3 +789,26 @@ span.selectOption:hover {
     }
     
     
+/*---------- xp and money *--------*/
+  .container .row .top-img p{
+      
+      display:none;
+      
+      font-size:20px;
+    
+      margin-left:-200px;
+      
+    }
+    
+    .container .row .top-section:hover .top-img img{
+      
+      display:none;
+      
+    }
+  
+    .container .row .top-section:hover .top-img p{
+      
+      
+      display:block;
+      transition: all 1s ease;
+    }
