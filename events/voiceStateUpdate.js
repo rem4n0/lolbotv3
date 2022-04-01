@@ -43,24 +43,16 @@ local: {
   if (!oldState.channel&& newState.channel) {
     console.log(serverdata);
     var addXP = setInterval(async function() {
-   let h = await User.updateOne({ "data.voice.id": newState.guild.id},
-                           
-                           {
-        
-        $inc:{
-        
-          "data.voice.xp": serverdata.xp +1,
-          
-          
-        }})
-   console.log(h);
-    /*  serverdata.xp = serverdata.xp + 1;
+
+   
+    serverdata.xp = serverdata.xp + 1;
 while (_xp.local.next < 1){
+  
     serverdata.level++
-}*/
+}
      /* data.data.voice.splice(index, 0,serverdata);
 
-  return data.save();*)
+  return data.save();*/
       if (!newState.voiceChannel) {
         clearInterval(addXP);
       }
