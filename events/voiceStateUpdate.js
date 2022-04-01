@@ -3,7 +3,7 @@ module.exports = class {
   async run(oldState, newState) {
     let data = await User.findOne({userID: newState.id});
   if (newState.bot) return;
-    console.log(newState);
+    
     /*
   if (!top[newMember.guild.id])
  top[newMember.guild.id] = {};
@@ -17,6 +17,7 @@ module.exports = class {
     };*/
 let index = data.data.voice.findIndex(x => x.id === newState.guild.id);
   let serverdata;
+    
 
   // Add serverdata to profile if it doesn't exist yet
   // -1 means the index couldn't be found
@@ -43,11 +44,11 @@ local: {
 while (_xp.local.next < 1){
     serverdata.level++
 }
-    
+      data.data.voice.splice(index, 0,serverdata);
+      return data.save();
+  
       if (!newState.voiceChannel) {
         clearInterval(addXP);
       }
-    }, 60000);
-    data.data.voice.splice(index, 0, serverdata);
-    return data.save();
+    }, 1000);
   }}}
