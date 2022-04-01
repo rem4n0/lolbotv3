@@ -1,4 +1,4 @@
-let badges = require(`${process.cwd()}/shop/badge.json`)
+let badges = require(`${process.cwd()}/struct/badge.json`)
 
 module.exports = {
   name: "addbadge",

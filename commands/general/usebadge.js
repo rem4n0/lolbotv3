@@ -1,5 +1,5 @@
 const profile = require(`${process.cwd()}/data/user`);
-const badges = require(`${process.cwd()}/shop/badge`);
+const badges = require(`${process.cwd()}/struct/badge`);
 const text = require(`${process.cwd()}/util/string`);
 const Discord = require("discord.js");
 module.exports = {
