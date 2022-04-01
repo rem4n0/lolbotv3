@@ -16,7 +16,7 @@ const schema = mongoose.Schema({
     min:{type: Number, default:1},
   },
   voice:{ type: Array, default:[]},
-
+invites:{type:Array, default:[]},
 
   
   
