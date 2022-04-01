@@ -34,4 +34,7 @@ var invites = await message.guild.invites.fetch()
       .setColor("RANDOM")
       .addField("Top Invites.", `${possibleInvites}`);
 
-    message.channel.send({embeds:[embed]})}}
+    message.channel.send({embeds:[embed]});
+  
+  }
+}

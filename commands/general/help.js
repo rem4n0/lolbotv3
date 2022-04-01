@@ -9,6 +9,14 @@ module.exports = {
   cooldown: 10000,
   run: async (bot, message, args, dev) => {
 ////if(message.guild.me.has("838593240328044554"))return
+    bot.categories.map(async (a)=>{
+   let b = a.name   
+      
+      
+    })
+    
+    
+    
   message.channel.send({content:`You can see full commands in dashboard https://boboworld.tk/commands`})
     /*
 let embed = new Discord.MessageEmbed()
