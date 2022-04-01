@@ -1,8 +1,9 @@
-module.exports = class{
+module.exports = class {
   
   async run(oldState, newState) {
-    let data = await User.findOne({userID: newState.author.id});
-  if (newState.author.bot) return;
+    let data = await User.findOne({userID: newState.id});
+  if (newState.bot) return;
+    console.log(newState);
     /*
   if (!top[newMember.guild.id])
  top[newMember.guild.id] = {};
@@ -42,11 +43,11 @@ local: {
 while (_xp.local.next < 1){
     serverdata.level++
 }
-      data.data.voice.splice(index, 0, serverdata);
-
-    return data.save();
-      if (!newMember.voiceChannel) {
+    
+      if (!newState.voiceChannel) {
         clearInterval(addXP);
       }
     }, 60000);
+    data.data.voice.splice(index, 0, serverdata);
+    return data.save();
   }}}
