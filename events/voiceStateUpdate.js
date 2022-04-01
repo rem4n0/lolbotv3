@@ -32,6 +32,8 @@ let index = data.data.voice.findIndex(x => x.id === newState.guild.id);
   } else {
     [ serverdata ] = data.data.voice.splice(index,1);
   };
+    console.log(index);
+    console.log(serverdata);
     let _xp={
 local: {
       get cap(){ return (50 * Math.pow(serverdata.level,2)) + (250 * serverdata.level); },
@@ -39,6 +41,7 @@ local: {
     }
   };
   if (!oldState.voiceChannel && newState.voiceChannel) {
+    console.log(serverdata);
     var addXP = setInterval(async function() {
       serverdata.xp = serverdata.xp + 1;
 while (_xp.local.next < 1){
