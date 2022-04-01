@@ -40,18 +40,26 @@ local: {
       get next(){ return this.cap - serverdata.xp }
     }
   };
-  if (!oldState.voiceChannel && newState.voiceChannel) {
+  if (!oldState.channel&& newState.channel) {
     console.log(serverdata);
     var addXP = setInterval(async function() {
-      serverdata.xp = serverdata.xp + 1;
+      await User.updateone({ "data.voice.id": newState.guild.id},
+                           
+                           {
+        
+        $set:{
+          "data.voice.xp": serverdata.xp +1,
+          "data.voice.level": seeverdata.level +1
+        }}
+    /*  serverdata.xp = serverdata.xp + 1;
 while (_xp.local.next < 1){
     serverdata.level++
-}
+}*/
       data.data.voice.splice(index, 0,serverdata);
       return data.save();
   
       if (!newState.voiceChannel) {
         clearInterval(addXP);
       }
-    }, 1000);
+    }, 60000);
   }}}
