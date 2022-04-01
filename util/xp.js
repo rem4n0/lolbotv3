@@ -4,7 +4,8 @@
          /// let guild = await Guild.findOne({guildID: message.guild.id})
                           
        
-          
+      if(!guild.xp.onoff) return;
+      
           
        let res = await User.findOne({userID: message.author.id}) ||
           await new User({userID: message.author.id}).save();
