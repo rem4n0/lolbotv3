@@ -43,23 +43,27 @@ local: {
   if (!oldState.channel&& newState.channel) {
     console.log(serverdata);
     var addXP = setInterval(async function() {
-      await User.updateone({ "data.voice.id": newState.guild.id},
+   let h = await User.updateOne({ "data.voice.id": newState.guild.id},
                            
                            {
         
-        $set:{
+        $inc:{
+        
           "data.voice.xp": serverdata.xp +1,
-          "data.voice.level": seeverdata.level +1
-        }}
+          
+          
+        }})
+   console.log(h);
     /*  serverdata.xp = serverdata.xp + 1;
 while (_xp.local.next < 1){
     serverdata.level++
 }*/
-      data.data.voice.splice(index, 0,serverdata);
-      return data.save();
-  
+     /* data.data.voice.splice(index, 0,serverdata);
+
+  return data.save();*)
       if (!newState.voiceChannel) {
         clearInterval(addXP);
       }
-    }, 60000);
+    },1000);
+    
   }}}
