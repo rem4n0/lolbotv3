@@ -47,14 +47,31 @@
       
       
     }
-    .toast
+    .toast{
+      width:300px;
+      opacity:1;
+      
+      left:40px;
+      background:var(--nav-color);
+      position:fixed;
+      height:400px;
+      border-radius:10%;
+    
+      items-align: center;
+    }
+    .toast .toast-content{
+      text-align: center;
+      
+      font-size:3px;
+      
+    }
     
   </style>
   <div class="container">
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  <form method="POST">
+  <form method="POST"><!--
         <% market.forEach((item)=>{ %>
     
         
@@ -67,19 +84,20 @@
 
    <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
       <% })%>
-          
+          -->
           <div class="toast show">
             <div class="toast-content">
+              <p> Are You sure you want save it</p>
             </div>
               <div class="toast-img">
-                <img src="<%= item.assets.link%>" width="100px;" height="100px;"/>
+                <img src="..." width="100px;" height="100px;"/>
         
             </div>
             <button type="submit" onclick="click()" class="btn btn-success">Use</button>
           </div>
                      
                 
-   <% } ) %>
+  
      
      
      </form>
@@ -113,6 +131,12 @@
     
   }
 })})
+    
+     
         </script>   
+  <br>
+  <br>
+  <br>
   
+  <br><br><br><br><br><br><br><br><br><br><br><br>
   <%- include ('../parts/foot')%>
