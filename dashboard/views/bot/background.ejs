@@ -1,10 +1,11 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
-  .container .column .columns img {
+   
+  .container .column .columnsimg{
     
     justify-content:space-between;
     padding-bottom:10px;
-  display:none;
+  
     }
   
    .bgs{
@@ -46,16 +47,14 @@
       
       
     }
-    .toast.show #img{
-      display:none;}
-    
-    
+  
+  
     
     .toast{
       width:300px;
       opacity:100%;
-      z-index:1;
-
+      z-index:99;
+      display:block;
       left:40px;
       background:var(--nav-color);
       position:fixed;
@@ -71,9 +70,12 @@
       
       
     }
+    
+    
     .toast.show{
       display:block;
     }
+    
     .toast .toast-content{
       text-align: center;
       
@@ -98,23 +100,22 @@
   </style>
   <div class="container">
     
-    <div class="column">
+    <div class="column" >
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  
+  <!--
         <% market.forEach((item)=>{ %>
-    
-        
-      
+  
         <div class="bgs">
       <strong>$<%=item.price%></strong> 
         
         </div>
-                              
+          
 
-   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; position: relative;" alt="<%=item.id%>.png" id="img">
+   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; display:none;" alt="<%=item.id%>.png" id="img">
     
-    <button class="btn btn-success"></button>
-        
+      
+        <% })%>-->
+          <button class="btn btn-success">jjj</button>
           <div class="toast">
            <i class="fa-solid fa-x remove"></i>
             <div class="toast-content">
@@ -127,7 +128,8 @@
             </div>
             <button type="submit" onclick="click()" class="btn btn-success">Use</button>
           </div>
-                     
+                    
+                      
                 
 
      
@@ -149,9 +151,7 @@ btn.addEventListener('click',()=>{
   
   
     toast.classList.add("show");
-  
-  console.log(toast);
-  img.style.display = "none";
+
   }); 
     
      btnx.addEventListener('click',()=>{
