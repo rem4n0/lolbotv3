@@ -26,8 +26,7 @@
   
       color: var(--white);
       left:60px;
-      z-index:1;
-  
+    
       
     }
     
@@ -49,8 +48,9 @@
     }
     .toast{
       width:300px;
-      opacity:1;
-      
+      opacity:100%;
+      z-index:99;
+      display:block;
       left:40px;
       background:var(--nav-color);
       position:fixed;
@@ -58,7 +58,6 @@
       border-radius:10%;
     
       items-align: center;
-    display:none;
     }
     .toast.show{
       display:block;
@@ -100,10 +99,10 @@
         </div>
                               
 
-   <img  class="img" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
+   <img  class="img" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; " alt="<%=item.id%>.png" id="img">
       <% })%>
           
-          <div class="toast">
+          <div class="toast show">
             <div class="toast-content">
               <p> Are You sure you want save it</p>
             </div>
@@ -128,8 +127,9 @@
         
    <script>          
      
-     let toast = document.querySelecotor("toast");
-  document.query("img").addEventListener("click",()=>{
+     let toast = document.querySelector(".toast");
+ let btn =  document.querySelector("img")
+btn.addEventListener("click",()=>{
     
     toast.classList.toggle("show");
   })
