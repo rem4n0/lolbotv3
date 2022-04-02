@@ -109,15 +109,15 @@
       <strong>$<%=item.price%></strong> 
         
         </div>
-          
-
-  <!-- <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png" id="img">
-    -->
       
+
+  <img class="button" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png"/>
+  
+          
         
           
           
-          <button class="btn btn-success">jjj</button>
+        
           <div class="toast">
            <i class="fa-solid fa-x remove"></i>
             <div class="toast-content">
@@ -125,11 +125,12 @@
             </div>
           
               <div class="toast-img">
-                <img src="..." width="100px;" height="100px;"/>
+                <img src="<%= item.assets.link%>" width="100px;" height="100px;"/>
         
             </div>
             <button type="submit" onclick="click()" class="btn btn-success">Use</button>
           </div>
+          
            <% })%>         
                       
                 
@@ -144,9 +145,9 @@
         
         
    <script>          
-     
+     document.addEventListener('DOMContentLoaded', function (){
     const toast = document.querySelector(".toast"), 
-  btn =  document.querySelector("button");
+  btn =  document.querySelector(".button");
     
     let btnx = document.querySelector(".remove");
 btn.addEventListener('click',()=>{
@@ -158,7 +159,7 @@ btn.addEventListener('click',()=>{
     
      btnx.addEventListener('click',()=>{
        toast.classList.remove('show');
-     });
+     });})
     
     
        
