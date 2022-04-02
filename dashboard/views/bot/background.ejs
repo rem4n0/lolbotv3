@@ -116,7 +116,7 @@
   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>"/>
   
             
-          <button class="btn btn-success <%=item.id%>"></button>
+          <button class="btn btn-success">click</button>
       
           <div class="toast">
            <i class="fa-solid fa-x remove"></i>
@@ -147,14 +147,8 @@
         
         
    <script>          
-     $(document).ready( function (){
-       $("button").click(function (){
-         $(".toast").show()
-       })
-       $(".remove").click(function (){
-         $(".toast").hide()})
-     })
-     /*
+    
+     
     const toast = document.querySelector(".toast"), 
   btn =  document.querySelector("button");
     
@@ -168,7 +162,7 @@ btn.addEventListener('click',()=>{
     
      btnx.addEventListener('click',()=>{
        toast.classList.remove('show');
-     });*/
+     });
     
        
        
