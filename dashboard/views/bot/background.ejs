@@ -54,7 +54,7 @@
       width:300px;
 
       z-index:99;
-    
+    top:200px;
       left:40px;
       background:var(--nav-color);
       position:fixed;
@@ -102,7 +102,9 @@
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  
+        <button class="btn btn-success"></button>
+        <br>
+        <br>
         <% market.map((item)=>{ %>
   
         <div class="bgs">
@@ -111,30 +113,31 @@
         </div>
       
 
-  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png"/>
+  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>"/>
   
-          <button class="btn btn-success"></button>
-        
-          
+            
           
         
           <div class="toast">
            <i class="fa-solid fa-x remove"></i>
             <div class="toast-content">
-              <p> Are You sure you want save it</p>
+              <p> Are You sure you want buy it</p>
             </div>
-          
+        
               <div class="toast-img">
+              
                 <img src="<%= item.assets.link%>" width="100px;" height="100px;"/>
         
             </div>
-            <button type="submit" onclick="click()" class="btn btn-success">Use</button>
-          </div>
+            
+            <input type="number" value="" class="form-control" id="id">
+        <!--    <button type="submit" onclick="click()" class="btn btn-success">Use</button>
+      -->    </div>
           
            <% })%>         
                       
                 
-
+            
      
      
     
@@ -160,7 +163,6 @@ btn.addEventListener('click',()=>{
      btnx.addEventListener('click',()=>{
        toast.classList.remove('show');
      });
-    
     
        
        
