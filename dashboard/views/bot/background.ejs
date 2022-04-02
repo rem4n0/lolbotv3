@@ -88,7 +88,7 @@
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  <form method="POST">
+  <!--
         <% market.forEach((item)=>{ %>
     
         
@@ -100,9 +100,11 @@
                               
 
    <img  class="img" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; " alt="<%=item.id%>.png" id="img">
-      <% })%>
-          
-          <div class="toast show">
+      <% })%>-->
+    <button class="btn btn-success"></button>
+        
+          <div class="toast">
+            
             <div class="toast-content">
               <p> Are You sure you want save it</p>
             </div>
@@ -118,7 +120,7 @@
   
      
      
-     </form>
+    
      </div>
       </div>
         
@@ -127,11 +129,13 @@
         
    <script>          
      
-     let toast = document.querySelector(".toast");
- let btn =  document.querySelector("img")
-btn.addEventListener("click",()=>{
-    
-    toast.classList.toggle("show");
+    const toast = document.querySelector(".toast"), 
+  btn =  document.querySelector("button");
+btn.addEventListener('click',()=>{
+  
+  
+    toast.classList.add("show");
+  console.log(toast);
   })
        
   /*
