@@ -59,6 +59,13 @@
     
       items-align: center;
     }
+    .toast .remove{
+      margin-left:230px;
+      margin-top:40px;
+      font-size:18px;
+      
+      
+    }
     .toast.show{
       display:block;
     }
@@ -88,7 +95,7 @@
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  <!--
+  
         <% market.forEach((item)=>{ %>
     
         
@@ -99,12 +106,12 @@
         </div>
                               
 
-   <img  class="img" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; " alt="<%=item.id%>.png" id="img">
-      <% })%>-->
+   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; posit" alt="<%=item.id%>.png" id="img">
+      <% })%>
     <button class="btn btn-success"></button>
         
           <div class="toast">
-            <button> <i class="fa-solid fa-x remove"></i></button>
+           <i class="fa-solid fa-x remove"></i>
             <div class="toast-content">
               <p> Are You sure you want save it</p>
             </div>
@@ -130,16 +137,17 @@
    <script>          
      
     const toast = document.querySelector(".toast"), 
-  btn =  document.querySelector("button"),
-      btnx = document.querySelector ("remove");
+  btn =  document.querySelector("button");
+    let btnx = document.querySelector(".remove");
 btn.addEventListener('click',()=>{
   
   
     toast.classList.add("show");
   console.log(toast);
-  })
+  }); 
+    
      btnx.addEventListener('click',()=>{
-       toast.classList.remove("show");
+       toast.classList.remove('show');
      });
        
   /*
