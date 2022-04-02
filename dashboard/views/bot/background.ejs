@@ -50,11 +50,11 @@
   
   
     
-    .toast{
+    .toast {
       width:300px;
-      opacity:100%;
+
       z-index:99;
-      display:block;
+    
       left:40px;
       background:var(--nav-color);
       position:fixed;
@@ -70,11 +70,11 @@
       
       
     }
-    
+  /*
     
     .toast.show{
       display:block;
-    }
+    }*/
     
     .toast .toast-content{
       text-align: center;
@@ -102,7 +102,7 @@
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  <!--
+  
         <% market.forEach((item)=>{ %>
   
         <div class="bgs">
@@ -111,12 +111,14 @@
         </div>
           
 
-   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; display:none;" alt="<%=item.id%>.png" id="img">
-    
+  <!-- <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png" id="img">
+    -->
       
-        <% })%>-->
+        <% })%>
+          
+          
           <button class="btn btn-success">jjj</button>
-          <div class="toast">
+          <div class="toast show">
            <i class="fa-solid fa-x remove"></i>
             <div class="toast-content">
               <p> Are You sure you want save it</p>
@@ -145,7 +147,7 @@
      
     const toast = document.querySelector(".toast"), 
   btn =  document.querySelector("button");
-    const img document.getElementById("img");
+    
     let btnx = document.querySelector(".remove");
 btn.addEventListener('click',()=>{
   
