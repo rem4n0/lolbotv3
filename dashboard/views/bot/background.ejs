@@ -47,6 +47,7 @@
       
       
     }
+    .toast
     
   </style>
   <div class="container">
@@ -65,7 +66,19 @@
                               
 
    <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
-      
+      <% })%>
+          
+          <div class="toast show">
+            <div class="toast-content">
+            </div>
+              <div class="toast-img">
+                <img src="<%= item.assets.link%>" width="100px;" height="100px;"/>
+        
+            </div>
+            <button type="submit" onclick="click()" class="btn btn-success">Use</button>
+          </div>
+                     
+                
    <% } ) %>
      
      
