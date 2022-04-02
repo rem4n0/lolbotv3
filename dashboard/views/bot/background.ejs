@@ -103,7 +103,7 @@
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
   
-        <% market.forEach((item)=>{ %>
+        <% market.map((item)=>{ %>
   
         <div class="bgs">
       <strong>$<%=item.price%></strong> 
@@ -111,9 +111,9 @@
         </div>
       
 
-  <img class="button" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png"/>
+  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>.png"/>
   
-          
+          <button class="btn btn-success"></button>
         
           
           
@@ -145,9 +145,9 @@
         
         
    <script>          
-     document.addEventListener('DOMContentLoaded', function (){
+     
     const toast = document.querySelector(".toast"), 
-  btn =  document.querySelector(".button");
+  btn =  document.querySelector("button");
     
     let btnx = document.querySelector(".remove");
 btn.addEventListener('click',()=>{
@@ -159,7 +159,7 @@ btn.addEventListener('click',()=>{
     
      btnx.addEventListener('click',()=>{
        toast.classList.remove('show');
-     });})
+     });
     
     
        
