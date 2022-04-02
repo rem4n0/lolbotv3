@@ -54,7 +54,7 @@
       width:300px;
 
       z-index:99;
-    top:200px;
+  
       left:40px;
       background:var(--nav-color);
       position:fixed;
@@ -116,7 +116,7 @@
   <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;" alt="<%=item.id%>"/>
   
             
-          
+          <button class="btn-succ
         
           <div class="toast">
            <i class="fa-solid fa-x remove"></i>
@@ -126,10 +126,9 @@
         
               <div class="toast-img">
               
-                <img src="<%= item.assets.link%>" width="100px;" height="100px;"/>
-        
+          
             </div>
-            
+            <label for="id">Put Id of image</label>
             <input type="number" value="" class="form-control" id="id">
         <!--    <button type="submit" onclick="click()" class="btn btn-success">Use</button>
       -->    </div>
@@ -148,7 +147,14 @@
         
         
    <script>          
-     
+     $(document).ready( function (){
+       $("button").click(function (){
+         $(".toast").show()
+       })
+       $(".remove").click(function (){
+         $(".toast").hide()})
+     })
+     /*
     const toast = document.querySelector(".toast"), 
   btn =  document.querySelector("button");
     
@@ -162,7 +168,7 @@ btn.addEventListener('click',()=>{
     
      btnx.addEventListener('click',()=>{
        toast.classList.remove('show');
-     });
+     });*/
     
        
        
