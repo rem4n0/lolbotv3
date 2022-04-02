@@ -58,20 +58,38 @@
       border-radius:10%;
     
       items-align: center;
+    display:none;
+    }
+    .toast.show{
+      display:block;
     }
     .toast .toast-content{
       text-align: center;
       
-      font-size:3px;
+      font-size:15px;
+      border-bottom: 2px solid var(--navlist-color);
+    }
+    .toast .toast-img {
+  margin-left:50px;
+      margin-top:60px;
+      width:200px;
+      height:200px;
+      background:red;
+    }
+    .toast .toast-img img{
+      width: 100px;
+      height:100px;
+      object-fit: cover;
+      margin-top:40px;
+    
       
     }
-    
   </style>
   <div class="container">
     
     <div class="column">
       <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-  <form method="POST"><!--
+  <form method="POST">
         <% market.forEach((item)=>{ %>
     
         
@@ -82,13 +100,14 @@
         </div>
                               
 
-   <img  src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
+   <img  class="img" src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%; z-index:99;" alt="<%=item.id%>.png" id="img">
       <% })%>
-          -->
-          <div class="toast show">
+          
+          <div class="toast">
             <div class="toast-content">
               <p> Are You sure you want save it</p>
             </div>
+          
               <div class="toast-img">
                 <img src="..." width="100px;" height="100px;"/>
         
@@ -108,8 +127,14 @@
         
         
    <script>          
-      alert('hh')  
-  $("img").click(function() {
+     
+     let toast = document.querySelecotor("toast");
+  document.query("img").addEventListener("click",()=>{
+    
+    toast.classList.toggle("show");
+  })
+       
+  /*
             Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
@@ -130,7 +155,7 @@
     )}, 2000 )
     
   }
-})})
+}*/
     
      
         </script>   
