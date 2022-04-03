@@ -746,7 +746,7 @@ span.selectOption:hover {
       width:100%;
     }
     .container .row .top-section .user-img img{
-    
+    margin-left:-25px;
       transition: all 0.4s ease;
      -webkit-filter: blur(2px);
        filter:blur(2px);
@@ -758,6 +758,7 @@ span.selectOption:hover {
 .container .row .top-section .user-img:hover img{
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
+  
   transition: all 0.4s ease;
   margin-top:-10px;
   
