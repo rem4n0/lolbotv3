@@ -34,7 +34,7 @@
 </head>
 <body>
   <style>
-  .preloader{
+  #preloader{
     height:100vh;
    
     background: #000 url(https://imgur.com/BnLgepd.png) no-repeat center center;
@@ -43,7 +43,9 @@
       position: fixed;
     animation: h  1s ease;
     z-index:100;}
-    .preloader img{
+    
+    
+  #preloader img{
       width:300px;
       
       position: relative;
@@ -55,7 +57,8 @@
     @keyframes h {
   0%{ transform: rotateX(20deg);
       }
-      25%{
+      25%{ transform: rotateX(100deg);}
+      50% { transform: rotateX(140deg)}
       100%
       {transform: rotateX(180deg)
       }
@@ -65,7 +68,14 @@
     
   </style>
   
-  <div class="preloader">
+  <div id="preloader">
   
     
   </div>
+  <script>
+    var loader = document.getElementById("preloader")
+    window.addEventListener("load", function(){
+      setTimeout(()=>{
+      loader.style.display = "none";
+      },3000)
+    })</script>
