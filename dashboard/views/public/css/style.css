@@ -730,7 +730,7 @@ span.selectOption:hover {
     
       background:var(--nav-color);
       margin-bottom: 20px;
-      height:50px;
+      height:70px;
       border-radius: 10%;
       border:1px solid var(--sharabi);
     }
@@ -796,7 +796,7 @@ span.selectOption:hover {
     }
     
     
-/*---------- xp and money *--------*/
+
   .container .row .top-img p{
       
       display:none;
