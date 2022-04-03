@@ -86,29 +86,34 @@ body {
   text-shadow: 10px 10px 10px 10px rgba(0, 0, 0.5);
   color: var(--white-text);
 }
-.main-container .text-title p {
-  color: var(--white-text);
-  display: inline-block;
-  margin-left: 50px;
-  font-size: 16px;
+.main-container .text-title  {
+  color: white;
+  width:350px;
+  margin-left:20px;
 }
 
 /**----media*-*/
 @media screen and (min-width: 500px) {
   .main-container {
-    width: 450px;
+    align-items: center;
+    text-align: center;
+
+  }
+  .main-container img{
+    
+    margin-right:100px;
   }
 
-  .main-container {
-    margin-left: 10rem;
-  }
+  
   .main-container .bobo-text {
     font-size: 60px;
+    text-align: center;
   }
   .main-container .text-title {
-    margin-left: 3em;
-    display: block;
-    font-size: 30px;
+  
+    margin-left:350px;
+ text-align: center;
+    font-size:23px;
   }
 }
 /*---------*/
