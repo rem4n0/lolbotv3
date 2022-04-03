@@ -6,7 +6,7 @@
   <div class="container">
     
     <div class="row">
-      <div class="col">
+      
         <% docs.slice(0,10).map((u,i) => {
         const h = bot.users.cache.get(u.id);
           const money = u.money
@@ -32,7 +32,7 @@
         </div>
             </div>
         <% })%>  
-      </div>
+    
     </div>
   </div>
   
