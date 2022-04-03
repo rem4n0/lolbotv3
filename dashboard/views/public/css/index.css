@@ -150,6 +150,8 @@ padding-left: 10px;
 .lds-roller {
   display: inline-block;
   position: relative;
+  margin-left:150px;
+  margin-top:180px;
   width: 80px;
   height: 80px;
 }
