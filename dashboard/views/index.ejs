@@ -37,10 +37,9 @@
    
       <img  src="<%= bot.user.displayAvatarURL()%>"/>
     
-    <h3 class="bobo-text"><%= bot.user.username%>
-    </h3>
+    <h3 class="bobo-text text-break">BOBO BOT DASHBOARD</h3>
     <div class="text-title">
-    <p class="title-text"><%= bot.user.username%></p>
+    <p class="title-text">Welcome to AurtMix Discord Bot Dashboard you can add Welcome ,logs, moderation,  Auto roles and many many more!</p>
     </div>
   </div>
   </div>
@@ -73,21 +72,21 @@
         
  
          <% if (user){ %>
-      <li><a href="/dashboard">dashboard</a></li>
+      <li class="dashboard"><a href="/dashboard">Dashboard</a></li>
            
           
           <br>
-           <li><a href="/dc">Discord</a></li>
+           <li><a href="/support">Discord</a></li>
            
      <br>
-           <li><a href="/invite">Invite</a></li>
+           <li class="invite"><a href="/invite">Invite</a></li>
       
         
         <% }else{%>
-          <li><a href="/dc">Discord</a></li>
+          
          <br> 
-     <li><a href="/login">Login</a></li>
-     
+     <li class="login"><a href="/login">Login</a></li>
+          <li><a href="/support">Support</a></li>
       <br>
       
       <li><a href="/invite">Invite</a></li>

@@ -85,7 +85,7 @@ display: flex;
  height:3px;
  background-color: white;
   border-radius: 4px;
-}*/
+}*//*
 .btn-down{
  position: absolute;
   cursor: pointer;
@@ -97,7 +97,7 @@ display: flex;
   width: 30px;
   height: 21px;
 }
-*/
+
 
 .btn-down .nav{
   height: 3px;
@@ -126,7 +126,7 @@ position: absolute;
   width: 100%;
   background-color: white;
   border-radius: 10px;
-}
+}*/
 /***----------all text information-------**/
 .text-page{
 color: white;
