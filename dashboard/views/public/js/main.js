@@ -1,3 +1,3 @@
-function imgError(e){
-  e.src="https://imgur.com/tiZmKiK.png"
+function imgError(e) {
+  e.src = "https://imgur.com/tiZmKiK.png";
 }
