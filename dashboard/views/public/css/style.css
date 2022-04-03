@@ -732,7 +732,7 @@ span.selectOption:hover {
       margin-bottom: 40px;
       height:120px;
       
-      border:1px solid var(--sharabi);
+      border:1px solid #3D506C;
     }
     .container .row .top-section .name{
       margin-left: 20px;
@@ -800,7 +800,7 @@ span.selectOption:hover {
     border-radius:50%;
       
     
-    background:var(--sharabi);
+    background:var(--nav-color);
     
     }
     .container .row .top-section p{
