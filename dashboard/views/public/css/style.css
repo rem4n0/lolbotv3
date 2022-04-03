@@ -746,7 +746,7 @@ span.selectOption:hover {
       width:100%;
     }
     .container .row .top-section .user-img img{
-      
+      transition: all 0.4s ease;
      -webkit-filter: blur(2px);
        filter:blur(2px);
     object-fit:cover;
@@ -757,6 +757,7 @@ span.selectOption:hover {
 .container .row .top-section .user-img:hover img{
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
+  transition: all 0.4s ease;
   margin-top:-10px;
   
 }
@@ -779,7 +780,7 @@ span.selectOption:hover {
       right:0;
       margin-left:300px;
       
-    }*/
+    }
     @media screen and (min-height:800px){
       
       .container .row .top-section .top-img{
@@ -788,7 +789,7 @@ span.selectOption:hover {
         
       }
       
-    }
+    }*/
     .container .row .top-section .top-number {
   
     margin-top:-150px;
