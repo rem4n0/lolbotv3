@@ -7,18 +7,18 @@
   <div class="container">
     
     <div class="row">
-      <div class="col">
+    
         <% docs.slice(0,10).map((u,i) => {
         const h = bot.users.cache.get(u.id);
           const xp = u.global_xp;
           const rank = String(i+1);%>
           <div class="top-section">
             <div class="user-img">
-              <img src=" https://cdn.discordapp.com/avatars/<%= h.id%>/<%= h.avatar%>.png">
+              <img onerror="imgError(this);" src=" https://cdn.discordapp.com/avatars/<%= h.id%>/<%= h.avatar%>.png">
             </div>
         <div class="name">
       
-          <span><%= h.username%></span>
+          <span><%= h.tag%></span>
           
         </div>
           <div class="top-img">
