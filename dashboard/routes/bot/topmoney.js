@@ -1,6 +1,18 @@
 const app = require("express").Router();
 const path = require("path");
 const Discord = require("discord.js");
+
+function intToString (value) {
+    var suffixes = ["", "k", "m", "b","t"];
+    var suffixNum = Math.floor((""+value).length/3);
+    var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+    if (shortValue % 1 != 0) {
+        shortValue = shortValue.toFixed(1);
+    }
+    return shortValue+suffixes[suffixNum];
+}
+
+
 app.get("/top/money", global.checkAuth, async (req, res, next) => {
      
     return User.find({}).exec(async (err, docs) => {
@@ -18,6 +30,7 @@ app.get("/top/money", global.checkAuth, async (req, res, next) => {
    
    
       res.render("./bot/topmoney.ejs", {
+        convert:intToString,
         users:users,
         config: config,
         support: config.support,
