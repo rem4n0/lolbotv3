@@ -36,9 +36,9 @@ module.exports = class {
     
     
     let mute = await Mute.findOne({guildID: message.guild.id})
-  /*if(!members){
+if(!members){
     Member.create({
-      guildID: message.guild.id})}*/
+      guildID: message.guild.id})}
     ///if(message.guild.members.cache.has("838593240328044554")) return
 
     if (!user || !user.xp) {

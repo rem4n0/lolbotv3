@@ -746,6 +746,7 @@ span.selectOption:hover {
       width:100%;
     }
     .container .row .top-section .user-img img{
+      margin-left:-20px;
       transition: all 0.4s ease;
      -webkit-filter: blur(2px);
        filter:blur(2px);
