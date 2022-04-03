@@ -41,20 +41,25 @@
     background-size:50%;
     width:100%;
       position: fixed;
-    
+    animation: h  1s ease;
     z-index:100;}
     .preloader img{
       width:300px;
-      animation: h 15s ease infinite;
+      
       position: relative;
     top:200px;
   
     height:300px;
     }
+    
     @keyframes h {
-      50%:{transform: rotateX(180deg)}
+  0%{ transform: rotateX(20deg);
+      }
+      25%{
+      100%
+      {transform: rotateX(180deg)
+      }
       
-      100%:{ transform: rotateX(0deg)}
       
     }
     
