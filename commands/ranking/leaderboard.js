@@ -60,6 +60,7 @@ module.exports = {
           docs.slice(0,10).map((u,i) => {
             
             const rank = String(i+1);
+          console.log(rank);
             return [
               '┃' + ' '.repeat(6-rank.length) + rank,
               ' '.repeat(5-String(u.data.level).length) + u.data.level,

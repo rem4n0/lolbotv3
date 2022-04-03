@@ -36,8 +36,8 @@ module.exports = class {
     
     
     let mute = await Mute.findOne({guildID: message.guild.id})
-if(!members){
-    Member.create({
+if(!Mute){
+    Mute.create({
       guildID: message.guild.id})}
     ///if(message.guild.members.cache.has("838593240328044554")) return
 
