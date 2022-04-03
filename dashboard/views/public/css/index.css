@@ -146,7 +146,7 @@ padding-left: 10px;
   font-size: 20px;
 }
 /**+++++----- preloader------*/
-
+/*
 .lds-roller {
   display: inline-block;
   position: relative;
@@ -233,3 +233,4 @@ padding-left: 10px;
     transform: rotate(360deg);
   }
 }
+--
