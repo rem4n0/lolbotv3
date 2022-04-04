@@ -65,7 +65,7 @@ app.post(
         {
           $set: {
             "plugins.welcome.message": rbody["message"],
-            "plugins.welcome.withImage": rbody["withImg"] === "true",
+        
             "plugins.welcome.channel": rbody["channel"],
           },
         }
@@ -79,7 +79,7 @@ app.post(
       {
         $set: {
           "plugins.welcome.enabled": rbody["onoff"] === "true",
-"plugins.welcome.withImg": rbody["withImg"] === "true",
+"plugins.welcome.withImage": rbody["withImg"] === "true",
         },
       }
     );
