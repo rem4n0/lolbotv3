@@ -59,7 +59,7 @@
     </div>
     <br>
     <br>
-    <input class="form-check-input" type="radio" value="" id="withImg" >
+    <input class="form-check-input" type="checkbox" value="" name="withimg"id="withImg" >
   
     <label class="form-check-label" for="withImg">WithIng</label>
     <br>
@@ -189,6 +189,14 @@ if(check.checked){
          
          
          //////////////   
+         var checkbox2 = document.querySelector('input[id="withImg"]');
+         if(checkbox2.checked){
+           $.post("/dashboard/guild/<%=guild.id%>/welcome",{
+             withImg: true,
+           })}else{
+             $.post("/dashboard/guild/<%= guild.id%>/welcome",{
+               withImg:false,
+             })}
   var checkbox = document.querySelector('input[type="checkbox"]');
 if(checkbox.checked){
   
@@ -198,6 +206,7 @@ if(checkbox.checked){
 };
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
+    
     document.getElementById("hama").style.display="block";
       
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
@@ -240,10 +249,10 @@ $("#myButton").attr("disabled", true);
       })
       
       
-      
+  
               $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                  channel:$('#channel').val(),
-                withImg:$('#withImg').val(),
+            
                  message:$('#welcomemessage').val(),
                  
                  onoff: true,
