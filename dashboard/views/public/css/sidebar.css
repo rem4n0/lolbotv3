@@ -141,7 +141,7 @@ text-align: center;
 }
 .sidebar .nav-list .list li .link_name:hover {
   font-size: 22px;
-  color:var(--white);
+  color:var(--sharabi);
   opacity:1;
 }
 
