@@ -68,8 +68,10 @@ module.exports = async (bot) => {
     "/css",
     express.static(path.resolve(`${templateDir}${path.sep}public/css`))
   );
-  app.use("/js", express.static(path.resolve(`${templateDir}${path.sep}public/js`))
-);
+  app.use(
+    "/js",
+    express.static(path.resolve(`${templateDir}${path.sep}public/js`))
+  );
   passport.serializeUser((user, done) => done(null, user));
   passport.deserializeUser((obj, done) => done(null, obj));
 
@@ -132,23 +134,23 @@ module.exports = async (bot) => {
       }
       next();
     },
-    passport.authenticate("discord"/*, { prompt: "none" }*/)
+    passport.authenticate("discord" /*, { prompt: "none" }*/)
   );
   app.get(
     `/callback`,
     passport.authenticate(`discord`, { failureRedirect: "/" }),
     async (req, res) => {
-      let banned = await Ban.findOne({user: req.user.id})
-        if(banned) {
-      
+      let banned = await Ban.findOne({ user: req.user.id });
+      if (banned) {
         req.session.destroy(() => {
-        res.json({ login: false, message: "You have been blocked from vCodes.", logout: true })
-        req.logout();
+          res.json({
+            login: false,
+            message: "You have been blocked from vCodes.",
+            logout: true,
+          });
+          req.logout();
         });
-        } else {
-
-      
-
+      } else {
         res.redirect(req.session.backURL || `/`);
       }
     }
@@ -188,47 +190,58 @@ module.exports = async (bot) => {
   //------------------- Routers -------------------//
 
   /* General */
-  
-       app.use(async (req, res, next) => {
-       if(req.path.includes('/admin')) {
-        if (req.isAuthenticated()) {
-          if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(config.server.role.administrator) || bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(config.server.role.moderator) || req.user.id === "768944616724103170") {
-              next();
-              } else {
-              res.redirect("/error?code=403&message=You is not competent to do this.")
-          }
+
+  app.use(async (req, res, next) => {
+    if (req.path.includes("/admin")) {
+      if (req.isAuthenticated()) {
+        if (
+          bot.guilds.cache
+            .get(config.serverid)
+            .members.cache.get(req.user.id)
+            .roles.cache.get(config.server.role.administrator) ||
+          bot.guilds.cache
+            .get(config.serverid)
+            .members.cache.get(req.user.id)
+            .roles.cache.get(config.server.role.moderator) ||
+          req.user.id === "768944616724103170"
+        ) {
+          next();
         } else {
-          req.session.backURL = req.url;
-          res.redirect("/login");
+          res.redirect(
+            "/error?code=403&message=You is not competent to do this."
+          );
         }
-       } else {
-           next();
-       }
-    })
-  
-  
-      console.log(" ")
-    console.log('\x1b[36m%s\x1b[0m', "Admin Panel system routers loading...");
-    sleep(3000);
-    app.use("/", require('./routes/admin/index.js'))
-    app.use("/", require('./routes/admin/ban.js'))
-    app.use("/", require('./routes/admin/partner.js'))
-app.use("/", require ("./routes/admin/maintenance.js"));
-  
+      } else {
+        req.session.backURL = req.url;
+        res.redirect("/login");
+      }
+    } else {
+      next();
+    }
+  });
+
+  console.log(" ");
+  console.log("\x1b[36m%s\x1b[0m", "Admin Panel system routers loading...");
+  sleep(3000);
+  app.use("/", require("./routes/admin/index.js"));
+  app.use("/", require("./routes/admin/ban.js"));
+  app.use("/", require("./routes/admin/partner.js"));
+  app.use("/", require("./routes/admin/maintenance.js"));
+
   //////bot
-app.use("/", require ("./routes/bot/topmoney.js"));
-  app.use("/", require ("./routes/bot/topxp.js"));
-app.use("/", require ("./routes/bot/background.js"));
+  app.use("/", require("./routes/bot/topmoney.js"));
+  app.use("/", require("./routes/bot/topxp.js"));
+  app.use("/", require("./routes/bot/background.js"));
   ///////user
-  app.use("/", require ("./routes/users/daily.js"));
-  app.use("/", require ("./routes/users/profile-edit"));
-  app.use("/", require ("./routes/users/profile.js"));
-  
+  app.use("/", require("./routes/users/daily.js"));
+  app.use("/", require("./routes/users/profile-edit"));
+  app.use("/", require("./routes/users/profile.js"));
+
   ///guilds
-  app.use("/", require ("./routes/guilds/leaderboard.js"));
-  app.use("/", require ("./routes/guilds/welcome.js"));
-app.use("/", require ("./routes/guilds/autorole.js"));
-  app.use("/", require ("./routes/guilds/logs.js"))
+  app.use("/", require("./routes/guilds/leaderboard.js"));
+  app.use("/", require("./routes/guilds/welcome.js"));
+  app.use("/", require("./routes/guilds/autorole.js"));
+  app.use("/", require("./routes/guilds/logs.js"));
   app.use("/", require("./routes/index.js"));
   app.use("/", require("./routes/partners.js"));
   app.use("/", require("./routes/users/dashboard.js"));
@@ -236,9 +249,7 @@ app.use("/", require ("./routes/guilds/autorole.js"));
   app.use("/", require("./routes/guilds/dashboard.js"));
   app.use("/", require("./routes/guilds/discord-guild.js"));
   app.use("/", require("./routes/guilds/xpsystem"));
- 
-  
-  
+
   app.use((req, res) => {
     req.query.code = 404;
     req.query.message = `Page not found.`;
