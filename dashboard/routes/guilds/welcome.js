@@ -65,7 +65,7 @@ app.post(
         {
           $set: {
             "plugins.welcome.message": rbody["message"],
-            "plugins.welcome.withImage": true,
+            "plugins.welcome.withImage": rbody["withImg"] === "true",
             "plugins.welcome.channel": rbody["channel"],
           },
         }
