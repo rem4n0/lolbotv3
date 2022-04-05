@@ -2,15 +2,27 @@
   <style>
     
     .item-body{
-      
-      box-shadow:10px 10px 10px rgba(0,0,0,0.5);
+      box-shadow:10px 10px 10px 10px rgba(0,0,0,0.3);
+      height:350px;
       
     }
+    .item-body button{
+      position: absolute;
+      
+      
+    }
+    .row img{
+      margin-top:50px;}
   </style>
+  <br>
+  <br>
+  <br>
   <div class="container">
     <div class="row">
     <div class="item-body">
     <img class="img-fluid" src="<%= id.assets.link%>">
+      <button type="submit" class="btn btn-primary">Buy</button>
+      <a href="/items" class="btn btn-danger">BACK</a>
       </div>
     </div>
   </div>
