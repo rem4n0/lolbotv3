@@ -229,6 +229,7 @@ module.exports = async (bot) => {
   app.use("/", require("./routes/admin/maintenance.js"));
 
   //////bot
+  app.use("/", require ("./routes/bot/buyitem.js"));
   app.use("/", require("./routes/bot/topmoney.js"));
   app.use("/", require("./routes/bot/topxp.js"));
   app.use("/", require("./routes/bot/background.js"));
