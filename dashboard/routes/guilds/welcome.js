@@ -36,7 +36,7 @@ app.post(
           $set: {
             "plugins.goodbye.message": rbody["message"],
             "plugins.goodbye.channel": rbody["channel"],
-            "plugins.goodbye.withImage": false,
+            "plugins.goodbye.withImage": rbody["withImg"] === "true",
           },
         }
       );
