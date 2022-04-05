@@ -2,7 +2,7 @@ const app = require("express").Router();
 const path = require("path");
 console.log("setting router loaded");
 const market= require(`${process.cwd()}/shop/market.json`);
-app.get("/item/:type?ID=:id",
+app.get("/item/:id",
   global.checkAuth,
   async (req, res, next) => {
 const id = market.find(x=> x.id = req.params.id);
