@@ -19,7 +19,7 @@ app.get(
     });
   }
 );
-
+/*
 app.post( "/bgs",
   global.checkAuth,
   async (req, res) => {
@@ -51,7 +51,7 @@ data.save();
             
           
         },
-    );*/
+    );
 
       
       
@@ -61,5 +61,5 @@ data.save();
 
     return res.redirect({ success: true, message: "successfully" });
   }
-);
+);*/
 module.exports = app;
