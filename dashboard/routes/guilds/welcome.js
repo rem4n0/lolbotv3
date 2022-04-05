@@ -79,7 +79,7 @@ app.post(
       {
         $set: {
           "plugins.welcome.enabled": rbody["onoff"] === "true",
-"plugins.welcome.withImage": rbody["withImg"] === "true",
+          "plugins.welcome.withImage": rbody["withImg"] === "true",
         },
       }
     );

@@ -190,15 +190,18 @@ if(check.checked){
          
          //////////////   
          var checkbox2 = document.querySelector('input[id="withImg"]');
+         
          if(checkbox2.checked){
-           $.post("/dashboard/guild/<%=guild.id%>/welcome",{
+           $.post("/dashboard/guild/<%=guild.id%>/welcome",{0
              withImg: true,
-           })
+             onoff:true,
+           });
          
          }else{
              $.post("/dashboard/guild/<%=guild.id%>/welcome",{
                withImg:false,
-             })
+               onoff:false,
+             });
          }///////////
          
   var checkbox = document.querySelector('input[id="welcomeswitch"]');
