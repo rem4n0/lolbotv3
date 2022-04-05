@@ -173,7 +173,7 @@ if(check.checked){
 }else{ 
   document.getElementById("hama2").style.display ="none";
 };
-  check.addEventListener('change', function () {
+  checkimg.addEventListener('change', function () {
 if(checkimg.checked){
   $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
     withImg:true,
@@ -182,7 +182,8 @@ if(checkimg.checked){
     $.post("/dashboard/guild/<%=guild.id%>/goodbye",{
       withImg: false,
       goodbyeonoff:true,
-    })}
+    })}})
+    check.addEventListener('change', function (){
            
     if (check.checked) {
     document.getElementById("hama2").style.display="block";
