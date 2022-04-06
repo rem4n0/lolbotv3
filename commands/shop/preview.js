@@ -17,6 +17,7 @@ if (!args[1]){
     };
  
     let selected =  market.find( x => x.id == args[1])
+  
 
     if (!selected){
       return message.channel.send({content:`❎ **${message.author.tag}**, Could not find the item with that id!`});

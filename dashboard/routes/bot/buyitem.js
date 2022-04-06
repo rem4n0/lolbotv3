@@ -6,9 +6,9 @@ app.get("/item/:id",
   global.checkAuth,
   async (req, res, next) => {
   
-const id = market.find(x=> x.assets = req.params.id);
+const id = market.find( x => x.id == req.params.id);
 
-  console.log(id);
+  
     const user = bot.users.cache.get(req.user.id);
     let data = await User.findOne({ userID: user.id});
     res.render("./bot/buyitem.ejs", {
@@ -17,7 +17,7 @@ const id = market.find(x=> x.assets = req.params.id);
       market: market,
       data: data,
       req: req,
-      img: id.assets.link,
+  img:id.assets.link,
       bot: bot,
   
       user: req.isAuthenticated() ? req.user : null,
@@ -25,7 +25,7 @@ const id = market.find(x=> x.assets = req.params.id);
   }
 );
 
-app.post( "/item",
+app.post( "/items/:id",
   global.checkAuth,
   async (req, res) => {
     let rbody = req.body;
@@ -36,7 +36,7 @@ let user = bot.users.cache.get(req.user.id);
       
 
 
-    return res.redirect({ success: true, message: "successfully" });
+    return res.send({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
