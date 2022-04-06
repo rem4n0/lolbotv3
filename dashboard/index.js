@@ -96,7 +96,7 @@ module.exports = async (bot) => {
       store: new MemoryStore({ checkPeriod: 86400000 }),
       secret:
         "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
-      resave: true,
+      resave: false,
       saveUninitialized: false,
     })
   );
