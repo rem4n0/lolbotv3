@@ -30,13 +30,16 @@ position: relative;
     <div class="item-body">
     <img class="img-fluid" src="<%=img%>">
       <button type="submit" class="btn btn-primary">Buy</button>
-      <button  class="btn btn-danger"><a href="/items">Back</a></button>
+      <a  class="btn btn-danger" href="/items">Back</a>
   
         </div>
       </form>
     </div>
   </div>
   <script>
+$("button").click((), function (){
+  $(".container").load("/dashboard");
+})
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
