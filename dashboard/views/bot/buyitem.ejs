@@ -7,8 +7,14 @@
 position: relative;
     }
     .item-body button{
-      position: absolute;
+      width:100px;
       
+      position:relative;
+      
+    }
+    .item-body button a {
+      color:var(--white);
+      text-decoration:none;
     }
     .row img{
       margin-top:50px;}
@@ -21,7 +27,7 @@ position: relative;
     <div class="item-body">
     <img class="img-fluid" src="<%= id.assets.link%>">
       <button type="submit" class="btn btn-primary">Buy</button>
-      <button  class="btn btn-danger"><a href="/items"></a></button>
+      <button  class="btn btn-danger"><a href="/items">Back</a></button>
       </div>
     </div>
   </div>

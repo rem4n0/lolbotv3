@@ -232,7 +232,7 @@ module.exports = async (bot) => {
   app.use("/", require ("./routes/bot/buyitem.js"));
   app.use("/", require("./routes/bot/topmoney.js"));
   app.use("/", require("./routes/bot/topxp.js"));
-  app.use("/", require("./routes/bot/background.js"));
+  app.use("/", require("./routes/bot/items.js"));
   ///////user
   app.use("/", require("./routes/users/daily.js"));
   app.use("/", require("./routes/users/profile-edit"));

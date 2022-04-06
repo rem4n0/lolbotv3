@@ -3,12 +3,12 @@ const path = require("path");
 console.log("setting router loaded");
 const market= require(`${process.cwd()}/shop/market.json`);
 app.get(
-  "/bgs",
+  "/items",
   global.checkAuth,
   async (req, res, next) => {
     const user = bot.users.cache.get(req.user.id);
     let data = await User.findOne({ userID: user.id});
-    res.render("./bot/background.ejs", {
+    res.render("./bot/items.ejs", {
       config: config,
       market: market,
       data: data,
