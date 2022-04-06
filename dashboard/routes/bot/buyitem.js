@@ -23,36 +23,41 @@ app.get("/item/:id", global.checkAuth, async (req, res, next) => {
 });
 
 app.post("/item/:id", global.checkAuth, async (req, res) => {
-  let amt;
+
   const id = market.find((x) => x.id == req.params.id);
   let rbody = req.body;
 
   let user = bot.users.cache.get(req.user.id);
   let data = await User.findOne({ userID: user.id });
 
-  amt = Math.floor(Math.abs(amt)) || 1;
+let amt =  1;
+  console.log(amt);
   const total = id.price * amt;
 
   if (!id.price && amt > 1) {
     res.redirect(
       '?error=true&message="You may only have 1 free item at a time'
     );
-  } else if (data.money < total) {
+  }
+  if (data.money < total) {
     res.redirect(
       `?error=true&message=You do not have enough credits to proceed with this transaction! You need ${text.commatize(
         total
       )} for **${amt}x ${id.name}**`
     );
-  } else if (data.inventory.find((x) => x.id === id.id) && !id.price) {
+  }
+  if (data.inventory.find((x) => x.id === id.id) && !id.price) {
     res.redirect(`?error=true&message=You have may only 1 free item at time`);
   } else {
     const old = data.inventory.find((x) => x.id === id.id);
+    console.log(old)
     if (old) {
       const inv = data.inventory;
       let x = data.inventory.splice(
         inv.findIndex((x) => x.id === old.id),
         1
       )[0];
+      console.log("x"+x);
       x.amount = x.amount + amt;
       data.inventory.push(data);
     } else {
