@@ -5,7 +5,8 @@ const market= require(`${process.cwd()}/shop/market.json`);
 app.get("/item/:id",
   global.checkAuth,
   async (req, res, next) => {
-const id = market.find(x=> x.id =req.params.id);
+  
+const id = market.find(x=> x.assets = req.params.id);
 
   console.log(id);
     const user = bot.users.cache.get(req.user.id);
@@ -16,6 +17,7 @@ const id = market.find(x=> x.id =req.params.id);
       market: market,
       data: data,
       req: req,
+      img: id.assets.link,
       bot: bot,
   
       user: req.isAuthenticated() ? req.user : null,
