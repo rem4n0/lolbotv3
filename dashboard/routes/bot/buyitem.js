@@ -40,12 +40,12 @@ let user = bot.users.cache.get(req.user.id);
     const total = id.price * amt;
 
 if (!id.price && amt > 1){
-res.send({error:true, message:"You may only have 1 free item at a time"});
+res.redirect ('?error=true&message="You may only have 1 free item at a time');
 }else if (data.money < total){
-res.send({error:true, message:`You do not have enough credits to proceed with this transaction! You need ${text.commatize(total)} for **${amt}x ${id.name}**`})
+res.redirect (`?error=true&message=You do not have enough credits to proceed with this transaction! You need ${text.commatize(total)} for **${amt}x ${id.name}**`)
 }
 else if (data.inventory.find(x => x.id === id.id) && !id.price){
-res.send({error:true, message:`You have may only 1 free item at time`})
+res.redirect (`?error=true&message=You have may only 1 free item at time`)
 }else{
   const old = data.inventory.find(x => x.id === id.id);
       if (old){
@@ -60,11 +60,11 @@ res.send({error:true, message:`You have may only 1 free item at time`})
         });
       };
 
-      doc.money = doc.money - total;
-      return doc.save()
+      data.money = data.money - total;
+      return data.save()
   
   
-    return res.send({ success: true, message: "successfully" });
+    return res.redirect(`?success=true&message=successfully`);
   }}
 );
 module.exports = app;
