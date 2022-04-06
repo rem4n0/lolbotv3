@@ -23,43 +23,41 @@ app.get("/item/:id", global.checkAuth, async (req, res, next) => {
 });
 
 app.post("/item/:id", global.checkAuth, async (req, res) => {
-
   const id = market.find((x) => x.id == req.params.id);
   let rbody = req.body;
 
   let user = bot.users.cache.get(req.user.id);
   let data = await User.findOne({ userID: user.id });
 
-let amt =  1;
-  console.log(amt);
+  let amt;
+  amt = Math.floor(Math.abs(amt)) || 1;
+  
   const total = id.price * amt;
 
   if (!id.price && amt > 1) {
     res.redirect(
       '?error=true&message="You may only have 1 free item at a time'
     );
-  }
-  if (data.money < total) {
+  } else if (data.money < total) {
     res.redirect(
       `?error=true&message=You do not have enough credits to proceed with this transaction! You need ${text.commatize(
         total
       )} for **${amt}x ${id.name}**`
     );
-  }
-  if (data.inventory.find((x) => x.id === id.id) && !id.price) {
+  } else if (data.inventory.find((x) => x.id === id.id) && !id.price) {
     res.redirect(`?error=true&message=You have may only 1 free item at time`);
   } else {
     const old = data.inventory.find((x) => x.id === id.id);
-    console.log(old)
+
     if (old) {
       const inv = data.inventory;
       let x = data.inventory.splice(
         inv.findIndex((x) => x.id === old.id),
         1
       )[0];
-      console.log("x"+x);
+
       x.amount = x.amount + amt;
-      data.inventory.push(data);
+      data.inventory.push(x);
     } else {
       data.inventory.push({
         id: id.id,
@@ -68,9 +66,9 @@ let amt =  1;
     }
 
     data.money = data.money - total;
-    return data.save().then(()=>{
-
-  res.redirect(`?success=true&message=successfully`);
-  })}
+    return data.save().then(() => {
+      res.redirect(`?success=true&message=successfully`);
+    });
+  }
 });
 module.exports = app;
