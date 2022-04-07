@@ -64,13 +64,9 @@
        
        <% }%>
       </div>
-     </form>
-             
-       <form action="" method="post">
-Name: <input type="text" name="name"><br>
-City: <input type="text" name="city"><br><br>
-<div class="g-recaptcha" data-sitekey="6LcaDOEcAAAAAMMMjj-8-BQorfN6X5DJIScfRuFz"></div>
-<button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>Submit</button>
+  
+<div class="g-recaptcha" data-sitekey="6LcPUlUfAAAAAAuQW7C1uhvadG-LcLFZmqCc57Mx"></div>
+<button class="g-recaptcha" data-sitekey="6LcPUlUfAAAAAA58OygmO_ivG26VdTyb_nayDAvZ" data-callback='onSubmit'data-action='submit'>Submit</button>
 </form>      
              
              
@@ -82,6 +78,7 @@ City: <input type="text" name="city"><br><br>
   
   <script>
     function onSubmit(token) {
+      
         document.getElementById("demo-form").submit();
     }
    
