@@ -8,8 +8,8 @@ async function xp(message, bot, guild, user) {
     (await User.findOne({ userID: message.author.id })) ||
     (await new User({ userID: message.author.id }).save());
   if (guild) {
-    const max = "40";
-    const min = "10";
+    const max = 3;
+    const min = 1;
     const points = Math.floor(Math.random() * (max - min)) + min;
     //const guild = await Guild.findOne({guildID: message.guild.id})
 
