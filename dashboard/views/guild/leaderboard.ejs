@@ -59,7 +59,7 @@
   const rank = String(i+1);  %>
                               
                             <tr>
-<td><span style="color:white;display: flex; align-items: center; border-left: 3px solid #10CDBF;">&nbsp;<img src=".." width="80px" height="80px" style="border-radius:50%;"><%= members.get(u.id)?.user.tag || '<Unknown User>'%></span></td>
+<td><span style="color:white;display: flex; align-items: center; border-left: 3px solid #10CDBF;">&nbsp;<img onerror="imgError(e);"src="<%= members.get(u.id)?.displayAvatarURL({format: "png"})%>" width="30px" height="30px" style="border-radius:50%;"><%= members.get(u.id)?.user.tag || '<Unknown User>'%></span></td>
  <td translate="no"><span style="color:white; display: flex; align-items: center;">&nbsp;<%=rank%></span></td>
   <td><span style="color:white; display:flex; align-items: center;">&nbsp;<%=  u.data.xp.toLocaleString()%></span> </td>
  
