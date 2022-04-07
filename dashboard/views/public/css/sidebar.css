@@ -243,6 +243,7 @@ align-items: center;
 }
 
 .home-section .home-img {
+  transition: all 1s ease;
   height: 70px;
   position: fixed;
   width: 100%;
@@ -250,7 +251,7 @@ align-items: center;
   text-align: center;
 }
 .home-section .home-img img {
-  width: 60px;
+
 
   height: 60px;
 

@@ -35,7 +35,7 @@ if(guild.plugins.logs.channel)
 
 
 
-const channelEmbed = await role.guild.channels.cache.get(guild.logs.logchannel)
+const channelEmbed = await role.guild.channels.cache.get(guild.plugins.logs.channel)
 
 if(channelEmbed){
 

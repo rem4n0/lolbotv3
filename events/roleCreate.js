@@ -34,7 +34,7 @@ if(guild.plugins.logs.channel)
 
 
 
-const channelEmbed = await role.guild.channels.cache.get(guild.logs.logchannel)
+const channelEmbed = await role.guild.channels.cache.get(guild.plugins.logs.channel)
 
 if(channelEmbed){
 
@@ -47,7 +47,7 @@ let color = config.embed.Color
     .setThumbnail(role.guild.iconURL())
     .setDescription(`:pencil: **role Created**`)
     .addField("**role Name**", role.name,true)
-///    .addField("**Moderator**",message.author.toString(),true)
+.addField("**Moderator**",role.author.toString(),true)
   
     .addField("**role Id**",role.id,true)
     .setTimestamp()

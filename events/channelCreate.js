@@ -25,7 +25,7 @@ module.exports = class {
     if (guild) {
       if (guild.plugins.logs.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guild.logs.logchannel
+          guild.plugins.logs.channel
         );
 
         if (channelEmbed) {
