@@ -15,7 +15,7 @@ app.get("/item/:id", global.checkAuth, async (req, res, next) => {
     market: market,
     data: data,
     req: req,
-    img: id.assets.link,
+    img: id?.assets.link,
     bot: bot,
 
     user: req.isAuthenticated() ? req.user : null,
