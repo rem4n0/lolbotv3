@@ -18,6 +18,9 @@ position: relative;
     }
     .row img{
       margin-top:50px;}
+    .toast{
+      background:var(--nav-color);
+      height:300px;
   </style>
   <br>
   <br>
@@ -40,17 +43,20 @@ position: relative;
       
       </form>
      
-     <div class="position-fixed" style="z-index: 100">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+     <div class="container position-fixed top-0" style="z-index: 100;margin-top:200px;">
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
+      <img src="<%= bot.user.displayAvatarURL({format: "png"})%>" width="30px" height="30px" class="rounded me-2" alt="...">
       <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
+      <small><%=id?.type%></small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      Hello, world! This is a toast message.
+      <label for="background">Set Background?</label>
+      <input type="checkbox" id="background" value="" class="form-input-check">
+    
     </div>
+      <button type="submit" class="btn btn-success">Apply</button>
   </div>
 </div>
     </div>
