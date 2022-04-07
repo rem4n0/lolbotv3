@@ -105,8 +105,8 @@
         
         <br>
         <br>
-        <% market.map((item)=>{ %>
-  <% if(item.type === "background"){%>
+        <% market.forEach((item)=>{ %>
+  <% if(item.type == "background"){%>
         <div class="bgs text-left">
       <strong>$<%=item.price%></strong> 
         
@@ -120,7 +120,7 @@
           
                    
                       
-           <% } })%>     
+           <%  }})%>     
             
      
      

@@ -10,7 +10,7 @@ app.get("/item/:id", global.checkAuth, async (req, res, next) => {
   const user = bot.users.cache.get(req.user.id);
   let data = await User.findOne({ userID: user.id });
   res.render("./bot/buyitem.ejs", {
-    id: id,
+  
     config: config,
     market: market,
     data: data,
