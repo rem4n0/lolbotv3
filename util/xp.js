@@ -10,8 +10,8 @@
        let res = await User.findOne({userID: message.author.id}) ||
           await new User({userID: message.author.id}).save();
  if(guild){
-          const max = guild.xp.max || 3;
-  const min = guild.xp.min || 1;
+          const max = "40";
+  const min = "10";
   const points = Math.floor(Math.random() * (max-min)) + min;
 //const guild = await Guild.findOne({guildID: message.guild.id})
 
@@ -70,7 +70,7 @@
     serverdata.level++
 
     
-      let channel =bot.channels.cache.find(c=> c.id === guild.channels.xp)
+      let channel =bot.channels.cache.find(c=> c.id === guild.xp.channel)
   if(channel){
     let xpmessage = guild.xp.message
     .replace(/{user}/, message.author.toString())
