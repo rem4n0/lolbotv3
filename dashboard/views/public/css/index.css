@@ -148,7 +148,7 @@ padding-left: 10px;
 /**+++++----- preloader------*/
 
   #preloader{
-    height:100vh;
+    height:200vh;
 
     background: var(--navlist-color);
   
