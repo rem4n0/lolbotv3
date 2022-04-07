@@ -1,10 +1,12 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
    
-  .container .column .columns img{
+  .column  img{
     
     justify-content:space-between;
-    padding-bottom:10px;
+    padding-bottom:20px;
+    padding-top:20px;
+    
   
     }
   
@@ -37,9 +39,9 @@
         margin-left:-220px;
         
       }
-  .container .column .columns img{
+  .column img{
     padding-left:10px; 
-    paddin-top:3px;
+    paddin-top:30px;
     paddin-right:10px;
     
       }
@@ -113,7 +115,7 @@
         </div>
       
 <a href="/item/<%=item.id%>">
-  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0,0,0,0.3);" alt="<%=item.id%>"/>
+  <img src="<%= item.assets.link%>"  style="width:350px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0, 0, 4, 0.28);" alt="<%=item.id%>"/>
   
             
           </a>
