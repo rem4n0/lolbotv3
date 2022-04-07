@@ -54,7 +54,7 @@
       
            </div>
          <% }else{%>
-       <div class="form-group">
+       <div class="form-group" id="daily">
          <h3> Claim You Daily</h3>
          
          
@@ -66,7 +66,6 @@
       </div>
   
 <div class="g-recaptcha" data-sitekey="6LcPUlUfAAAAAAuQW7C1uhvadG-LcLFZmqCc57Mx"></div>
-<button class="g-recaptcha" data-sitekey="6LcPUlUfAAAAAA58OygmO_ivG26VdTyb_nayDAvZ" data-callback='onSubmit'data-action='submit'>Submit</button>
 </form>      
              
              
@@ -77,11 +76,12 @@
   </div>
   
   <script>
-    function onSubmit(token) {
+   /* function onSubmit(token) {
       
         document.getElementById("demo-form").submit();
-    }
+    }*/
    
+    $("#daily").click
 var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
