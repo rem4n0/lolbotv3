@@ -1,11 +1,15 @@
 <%- include ('../parts/head.ejs',{bot,user})%>
   <style>
+    .column a{
+    
+      line-height: 30px;
+    }
    
   .column  img{
     
     justify-content:space-between;
-    padding-bottom:20px;
-    padding-top:20px;
+
+    padding: 20px 10px 20px 10px;
     
   
     }
@@ -50,7 +54,7 @@
       
     }
   
-  
+  /*
     
     .toast {
       width:300px;
@@ -72,12 +76,11 @@
       
       
     }
-  /*
+
     
     .toast.show{
       display:block;
-    }*/
-    
+    }
     .toast .toast-content{
       text-align: center;
       
@@ -98,7 +101,7 @@
       margin-top:40px;
     
       
-    }
+    }*/
   </style>
   <div class="container">
     
@@ -115,12 +118,13 @@
         </div>
       
 <a href="/item/<%=item.id%>">
+
   <img src="<%= item.assets.link%>"  style="width:350px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0, 0, 4, 0.28);" alt="<%=item.id%>"/>
   
             
           </a>
           
-                   
+          
                       
            <% })%>     
             
