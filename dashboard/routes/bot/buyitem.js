@@ -31,7 +31,7 @@ app.post("/item/:id", global.checkAuth, async (req, res) => {
 
   let amt;
   amt = Math.floor(Math.abs(amt)) || 1;
-  
+
   const total = id.price * amt;
 
   if (!id.price && amt > 1) {
