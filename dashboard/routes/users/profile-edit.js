@@ -31,7 +31,7 @@ app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
           "attch.background": rBody['background'],
             info: rBody['biography'],
             website: rBody['website'],
-            "laschange.date": d.getFullYear(),
+            "laschange.date": Date.now(),
             github: rBody['github'],
             twitter: rBody['twitter'],
             instagram: rBody['instagram']

@@ -11,7 +11,7 @@
    .bgs{
     
       
-      background:#717173;
+      background:var(--sharabi);
       position: absolute;
     
       margin-left:69px;
@@ -38,9 +38,10 @@
         
       }
   .container .column .columns img{
-    padding-left:10px; 
+    padding-left:50px; 
     paddin-top:3px;
-    paddin-right:10px;
+    paddin-right:50px;
+  
     
       }
   
@@ -106,21 +107,21 @@
         <br>
         <br>
         <% market.map((item)=>{ %>
-  
-        <div class="bgs">
+  <% if(item.type === "background"){%>
+        <div class="bgs text-left">
       <strong>$<%=item.price%></strong> 
         
         </div>
       
 <a href="/item/<%=item.id%>">
-  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0,0,0,0.3);" alt="<%=item.id%>"/>
+  <img src="<%= item.assets.link%>"  style="width:300px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0,0,0,0.3);"  alt="<%=item.id%>"/>
   
             
           </a>
           
                    
                       
-           <% })%>     
+           <% } })%>     
             
      
      
