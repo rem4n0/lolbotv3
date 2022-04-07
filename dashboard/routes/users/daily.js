@@ -55,7 +55,7 @@ cooldown:cooldown,
 
 app.post("/daily", global.checkAuth, async (req,res)=>{
  let user=  bot.users.cache.get(req.user.id);
-  
+  console.log(user);
   /*
  let cooldown = 43200000;
       let data = await User.findOne({ userID:user.id });

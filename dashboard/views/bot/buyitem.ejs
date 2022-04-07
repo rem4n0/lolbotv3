@@ -28,52 +28,19 @@ position: relative;
       
       
     <div class="item-body">
-    <img class="img-fluid" src="<%=id.assets.link%>">
+    <img class="img-fluid" src="<%=img%>">
       
-      <button type="button" id="liveToastBtn" class="btn btn-primary">Buy</button>
+      <button type="submit" class="btn btn-primary">Buy</button>
       <a  class="btn btn-danger" href="/items">Back</a>
   
         </div>
-      
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
-      
-      
       </form>
-     <button type="button" onclick="click();"id="liveToastBtn" class="btn btn-danger">++++</button>
+     <button type="submit" onclick="click();" class="btn btn-danger">++++</button>
     </div>
   </div>
 
   <script>
-    /*
-    function click(){
-      $("button").click(function (){
-        
-        $(".toast").classList.add("show");
-      })
-      
-      
-    }*/
-    var toastTrigger = document.getElementById('liveToastBtn')
-var toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', function () {
-    var toast = new bootstrap.Toast(toastLiveExample)
-
-    toast.show()
-  })
-}
+    
   
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){

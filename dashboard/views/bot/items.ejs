@@ -11,14 +11,14 @@
    .bgs{
     
       
-      background:var(--sharabi);
+      background:#717173;
       position: absolute;
     
-      margin-left:35px;
+      margin-left:69px;
      
       border-bottom-right-radius:15%;
       border-top-left-radius:15%;
-      
+      opacity:0.6;
   
     }
 
@@ -26,7 +26,7 @@
     pointer-events:none;
   
       color: var(--white);
-      left:30px;
+      left:60px;
     
       
     }
@@ -34,14 +34,14 @@
     @media only screen and (min-height:800px){
       .bgs{
      display:inline-flex;
-        margin-left:-250px;
+        margin-left:-220px;
         
       }
   .container .column .columns img{
-    padding-left:50px; 
+    padding-left:10px; 
     paddin-top:3px;
-    paddin-right:50px;
-  
+    paddin-right:10px;
+    
       }
   
       
@@ -105,22 +105,22 @@
         
         <br>
         <br>
-        <% market.forEach((item)=>{ %>
-  <% if(item.type == "background"){%>
-        <div class="bgs text-left">
+        <% market.map((item)=>{ %>
+  
+        <div class="bgs">
       <strong>$<%=item.price%></strong> 
         
         </div>
       
 <a href="/item/<%=item.id%>">
-  <img src="<%= item.assets.link%>"  style="width:300px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(19, 30, 39, 0.21);"  alt="<%=item.id%>"/>
+  <img src="<%= item.assets.link%>"  style="width:230px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0,0,0,0.3);" alt="<%=item.id%>"/>
   
             
           </a>
           
                    
                       
-           <%  }})%>     
+           <% })%>     
             
      
      

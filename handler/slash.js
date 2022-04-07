@@ -108,9 +108,7 @@ module.exports = async (bot) => {
           ) {
             Command.addRoleOption((op) =>
               op
-                .setName(
-                  String(option.Role.name).replace(/\s+/g, "_").toLowerCase()
-                )
+                .setName(String(option.Role.name).replace(/\s+/g,"_").toLowerCase())
                 .setDescription(option.Role.description)
                 .setRequired(option.Role.required)
             );
@@ -169,9 +167,9 @@ module.exports = async (bot) => {
       }
 
       commands.push(Command.toJSON());
-      bot.slash.set(command.name, command);
+      bot.slash.set( command.name, command);
       table.addRow(file, "👍");
-      // console.log(table.toString());
+     // console.log(table.toString());
     }
   });
 };

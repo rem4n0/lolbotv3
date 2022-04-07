@@ -7,7 +7,7 @@ const schema = mongoose.Schema({
   twitter:{type: String, default:null},
   instagram:{type:String, default:null},
  lastchange:{
-date:{ type:String, default:null},
+date:{ type:Date, default:null},
    
    
  }
