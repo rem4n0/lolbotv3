@@ -65,6 +65,15 @@
        <% }%>
       </div>
      </form>
+             
+       <form action="" method="post">
+Name: <input type="text" name="name"><br>
+City: <input type="text" name="city"><br><br>
+<div class="g-recaptcha" data-sitekey="6LcaDOEcAAAAAMMMjj-8-BQorfN6X5DJIScfRuFz"></div>
+<button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'data-action='submit'>Submit</button>
+</form>      
+             
+             
     </div>
     
     
@@ -72,7 +81,9 @@
   </div>
   
   <script>
-    
+    function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+    }
    
 var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
