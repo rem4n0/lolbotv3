@@ -35,8 +35,12 @@
     
     
   </style>
-  <h1 class="text-head text-white"><%=guild.name%></h1><p class="text-white">LEADERBOARD</p>
-        <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png??size=70" class="img-thumbnail" alt="<%=guild.name%>.png"/>
+  <h1 class="text-white text-center">LEADERBOARD</h1>
+        <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png" class="img-fluid rounded mx-auto d-block rounded-circle" alt="<%=guild.name%>.png"/>
+  <br>
+  
+  <h3 class="text-white text-center"><%=guild.name%></h3>
+    <div class="container">
         <div class="row layout-top-spacing" id="cancel-row">
         
             <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
@@ -92,7 +96,7 @@
                 </div>
             </div>
           </div>
-  
+              </div>
   
   <br>
                   <br>
