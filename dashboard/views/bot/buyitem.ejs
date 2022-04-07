@@ -30,7 +30,7 @@ position: relative;
     <div class="item-body">
     <img class="img-fluid" src="<%=img%>">
       
-      <button type="submit" class="btn btn-primary">Buy</button>
+      <button type="button" id="liveToastBtn" class="btn btn-primary">Buy</button>
       <a  class="btn btn-danger" href="/items">Back</a>
   
         </div>
@@ -40,8 +40,8 @@ position: relative;
       
       </form>
      
-     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 100">
-  <div id="liveToast" class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+     <div class="position-fixed" style="z-index: 100">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="..." class="rounded me-2" alt="...">
       <strong class="me-auto">Bootstrap</strong>
@@ -53,21 +53,26 @@ position: relative;
     </div>
   </div>
 </div>
-     <button id="liveToastBtn" type="button" class="btn btn-danger">++++</button>
     </div>
   </div>
 
   <script>
     
-    var toastTrigger = document.getElementById('liveToastBtn')
-var toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', function () {
-    var toast = new bootstrap.Toast(toastLiveExample)
+    var toastbtn = document.getElementById('liveToastBtn')
+var toastbtnremove = document.querySelector(".btn-close")
 
-    toast.show()
+var toastLive= document.getElementById('liveToast')
+if (toastbtn) {
+  toastbtn.addEventListener('click', function () {
+    toastLive.classList.add("show");
   })
+
 }
+    if(toastbtnremove){
+toastbtnremove.addEventListener('click', function (){
+  toastLive.classList.remove("show");
+})}
+    
   
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
