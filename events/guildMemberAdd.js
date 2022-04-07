@@ -30,6 +30,7 @@ module.exports = class {
 		member.guild.data = guildData;
 
 		const memberData = await Mute.findOne({ id: member.id, guildID: member.guild.id });
+   if(memberData){
 		if(memberData.mute.muted && memberData.mute.endDate > Date.now()){
 			member.guild.channels.cache.forEach((channel) => {
 				channel.permissionOverwrites.edit(member.id, {
@@ -38,7 +39,7 @@ module.exports = class {
 					CONNECT: false
 				}).catch(() => {});
 			});
-		}
+		}}
 
 		// Check if the autorole is enabled
   if(!guildData) return;
