@@ -766,32 +766,7 @@ span.selectOption:hover {
 
 
 
-/*
-    .container .top-img img{
-      width:23;
-      height:23px;
-      
-      margin-top:10px;
-      
-    }
-    .container .row .top-section .top-img{
-      position: fixed;
-    
-      width:60px;
-      height:60px;
-      right:0;
-      margin-left:300px;
-      
-    }
-    @media screen and (min-height:800px){
-      
-      .container .row .top-section .top-img{
-        right:150px;
-        position: fixed;
-        
-      }
-      
-    }*/
+
     .container .row .top-section .top-number {
   
     margin-top:-150px;
