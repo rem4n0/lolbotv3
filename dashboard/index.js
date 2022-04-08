@@ -140,10 +140,14 @@ module.exports = async (bot) => {
     `/callback`,
     passport.authenticate(`discord`, { failureRedirect: "/" }),
     async (req, res) => {
+      let maintenc = await Maintenance.findOne({server: config.serverId})
+      if(maintenc){
+        res.redirect("/downtime")
+      }
       let banned = await Ban.findOne({ user: req.user.id });
       if (banned) {
         req.session.destroy(() => {
-          res.redirect("/bans");
+          res.redirect ("/bans");
           /*
           res.json({
             login: false,

@@ -26,10 +26,15 @@ app.get('/commands',(req,res,next)=>{
     bot:bot,
   })
 })
-app.get("/bans",global.checkAuth,async (req,res)=>{
-  let data = await Ban.findOne({user: req.user.id});
+app.get("downtime", global.checkAuth,async (req,res)=>{
+  let maintenc = await Maintenance.fin
+})
+app.get("/bans",async (req,res)=>{
   res.render("bans",{
-    data:data,
+  // data:data,
+    bot:bot,
+    req:req,
+    user: req.isAuthenticated() ? req.user:null,
   })})
 app.get('/invite',(req,res,next)=>{
   
