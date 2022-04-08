@@ -140,10 +140,10 @@ module.exports = async (bot) => {
     `/callback`,
     passport.authenticate(`discord`, { failureRedirect: "/" }),
     async (req, res) => {
-      let maintenc = await Maintenance.findOne({server: config.serverId})
+      let maintenc = await Maintenance.findOne({server: config.serverid})
       if(maintenc){
         res.redirect("/downtime")
-      }
+      }else{
       let banned = await Ban.findOne({ user: req.user.id });
       if (banned) {
         req.session.destroy(() => {
@@ -159,7 +159,7 @@ module.exports = async (bot) => {
       } else {
         res.redirect(req.session.backURL || `/`);
       }
-    }
+    }}
   );
   app.get("/logout", function (req, res) {
     req.session.destroy(() => {

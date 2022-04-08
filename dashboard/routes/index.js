@@ -26,8 +26,16 @@ app.get('/commands',(req,res,next)=>{
     bot:bot,
   })
 })
-app.get("downtime", global.checkAuth,async (req,res)=>{
-  let maintenc = await Maintenance.fin
+app.get("/downtime", global.checkAuth,async (req,res)=>{
+  let maintenc = await Maintenance.findOne({server: config.serverid})
+  if(maintenc){
+    res.render("maintenance",{
+      user:req.isAuthenticated()? req.user:null,
+      bot:bot,
+      data: maintenc,
+      config: config,
+    })}else{
+      res.redirect("/");}
 })
 app.get("/bans",async (req,res)=>{
   res.render("bans",{
