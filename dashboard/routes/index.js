@@ -29,6 +29,11 @@ if(maintenance && maintenance.toggle == "true") {
   res.redirect(config.support)
   
 })
+app.get('/policy', async(req,res)=>{
+  res.render("policy-terms",{
+    req:req,})
+  
+})
 app.get('/commands',async(req,res,next)=>{
   const maintenance = await Maintenance.findOne({
   server: config.serverid
