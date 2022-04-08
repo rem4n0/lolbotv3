@@ -20,7 +20,9 @@ position: relative;
       margin-top:50px;}
     .toast{
       background:var(--nav-color);
-      height:300px;
+      height:50vh;
+      width:100%;
+      margin-left:-13px;
   </style>
   <br>
   <br>
@@ -43,7 +45,7 @@ position: relative;
       
       </form>
      
-     <div class="container position-fixed top-0" style="z-index: 100;margin-top:200px;">
+     <div class="container position-fixed top-0" style="z-index: 100;margin-top:100px;">
   <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="<%= bot.user.displayAvatarURL({format: "png"})%>" width="30px" height="30px" class="rounded me-2" alt="...">
@@ -52,9 +54,13 @@ position: relative;
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      <label for="background">Set Background?</label>
+      
+      <p> Item price: $<%= id?.price%></p>
+      <label for="background">Set to Profile ?</label>
       <input type="checkbox" id="background" value="" class="form-input-check">
-    
+        <br>
+        <br>
+    <img src="<%= id?.assets.link%>" class="img-fluid is-size-1">
     </div>
       <button type="submit" class="btn btn-success">Apply</button>
   </div>
