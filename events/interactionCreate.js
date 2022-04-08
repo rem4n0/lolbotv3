@@ -53,8 +53,8 @@ module.exports = class {
       if (guildBlacklistSettings && guildBlacklistSettings.isBlacklisted){
         return; 
       }
-      let Ban = await Ban.findOne({user: interaction.user.id})
-      if(Ban) return;
+      let ban = await Ban.findOne({user: interaction.user.id})
+      if(ban) return;
       //-------------/////
 
     

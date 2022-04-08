@@ -63,8 +63,8 @@ if(!Mute){
     if (guildBlacklistSettings && guildBlacklistSettings.isBlacklisted) {
       return;
     } /////////
-    let Ban = await Ban.findOne({user: message.author.id});
-    if(Ban) return;
+    let ban = await Ban.findOne({user: message.author.id});
+    if(ban) return;
 
     ////////-----------------------------------------------------------------------///
 
