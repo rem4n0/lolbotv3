@@ -17,14 +17,13 @@
    .bgs{
     
       
-      background:#717173;
+      background:var(--sharabi);
       position: absolute;
-    
-      margin-left:69px;
+    margin-left:10px;
+    width:80px;
      
       border-bottom-right-radius:15%;
       border-top-left-radius:15%;
-      opacity:0.6;
   
     }
 
@@ -32,16 +31,14 @@
     pointer-events:none;
   
       color: var(--white);
-      left:60px;
-    
+    left:60px;
       
     }
     
     @media only screen and (min-height:800px){
       .bgs{
      display:inline-flex;
-        margin-left:-220px;
-        
+    margin-left:-300px;
       }
   .column img{
     padding-left:10px; 
@@ -106,7 +103,7 @@
   <div class="container">
     
     <div class="column">
-      <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+      <div class="columns is-multiline is-desktop">
         
         <br>
         <br>
@@ -119,7 +116,7 @@
       
 <a href="/item/<%=item.id%>">
 
-  <img src="<%= item.assets.link%>"  style="width:350px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0, 0, 4, 0.28);" alt="<%=item.id%>"/>
+  <img src="<%= item.assets.link%>"  style="width:300px; height:170px; border-radius:3%;box-shadow:10px 10px 10px 10px rgba(0, 0, 4, 0.28);" alt="<%=item.id%>"/>
   
             
           </a>
