@@ -32,7 +32,7 @@ app.post("/admin/maintence", global.checkAuth, async (req, res) => {
           toggle: true,
         }).save();
     })
-    return res.redirect('../admin/maintenance?success=true&message=Maintence opened.');
+    return res.redirect('../admin/maintence?success=true&message=Maintence opened.');
 });
 app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
     const dc = require("discord.js");
