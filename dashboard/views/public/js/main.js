@@ -8,19 +8,3 @@ window.addEventListener("load", function () {
     loader.style.display = "none";
   }, 2000);
 });
-/////++++++---------------------------toast
-var toastbtn = document.getElementById('showtoast')
-var toastbtnremove = document.querySelector(".btn-close")
-
-var toastLive= document.getElementById('toast-showed')
-if (toastbtn) {
-  toastbtn.addEventListener('click', function () {
-    toastLive.classList.add("show");
-  })
-
-}
-    if(toastbtnremove){
-toastbtnremove.addEventListener('click', function (){
-  toastLive.classList.remove("show");
-})}
-    
