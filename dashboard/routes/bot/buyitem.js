@@ -66,7 +66,7 @@ app.post("/item/:id", global.checkAuth, async (req, res) => {
       });
     }
     if(rbody ["background"] === "true"){
-      data.attch.background = id.assets.link
+      data.attch[id.type] = id.assets.link
     }
     data.money = data.money - total;
     return data.save().then(() => {
