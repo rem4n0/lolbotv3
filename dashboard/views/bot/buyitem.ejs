@@ -92,13 +92,22 @@ if (toastbtn) {
 toastbtnremove.addEventListener('click', function (){
   toastLive.classList.remove("show");
 })}
-   document.addEventListener("DOMContentLoad", function (){
+   document.addEventListener("DOMContentLoaded", function (){
      
      var btn = document.querySelector('input[id="background"]');
-     btn.addEventListener("change
+     btn.addEventListener("change", function (){
     if(btn.checked){
       $.post("/item/<%= id.id%>",{
-        
+        background:true
+      })}else{
+        $.post("/item/<%= id.id%>",{
+          background:false,
+        })
+               
+
+     
+     
+     }})})
     
   
     var urlParams = new URLSearchParams(window.location.search);
