@@ -32,7 +32,7 @@ app.post("/admin/maintence", global.checkAuth, async (req, res) => {
           toggle: true,
         }).save();
     })
-    return res.redirect('../admin/maintence?success=true&message=Maintence opened.');
+    return res.redirect('../admin/maintenance?success=true&message=Maintence opened.');
 });
 app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
     const dc = require("discord.js");
@@ -50,16 +50,14 @@ app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
     await bot.channels.cache.get(channels.webstatus).messages.fetch(bakimdata.message).then(a => {
         a.edit(`~~ <a:maintence:833375738547535913> BoBo Website has been switched to __maintance__ due to **${bakimdata.reason}** ~~`, bakimsonaerdikardesvcodes)
     })
-    bot.channels.cache.get(channels.webstatus).send(".").then(b => {
+    bot.channels.cache.get(channels.webstatus).send("wuwjwjwkkakaka.").then(b => {
         b.delete({
-            timeout: 5000
+            timeout: 500
         })
     })
     await Maintenance.deleteOne({
         server: config.serverid
-    }, function(error, server) {
-        if (error) console.log(error)
-    });
+    })
     return res.redirect('../admin/maintence?success=true&message=Maintenance mode has been shut down successfully.');
 });
 
