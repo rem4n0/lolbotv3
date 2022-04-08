@@ -5,7 +5,7 @@ async run( newRole,oldRole){
   let data = await Guild.findOne({guildID: newRole.guild.id})
     const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.channel);
     if (!logChannel) return;
-  if(!guild.plugins.logs.enabled)
+  if(!data.plugins.logs.enabled)
   return;
                     
     const allLogs = await newRole.guild.fetchAuditLogs({ type: "ROLE_UPDATE" });
