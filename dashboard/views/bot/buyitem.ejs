@@ -19,10 +19,16 @@ position: relative;
     .row img{
       margin-top:50px;}
     .toast-page{
-      pos
-   .toast-page .toast{
+
+    z-index:100;
+    margin-top:-350px;
+    }
+   .toast{
+    
       background:var(--nav-color);
-     
+     height:100%;
+    width:100%;
+
     }
     
     
@@ -48,7 +54,7 @@ position: relative;
       
   
      <div class="container toast-page">
-  <div id="toast-showed" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+  <div id="toast-showed" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="<%= bot.user.displayAvatarURL({format: "png"})%>" width="30px" height="30px" class="rounded me-2" alt="...">
       <strong class="me-auto">Bootstrap</strong>
@@ -71,7 +77,7 @@ position: relative;
   </div>
 
   <script>
-    
+    /*
     var toastbtn = document.getElementById('showtoast')
 var toastbtnremove = document.querySelector(".btn-close")
 
@@ -87,7 +93,7 @@ toastbtnremove.addEventListener('click', function (){
   toastLive.classList.remove("show");
 })}
     
-  
+  */
     var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
