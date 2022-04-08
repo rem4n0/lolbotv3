@@ -15,11 +15,32 @@ app.get("/",(req, res,next)=> {
     user:req.isAuthenticated() ? req.user : null,
   });
 }); 
-app.get('/support',(req,res,next)=>{
+app.get('/support',async(req,res,next)=>{
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+}
+
+
   res.redirect(config.support)
   
 })
-app.get('/commands',(req,res,next)=>{
+app.get('/commands',async(req,res,next)=>{
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
   res.render("commands",{
     user:req.isAuthenticated() ? req.user:null,
     req:req,
@@ -38,6 +59,17 @@ app.get("/downtime", global.checkAuth,async (req,res)=>{
       res.redirect("/");}
 })
 app.get("/bans",async (req,res)=>{
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
   res.render("bans",{
   // data:data,
     bot:bot,

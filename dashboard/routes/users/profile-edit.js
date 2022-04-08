@@ -2,6 +2,20 @@ const app = require('express').Router();
 const market =require (`${process.cwd()}/shop/market.json`);
 const _ = require ('lodash');
 app.get("/profile/:userID/edit", global.checkAuth, async (req, res) => {
+  
+  
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+  
     if(req.params.userID != req.user.id) return res.redirect('/profile/'+req.user.id+'/edit');
     bot.users.fetch(req.user.id).then(async member => {
         const data = await User.findOne({

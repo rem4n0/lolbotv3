@@ -2,7 +2,21 @@ const app = require("express").Router();
 const path = require("path");
 const Discord = require("discord.js");
 app.get("/dashboard", global.checkAuth, async (req, res, next) => {
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+  
   const user = bot.users.fetch(req.user.id).then(async (a) => {
+  
+  
     let data =
       (await User.findOne({ userID: a.id })) ||
       (await new User({ userID: a.id }));

@@ -14,7 +14,17 @@ function intToString (value) {
 
 
 app.get("/top/xp", global.checkAuth, async (req, res, next) => {
-     
+     const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
     return User.find({}).exec(async (err, docs) => {
       docs = docs
         .map((x) => {

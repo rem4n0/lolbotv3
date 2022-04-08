@@ -5,6 +5,18 @@ app.get(
   "/dashboard/guild/:guildID",
   global.checkAuth,
   async (req, res, next) => {
+    
+    const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
     const guild = bot.guilds.fetch(req.params.guildID).then(async (a) => {
       let data = await Guild.findOne({ guildID: a.id });
 

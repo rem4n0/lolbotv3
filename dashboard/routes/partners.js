@@ -6,7 +6,17 @@ const path = require("path");
 console.log(" Partners router loaded.");
 
 app.get("/partners", async (req, res) => {
-  
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
   res.render("partners.ejs", {
     bot: bot,
     res:res,

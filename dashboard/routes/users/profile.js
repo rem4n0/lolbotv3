@@ -9,9 +9,19 @@ app.get(
   "/profile/:userID",
   global.checkAuth,
   async (req, res, next) => {
-    
+    const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
-    
+    if(!a) res.redirect("/");
   let data = await User.findOne({userID: a.id});
     
       res.render("./users/profile.ejs", {

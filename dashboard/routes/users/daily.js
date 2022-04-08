@@ -6,7 +6,21 @@ const fs = require("fs");
 const pretty = require("pretty-ms")
 
 app.get("/daily", global.checkAuth, async (req, res, next) => {
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+  
+  
   const user = bot.users.fetch(req.user.id).then(async (a) => {
+  if(!a) return;
     let data =
       (await User.findOne({ userID: a.id })) ||
       (await new User({ userID: a.id }));

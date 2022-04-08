@@ -1,8 +1,18 @@
 const app = require("express").Router();
 const path = require("path");
 const type = require ('typed.js')
-app.get("/dashboard/:guildID/leaderboard",(req, res,next)=> {
-  
+app.get("/dashboard/:guildID/leaderboard",async(req, res,next)=> {
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
   const guild = bot.guilds.cache.get(req.params.guildID);
   return User.find({ 'data.xp.id':guild.id}).exec( async (err, docs) => {
   

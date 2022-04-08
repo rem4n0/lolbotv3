@@ -5,6 +5,19 @@ app.get(
   "/dashboard/guild/:guildID/xpsystem",
   global.checkAuth,
   async (req, res, next) => {
+    
+    const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+    
     const guild = bot.guilds.cache.get(req.params.guildID);
     let user = guild.members.cache.get(req.user.id);
     if (!user.permissions.has("MANAGE_GUILD")) {

@@ -6,6 +6,18 @@ app.get(
   "/items",
   global.checkAuth,
   async (req, res, next) => {
+    const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+    
     const user = bot.users.cache.get(req.user.id);
     let data = await User.findOne({ userID: user.id});
     res.render("./bot/items.ejs", {

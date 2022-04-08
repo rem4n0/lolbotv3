@@ -5,6 +5,19 @@ const text = require(`${process.cwd()}/util/string`);
 
 const market = require(`${process.cwd()}/shop/market.json`);
 app.get("/item/:id", global.checkAuth, async (req, res, next) => {
+  
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+  
   const id = market.find((x) => x.id == req.params.id);
 
   const user = bot.users.cache.get(req.user.id);

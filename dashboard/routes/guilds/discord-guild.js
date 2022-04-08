@@ -12,6 +12,18 @@ const flags = [
 	
 ];
 app.get("/dashboard/guild", global.checkAuth, async (req,res) => {
+  const maintenance = await Maintenance.findOne({
+  server: config.serverid
+})
+
+if(maintenance && maintenance.toggle == "true") {
+
+     return res.render(res, req, "maintenance.ejs")
+
+}
+
+
+  
   const member = bot.users.fetch(req.user.id).then(async (a)=>{
   
   
