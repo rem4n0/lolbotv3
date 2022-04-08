@@ -92,6 +92,13 @@ if (toastbtn) {
 toastbtnremove.addEventListener('click', function (){
   toastLive.classList.remove("show");
 })}
+   document.addEventListener("DOMContentLoad", function (){
+     
+     var btn = document.querySelector('input[id="background"]');
+     btn.addEventListener("change
+    if(btn.checked){
+      $.post("/item/<%= id.id%>",{
+        
     
   
     var urlParams = new URLSearchParams(window.location.search);

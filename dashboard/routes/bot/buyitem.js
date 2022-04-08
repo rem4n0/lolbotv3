@@ -62,6 +62,7 @@ app.post("/item/:id", global.checkAuth, async (req, res) => {
       data.inventory.push({
         id: id.id,
         amount: amt,
+        
       });
     }
 

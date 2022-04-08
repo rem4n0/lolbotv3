@@ -94,6 +94,9 @@ body {
 
 /**----media*-*/
 @media screen and (min-width: 500px) {
+  .toast-page{
+    left:0;
+  }
   .main-container {
     align-items: center;
     text-align: center;
