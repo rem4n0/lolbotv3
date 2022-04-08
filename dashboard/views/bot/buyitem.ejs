@@ -18,11 +18,14 @@ position: relative;
     }
     .row img{
       margin-top:50px;}
-    .toast{
+    .toast-page{
+      pos
+   .toast-page .toast{
       background:var(--nav-color);
-      height:50vh;
-      width:100%;
-      margin-left:-13px;
+     
+    }
+    
+    
   </style>
   <br>
   <br>
@@ -35,7 +38,7 @@ position: relative;
     <div class="item-body">
     <img class="img-fluid" src="<%=img%>">
       
-      <button type="button" id="liveToastBtn" class="btn btn-primary">Buy</button>
+      <button type="button" id="showtoast" class="btn btn-primary">Buy</button>
       <a  class="btn btn-danger" href="/items">Back</a>
   
         </div>
@@ -43,10 +46,9 @@ position: relative;
       
       
       
-      </form>
-     
-     <div class="container position-fixed top-0" style="z-index: 100;margin-top:100px;">
-  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+  
+     <div class="container toast-page">
+  <div id="toast-showed" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="<%= bot.user.displayAvatarURL({format: "png"})%>" width="30px" height="30px" class="rounded me-2" alt="...">
       <strong class="me-auto">Bootstrap</strong>
@@ -58,22 +60,22 @@ position: relative;
       <p> Item price: $<%= id?.price%></p>
       <label for="background">Set to Profile ?</label>
       <input type="checkbox" id="background" value="" class="form-input-check">
-        <br>
-        <br>
+<br>
     <img src="<%= id?.assets.link%>" class="img-fluid is-size-1">
     </div>
       <button type="submit" class="btn btn-success">Apply</button>
   </div>
 </div>
-    </div>
+       </div>
+      </form>
   </div>
 
   <script>
     
-    var toastbtn = document.getElementById('liveToastBtn')
+    var toastbtn = document.getElementById('showtoast')
 var toastbtnremove = document.querySelector(".btn-close")
 
-var toastLive= document.getElementById('liveToast')
+var toastLive= document.getElementById('toast-showed')
 if (toastbtn) {
   toastbtn.addEventListener('click', function () {
     toastLive.classList.add("show");
