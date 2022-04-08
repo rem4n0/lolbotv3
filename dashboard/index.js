@@ -143,11 +143,13 @@ module.exports = async (bot) => {
       let banned = await Ban.findOne({ user: req.user.id });
       if (banned) {
         req.session.destroy(() => {
+          res.redirect("/bans");
+          /*
           res.json({
             login: false,
             message: "You have been blocked from vCodes.",
             logout: true,
-          });
+          });*/
           req.logout();
         });
       } else {

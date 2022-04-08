@@ -28,8 +28,7 @@ app.post("/admin/userunban", global.checkAuth, async (req, res) => {
     if (!config.owners.includes(req.user.id)) return res.redirect('../admin');
     Ban.deleteOne({
         user: req.body.userID
-    }, function(error, user) {
-        if (error) console.log(error)
+  
     })
     return res.redirect('../admin/userban?success=true&message=User ban removed.');
 });

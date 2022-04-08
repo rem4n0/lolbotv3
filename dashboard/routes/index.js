@@ -26,6 +26,11 @@ app.get('/commands',(req,res,next)=>{
     bot:bot,
   })
 })
+app.get("/bans",global.checkAuth,async (req,res)=>{
+  let data = await Ban.findOne({user: req.user.id});
+  res.render("bans",{
+    data:data,
+  })})
 app.get('/invite',(req,res,next)=>{
   
   res.redirect(config.invitelink)
