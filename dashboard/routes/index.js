@@ -29,8 +29,10 @@ if(maintenance && maintenance.toggle == "true") {
   res.redirect(config.support)
   
 })
-app.get('/policy', async(req,res)=>{
+app.get('/policy-terms', async(req,res)=>{
   res.render("policy-terms",{
+    user:req.isAuthenticated() ? req.user:null,
+    bot: bot,
     req:req,})
   
 })
