@@ -22,7 +22,7 @@ module.exports = class {
    // const cachedInvites = bot.guildInvites.get(member.guild.id)
  member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
-   console.log(uses);
+  
       const UserInvited = bot.users.cache.get(uses.inviter.id);
     
 		await member.guild.members.fetch();
@@ -69,7 +69,7 @@ module.exports = class {
         
         
           
-				if(guildData.plugins.welcome.withImage){
+				if(guildData.plugins.welcome.withImage && message){
 					const canvas = Canvas.createCanvas(1024, 450),
 						ctx = canvas.getContext("2d");
                     
@@ -136,11 +136,17 @@ module.exports = class {
 					const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome-image.png");
 					
           channel.send({content:message,files: [attachment]})
-				} else {
+          
+				}else{ channel.send({content: message})}
+        /*
+        if(message  && !guildData.plugins.welcome.withImage){
 					channel.send({content:message}
 		         
 					);
-				}
+        }
+if(guildData.plugins.welcome.withImage &&! message){
+  channel.send({files:[attachment]})
+}*/
 			}
 		}
   })
