@@ -39,8 +39,9 @@ module.exports = class {
         const message = guildData.plugins.goodbye.message
           .replace(/{user}/g, member.user.tag)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{membercount}/g, member.guild.memberCount)
-        .replace(/{inviter}/g, UserInvited.tag);
+        .replace(/{inviter}/g, UserInvited.tag)
+          .replace(/{membercount}/g, member.guild.memberCount);
+        console.log(message);
         if (guildData.plugins.goodbye.withImage) {
         
           const canvas = Canvas.createCanvas(1024, 450),
@@ -132,10 +133,10 @@ module.exports = class {
             canvas.toBuffer(),
             "goodbye-image.png"
           );
-          channel.send({ content: message, files: [attachment] });
-        } else {
+      ///channel.send({ content: message, files: [attachment] });
+        }/* else {
           channel.send({ content: message });
-        }
+        }*/
       }
     }
   })}

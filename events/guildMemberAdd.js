@@ -22,6 +22,7 @@ module.exports = class {
    // const cachedInvites = bot.guildInvites.get(member.guild.id)
  member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
+   console.log(uses);
       const UserInvited = bot.users.cache.get(uses.inviter.id);
     
 		await member.guild.members.fetch();
@@ -59,6 +60,7 @@ module.exports = class {
       
 			const channel = member.guild.channels.cache.get(guildData.plugins.welcome.channel);
 			if(channel){
+        
 				const message = guildData.plugins.welcome.message
 					.replace(/{user}/g, member)
 					.replace(/{server}/g, member.guild.name)
