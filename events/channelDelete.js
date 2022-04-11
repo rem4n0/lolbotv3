@@ -2,105 +2,112 @@
 const logger = require('../../utils/logger');
 const Logging = require('../../database/schemas/logging');*/
 const discord = require("discord.js");
-const moment = require('moment');
-const cooldown =  new Set();
+const moment = require("moment");
+const cooldown = new Set();
 
+module.exports = class {
+  async run(message) {
+    const { guild } = message;
 
+    const entry1 = await guild
+      .fetchAuditLogs({ type: "CHANNEL_DELETE" })
+      .then((audit) => audit.entries.first());
+    const user2 = entry1.executor;
 
-module.exports = class{
+    const guildData = await Guild.findOne({ guildID: message.guild.id });
 
-async run(message, channel) {
+    const maintenance = await Maintenance.findOne({
+      maintenance: "maintenance",
+    });
 
-if(!message || !channel) return;
+    if (maintenance && maintenance.toggle == "true") return;
 
+    if (cooldown.has(message.guild.id)) return;
+    if (!guildData.plugins.logs.enabled) return;
 
-const guild = await Guild.findOne({ guildID: message.guild.id })
+    
+    if (guildData) {
+      if (guildData.plugins.logs.channel) {
+        const channelEmbed = await message.guild.channels.cache.get(
+          guildData.plugins.logs.channel
+        );
+        if (channelEmbed) {
+          let color = config.embed.Color;
 
+          if (message.type === "GUILD_TEXT") {
+            const embed = new discord.MessageEmbed()
+              .setThumbnail(guild.iconURL())
+              .setAuthor({ name: guild.name, iconURL: guild.iconURL() })
+              .setDescription(`:pencil: ***Channel Deleted***`)
+              .addFields(
+                {
+                  name: "Channel Name",
+                  value: message.name,
+                },
+                { name: "Category", value: message.parent.name },
+                { name: "Channel Type", value: message.type },
+                { name: " Responsible Moderator", value: user2.tag }
+              )
 
-const maintenance = await Maintenance.findOne({
-  maintenance: "maintenance"
-})
+              .setTimestamp()
+              .setFooter({ text: guild.name })
+              .setColor(color);
 
-if(maintenance && maintenance.toggle == "true") return;
+            if (message.parent && message.type !== "category")
+              if (
+                channelEmbed &&
+                channelEmbed.viewable &&
+                channelEmbed
+                  .permissionsFor(message.guild.me)
+                  .has(["SEND_MESSAGES", "EMBED_LINKS"])
+              ) {
+          
+                channelEmbed.send({ embeds: [embed] }).catch((err) => {
+                  console.log(err.name);
+                });
+                cooldown.add(message.guild.id);
+                setTimeout(() => {
+                  cooldown.delete(message.guild.id);
+                }, 3000);
+              }
+          }
+          if (message.type === "GUILD_VOICE") {
+            const embed = new discord.MessageEmbed()
+              .setThumbnail(message.guild.iconURL())
+              .setAuthor(message.guild.name)
+              .setDescription(`:pencil: ***Channel Deleted***`)
+              .addFields(
+                {
+                  name: "Channel Name",
+                  value: message.name,
+                },
+                { name: "Category", value: message.parent.name },
+                { name: "Channel Type", value: message.type },
+                { name: " Responsible", value: user2.tag }
+              )
 
-if(cooldown.has(message.guild.id)) return;
+              .setTimestamp()
+              .setFooter({ text: message.guild.name })
+              .setColor(color);
 
-if (message.name.indexOf('Room') >= 0) return;
-if(!guild.plugins.logs.enabled) return;
-  
-                    
-if(guild){
-  if(guild.plugins.logs.channel){
-
-
-
-const channelEmbed = await message.guild.channels.cache.get(guild.plugins.logs.channel)
-
-if(channelEmbed){
-
-let color = config.embed.Color
-
-
-
-
-if(message.type === "GUILD_TEXT"){
-
-    const embed = new discord.MessageEmbed()
-    .setThumbnail(message.guild.iconURL())
-    .setAuthor(message.guild.name)
-    .setDescription(`:pencil: **Channel Deleted**`)
-    .addField("**Channel Name**", message.name)
-    .addField("**Category**", message.parent.name)
-    .addField("**Channel Type**", message.type)
-    .setTimestamp()
-    .setFooter({text:message.guild.name})
-    .setColor(color)
-  
-   if(message.parent && message.type !== 'category')//embed.addField(`Parent Name`, message.parent.name)
-  
-        if(channelEmbed &&
-      channelEmbed.viewable &&
-      channelEmbed.permissionsFor(message.guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
-            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err.name)})
-            cooldown.add(message.guild.id);
-            setTimeout(()=>{
-cooldown.delete(message.guild.id)
-            }, 3000)
+            if (
+              channelEmbed &&
+              channelEmbed.viewable &&
+              channelEmbed
+                .permissionsFor(message.guild.me)
+                .has(["SEND_MESSAGES", "EMBED_LINKS"])
+            ) {
+              channelEmbed.send({ embeds: [embed] }).catch((err) => {
+                console.log(err.name);
+              });
+              cooldown.add(message.guild.id);
+              setTimeout(() => {
+                cooldown.delete(message.guild.id);
+              }, 3000);
+            }
+          }
+        }
       }
-
-} 
-  if(message.type ==="GUILD_VOICE"){
-
-  
-  const embed = new discord.MessageEmbed()
-         .setThumbnail(message.guild.iconURL())
-                  .setAuthor(message.guild.name)
-                  .setDescription(`:pencil: **Channel Deleted**`)
-                  .addField("**Channel Name**", message.name)
-                   .addField("**Category**", message.parent.name)
-                  .addField("**Channel Type**", message.type)
-                  .setTimestamp()
-                  .setFooter({ text: message.guild.name })
-                  .setColor(color)
-
-    if(channelEmbed &&
-      channelEmbed.viewable &&
-      channelEmbed.permissionsFor(message.guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
-            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err.name)})
-                   cooldown.add(message.guild.id);
-            setTimeout(()=>{
-cooldown.delete(message.guild.id)
-            }, 3000)
-      }
-
-}
-
+    }
   }
-
-
-  }
- }
-}
-
-
-}
+};

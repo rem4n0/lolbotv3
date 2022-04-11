@@ -7,16 +7,12 @@ const cooldown = new Set();
 
 module.exports = class {
   async run(message) {
-    
-    
     const { guild } = message;
-  
-    
-  
-  
-    const entry1 = await guild.fetchAuditLogs({ type: "CHANNEL_CREATE" })
-        .then(audit => audit.entries.first());
-      const user2 = entry1.executor;
+
+    const entry1 = await guild
+      .fetchAuditLogs({ type: "CHANNEL_CREATE" })
+      .then((audit) => audit.entries.first());
+    const user2 = entry1.executor;
 
     const guildData = await Guild.findOne({ guildID: message.guild.id });
 
@@ -29,7 +25,7 @@ module.exports = class {
     if (cooldown.has(message.guild.id)) return;
     if (!guildData.plugins.logs.enabled) return;
 
-   /// if (message.name.indexOf("Room") >= 0) return;
+    /// if (message.name.indexOf("Room") >= 0) return;
 
     if (guildData) {
       if (guildData.plugins.logs.channel) {
@@ -42,15 +38,18 @@ module.exports = class {
           if (message.type === "GUILD_TEXT") {
             const embed = new discord.MessageEmbed()
               .setThumbnail(guild.iconURL())
-              .setAuthor({name: guild.name, iconURL: guild.iconURL()})
+              .setAuthor({ name: guild.name, iconURL: guild.iconURL() })
               .setDescription(`:pencil: ***Channel Created***`)
-            .addFields({ 
-              name: 
-              .addField("**Channel Name**",message.name)
-              
-              .addField("**Category**", message.parent.name)
-              .addField("**Channel Type**", message.type)
-              
+              .addFields(
+                {
+                  name: "Channel Name",
+                  value: message.name,
+                },
+                { name: "Category", value: message.parent.name },
+                { name: "Channel Type", value: message.type },
+                { name: " Responsible Moderator", value: user2.tag }
+              )
+
               .setTimestamp()
               .setFooter({ text: guild.name })
               .setColor(color);
@@ -63,8 +62,7 @@ module.exports = class {
                   .permissionsFor(message.guild.me)
                   .has(["SEND_MESSAGES", "EMBED_LINKS"])
               ) {
-                //embed.addField(`Parent Name`, message.parent.name)
-
+          
                 channelEmbed.send({ embeds: [embed] }).catch((err) => {
                   console.log(err.name);
                 });
@@ -79,9 +77,16 @@ module.exports = class {
               .setThumbnail(message.guild.iconURL())
               .setAuthor(message.guild.name)
               .setDescription(`:pencil: ***Channel Created***`)
-              .addField("**Channel Name**", message.name)
-              .addField("**Category**", message.parent.name)
-              .addField("**Channel Type**", message.type)
+              .addFields(
+                {
+                  name: "Channel Name",
+                  value: message.name,
+                },
+                { name: "Category", value: message.parent.name },
+                { name: "Channel Type", value: message.type },
+                { name: " Responsible", value: user2.tag }
+              )
+
               .setTimestamp()
               .setFooter({ text: message.guild.name })
               .setColor(color);
