@@ -8,7 +8,12 @@ app.get("/dashboard", global.checkAuth, async (req, res, next) => {
 
 if(maintenance && maintenance.toggle == "true") {
 
-     return res.render(res, req, "maintenance.ejs")
+     return res.render( "maintenance.ejs",{
+       req:req,
+       res:res,
+       
+       
+     })
 
 }
 
