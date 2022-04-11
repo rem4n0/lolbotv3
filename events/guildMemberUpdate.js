@@ -3,7 +3,7 @@ module.exports = class{
   async run(client,member,oldNickname,newNickname) {
     const {guild} = member
     if(!newNickname) return;
-c
+
     let data = await Guild.findOne({guildID: guild.id})
     const logChannel = guild.channels.cache.get(data.plugins.logs.channel)
     if (!logChannel) return;// member.channel.send({content:`ii`});
