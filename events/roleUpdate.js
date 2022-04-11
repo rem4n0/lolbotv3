@@ -2,6 +2,11 @@ const Discord = require('discord.js');
 
 module.exports = class  {
 async run( newRole,oldRole){
+  const { guild } =newRole
+  console.log
+  if(!guild.me.permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+
+
   try {
   let data = await Guild.findOne({guildID: newRole.guild.id})
     const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.channel);
