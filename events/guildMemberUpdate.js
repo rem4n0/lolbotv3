@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 module.exports = class{
   async run(client,member,oldNickname,newNickname) {
-    const {guild} = newNickname
+    const {guild} = member
+console.log(newNickname);
     let data = await Guild.findOne({guildID: newNickname.guild.id})
     const logChannel = member.guild.channels.cache.get(data.plugins.logs.channel)
     if (!logChannel) return;// member.channel.send({content:`ii`});

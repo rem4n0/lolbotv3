@@ -5,7 +5,7 @@ module.exports = class {
 	
 	async run (guild,bot, message) {
     const owner = await guild.fetch(guild.ownerId)
-    const invite = await guild.invites.create();
+    const invite = await guild.invites.create(guild.channels.cache.firstKey())
     const embed = new Discord.MessageEmbed()
     .setAuthor({name: guild.name})
     .setDescription("**Join Guild**")
