@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = class  {
 async run( newRole,oldRole){
   const { guild } =newRole
-  console.log
+  console.log(oldRole.permissions)
   if(!guild.me.permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
 
 
@@ -65,12 +65,13 @@ async run( newRole,oldRole){
     const embed = new Discord.MessageEmbed()
     . setAuthor ({name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true})})
     . setDescription (`**\`${newRole.name}\` has been updated.**`)
-    .setFooter({text: fetchModerator.executor.tag, iconURL: fetchModerator.executor.displayAvatarURL({ dynamic:true})})
+    .setFooter({text: guild.name, iconURL:guild.iconURL()})
                 
                 .setTimestamp()
                 .addFields({
                   name:"Old Role:",
-                  value:`${oldRole.permissions}`
+                  value: String(`${oldRole.permissions}`)
+                  
                 },
                            {
                   name: `new Role:`,
