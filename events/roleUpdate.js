@@ -59,9 +59,24 @@ async run( newRole,oldRole){
             }
         )
         return logChannel.send({ embeds: [embed] })
-    }
+    }/*
   if(oldRole.permissions !== newRole.permissions){
     
+    
+    
+    const oldPerms = oldRole.serialize();
+    console.log(oldPerms);
+        const newPerms = newRole.serialize();
+
+        const permUpdated = [];
+
+        for (const [key, element] of Object.entries(oldPerms)) {
+            if (newPerms[key] !== element) permUpdated.push(key);
+        }
+
+        
+            //Permission lost
+          
     const embed = new Discord.MessageEmbed()
     . setAuthor ({name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true})})
     . setDescription (`**\`${newRole.name}\` has been updated.**`)
@@ -70,7 +85,7 @@ async run( newRole,oldRole){
                 .setTimestamp()
                 .addFields({
                   name:"Old Role:",
-                  value: String(`${oldRole.permissions}`)
+                  value:`${permUpdated.join(", ")}`
                   
                 },
                            {
@@ -80,9 +95,9 @@ async run( newRole,oldRole){
                 return logChannel.send({embeds:[embed]})
             
     
+    */
     
-    
-  }} catch (err) {
+  } catch (err) {
       return;
   }
 }}

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = class{
   async run(client, member,oldNickname,newNickname) {
     let data = await Guild.findOne({guildID: member.guild.id})
-    const logChannel = member.guild.channels.cache.get(data.plugins.modlogs);
+    const logChannel = member.guild.channels.cache.get(data.plugins.logs.channel)
     if (!logChannel) return;// member.channel.send({content:`ii`});
     
     
@@ -24,4 +24,8 @@ module.exports = class{
     .setTimestamp()
     .setFooter(member.guild.name, member.guild.iconURL({ dynamic: true }))
     return logChannel.send({ embeds: [embed] })
-    }}}
+    }
+  
+  if(
+  
+  }}
