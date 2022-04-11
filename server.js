@@ -15,7 +15,7 @@ const bot =( global.bot =new Client({
   },
   partials: ["CHANNEL", "MESSAGE", "REACTION", "USER"],
 }));
-
+const {Webhook} = require("discord.js");
 global.config = require("./config.json");
 const { Util } = require("discord.js");
 const fs = require("fs");
@@ -24,6 +24,11 @@ const { Collection, MessageEmbed } = require("discord.js");
 const beautify = require("js-beautify");
 const { inspect } = require("util");
 const cmd = require("node-cmd");
+const data = {
+  id: config.webhook.id2,
+  token: config.webhook.token2
+}
+global.webhook = new Webhook(data)
 
 global.mongoose = require("mongoose");
 global.Log = bot.channels.cache.get(config.channels.logChannel);
