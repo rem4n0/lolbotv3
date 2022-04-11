@@ -10,10 +10,10 @@ module.exports = class {
     
     
     const { guild } = channel;
+    console.log(guild);
     
-    
-    if (!message || !channel) return;
-    try {
+  
+  
     const entry1 = await guild.fetchAuditLogs({ type: "CHANNEL_CREATE" })
         .then(audit => audit.entries.first());
       const user2 = entry1.executor;
@@ -29,14 +29,13 @@ module.exports = class {
     if (cooldown.has(message.guild.id)) return;
     if (!guildData.plugins.logs.enabled) return;
 
-    if (message.name.indexOf("Room") >= 0) return;
+   /// if (message.name.indexOf("Room") >= 0) return;
 
     if (guild) {
       if (guild.plugins.logs.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
           guildData.plugins.logs.channel
         );
-let member = await guild.members.fetch(user2.id)
         if (channelEmbed) {
           let color = config.embed.Color;
 
@@ -102,8 +101,5 @@ let member = await guild.members.fetch(user2.id)
         }
       }
     }
-      } catch (err) {
-      return;
-      }
   }
 };
