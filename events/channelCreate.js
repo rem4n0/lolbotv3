@@ -7,9 +7,18 @@ const cooldown = new Set();
 
 module.exports = class {
   async run(message, channel) {
+    
+    
+    const { guild } = channel;
+    
+    
     if (!message || !channel) return;
+    try {
+    const entry1 = await guild.fetchAuditLogs({ type: "CHANNEL_CREATE" })
+        .then(audit => audit.entries.first());
+      const user2 = entry1.executor;
 
-    const guild = await Guild.findOne({ guildID: message.guild.id });
+    const guildData = await Guild.findOne({ guildID: message.guild.id });
 
     const maintenance = await Maintenance.findOne({
       maintenance: "maintenance",
@@ -18,29 +27,29 @@ module.exports = class {
     if (maintenance && maintenance.toggle == "true") return;
 
     if (cooldown.has(message.guild.id)) return;
-    if (!guild.plugins.logs.enabled) return;
+    if (!guildData.plugins.logs.enabled) return;
 
     if (message.name.indexOf("Room") >= 0) return;
 
     if (guild) {
       if (guild.plugins.logs.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guild.plugins.logs.channel
+          guildData.plugins.logs.channel
         );
-
+let member = await guild.members.fetch(user2.id)
         if (channelEmbed) {
           let color = config.embed.Color;
 
           if (message.type === "GUILD_TEXT") {
             const embed = new discord.MessageEmbed()
               .setThumbnail(message.guild.iconURL())
-              .setAuthor(message.guild.name)
+              .setAuthor({name: guild.name, iconURL: guild.iconURL()})
               .setDescription(`:pencil: ***Channel Created***`)
-              .addField("**Channel Name**", message.name)
-              .addField("**Category**", message.parent.name)
-              .addField("**Channel Type**", message.type)
+              .addField("**Channel Name**", channel.name)
+              .addField("**Category**", channel.parent.name)
+              .addField("**Channel Type**", channel.type)
               .setTimestamp()
-              .setFooter({ text: message.guild.name })
+              .setFooter({ text: guild.name })
               .setColor(color);
 
             if (message.parent && message.type !== "category")
@@ -93,5 +102,8 @@ module.exports = class {
         }
       }
     }
+      } catch (err) {
+      return;
+      }
   }
 };
