@@ -6,11 +6,11 @@ const moment = require("moment");
 const cooldown = new Set();
 
 module.exports = class {
-  async run(message, channel) {
+  async run(message) {
     
     
-    const { guild } = channel;
-    console.log(guild);
+    const { guild } = message;
+  
     
   
   
@@ -31,8 +31,8 @@ module.exports = class {
 
    /// if (message.name.indexOf("Room") >= 0) return;
 
-    if (guild) {
-      if (guild.plugins.logs.channel) {
+    if (guildData) {
+      if (guildData.plugins.logs.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
           guildData.plugins.logs.channel
         );
@@ -41,12 +41,16 @@ module.exports = class {
 
           if (message.type === "GUILD_TEXT") {
             const embed = new discord.MessageEmbed()
-              .setThumbnail(message.guild.iconURL())
+              .setThumbnail(guild.iconURL())
               .setAuthor({name: guild.name, iconURL: guild.iconURL()})
               .setDescription(`:pencil: ***Channel Created***`)
-              .addField("**Channel Name**", channel.name)
-              .addField("**Category**", channel.parent.name)
-              .addField("**Channel Type**", channel.type)
+            .addFields({ 
+              name: 
+              .addField("**Channel Name**",message.name)
+              
+              .addField("**Category**", message.parent.name)
+              .addField("**Channel Type**", message.type)
+              
               .setTimestamp()
               .setFooter({ text: guild.name })
               .setColor(color);
