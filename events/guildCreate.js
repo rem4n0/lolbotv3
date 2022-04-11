@@ -4,16 +4,24 @@ module.exports = class {
 
 	
 	async run (guild,bot, message) {
-    
-    
-    const embed = new Discor.
-    
+    const owner = await guild.fetch(guild.ownerId)
+    const invite = await guild.invites.create();
+    const embed = new Discord.MessageEmbed()
+    .setAuthor({name: guild.name})
+    .setDescription("**Join Guild**")
+    .addFields({ name: "GUILD MEMBER COUNT", value:guild.memberCount},
+               
+               {name: "GUILD OWENR NAME", value:owner.tag},
+               { name:"GUILD INVITE LINL", value: `[invitelink](${invite})`})
+     setTimeout(()=>{
     
   webhook.send({
+    embeds:[embed]
     
     
     
     
     
   })
+     },2000)
 	}}
