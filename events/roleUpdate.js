@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = class  {
 async run( newRole,oldRole){
+  try {
   let data = await Guild.findOne({guildID: newRole.guild.id})
     const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.channel);
     if (!logChannel) return;
@@ -68,12 +69,14 @@ async run( newRole,oldRole){
                 },
                            {
                   name: `new Role:`,
-                  value:`${newRole. permissions}`
+                  value:`${newRole.permissions}`
                 })
                 return logChannel.send({embeds:[embed]})
             
     
     
     
+  }} catch (err) {
+      return;
   }
 }}

@@ -8,7 +8,7 @@ const cooldown = new Set();
 module.exports = class {
   async run(message) {
     const { guild } = message;
-
+try {
     const entry1 = await guild
       .fetchAuditLogs({ type: "CHANNEL_CREATE" })
       .then((audit) => audit.entries.first());
@@ -110,5 +110,9 @@ module.exports = class {
         }
       }
     }
+  } catch (err) {
+      return;
+    }
+  
   }
 };
