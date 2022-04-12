@@ -19,6 +19,10 @@ const {Webhook} = require("discord.js");
 global.config = require("./config.json");
 const { Util } = require("discord.js");
 const fs = require("fs");
+
+
+
+
 const prefix = global.prefix = config.prefix;
 const { Collection, MessageEmbed } = require("discord.js");
 const beautify = require("js-beautify");
@@ -28,8 +32,9 @@ const data = {
   id: config.webhook.id2,
   token: config.webhook.token2
 }
+bot.queue = new Map();
 global.webhook = new Webhook(data)
-
+global.Player = require("discord-player");
 global.mongoose = require("mongoose");
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);

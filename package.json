@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^0.3.0",
-    "@sindresorhus/slugify": "^1.4.0",
+    "@sindresorhus/slugify": "^1.1.2",
     "ascii-table": "0.0.9",
     "axios": "^0.26.1",
     "canvacord": "^5.2.3",
@@ -62,7 +62,9 @@
     "ipware": "^2.0.0",
     "btoa": "^1.2.1",
     "socket.io": "^4.4.1",
-    "typed.js": "^2.0.12"
+    "typed.js": "^2.0.12",
+    "discord-player": "^5.2.0",
+    "ytdl-core": "^4.11.0"
   },
   "engines": {
     "node": "16.x"
