@@ -7,7 +7,7 @@ const player = new Player(bot, {
       highWaterMark: 1 << 30,
     } 
 });
- module.exports = (bot)=>{
+ 
 player.on("error", (queue, error) => {
   console.log(
     `[${queue.guild.name}] Error emitted from the queue: ${error.message}`
@@ -105,4 +105,5 @@ player.on("queueEnd", (queue) => {
 
   queue.metadata.send({ embeds: [queueEnd] });
   queue.destroy(true);
-})}
+})
+module.exports = player;

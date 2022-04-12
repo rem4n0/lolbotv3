@@ -34,7 +34,8 @@ const data = {
 }
 bot.queue = new Map();
 global.webhook = new Webhook(data)
-global.Player = require("discord-player");
+const { Player } = require ("discord-player")
+global.Player = Player;
 global.mongoose = require("mongoose");
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);
@@ -63,7 +64,7 @@ bot.databaseCache.mutedUsers = new Collection(); // members who are currently mu
 bot.xp= new Collection ();
 bot.catagories = fs.readdirSync("./commands/");
 ["command", "event","slash"].forEach((handler) => {
-  require(`./handler/${handler}`)(bot);
+  require(`./handler/${handler}`)(bot)
 });
 require('./dashboard/index.js')(bot);
 require('./data/connect.js')(bot);
