@@ -41,7 +41,7 @@ player.on("trackStart", (queue, track) => {
     .setFooter("Automated Message")
     .setTimestamp();
 
-  queue.metadata.send({content: track.url + " " + "Added By" + " " + track.requestedBy.tag 
+  queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + ""+track.timecodes+"" + `added To BoBoQueue \`\`(${track.duration})\`\`` 
                       });
 });
 
