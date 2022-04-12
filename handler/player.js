@@ -3,6 +3,9 @@ const player = new Player(bot, {
    ytdlOptions: { 
       filter: "audioonly",
       opusEncoded: "true",
+     
+     
+     
       quality: 'highestaudio',
       highWaterMark: 1 << 30,
     } 
@@ -38,7 +41,8 @@ player.on("trackStart", (queue, track) => {
     .setFooter("Automated Message")
     .setTimestamp();
 
-  queue.metadata.send({ embeds: [trackStart] });
+  queue.metadata.send({content: track.url + " " + "Added By" + " " + track.requestedBy.tag 
+                      });
 });
 
 player.on("trackAdd", (queue, track) => {

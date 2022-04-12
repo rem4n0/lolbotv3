@@ -58,6 +58,12 @@ module.exports = {
 
     const queue = player.createQueue(message.guild, {
       metadata: message.channel,
+       // disabling volume controls can improve performance
+            leaveOnEnd: false,
+			leaveOnStop: false,
+            spotifyBridge: false
+
+      
     });
 
     
