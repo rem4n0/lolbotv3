@@ -1,5 +1,4 @@
-    
-const Discord = require('discord.js')
+const Discord = require("discord.js");
 const { QueryType } = require("discord-player");
 const player = require("../../handler/player");
 
@@ -10,31 +9,21 @@ module.exports = {
   usage: [""],
   description: "Add a role to all user of the current server",
   category: "admin",
-  enabled:true,
+  enabled: true,
   ownerOnly: false,
   cooldown: 6000,
-  botPermissions: ["SEND_MESSAGES","EMBED_LINKS"],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-
-
-
-if (talkedRecently.has(message.author.id)) {
+    if (talkedRecently.has(message.author.id)) {
       const er = new Discord.MessageEmbed()
-      
+
         .setTitle("Woah there, calm down senpai!")
         .setDescription(
-        
-            "Please wait  `5 seconds` before using the command again!"
+          "Please wait  `5 seconds` before using the command again!"
         )
         .setTimestamp()
-        .setFooter(
-        
-            "play" +
-            " | " +
-            "Requested by " +
-            message.member.user.tag
-        );
+        .setFooter("play" + " | " + "Requested by " + message.member.user.tag);
 
       return message.reply({ embeds: [er] }).then((msg) => {
         setTimeout(() => msg.delete(), 15000);
@@ -46,10 +35,9 @@ if (talkedRecently.has(message.author.id)) {
       }, 5000);
     }
 
-    const songSearch = args.slice(0).join(" ");
+    const songSearch = args.slice(1).join("");
     const noRequest = new Discord.MessageEmbed()
-      
-      
+
       .setDescription(
         "Silly senpai~ You didn't provide me a name of a song to play!"
       )
@@ -62,8 +50,7 @@ if (talkedRecently.has(message.author.id)) {
       });
 
     const noChannel = new Discord.MessageEmbed()
-  
-      
+
       .setDescription(
         "Silly~ You need to join a voice channel for me to play a song!"
       )
@@ -81,8 +68,7 @@ if (talkedRecently.has(message.author.id)) {
     });
 
     const notFound = new Discord.MessageEmbed()
-    
-    
+
       .setDescription(
         "Hmm, I couldn't quite find the song you requested for; try playing another one!"
       )
@@ -97,7 +83,7 @@ if (talkedRecently.has(message.author.id)) {
     });
 
     const errorPlaying = new Discord.MessageEmbed()
-    
+
       .setDescription(
         "There was an error with your request, please try again later!"
       )
@@ -117,4 +103,5 @@ if (talkedRecently.has(message.author.id)) {
     }
 
     if (!queue.playing) await queue.play();
-  }}
+  },
+};
