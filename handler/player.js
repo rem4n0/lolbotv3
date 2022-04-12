@@ -33,13 +33,7 @@ player.on("trackStart", (queue, track) => {
       "```" + track.requestedBy.tag + "```",
       true
     )
-    .setDescription(
-      "I can be found in `" +
-        queue.connection.channel.name +
-        "` If you want to join the party!"
-    )
-    .setFooter("Automated Message")
-    .setTimestamp();
+    .setDesc
 
   queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + ""+track.timecodes+"" + `added To BoBoQueue \`\`(${track.duration})\`\`` 
                       });
