@@ -36,30 +36,15 @@ module.exports = {
     }
 
     const songSearch = args.slice(1).join("");
-    const noRequest = new Discord.MessageEmbed()
-
-      .setDescription(
-        "Silly senpai~ You didn't provide me a name of a song to play!"
-      )
-      .setTimestamp()
-      .setFooter("Requested by " + message.member.user.tag);
-
+    
+      
     if (!songSearch)
-      return message.reply({
-        embeds: [noRequest],
+      return message.reply({content:"You didn't provide me a name of song to play!"
       });
 
-    const noChannel = new Discord.MessageEmbed()
-
-      .setDescription(
-        "Silly~ You need to join a voice channel for me to play a song!"
-      )
-      .setTimestamp()
-      .setFooter("Requested by " + message.member.user.tag);
 
     if (!message.member.voice.channel)
-      return message.reply({
-        embeds: [noChannel],
+      return message.reply({content:" You need to join a voice channel for me to play song!"
       });
 
     const searchResult = await player.search(songSearch, {
@@ -67,34 +52,20 @@ module.exports = {
       searchEngine: QueryType.AUTO,
     });
 
-    const notFound = new Discord.MessageEmbed()
-
-      .setDescription(
-        "Hmm, I couldn't quite find the song you requested for; try playing another one!"
-      )
-      .setTimestamp()
-      .setFooter("Requested by " + message.member.user.tag);
-
+    
     if (!searchResult || !searchResult.tracks.length)
-      return message.reply({ embeds: [notFound] });
+      return message.reply({content:" Hmm, I couldn't quite find the song you requested for; try playing another one!"});
 
     const queue = player.createQueue(message.guild, {
       metadata: message.channel,
     });
 
-    const errorPlaying = new Discord.MessageEmbed()
-
-      .setDescription(
-        "There was an error with your request, please try again later!"
-      )
-      .setTimestamp()
-      .setFooter("Requested by " + message.member.user.tag);
-
+    
     try {
       if (!queue.connection) await queue.connect(message.member.voice.channel);
     } catch {
       queue.destroy();
-      return message.reply({ embeds: [errorPlaying] });
+      return message.reply({content:"There was an error with your request, please trye again later!" });
     }
     if (searchResult.playlist) {
       queue.addTracks(searchResult.tracks);
