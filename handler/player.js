@@ -49,17 +49,8 @@ player.on("channelEmpty", (queue) => {
 });
 
 player.on("queueEnd", (queue) => {
-  const queueEnd = new Discord.MessageEmbed()
-    .setColor(config.embedColor)
-    .setTitle("Senpai~ Queue completed! ")
-    .setDescription(
-      "Party is over, I've completed every song that was in the queue! I've left the following voice channel, although you can always add me back senpai! ```" +
-        queue.connection.channel.name +
-        "```"
-    )
-    .setTimestamp();
 
-  queue.metadata.send({ content:` Party is over , I've completed every songs that was in the queue! I've left the following voice channel, although you can al });
+  queue.metadata.send({ content:` Party is over , I've completed every songs that was in the queue! I've left the following voice channel, although you can always add me back` });
   queue.destroy(true);
 })
 module.exports = player;

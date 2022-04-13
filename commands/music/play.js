@@ -15,7 +15,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-    if (talkedRecently.has(message.author.id)) {
+  /*  if (talkedRecently.has(message.author.id)) {
       const er = new Discord.MessageEmbed()
 
         .setTitle("Woah there, calm down senpai!")
@@ -25,7 +25,7 @@ module.exports = {
         .setTimestamp()
         .setFooter("play" + " | " + "Requested by " + message.member.user.tag);
 
-      return message.reply({ embeds: [er] }).then((msg) => {
+      return message.reply({content: }).then((msg) => {
         setTimeout(() => msg.delete(), 15000);
       });
     } else {
@@ -33,7 +33,7 @@ module.exports = {
       setTimeout(() => {
         talkedRecently.delete(message.author.id);
       }, 5000);
-    }
+    }*/
 
     const songSearch = args.slice(1).join("");
     
