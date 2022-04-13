@@ -33,7 +33,7 @@ if(member){
 			if(!member.bannable) {
 				return message.channel.send({content:`An error has occurred... Please check that I have the permission to ban this specific member and try again!`})
 			}
-		
+		/*
       const channelEmbed = await message.guild.channels.cache.get(data.plugins.modlogs)
 
       if(!channelEmbed) return;
@@ -56,7 +56,7 @@ if(member){
           
             setTimeout(()=>{
             }, 3000)
-      }}
+      }}*/
         
       await user.send(`**${message.author.tag}** banned you from ${message.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
@@ -69,5 +69,5 @@ if(member){
 
     
     
-    }
+    }}
 }
