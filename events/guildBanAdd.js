@@ -1,9 +1,12 @@
 const Discord = require("discord.js");
 module.exports = class {
-  async run(ban) {
+  async run(ban,bot) {
     let data = await Guild.findOne({ guildID: ban.guild.id });
     const entry1 = await ban.guild
-      .fetchAuditLogs({ type: "MEMBER_BAN_ADD" })
+      .fetchAuditLogs({ 
+        limit:1,
+        type: "MEMBER_BAN_ADD"
+      })
       .then((audit) => audit.entries.first());
     const user2 = entry1.executor;
    // const member = entry1.entries.first();
@@ -27,7 +30,7 @@ module.exports = class {
         channelEmbed &&
         channelEmbed.viewable &&
         channelEmbed
-          .permissionsFor(guild.me)
+          .permissionsFor(ban.guild.me)
           .has(["SEND_MESSAGES", "EMBED_LINKS"])
       ) {
       channelEmbed.send({ embeds: [embed] }).catch((err) => {
@@ -37,7 +40,7 @@ module.exports = class {
         setTimeout(() => {}, 3000);
       }
     } catch (err) {
-      return;
+      return console.log(err);
     }
   }
 };
