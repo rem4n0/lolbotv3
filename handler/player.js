@@ -32,7 +32,7 @@ player.on("trackStart", (queue, track) => {
 
 player.on("trackAdd", (queue, track) => {
 
-  queue.metadata.send({ content: ` ${track.search} Searching 🔍 for` +""+ track.title });
+  queue.metadata.send({ content: `  Searching 🔍 `});
 });
 
 player.on("botDisconnect", (queue) => {
