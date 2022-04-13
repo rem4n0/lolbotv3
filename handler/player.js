@@ -24,69 +24,27 @@ player.on("connectionError", (queue, error) => {
 });
 
 player.on("trackStart", (queue, track) => {
-  const trackStart = new Discord.MessageEmbed()
   
-    .setTitle("Senpai~ I'm playing a new song! " )
-    .addField( " Song title", "```" + track.title + "```", true)
-    .addField(
-    " Queued by",
-      "```" + track.requestedBy.tag + "```",
-      true
-    )
-    .setDesc
 
   queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + ""+track.timecodes+"" + `added To BoBoQueue \`\`(${track.duration})\`\`` 
                       });
 });
 
 player.on("trackAdd", (queue, track) => {
-  const trackAdd = new Discord.MessageEmbed()
-    
-    .setTitle("Senpai~ Added a new song to the queue! ")
-    .addField( " Song title", "```" + track.title + "```", true)
-    .addField(
-   " Queued by",
-      "```" + track.requestedBy.tag + "```",
-      true
-    )
-    .setDescription(
-      "I can be found in `" +
-        queue.connection.channel.name +
-        "` If you want to join the party!"
-    )
-    .setFooter("Automated Message")
-    .setTimestamp();
 
-  queue.metadata.send({ embeds: [trackAdd] });
+  queue.metadata.send({ content: ` Searching 🔍 for` +""+ track.title });
 });
 
 player.on("botDisconnect", (queue) => {
-  const botDisconnect = new Discord.MessageEmbed()
-    
-    .setTitle("Senpai~ I've been disconnected! ")
-    .setDescription(
-      "```" +
-        "I was disconnected from the voice channel, queue was cleared!" +
-        "```"
-    )
-    .setTimestamp();
+  
 
-  queue.metadata.send({ embeds: [botDisconnect] });
+  queue.metadata.send({ content:`Iam Disconnected From Voice` });
   queue.destroy(true);
 });
 
 player.on("channelEmpty", (queue) => {
-  const channelEmpty = new Discord.MessageEmbed()
-  
-    .setTitle("Senpai~ Where did everyone go?! " )
-    .setDescription(
-      "I was left alone in `" +
-        queue.connection.channel.name +
-        "`, I've left the voice channel due to everyones absence!"
-    )
-    .setTimestamp();
 
-  queue.metadata.send({ embeds: [channelEmpty] });
+  queue.metadata.send({ content: `I've left the voice channel due to everyones absence` });
   queue.destroy(true);
 });
 
@@ -101,7 +59,7 @@ player.on("queueEnd", (queue) => {
     )
     .setTimestamp();
 
-  queue.metadata.send({ embeds: [queueEnd] });
+  queue.metadata.send({ content:` Party is over , I've completed every songs that was in the queue! I've left the following voice channel, although you can al });
   queue.destroy(true);
 })
 module.exports = player;
