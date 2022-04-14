@@ -16,7 +16,7 @@ module.exports = {
   
      let user = await message.mentions.members.first() || await message.guild.members.fetch(args[1])
      
-      let reason = args.slice(1).join(" ");
+      let reason = args.slice(2).join(" ");
       const member = await message.guild.members.fetch(user.id).catch(() => {});
 if(member){
     
@@ -30,35 +30,11 @@ if(member){
 			if(!member.kickable) {
 				return message.channel.send({content:`An error has occurred... Please check that I have the permission to ban this specific member and try again!`})
 			}
-		////// send to log channel
-  /*
-      const channelEmbed = await message.guild.channels.cache.get(data.plugins.modlogs)
-
-      if(!channelEmbed) return;
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`:pencil: **Kick Action**`)
-    .addField('Moderator Name', message.author.toString(), true)
-    .addField('User kicked',member.user.username, true)
-    .setFooter({text:message.guild.name})
-    .setThumbnail(message.guild.iconURL())
-    .setTimestamp()
-    .setColor(config.embed.Color)
-  
-   
-   
-        if(channelEmbed &&
-      channelEmbed.viewable &&
-      channelEmbed.permissionsFor(message.guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
-            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
-          
-            setTimeout(()=>{
-            }, 3000)
-      }}*/
-        
+	
       await user.send(`**${message.author.tag}**kicked you from ${message.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
 
-    return user.kick({ reason: `${message.author.tag}: ${reason || 'Unspecified'}`})
+    return user.kick({ reason: ` ${reason || 'Unspecified'}`})
     .then(_member => message.channel.send(`Successfully Kicked **${_member.user.tag}**`))
     .catch((err) => message.channel.send(`Failed to ban **${user.user.tag} : reason: Your role not high than this member or ${err.name}**!`));
 
