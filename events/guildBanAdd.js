@@ -20,7 +20,7 @@ module.exports = class {
         .setDescription(`:pencil: **Ban Action**`)
         .addField("Moderator Name", user2.tag, true)
         .addField("User banned",entry1.target.username, true)
-        .addFielf("reason", entry1.reason || "not have reason", true)
+        .addField("reason", entry1.reason || "not have reason", true)
         .setFooter({ text: ban.guild.name })
         .setThumbnail(ban.guild.iconURL())
         .setTimestamp()
