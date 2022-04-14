@@ -5,7 +5,7 @@ module.exports = class {
     const entry1 = await ban.guild
       .fetchAuditLogs({ 
         
-        type: "MEMBER_BAN_ADD"
+        type: "GUILD_BAN_ADD"
       })
       .then((audit) => audit.entries.first());
     const user2 = entry1.executor;
@@ -15,11 +15,12 @@ module.exports = class {
         data.plugins.logs.channel
       );
 
-    
+    console.log(entry1.reason)
+    console.log(entry1.target);
       const embed = new Discord.MessageEmbed()
         .setDescription(`:pencil: **Ban Action**`)
         .addField("Moderator Name", user2.tag, true)
-        .addField("User banned", ban.guild.user.username, true)
+        .addField("User banned", true)
         .addFielf("reason", entry1.reason || "not have reason", true)
         .setFooter({ text: ban.guild.name })
         .setThumbnail(ban.guild.iconURL())

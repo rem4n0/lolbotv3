@@ -5,7 +5,7 @@ const bot =( global.bot =new Client({
     "GUILD_MEMBERS",
     "GUILD_MESSAGE_REACTIONS",
     "GUILD_MESSAGES",
-    "
+    "GUILD_BANS",
     "GUILD_VOICE_STATES",
     "GUILD_INVITES",
     "GUILD_PRESENCES"
