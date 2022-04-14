@@ -17,6 +17,48 @@ const applyText = (canvas, text, defaultFontSize) => {
 
 module.exports = class {
   async run(member) {
+    const guildData = await Guild.findOne({ guildID: member.guild.id });
+    if (member.guild) {
+          const { guild } = member,
+          user = member;
+          const entry1 = await member.guild
+            .fetchAuditLogs()
+            .then(audit => audit.entries.first());
+          if (entry1.action === "MEMBER_KICK") {
+            const entry2 = await member.guild
+              .fetchAuditLogs({ type: "MEMBER_KICK" })
+              .then(audit => audit.entries.first());
+            const user2 = entry1.executor;
+            
+                  const channelEmbed = await guild.channels.cache.get(guildData.plugins.logs.channel)
+
+      if(!channelEmbed) return;
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`:pencil: **Kick Action**`)
+    .addField('Moderator Name', user2.tag, true)
+    .addField('User kicked',entry1.target.tag, true)
+.addField("Reason", entry1.reason || " No have Reason", true)
+    .setFooter({text:guild.name})
+    .setThumbnail(guild.iconURL())
+    .setTimestamp()
+    .setColor(config.embed.Color)
+  
+   
+   
+        if(channelEmbed &&
+      channelEmbed.viewable &&
+      channelEmbed.permissionsFor(guild.me).has(['SEND_MESSAGES', 'EMBED_LINKS'])){
+            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
+          
+            setTimeout(()=>{
+            }, 3000)
+      }}
+            
+            
+          }
+    
+    
+    
     
     member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
@@ -25,9 +67,9 @@ module.exports = class {
 
     await member.guild.members.fetch();
 
-    const guildData = await Guild.findOneAndUpdate({
+    /*const guildData = await Guild.findOneAndUpdate({
       guildID: member.guild.id,
-    });
+    });*/
     member.guild.data = guildData;
 
     // Check if goodbye message is enabled

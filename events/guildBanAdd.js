@@ -3,23 +3,23 @@ module.exports = class {
   async run(ban,bot) {
     let data = await Guild.findOne({ guildID: ban.guild.id });
     const entry1 = await ban.guild
-      .fetchAuditLogs({ 
+      .fetchAuditLogs({
         
         type: "GUILD_BAN_ADD"
       })
       .then((audit) => audit.entries.first());
     const user2 = entry1.executor;
-   // const member = entry1.entries.first();
+  
   
       const channelEmbed = await ban.guild.channels.cache.get(
         data.plugins.logs.channel
       );
 
-    
+    if(!channelEmbed) return;
       const embed = new Discord.MessageEmbed()
         .setDescription(`:pencil: **Ban Action**`)
         .addField("Moderator Name", user2.tag, true)
-        .addField("User banned",entry1.target.username, true)
+        .addField("User Kicked",entry1.target.tag, true)
         .addField("reason", entry1.reason || "not have reason", true)
         .setFooter({ text: ban.guild.name })
         .setThumbnail(ban.guild.iconURL())
@@ -37,7 +37,7 @@ module.exports = class {
           console.log(err);
         });
 
-        setTimeout(() => {}, 100);
+        setTimeout(() => {}, 3000);
       }
     
   }
