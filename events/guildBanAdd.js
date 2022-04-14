@@ -4,18 +4,18 @@ module.exports = class {
     let data = await Guild.findOne({ guildID: ban.guild.id });
     const entry1 = await ban.guild
       .fetchAuditLogs({ 
-        limit:1,
+        
         type: "MEMBER_BAN_ADD"
       })
       .then((audit) => audit.entries.first());
     const user2 = entry1.executor;
    // const member = entry1.entries.first();
-    try {
+  
       const channelEmbed = await ban.guild.channels.cache.get(
         data.plugins.logs.channel
       );
 
-      if (!channelEmbed) return console.log("hh");
+    
       const embed = new Discord.MessageEmbed()
         .setDescription(`:pencil: **Ban Action**`)
         .addField("Moderator Name", user2.tag, true)
@@ -37,10 +37,8 @@ module.exports = class {
           console.log(err);
         });
 
-        setTimeout(() => {}, 3000);
+        setTimeout(() => {}, 100);
       }
-    } catch (err) {
-      return console.log(err);
-    }
+    
   }
 };
