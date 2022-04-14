@@ -15,12 +15,11 @@ module.exports = class {
         data.plugins.logs.channel
       );
 
-    console.log(entry1.reason)
-    console.log(entry1.target);
+    
       const embed = new Discord.MessageEmbed()
         .setDescription(`:pencil: **Ban Action**`)
         .addField("Moderator Name", user2.tag, true)
-        .addField("User banned", true)
+        .addField("User banned",entry1.target.username, true)
         .addFielf("reason", entry1.reason || "not have reason", true)
         .setFooter({ text: ban.guild.name })
         .setThumbnail(ban.guild.iconURL())

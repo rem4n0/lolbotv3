@@ -19,7 +19,7 @@ module.exports = {
   
      let user = await message.mentions.members.first() || await message.guild.members.fetch(args[1])
      
-      let reason = args.slice(1).join(" ");
+      let reason = args.slice(2).join(" ");
       const member = await message.guild.members.fetch(user.id).catch(() => {});
 if(member){
     
