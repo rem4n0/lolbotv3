@@ -34,7 +34,7 @@ if(member){
       await user.send(`**${message.author.tag}**kicked you from ${message.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
 
-    return user.kick({ reason:reason || ' unspecified'})
+    return user.kick({ reason:`${reason|| ' unspecified'}`})
     .then(_member => message.channel.send(`Successfully Kicked **${_member.user.tag}**`))
     .catch((err) => message.channel.send(`Failed to ban **${user.user.tag} : reason: Your role not high than this member or ${err.name}**!`));
 
