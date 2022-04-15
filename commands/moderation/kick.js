@@ -17,7 +17,7 @@ module.exports = {
      let user = await message.mentions.members.first() || await message.guild.members.fetch(args[1])
      
       let reason = args.slice(2).join(" ");
-      console.log(reason);
+    
       const member = await message.guild.members.fetch(user.id).catch(() => {});
 if(member){
     
@@ -35,7 +35,7 @@ if(member){
       await user.send(`**${message.author.tag}**kicked you from ${message.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
 
-    return user.kick({ reason:`${reason || ' unspecified'}`})
+    return user.kick(`${reason || ' unspecified'}`)
     .then(_member => message.channel.send(`Successfully Kicked **${_member.user.tag}**`))
     .catch((err) => message.channel.send(`Failed to ban **${user.user.tag} : reason: Your role not high than this member or ${err.name}**!`));
 
