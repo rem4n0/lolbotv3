@@ -6,6 +6,7 @@ let Discord = require("discord.js");
 module.exports = class{
   async run(oldChannel,newChannel){
     const {guild} = oldChannel
+    console.log(newChannel.lock)
 let data = await Guild.findOne({guildID: guild.id})
 const channelEmbed = await guild.channels.cache.get(data.plugins.logs.channel)
 
@@ -57,6 +58,7 @@ embed.addFields({name:'Slowmode',value: `${oldChannel.rateLimitPerUser} --> ${ne
 
 }
 }
+  
     if(oldChannel.rateLimitPerUser === newChannel.rateLimitPerUser ){
   if(oldChannel.name === newChannel.name) {
     if(oldChannel.topic === newChannel.topic){
