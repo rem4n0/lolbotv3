@@ -175,10 +175,10 @@ module.exports = class {
             canvas.toBuffer(),
             "goodbye-image.png"
           );
-      ///channel.send({ content: message, files: [attachment] });
-        }/* else {
+  channel.send({ content: message, files: [attachment] });
+        }else {
           channel.send({ content: message });
-        }*/
+        }
       }
     }
   })}
