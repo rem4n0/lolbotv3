@@ -40,7 +40,9 @@ if(!Mute){
     Mute.create({
       guildID: message.guild.id})}
     ///if(message.guild.members.cache.has("838593240328044554")) return
-
+let channels = await Channels.findOne({guildID: message.guild.id})
+if(!channels){ Channels.create({guildID: message.guild.id})
+             }
     if (!user || !user.xp) {
       return;
     }

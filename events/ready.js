@@ -6,5 +6,8 @@ module.exports= class{
   console.log(`${bot.user.username}: registered`);
     const checkUnmutes = require("../helpers/Checkunmute.js");
 		checkUnmutes.init(bot);
+    const checkchannels = require("../helpers/Checkchannels.js");
+    checkchannels.init(bot);
+    
 
 }}

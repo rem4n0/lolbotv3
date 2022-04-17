@@ -9,10 +9,10 @@ module.exports = {
      * @param {object} client The Discord Client instance
      */
 	async init(bot){
-await Mute.find({ "mute.muted": true }).then((members) => {
-			members.forEach(async (member) => {
+await Channels.find({ "lock.locked": true }).then((channels) => {
+			channels.forEach(async (channel) => {
       ///  const data = await Member.findOne({guildID:member.guildID})
-			bot.databaseCache.mutedUsers.set(`${member.id}${member.guildID}`, member);
+			bot.databaseCache.lockedChannels.set(`${channel.id}${channel.guildID}`,channel);
 			});
 		});
     
@@ -21,52 +21,53 @@ await Mute.find({ "mute.muted": true }).then((members) => {
   
 		setInterval(async () => {
       
-			bot.databaseCache.mutedUsers.filter((m) => m.mute.endDate <= Date.now()).forEach(async (memberData) => {
-        if(!memberData.mute.muted) return;
-				const guild = bot.guilds.cache.get(memberData.guildID);
+			bot.databaseCache.lockedChannels.filter((m) => m.lock.endDate <= Date.now()).forEach(async (channelData) => {
+        if(!channelData.lock.locked) return;
+				const guild = bot.guilds.cache.get(channelData.guildID);
 				if(!guild) return;
-				const member = guild.members.cache.get(memberData.id) || await guild.members.fetch(memberData.id).catch(() => {
-					memberData.mute = {
-						muted: false,
+				const channel = guild.channels.cache.get(channelData.id) || await guild.members.fetch(memberData.id).catch(() => {
+					channelData.lock = {
+						locked: false,
 						endDate: null,
 						case: null
 					};
-					memberData.save();
+					channelData.save();
 				//	client.logger.log("[unmute] "+memberData.id+" cannot be found.");
 					return null;
 				});
 				const guildData = await Guild.findOneAndUpdate({ guildID: guild.id });
 				guild.data = guildData;
-				if(member){
+				if(channel){
 					guild.channels.cache.forEach((channel) => {/*
           
 						const permOverwrites = channel.permissionOverwrites.cache.get(member.id);
 						if(permOverwrites) permOverwrites.delete();
 					});*/
-            channel.permissionOverwrites.edit(member.id, {
+            channel.permissionOverwrites.edit(channel.id, {
 				SEND_MESSAGES: true,
 				ADD_REACTIONS: true,
 				CONNECT: true
 			}).catch(() => {});
 				})}
-				const user = member ? member.user : await bot.users.fetch(memberData.id);
+				const user = channel ? channel : await bot.channels.fetch(channelData.id);
 				const embed = new Discord.MessageEmbed()
-					.setDescription(`${user.toString()}Unmuted, case now ${memberData.mute.case}
+					.setDescription(`${user.toString()}Unmuted, case now ${channelData.lock.case}
 					`)
 					.setColor(config.embed.Color)
 					.setFooter({text:config.embed.footer});
-				const channel = guild.channels.cache.get(guildData.plugins.modlogs);
+/*
+				const channelr = guild.channels.cache.get(guildData.plugins.modlogs);
 if(!channel) return;
 				if(channel){
 					channel.send({ embeds: [embed] });
-				}
-				memberData.mute = {
-					muted: false,
+				}*/
+				channelData.lock = {
+					locked: false,
 					endDate: null,
 					case: null
 				};
-				bot.databaseCache.mutedUsers.delete(`${memberData.id}${memberData.guildID}`);
-				await memberData.save();
+				bot.databaseCache.lockedChannels.delete(`${channelData.id}${channelData.guildID}`);
+				await channelData.save();
 			});
 		}, 1000 * 5);
 	}
