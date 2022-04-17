@@ -14,7 +14,7 @@ module.exports = {
   cooldown: 6000,
   run: async (bot, message, args, dev,data) => {
     const channels = message.guild.channels.cache;
-  const channelData = await Channels.findOneAndUpdate({ id: channels.id, guildID: message.guild.id });
+  const channelData = await Channels.findOneAndUpdate({ id: channels,guildID: message.guild.id });
 
   const time = args[1];
 		if(!time || isNaN(ms(time))){
@@ -59,7 +59,7 @@ let reason = args.slice(3).join(" ");
 
 		await data.guild.save();
 
-		bot.databaseCache.mutedUsers.set(`${channels.id}${message.guild.id}`, channelData);}
+		bot.databaseCache.lockedChannels.set(`${channels}${message.guild.id}`, channelData);}
     
         /// send to log channel
   /*  const channelEmbed = await message.guild.channels.cache.get(data.guild.plugins.modlogs)
