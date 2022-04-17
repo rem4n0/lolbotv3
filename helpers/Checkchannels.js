@@ -25,7 +25,7 @@ await Channels.find({ "lock.locked": true }).then((channels) => {
         if(!channelData.lock.locked) return;
 				const guild = bot.guilds.cache.get(channelData.guildID);
 				if(!guild) return;
-				const channel = guild.channels.cache.get(channelData.id) || await guild.members.fetch(memberData.id).catch(() => {
+				const channel = guild.channels.cache.get(channelData.id) || await guild.members.fetch(channelData.id).catch(() => {
 					channelData.lock = {
 						locked: false,
 						endDate: null,
