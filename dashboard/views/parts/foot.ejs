@@ -1,7 +1,21 @@
 
 
 <style>
-  
+  .columns ul{
+    display:flex;
+    justify-content:space-around;
+  }
+  ul li{
+    list-style:none;
+  }
+  ul li a {
+    text-decoration: none;
+    font-size:25px;
+      color: white;
+  }
+  ul li a:hover{
+    color: var(--sharabi)
+  }
 .my-auto {
   
   
@@ -21,7 +35,13 @@ background:var(--sharabi);
 
 
     <div class="container">
-      <div
+      <div class="columns is-3">
+        <hr>
+        <ul>
+          <li><a href="/support"><i class="fa-brands fa-discord"></i>   Discord</a></li>
+          <li><a href="#"><i class="fa-solid fa-handshake"></i>Partners</a></li>
+        </ul>
+        </hr>
         <div class="copyright text-center my-auto">
             <span>Copyright 2022 &copy; BoBo Team</span>
         </div>
