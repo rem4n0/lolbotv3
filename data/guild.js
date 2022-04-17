@@ -8,6 +8,9 @@ const schema = mongoose.Schema({
     type: String,
     default: false
   },
+  channels:{ 
+    locked:false,
+  }
   xp: {
     onoff: { type: Boolean, default: true},
     message: {type:String, default: "Congratulations {user}, your leveled up to {level}!!"},

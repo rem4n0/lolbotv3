@@ -34,24 +34,9 @@ prime: false,
         SEND_MESSAGES: false
       })
       .then(async() => {
-        interaction.reply({content:`channel locked`});
+        interaction.reply({content:`channel locked`}).catch(()=>{ return;})
     
-        /// send to log channel
-
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`:pencil: **Channel Action**`)
-    .addField('Moderator Name',interaction.user.tag, true)
-    .addField('Channel',channel.name, true)
-    .setFooter({text:interaction.guild.name})
-    .setThumbnail(interaction.guild.iconURL())
-    .setTimestamp()
-    .setColor(config.embed.Color)
-            channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
-          
-            setTimeout(()=>{
-            }, 3000)
+    
   })
-    
-     
    }
 }

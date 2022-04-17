@@ -195,7 +195,7 @@ padding-left: 10px;
 }
 /****----- index page*-----*/
    .bot-info{
-     
+     display:flex;
     line-height:190px;
      
    }

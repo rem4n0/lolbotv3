@@ -62,7 +62,7 @@ let reason = await interaction.options.getString("reason");
       )
       .catch((err) => console.log(err.name));
 
-    await member.ban({ reason: `Ban Command: ${reason ||"Unspecified"}`});
+    await member.ban({ reason: ` ${reason ||"Unspecified"}`});
 
     interaction
       .reply({
@@ -74,26 +74,6 @@ let reason = await interaction.options.getString("reason");
   }
     
   
-  ////// send to log channel
-    const embed = new Discord.MessageEmbed()
-    .setAuthor({name: member.user.username, iconURL:member.user.displayAvatarURL({dynamic:true})})
-        .setDescription(`:pencil: **Ban Action**`)
-        .addField("Moderator Name", interaction.user.tag, true)
-        .addField("User banned", member.user.username, true)
-        .setFooter({ text: interaction.guild.name })
-        .setThumbnail(interaction.guild.iconURL())
-        .setTimestamp()
-        .setColor(config.embed.Color);
-
-  channelEmbed.send({ embeds: [embed] }).catch((err) => {
-          console.log(err);
-        });
-
-  
-  
-  
-  
-  
-  
+  ////// 
   }
 };

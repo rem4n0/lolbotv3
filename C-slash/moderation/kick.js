@@ -56,29 +56,12 @@ if(member){
       await user.send(`**${interaction.user.tag}**kicked you from ${interaction.guild.name}!\n**Reason**: ${reason|| 'Unspecified.'}`)
     .catch(() => null);
 
-    return member.kick({ reason: `Kick Command: ${reason || 'Unspecified'}`})
+    return member.kick( ` ${reason || 'Unspecified'}`)
     .then(_member => interaction.reply(`Successfully Kicked **${_member.user.tag}**`))
     .catch((err) => interaction.editReply(`Failed to ban **${member.user.tag} : reason: Your role not high than this member or ${err.name}**!`));
 
 }
   
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`:pencil: **Kick Action**`)
-    .addField('Moderator Name', interaction.user.tag, true)
-    .addField('User kicked',member.user.tag, true)
-    .addField('Reason', reason,true)
-    .setFooter({text:interaction.guild.name})
-    .setThumbnail(interaction.guild.iconURL())
-    .setTimestamp()
-    .setColor(config.embed.Color)
-
-  channelEmbed.send({embeds:[embed]}).catch((err)=>{console.log(err)})
-          
-            setTimeout(()=>{
-            }, 3000)
-
-
-    
     
     }
 }

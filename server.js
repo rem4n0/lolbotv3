@@ -62,6 +62,14 @@ bot.databaseCache.guilds = new Collection();
 bot.databaseCache.members = new Collection();
 bot.databaseCache.usersReminds = new Collection(); // members with active reminds
 bot.databaseCache.mutedUsers = new Collection(); // members who are currently muted
+
+bot.databaswCache.channels = new Collection ();
+bot.databaseCache.guilds = new Collection();
+
+bot.databaseCache.channelsReminds = new Collection ();
+bot.databaseCache.lockedChannels = new Collection ();
+
+
 bot.xp= new Collection ();
 bot.catagories = fs.readdirSync("./commands/");
 ["command", "event","slash"].forEach((handler) => {
