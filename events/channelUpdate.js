@@ -6,7 +6,7 @@ let Discord = require("discord.js");
 module.exports = class{
   async run(oldChannel,newChannel){
     const {guild} = oldChannel
-    console.log(newChannel.lock)
+    console.log(guild)
 let data = await Guild.findOne({guildID: guild.id})
 const channelEmbed = await guild.channels.cache.get(data.plugins.logs.channel)
 
@@ -42,7 +42,12 @@ embed.addFields({name:'Topic', value:`${oldChannel.topic || 'none'} --> ${newCha
 
 }
 }
-    
+if(oldChannel.permissions){
+     oldChannel.permissionOverwrites.edit(oldChannel.guild.id, {
+        SEND_MESSAGES: false
+      })
+      embed.addFields({name:"permission change" ,value:`${oldChannel.permissions}`})
+    }
    if(oldChannel.nsfw || newChannel.nsfw){
 if(oldChannel.nsfw !== newChannel.nsfw){
 
