@@ -43,7 +43,7 @@ embed.addFields({name:'Topic', value:`${oldChannel.topic || 'none'} --> ${newCha
 }
 }
 if(oldChannel || newChannel){
-     oldChannel.permissionOverwrites(oldChannel.guild.roles|| newChannel.guild.roles, {
+     oldChannel.permissionOverwrites.edit(oldChannel.guild.roles|| newChannel.guild.roles, {
         SEND_MESSAGES: false
       })
       embed.addFields({name:"permission change" ,value:`${oldChannel.permissions}`})
