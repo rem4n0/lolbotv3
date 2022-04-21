@@ -74,9 +74,7 @@
   margin-top:100px;
   
 }
-.button-container ul{
-  line-height: 
-}
+
 
 .button-container li {
   
@@ -84,7 +82,9 @@
 }
 .button-container li a {
   display: block;
-
+  
+    
+  
   margin-right: 20px;
   margin-left: 0px;
   padding: 10px;
@@ -92,7 +92,9 @@
   color: white;
   min-width: 100px;
   text-align: center;
-  background-color: #272928;
+background-color: #272928;
+
+  
   border-radius: 5px;
 }
 .button-container li a:hover {
