@@ -49,7 +49,7 @@
     opacity: 1;
   }
 }
-@media screen and (min-height: 3px) {
+@media screen and (max-height: 3px) {
   .button-container {
     
     
