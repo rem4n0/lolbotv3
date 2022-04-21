@@ -59,7 +59,20 @@
     <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="https://imgur.com/xqWybNa.png" alt="Avatar" style="width:300px;height:300px;">
+      <img src="https://imgur.com/xqWybNa.png" alt="Avatar"class="img-fluid">
+    </div>
+    <div class="flip-card-back">
+      <h1>Profile</h1>
+      <p>You can edit your profile with amazing features</p>
+      <p>We can set your bio and Your birthday and many more</p>
+    </div>
+  </div>
+</div>
+      
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://imgur.com/oOt6KYD.png" alt="Avatar" style="width:300px;height:300px;">
     </div>
     <div class="flip-card-back">
       <h1>John Doe</h1>
@@ -68,7 +81,7 @@
     </div>
   </div>
 </div>
-  <br><br>
+      <!--
   
  <div class="text-page">
    <div class="text-contet">
@@ -99,7 +112,7 @@
    
    
    </div>
- </div>
+ </div>-->
       <br>
       <br>
       <h3> Short Information about yourself</h3>
@@ -131,19 +144,18 @@
              
              <style>
               .flip-card {
+    height:400px;   
+               
   background-color: transparent;
-  width: 300px;
-  height: 300px;
-                margin-left:40px;
-  
+    margin-left:40px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+width:100%;
+  height:100%;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -165,7 +177,7 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  /**background-color: #bbb;*/
+
   color: black;
 }
 
