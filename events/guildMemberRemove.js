@@ -176,7 +176,7 @@ module.exports = class {
           );
  // channel.send({ content: message, files: [attachment] });
         }else {
-          channel.send({ content: message || "welcome" });
+      //    channel.send({ content: message || "welcome" });
         }
       }
     }

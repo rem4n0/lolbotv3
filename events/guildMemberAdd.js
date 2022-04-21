@@ -22,9 +22,10 @@ module.exports = class {
    // const cachedInvites = bot.guildInvites.get(member.guild.id)
  member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
-  
-      const UserInvited = member.guild.members.cache.get(uses.inviter.id);
-    
+
+   
+      const UserInvited = bot.users.cache.get(uses.inviterId);
+   console.log(UserInvited);
 		await member.guild.members.fetch();
 
 		const guildData = await Guild.findOne({ guildID: member.guild.id });
