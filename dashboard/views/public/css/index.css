@@ -1,69 +1,84 @@
-.fade-in {
-animation: fadeIn ease 2s;
--webkit-animation: fadeIn ease 2s;
--moz-animation: fadeIn ease 2s;
--o-animation: fadeIn ease 2s;
--ms-animation: fadeIn ease 2s;
+ .fade-in {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
 }
 @keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-0% {opacity:0;}
-100% {opacity:1;}
-}/**
-@media screen and (min-width: 500px){
-  
-  .button-container {
-margin-left: 70px;
-margin-top: 50px;
-display: flex;
-
-}
-  
-  .button-container li{
-    margin-right:30px;
-  list-style: none;
-}
-  
-  .text-page{
-    text-align: center;
-
+  0% {
+    opacity: 0;
   }
-}*/
+  100% {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .button-container {
+    margin-left: 70px;
+    margin-top: 50px;
+    display: flex;
+  }
+
+  .button-container li {
+    margin-right: 30px;
+    list-style: none;
+  }
+
+  .text-page {
+    text-align: center;
+  }
+}
 .fade-in-scroll {
   opacity: 0;
 }
+
 .button-container {
-  display: block;
-position: relative;
-  top:40px;
+  display: none;
 }
 
-.button-container li{
+.button-container li {
   list-style: none;
 }
-.button-container li a{
+.button-container li a {
   display: block;
-  margin: 0px;
-  
+
   margin-right: 20px;
   margin-left: 0px;
   padding: 10px;
@@ -74,91 +89,42 @@ position: relative;
   background-color: #272928;
   border-radius: 5px;
 }
-.button-container li a:hover{
+.button-container li a:hover {
   color: white;
   background-color: #f734ca;
-}/*
-.btn-down{
-  position: absolute;
- width: 100%;
- display: none;
- height:3px;
- background-color: white;
-  border-radius: 4px;
-}*//*
-.btn-down{
- position: absolute;
-  cursor: pointer;
-  top: 1.25rem;
-  right: 1.25rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-}
-
-
-.btn-down .nav{
-  height: 3px;
-  width: 100%;
-  display: block;
-  position: fixed;
-  background-color: white;
- 
-  border-radius: 10px;
-}
-.nav-bar-toggle{
-  
-position: absolute;
-  cursor: pointer;
-  top: 1.25rem;
-  right: 1.25rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-}
-
-.nav-bar-toggle .bar {
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  border-radius: 10px;
-}*/
+} 
 /***----------all text information-------**/
-.text-page{
-color: white;
-padding-top:30px;
-padding-bottom:300px;
+.text-page {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 300px;
 
-padding-left: 10px;
-/* animation: anime 30s ease-out infinite;*/
+  padding-left: 10px;
+  /* animation: anime 30s ease-out infinite;*/
 }
 .text-page .text-contet {
- /* font-size: 30px;*/
+  /* font-size: 30px;*/
   text-align: center;
 }
 
-.icons .icon{
+.icons .icon {
   color: white;
   font-size: 20px;
 }
 /**+++++----- preloader------*/
 
-  #preloader{
-    height:200vh;
+#preloader {
+  height: 200vh;
 
-    background: var(--navlist-color);
-  
-    width:100%;
-      position: fixed;
+  background: var(--navlist-color);
 
-    z-index:100;}
-  
-    
-    .lds-facebook {
+  width: 100%;
+  position: fixed;
+
+  z-index: 100;
+}
+
+.lds-facebook {
   display: inline-block;
   position: relative;
   width: 80px;
@@ -189,33 +155,28 @@ padding-left: 10px;
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
 }
 /****----- index page*-----*/
-   .bot-info{
-     display:flex;
-    line-height:190px;
-     
-   }
-   .bot-info .guild-info{
-     color: white;
-     font-size:22px;
-     margin-left:22px;
-     
-   }
-   .bot-info  span{
-     
-     font-size: 22px;
-     color: pink;
-     
-   }
-   .bot-info .user-info{
-     
-     color: white;
-     font-size:22px;
-     margin-left:22px;
-   }
-   
+.bot-info {
+  display: flex;
+  line-height: 190px;
+}
+.bot-info .guild-info {
+  color: white;
+  font-size: 22px;
+  margin-left: 22px;
+}
+.bot-info span {
+  font-size: 22px;
+  color: pink;
+}
+.bot-info .user-info {
+  color: white;
+  font-size: 22px;
+  margin-left: 22px;
+}
