@@ -49,11 +49,11 @@
     opacity: 1;
   }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-height: 3px) {
   .button-container {
-    margin-left: 70px;
-    margin-top: 50px;
-    display: flex;
+    
+    
+    display: none;
   }
 
   .button-container li {
@@ -82,8 +82,11 @@
 }
 .button-container li a {
   display: block;
-  
+
     
+
+background: linear-gradient(30deg, #272928 0%, #272928 51%, var(--sharabi)51%, var(--sharabi) 100%);
+
   
   margin-right: 20px;
   margin-left: 0px;
@@ -92,15 +95,11 @@
   color: white;
   min-width: 100px;
   text-align: center;
-background-color: #272928;
+/*background-color: #272928;*/
 
   
   border-radius: 5px;
 }
-.button-container li a:hover {
-  color: white;
-  background-color: #f734ca;
-} 
 /***----------all text information-------**/
 .text-page {
   color: white;
