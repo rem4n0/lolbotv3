@@ -18,7 +18,7 @@ module.exports = class {
 
 	async run (member,bot, message) {
     
-    
+    /*
    // const cachedInvites = bot.guildInvites.get(member.guild.id)
  member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
@@ -26,7 +26,13 @@ module.exports = class {
    
       const UserInvited = bot.users.cache.get(uses.inviterId);
    console.log(UserInvited.tag);
-		await member.guild.members.fetch();
+		await member.guild.members.fetch();*/
+    const cashedInvites = member.guild.invites.get(member.guild.id);
+    const newInvites = await member.guild.invites.fetch();
+    bot.guild.invites.set(member.guild.id, newInvites);
+
+    const usedInvite = newInvites.find(inv => cashedInvites.get(inv.code).uses < inv.uses);
+    
 
 		const guildData = await Guild.findOne({ guildID: member.guild.id });
 		member.guild.data = guildData;
@@ -65,7 +71,7 @@ module.exports = class {
 				const message = guildData.plugins.welcome.message
 					.replace(/{user}/g, member)
 					.replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g,UserInvited.username)
+          .replace(/{inviter}/g,usedInvite.inviter.username)
 					.replace(/{membercount}/g, member.guild.memberCount);
         
         
@@ -143,7 +149,7 @@ module.exports = class {
         
 			}
 		}
-  })
+  
 	}
 
 };
