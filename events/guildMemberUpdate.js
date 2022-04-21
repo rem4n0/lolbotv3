@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
 module.exports = class{
-  async run(client,member,oldNickname,newNickname) {
+  async run(member,oldNickname,newNickname,oldRole,newRole) {
     const {guild} = member
-    if(!newNickname) return;
+  
+  console.log(newRole)
 
     let data = await Guild.findOne({guildID: guild.id})
     const logChannel = guild.channels.cache.get(data.plugins.logs.channel)
@@ -28,6 +29,14 @@ module.exports = class{
     .setFooter(member.guild.name, member.guild.iconURL({ dynamic: true }))
     return logChannel.send({ embeds: [embed] })
     }
+    const newembed = new Discord.MessageEmbed()
+    .setAuthor({name: member.guild.name, urlIcon: member.guild.iconURL({dynamic: true})})
+    if(!oldRole && newRole){
+newembed.addFields({ name: "oldRole", value:oldRole.name},
+                { name:"newRole", value:newRole.name})
+      
+    }
+    logChannel.send({embeds:[newembed]})
   
   
   
