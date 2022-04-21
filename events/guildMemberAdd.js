@@ -25,7 +25,7 @@ module.exports = class {
 
    
       const UserInvited = bot.users.cache.get(uses.inviterId);
-   console.log(UserInvited);
+   console.log(UserInvited.tag);
 		await member.guild.members.fetch();
 
 		const guildData = await Guild.findOne({ guildID: member.guild.id });
@@ -65,7 +65,7 @@ module.exports = class {
 				const message = guildData.plugins.welcome.message
 					.replace(/{user}/g, member)
 					.replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g,UserInvited.tag)
+          .replace(/{inviter}/g,UserInvited.username)
 					.replace(/{membercount}/g, member.guild.memberCount);
         
         
