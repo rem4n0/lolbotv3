@@ -48,8 +48,8 @@
   100% {
     opacity: 1;
   }
-}
-@media screen and (max-height: 3px) {
+}/*
+@media screen and (max-: 3px) {
   .button-container {
     
     
@@ -64,14 +64,14 @@
   .text-page {
     text-align: center;
   }
-}
+}*/
 .fade-in-scroll {
   opacity: 0;
 }
 
 .button-container {
   display: block;
-  margin-top:100px;
+  margin-top:200px;
   
 }
 
