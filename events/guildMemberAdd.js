@@ -23,7 +23,7 @@ module.exports = class {
  member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
   
-      const UserInvited = bot.users.cache.get(uses.inviter.id);
+      const UserInvited = member.guild.members.cache.get(uses.inviter.id);
     
 		await member.guild.members.fetch();
 
@@ -137,16 +137,9 @@ module.exports = class {
 					
           channel.send({content:message,files: [attachment]})
           
-				}else{ channel.send({content: message})}
-        /*
-        if(message  && !guildData.plugins.welcome.withImage){
-					channel.send({content:message}
-		         
-					);
-        }
-if(guildData.plugins.welcome.withImage &&! message){
-  channel.send({files:[attachment]})
-}*/
+				}else{
+          channel.send({content: message})}
+        
 			}
 		}
   })

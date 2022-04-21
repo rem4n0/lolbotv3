@@ -21,8 +21,8 @@ if(maintenance && maintenance.toggle == "true") {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let data = await Guild.findOne({ guildID: guild.id });
     const user = guild.members.cache.get(req.user.id);
-    if (!user.permissions.has("MANAGE_GUILD")) {
-      res.redirect("?error=true&message= You can't access to this page");
+    if (!user?.permissions.has("MANAGE_GUILD")) {
+      res.send("You can't access to this page");
     }
     res.render("./guild/autorole.ejs", {
       config: config,

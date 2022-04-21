@@ -37,7 +37,7 @@ module.exports = class {
     .setDescription(`:pencil: **Kick Action**`)
     .addField('Moderator Name', user2.tag, true)
     .addField('User kicked',entry1.target.tag, true)
-.addField("Reason", entry1.reason || " No have Reason", true)
+    .addField("Reason", entry1.reason || " No have Reason", true)
     .setFooter({text:guild.name})
     .setThumbnail(guild.iconURL())
     .setTimestamp()
@@ -65,7 +65,6 @@ module.exports = class {
       const UserInvited = bot.users.cache.get(uses.inviter.id);
     
 
-    await member.guild.members.fetch();
 
     /*const guildData = await Guild.findOneAndUpdate({
       guildID: member.guild.id,
@@ -81,7 +80,7 @@ module.exports = class {
         const message = guildData.plugins.goodbye.message
           .replace(/{user}/g, member.user.tag)
           .replace(/{server}/g, member.guild.name)
-        .replace(/{inviter}/g, UserInvited.tag)
+          .replace(/{inviter}/g, UserInvited.tag )
           .replace(/{membercount}/g, member.guild.memberCount);
         console.log(message);
         if (guildData.plugins.goodbye.withImage) {
@@ -175,9 +174,9 @@ module.exports = class {
             canvas.toBuffer(),
             "goodbye-image.png"
           );
-  channel.send({ content: message, files: [attachment] });
+ // channel.send({ content: message, files: [attachment] });
         }else {
-          channel.send({ content: message });
+          channel.send({ content: message || "welcome" });
         }
       }
     }
