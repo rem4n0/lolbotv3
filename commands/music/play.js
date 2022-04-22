@@ -55,7 +55,7 @@ module.exports = {
       queue.destroy();
       return message.reply({content:"There was an error with your request, please trye again later!" });
     }
-    if (searchResult.playlist) {
+    if (searchResult) {
       queue.addTracks(searchResult.tracks);
     } else {
       queue.addTrack(searchResult.tracks[0]);

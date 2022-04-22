@@ -28,12 +28,12 @@ player.on("trackStart", (queue, track) => {
 
   queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + ""+track.timecodes+"" + `added To BoBoQueue \`\`(${track.duration})\`\`` 
                       });
-});
+});/*
 player.on("tracksAdd", (queue,tracks)=>{
   
   queue.metadata.send({content:` Added new Songs for queue ${tracks.title}`})
   
-})
+})*/
 player.on("trackAdd", (queue, track) => {
 
   queue.metadata.send({ content: `  Searching 🔍 `}).then((a)=>{
