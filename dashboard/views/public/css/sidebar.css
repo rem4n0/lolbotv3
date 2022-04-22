@@ -111,7 +111,7 @@ text-align: center;
 left:0;
   position: relative;
   display: none;
-  
+  transition:all 1s ease;
   border-radius:4%;
   background: var(--navlist-color);
 
