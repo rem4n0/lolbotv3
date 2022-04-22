@@ -6,10 +6,10 @@ const emojis = require("../../util/emojis.json");
 
 const talkedRecently = new Set();
 module.exports = {
-  name: "play",
-  aliases: ["play"],
-  usage: ["prefix + play"],
-  description: "Play your favorite music or anything you want",
+  name: "queue",
+  aliases: ["queue"],
+  usage: ["prefix + queue"],
+  description: "Showed your queue",
   category: "music",
   enabled: true,
   ownerOnly: false,
@@ -20,18 +20,9 @@ module.exports = {
 
 
     const queue = player.getQueue(message.guildId);
-    const noQueue = new Discord.MessageEmbed()
-      .setTitle(`There is no thing working`)
-      .setDescription(
-        "Silly~ There is no song currently playing in this server!"
-      )
-      .setColor(config.embed.Color)
-      .setTimestamp()
-      .setFooter("Requested by " + message.member.user.tag);
-
+    
     if (!queue?.playing)
-      return message.reply({
-        embeds: [noQueue],
+      return message.reply({content:`There is nothing working, there is no song currently playing in this server `
       });
 
     const currentTrack = queue.current;
@@ -41,7 +32,7 @@ module.exports = {
 
     const songQueue = new Discord.MessageEmbed()
       .setColor(config.embed.Color)
-      .setTitle("Senpai~ Here's your queue!")
+      .setTitle("Here's your queue!")
       .setDescription(
         `${tracks.join("\n")}${
           queue.tracks.length > tracks.length
@@ -53,12 +44,11 @@ module.exports = {
             : ""
         }`
       )
-      .addField(
-        emojis.Tag + "Currently Playing",
+      .addField("Currently Playing",
         `[**${currentTrack.title}**](${currentTrack.url}) - ${currentTrack.requestedBy.tag}`,
         true
       )
       .setTimestamp()
       .setFooter("Requested by " + message.member.user.tag);
 
-    return message.reply({ embeds: [songQueue] });}}
+    return message.channel.send({embeds:[songQueue] });}}

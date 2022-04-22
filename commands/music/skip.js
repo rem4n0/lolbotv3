@@ -1,0 +1,35 @@
+const Discord = require("discord.js");
+const { QueryType } = require("discord-player");
+const player = require("../../handler/player");
+
+const talkedRecently = new Set();
+module.exports = {
+  name: "play",
+  aliases: ["play"],
+  usage: ["prefix + play"],
+  description: "Play your favorite music or anything you want",
+  category: "music",
+  enabled: true,
+  ownerOnly: false,
+  cooldown: 6000,
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  memberPermissions: ["SEND_MESSAGES"],
+  run: async (client, message, args) => {
+
+
+
+    const queue = player.getQueue(message.guildId);
+    if (!queue?.playing)
+      return message.reply({content:` Thers is no music currently beign played`
+      });
+
+    queue.skip();
+
+    const Skipped = new Discord.MessageEmbed()
+      .setColor(config.embed.Color)
+      .setTitle("Skipping")
+      .setDescription("I've successfully skipped the song, next song it is!")
+      .setTimestamp()
+      .setFooter("Requested by " + message.member.user.tag);
+
+    message.reply({ embeds: [Skipped] });}}
