@@ -6,7 +6,7 @@ const talkedRecently = new Set();
 module.exports = {
   name: "play",
   aliases: ["play"],
-  usage: ["prefix + play"],
+  usage: ["Boplay"],
   description: "Play your favorite music or anything you want",
   category: "music",
   enabled: true,
@@ -52,6 +52,8 @@ module.exports = {
     try {
       if (!queue.connection) await queue.connect(message.member.voice.channel);
     } catch {
+      await player.deleteQueue(message.guild.id);
+      
       queue.destroy();
       return message.reply({content:"There was an error with your request, please trye again later!" });
     }/*
