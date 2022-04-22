@@ -32,6 +32,7 @@ player.on("trackStart", (queue, track) => {
 player.on("tracksAdd", (queue,tracks)=>{
   
   queue.metadata.send({content:` Added new Songs for queue ${tracks.title}`})
+  
 })
 player.on("trackAdd", (queue, track) => {
 

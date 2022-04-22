@@ -22,13 +22,13 @@ module.exports = {
     if (!queue?.playing)
       return message.reply({content:` Thers is no music currently beign played`
       });
-
+const current = queue.current;
     queue.skip();
 
     const Skipped = new Discord.MessageEmbed()
       .setColor(config.embed.Color)
       .setTitle("Skipping")
-      .setDescription("I've successfully skipped the song, next song it is!")
+      .setDescription(`I've successfully skipped the ${current}, next song it is!`)
       .setTimestamp()
       .setFooter("Requested by " + message.member.user.tag);
 
