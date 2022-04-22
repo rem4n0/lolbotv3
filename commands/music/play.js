@@ -6,34 +6,16 @@ const talkedRecently = new Set();
 module.exports = {
   name: "play",
   aliases: ["play"],
-  usage: [""],
-  description: "Add a role to all user of the current server",
-  category: "admin",
+  usage: ["prefix + play"],
+  description: "Play your favorite music or anything you want",
+  category: "music",
   enabled: true,
   ownerOnly: false,
   cooldown: 6000,
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-  /*  if (talkedRecently.has(message.author.id)) {
-      const er = new Discord.MessageEmbed()
 
-        .setTitle("Woah there, calm down senpai!")
-        .setDescription(
-          "Please wait  `5 seconds` before using the command again!"
-        )
-        .setTimestamp()
-        .setFooter("play" + " | " + "Requested by " + message.member.user.tag);
-
-      return message.reply({content: }).then((msg) => {
-        setTimeout(() => msg.delete(), 15000);
-      });
-    } else {
-      talkedRecently.add(message.author.id);
-      setTimeout(() => {
-        talkedRecently.delete(message.author.id);
-      }, 5000);
-    }*/
 
     const songSearch = args.slice(1).join("");
     
