@@ -4,10 +4,10 @@ const player = require("../../handler/player");
 
 const talkedRecently = new Set();
 module.exports = {
-  name: "play",
-  aliases: ["play"],
-  usage: ["prefix + play"],
-  description: "Play your favorite music or anything you want",
+  name: "skip",
+  aliases: ["skip"],
+  usage: ["Boskip"],
+  description: "skip songs to other aongs in queue",
   category: "music",
   enabled: true,
   ownerOnly: false,
