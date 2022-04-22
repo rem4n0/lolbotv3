@@ -60,7 +60,10 @@ module.exports = {
     } else {
       queue.addTrack(searchResult.tracks[0]);
     }
-
+if(searchResult) 
+{
+  queue.addTracks(searchResult.tracks)
+}
     if (!queue.playing) await queue.play();
   },
 };
