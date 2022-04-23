@@ -111,13 +111,12 @@ text-align: center;
 left:0;
   position: relative;
   display: none;
-  transition:all 1s ease;
   border-radius:4%;
   background: var(--navlist-color);
 
 }
 .sidebar .nav-list  .sub-menu li{
-  transition:all 1s ease;
+
   width:100%;
   padding:0;
   position: relative;
@@ -131,7 +130,7 @@ text-align: center;
 }
 
 .sidebar .nav-list .showMenu .sub-menu {
-  transition: all 1s ease;
+
   display: block;
 }
 .sidebar .nav-list .list li .icon {
