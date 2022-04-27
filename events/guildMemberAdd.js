@@ -18,13 +18,6 @@ module.exports = class {
    /* const guildInvites = await member.guild.invites.fetch();
     console.log(guildInvites);
     */
-    const cachedInvites = guildInvites.get(member.guild.id)
-    const newInvites = await member.guild.invites.fetch();
-    console.log(cachedInvites)
-    console.log(newInvites)
-    
-    guildInvites.set(member.guild.id, newInvites)
-  
  //   const uses = guildInvites.find((codes) => codes.uses);
   
  //   const UserInvited = await bot.users.fetch(uses.inviterId);
@@ -65,7 +58,7 @@ module.exports = class {
         const message = guildData.plugins.welcome.message
           .replace(/{user}/g, member)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g)
+          .replace(/{inviter}/g,usedInvite)
           .replace(/{membercount}/g, member.guild.memberCount);
 
         if (guildData.plugins.welcome.withImage && message) {
