@@ -22,10 +22,10 @@ module.exports = class {
 
  await member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
-
+       
    
-      const UserInvited = bot.users.cache.get(uses.inviterId);
-  
+      const UserInvited = await bot.users.fetch(uses.inviterId);
+  console.log(UserInvited)
   const guildData = await Guild.findOne({ guildID: member.guild.id });
 		member.guild.data = guildData;
 
@@ -63,7 +63,7 @@ module.exports = class {
 				const message = guildData.plugins.welcome.message
 					.replace(/{user}/g, member)
 					.replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g,UserInvited.tag)
+          .replace(/{inviter}/g,UserInvited.user.username)
 					.replace(/{membercount}/g, member.guild.memberCount);
         
         

@@ -66,9 +66,7 @@ module.exports = class {
     
 
 
-    /*const guildData = await Guild.findOneAndUpdate({
-      guildID: member.guild.id,
-    });*/
+    
     member.guild.data = guildData;
 
     // Check if goodbye message is enabled
