@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 
 
 module.exports = {
-  name: "invite",
-  aliases: ["uinvite","invite"],
+  name: "invites",
+  aliases: ["myinvitee],
   description: "",
   usage: [""],
   category: [""],
