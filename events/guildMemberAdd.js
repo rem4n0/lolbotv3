@@ -21,8 +21,9 @@ module.exports = class {
     
 
  await member.guild.invites.fetch().then(async(guildInvites) => {
+   console.log(guildInvites)
       const uses = guildInvites.find(codes => codes.uses);
-       
+       console.log(uses);
    
       const UserInvited = await bot.users.fetch(uses.inviterId);
   console.log(UserInvited)
@@ -63,7 +64,7 @@ module.exports = class {
 				const message = guildData.plugins.welcome.message
 					.replace(/{user}/g, member)
 					.replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g,UserInvited.user.username)
+          .replace(/{inviter}/g,UserInvited)
 					.replace(/{membercount}/g, member.guild.memberCount);
         
         
