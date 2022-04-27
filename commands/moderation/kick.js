@@ -6,7 +6,7 @@ module.exports = {
     usage: ["kick"],
     category: ["moderation"],
     enabled: true,
-    memberPermissions: ["KICK_MEMBERS"],
+    memberPermissions: ["KICK_MEMBERS","SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "KICK_MEMBERS"],
     ownerOnly: false,
     cooldown: 6000,

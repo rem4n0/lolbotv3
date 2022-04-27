@@ -9,7 +9,7 @@ module.exports = {
     usage: ["ban [@User]"],
     category: ["moderation"],
     enabled: true,
-    memberPermissions: ["BAN_MEMBERS"],
+    memberPermissions: ["BAN_MEMBERS","SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "BAN_MEMBERS"],
     ownerOnly: false,
     cooldown: 6000,

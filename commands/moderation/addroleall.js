@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["arall", "aroleall", "giveroleall"],
   usage: ["addroleall <roles>"],
   description: "Add a role to all user of the current server",
-  category: "admin",
+  category: "moderation",
   enabled:true,
   ownerOnly: false,
   cooldown: 6000,
