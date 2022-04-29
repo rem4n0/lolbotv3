@@ -185,8 +185,8 @@ module.exports = class {
         timestamps.set(interaction.userId, now);
       
         setTimeout(() => timestamps.delete(interaction.userId), cooldownAmount);
-
-  if(command) command.run(interaction, bot,data,channelEmbed);
+const player = require("../../handler/player.js")
+  if(command) command.run(interaction, bot,data,channelEmbed,player);
       }
     } catch (error) {
       if (error) console.error(error);
