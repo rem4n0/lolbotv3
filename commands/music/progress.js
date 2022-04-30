@@ -3,12 +3,12 @@ const player = require("../../handler/player")
 module.exports = {
     name: "progress",
     aliases: ["progress"],
-    description: "You can ban a member, or multiple members using this command",
-    usage: ["ban [@User]"],
-    category: ["moderation"],
+    description: "show you progress bar of song",
+    usage: ["Boprogress"],
+    category: ["music"],
     enabled: true,
-    memberPermissions: ["BAN_MEMBERS"],
-    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "BAN_MEMBERS"],
+    memberPermissions: ["SEND_MESSAGES"],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     ownerOnly: false,
     cooldown: 6000,
     run: async (bot, message, args, dev) => {
