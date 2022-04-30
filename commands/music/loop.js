@@ -3,7 +3,7 @@ const { QueueRepeatMode } = require('discord-player');
 
 module.exports = {
   name: "loop",
-  aliases: ["loop"],
+  aliases: ["loop","repeat"],
   usage: ["Boloop"],
   description: "repeat mode",
   category: "music",
@@ -13,7 +13,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-
+if(!message.member.voice.channel){ return message.reply({content:`You can't change loop mode`})}
         const queue = player.getQueue(message.guild.id);
 
         if (!queue || !queue.playing) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);

@@ -5,7 +5,7 @@ module.exports = {
   name: "pause",
   aliases: ["pause"],
   usage: ["Bo pause"],
-  description: "Pause current sing",
+  description: "Pause current song",
   category: "music",
   enabled: true,
   ownerOnly: false,
@@ -13,7 +13,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-
+if(!message.member.voice.channel){ return message.reply({content:`You cant pause songs `})}
         const queue = player.getQueue(message.guild.id);
 
         if (!queue) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);

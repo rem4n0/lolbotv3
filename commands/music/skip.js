@@ -16,7 +16,7 @@ module.exports = {
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
 
-
+if(!message.member.voice.channel){ return message.reply({content:`You can't skip songs`})}
 
     const queue = player.getQueue(message.guildId);
     if (!queue?.playing)

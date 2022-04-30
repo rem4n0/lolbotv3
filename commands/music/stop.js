@@ -12,7 +12,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES","EMBED_LINKS"],
   memberPermissions: ["CONNECT","SEND_MESSAGES"],
   run: async (bot, message, args) => {
-    
+    if(!message.member.voice.channel){ return message.reply({content:`You can't stop songs`})}
     
     const queue = player.getQueue(message.guildId);
     queue.stop()

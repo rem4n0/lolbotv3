@@ -19,7 +19,7 @@ module.exports = {
       return message.channel.send({content:
         `No music currently playing ${message.author}... try again ? ❌`}
       );
-
+if(! message.member.voice.channel){ return message.reply({content:`You can't change volume because you are not in my voice channel`})}
     const vol = parseInt(args[1]);
 
     if (!vol)

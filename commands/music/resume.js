@@ -13,7 +13,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-
+if(!message.member.voice.channel){ return message.reply({content:`You cant resume `})}
 
 const queue = player.getQueue(message.guild.id);
 

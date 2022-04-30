@@ -15,7 +15,7 @@ module.exports = {
     cooldown: 6000,
   run: async (bot, message, args, dev) => {
     const queue = player.getQueue(message.guild.id);
-    
+    if(!message.member.voice.channel){ return message.reply({content:`You cant use filter`})}
 if (!queue || !queue.playing) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
 const actualFilter = queue.getFiltersEnabled()[0];
 if (!args[1]) return message.channel.send({content:`Please specify a valid filter to enable or disable ${message.author}... try again ? ❌\n${actualFilter ? `Filter currently active ${actualFilter} (filter ${actualFilter} to disable it).\n` : ''}`});
