@@ -24,9 +24,10 @@ player.on("connectionError", (queue, error) => {
 });
 
 player.on("trackStart", (queue, track) => {
-  
+  const progress = queue.createProgressBar();
+      
 
-  queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + ""+track.timecodes+"" + `added To BoBoQueue \`\`(${track.duration})\`\`` 
+  queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + " " + `added To BoBoQueue \`\`(${progress})\`\`` 
                       });
 });/*
 player.on("tracksAdd", (queue,tracks)=>{
@@ -37,7 +38,7 @@ player.on("tracksAdd", (queue,tracks)=>{
 player.on("trackAdd", (queue, track) => {
 
   queue.metadata.send({ content: `  Searching 🔍 `}).then((a)=>{
-    setTimeout(() => a.delete(), 15000);
+    setTimeout(() => a.delete(), 5000);
       });
 });
 
