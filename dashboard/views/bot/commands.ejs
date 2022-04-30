@@ -1,0 +1,47 @@
+<%- include ("../parts/head",{bot,req})%>
+  
+  
+      <div class="container">
+      <ul>
+        <h3>ECONOMY</h3>
+        <li>balance<details>show your balance</details></li>
+        <li>give<details>transfer money to another account</details></li>
+        <li>daily<details>Get Your Daily money</details></li>
+        <h3>FUN</h3>
+        <li>hug<details>Hug your best friend </details></li>
+        <li>kiss<details>kiss anyone you want</details></li>
+        <li>marry<details>marry with your love</details></li>
+        <li>ship <details>Ship anyone you want</details></li>
+        <h3>GAME</h3>
+        <li>coin flip<details>This is  game and you can rising your balance by gaming</details></li>
+        <li>slots<details>Another game and can earn money</details></li>
+        <h3>GENERAL</h3>
+        <li>about<details>information about bot</details></li>
+        <li>invite<details>give you invite link of bot</details></li>
+        <li>news <details>give you last news of bot when Devlopers of bot published</details></li>
+        <li>note <details>You can save your note in to database and safe from anyone and no one can see it</details></li>
+        <li>serverinfo<details></details></li>
+        <li>support<details></details></li>
+        <li>userinfo<details></details></li>
+        <li>vote<details></details></li>
+        <h3>MODERATION</h3>
+        <li>add role all<details></details></li>
+        <li>ban<details></details></li>
+        <li>kick<details></details></li>
+        <li>unban<details></details></li>
+        <li>lock<details></details></li>
+        <li>unlock<details></details></li>
+        <li>lockdown<details></details></li>
+        <li>unlockdown<details></details></li>
+        <li>mute<details></details></li>
+        <li>unmute<details></details></li>
+        <li>purge<details></details></li>
+    
+          <% if(bot.commands.name === "removeroleall"){%>
+        <li>remove role all<details></details></li>
+        <% }%>
+       
+      </ul>
+    </div>
+
+  <%- include ("../parts/foot")%>
