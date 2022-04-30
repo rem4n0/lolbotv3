@@ -47,8 +47,7 @@ if(maintenance && maintenance.toggle == "true") {
 
 }
 
-console.log(bot.commands.name =="banall")
-  res.render("./bot/commands",{
+  res.render("commands",{
     user:req.isAuthenticated() ? req.user:null,
     req:req,
     bot:bot,

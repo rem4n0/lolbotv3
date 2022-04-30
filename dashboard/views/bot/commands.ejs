@@ -3,6 +3,7 @@
   
       <div class="container">
       <ul>
+        <% bot.commands.map((a)=>{%>
         <h3>ECONOMY</h3>
         <li>balance<details>show your balance</details></li>
         <li>give<details>transfer money to another account</details></li>
@@ -37,10 +38,10 @@
         <li>unmute<details></details></li>
         <li>purge<details></details></li>
     
-          <% if(bot.commands.name === "removeroleall"){%>
-        <li>remove role all<details></details></li>
+          <% if(a = "ban"){%>
+        <li>remove role all<details><% a.description%></details></li>
         <% }%>
-       
+       <% })%>
       </ul>
     </div>
 

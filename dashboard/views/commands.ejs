@@ -38,12 +38,12 @@ justify-content: space-between;
         </tr>
     </thead>
         <tbody>
-          <% bot.slash.map((a)=>{%>
+          <% bot.commands.map((a)=>{%>
           <tr>
-    
-            <td><%=a.name%></td>
+    <% if(a.category = "moderation"){%>
+            <td>></td>
             <td><%=a.description%></td>
-            
+            <% } else{ return;}%>
           </tr>
               <% })%>
       </tbody>
