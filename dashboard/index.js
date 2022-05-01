@@ -229,6 +229,7 @@ module.exports = async (bot) => {
   console.log(" ");
   console.log("\x1b[36m%s\x1b[0m", "Admin Panel system routers loading...");
   sleep(3000);
+  app.use("/arc-
   app.use("/", require("./routes/admin/index.js"));
   app.use("/", require("./routes/admin/ban.js"));
   app.use("/", require("./routes/admin/partner.js"));
