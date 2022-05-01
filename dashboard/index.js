@@ -68,6 +68,7 @@ module.exports = async (bot) => {
     "/css",
     express.static(path.resolve(`${templateDir}${path.sep}public/css`))
   );
+app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
   app.use(
     "/js",
     express.static(path.resolve(`${templateDir}${path.sep}public/js`))
@@ -229,7 +230,7 @@ module.exports = async (bot) => {
   console.log(" ");
   console.log("\x1b[36m%s\x1b[0m", "Admin Panel system routers loading...");
   sleep(3000);
-  app.use("/arc-
+ // app.use("/arc-sw.js", require("../arc-sw.js"))
   app.use("/", require("./routes/admin/index.js"));
   app.use("/", require("./routes/admin/ban.js"));
   app.use("/", require("./routes/admin/partner.js"));
