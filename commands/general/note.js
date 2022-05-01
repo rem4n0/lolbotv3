@@ -56,14 +56,14 @@ let ID ="";
                     }else{
 		msg.edit({content:`✅ **| Successfully saved your note /n ID: ${ID}**`})
 if(!data){return message.channel.send({content:`**${message.author.tag}** You are not have data`})}
-			if(data){
+			data.push({
         
-					data.data.note.ID = ID,
-					data.data.note.NAME =name,
-					data.data.note.DATE = Date.now(),//moment(message.createdTimestamp).format ('DD/MM/YYYY hh:mm'),
-					data.data.note.MSG =note
-				data.save()
+					"data.data.note.ID":ID,
+					"data.data.note.NAME" :name,
+					"data.data.note.DATE":Date.now(),//moment(message.createdTimestamp).format ('DD/MM/YYYY hh:mm'),
+					"data.data.note.MSG" :note
+	
       
-      }
+      }).save()
 
                     }})})}}})})}}
