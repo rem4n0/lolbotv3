@@ -6,17 +6,13 @@ app.get(
   global.checkAuth,
   async (req, res, next) => {
     const maintenance = await Maintenance.findOne({
-  server: config.serverid
-})
+      server: config.serverid,
+    });
 
-if(maintenance && maintenance.toggle == "true") {
+    if (maintenance && maintenance.toggle == "true") {
+      return res.render(res, req, "maintenance.ejs");
+    }
 
-     return res.render(res, req, "maintenance.ejs")
-
-}
-
-
-    
     const guild = bot.guilds.cache.get(req.params.guildID);
     let data = await Guild.findOne({ guildID: guild.id });
     const user = guild.members.cache.get(req.user.id);
@@ -36,13 +32,14 @@ if(maintenance && maintenance.toggle == "true") {
 app.post(
   "/dashboard/guild/:guildID/goodbye",
   global.checkAuth,
-  async(req,res) => {
-    const guild =bot.guilds.cache.get(req.params.guildID)
+  async (req, res) => {
+    const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-    let h = rbody["goodbyeonoff"] === "true"
+    let h = rbody["goodbyeonoff"] === "true";
     console.log(h);
-    if(!rbody["message"]) return res.send({error:true, message:" Goodbye message is empty"})
-    let data = await Guild.findOne({ guildID: guild.id});
+    if (!rbody["message"])
+      return res.send({ error: true, message: " Goodbye message is empty" });
+    let data = await Guild.findOne({ guildID: guild.id });
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -51,7 +48,6 @@ app.post(
           $set: {
             "plugins.goodbye.message": rbody["message"],
             "plugins.goodbye.channel": rbody["channel"],
-          
           },
         }
       );
@@ -59,8 +55,12 @@ app.post(
     }
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
-      { $set: { "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
-       "plugins.goodbye.withImage":rbody["withImg"] === "true"}}
+      {
+        $set: {
+          "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
+          "plugins.goodbye.withImage": rbody["withImg"] === "true",
+        },
+      }
     );
   }
 );
@@ -72,10 +72,10 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
     let h = rbody["onoff"] === "true";
-    console.log(h)
-if(!rbody["message"]) return res.send({error: true, message:"welcome message is empty"})
+    console.log(h);
+    if (!rbody["message"])
+      return res.send({ error: true, message: "welcome message is empty" });
     let data = await Guild.findOne({ guildID: guild.id });
-  
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
@@ -83,7 +83,7 @@ if(!rbody["message"]) return res.send({error: true, message:"welcome message is 
         {
           $set: {
             "plugins.welcome.message": rbody["message"],
-        
+
             "plugins.welcome.channel": rbody["channel"],
           },
         }
