@@ -212,7 +212,9 @@ if(checkimg.checked){
          
          //////////////   
          var checkbox2 = document.querySelector('input[id="withImg"]');
+         
          checkbox2.addEventListener('change', function (){
+           
          if(checkbox2.checked){
            $.post("/dashboard/guild/<%=guild.id%>/welcome",{
              withImg: true,

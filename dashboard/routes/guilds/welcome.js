@@ -39,6 +39,8 @@ app.post(
   async(req,res) => {
     const guild =bot.guilds.cache.get(req.params.guildID)
     let rbody = req.body;
+    let h = rbody["goodbyeonoff"] === "true"
+    console.log(h);
     if(!rbody["message"]) return res.send({error:true, message:" Goodbye message is empty"})
     let data = await Guild.findOne({ guildID: guild.id});
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
