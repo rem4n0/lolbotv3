@@ -17,6 +17,7 @@ const applyText = (canvas, text, defaultFontSize) => {
 
 module.exports = class {
   async run(member) {
+    if(!member.guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNELS","VIEW_AUDIT_LOG"])) return;
     const guildData = await Guild.findOne({ guildID: member.guild.id });
     if (member.guild) {
           const { guild } = member,
