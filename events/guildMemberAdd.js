@@ -58,7 +58,7 @@ module.exports = class {
         const message = guildData.plugins.welcome.message
           .replace(/{user}/g, member)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g,usedInvite)
+    
           .replace(/{membercount}/g, member.guild.memberCount);
 
         if (guildData.plugins.welcome.withImage && message) {

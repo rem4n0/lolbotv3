@@ -39,6 +39,7 @@ app.post(
   async(req,res) => {
     const guild =bot.guilds.cache.get(req.params.guildID)
     let rbody = req.body;
+    if(!rbody["message"]) return res.send({error:true, message:" Goodbye message is empty"})
     let data = await Guild.findOne({ guildID: guild.id});
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
@@ -67,7 +68,8 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-
+    let h = rbody["onoff"] === "true"
+if(!rbody["message"]) return res.send({error: true, message:"welcome message is empty"})
     let data = await Guild.findOne({ guildID: guild.id });
   
 
