@@ -34,13 +34,13 @@ date:{ type:Date, default:null},
     },
   },
 
-  data: {
-    note:{
+  data: { 
+    note:{ type: Array, default:{
       ID:{type:String, default:null},
       NAME:{type:String, default:null},
       DATE:{type:Date, default:null},
       MSG:{type:String, default:null},
-    },
+    }},
     badgeinv: { type: Array, default: null },
     badge: { type: String, default: null },
     game: {

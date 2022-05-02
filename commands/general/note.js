@@ -54,7 +54,8 @@ let ID ="";
                     if(note == `cancel`) {
                         msg.edit({content:`**Successfully cancelled.**`}).then(hello => {setTimeout(()=>{hello.delete()},3000)})
                     }else{
-		msg.edit({content:`✅ **| Successfully saved your note /n ID: ${ID}**`})
+		msg.edit({content:`✅ **| Successfully saved your note check your dm **`})
+                      msg.author.send({content:`👍 **| Successfully saved tour note  /n ID: ${ID}**`}).catch(()=>{})
 if(!data){return message.channel.send({content:`**${message.author.tag}** You are not have data`})}
 			data.data.note.push({
         
