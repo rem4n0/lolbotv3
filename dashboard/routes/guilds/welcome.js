@@ -59,7 +59,8 @@ app.post(
     }
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
-      { $set: { "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true" } }
+      { $set: { "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
+       "plugins.goodbye.withImage":rbody["withImg"] === "true"}}
     );
   }
 );
