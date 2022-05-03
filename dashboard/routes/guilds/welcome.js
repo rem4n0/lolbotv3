@@ -40,8 +40,13 @@ app.post(
     if (!rbody["message"])
       return res.send({ error: true, message: " Goodbye message is empty" });
     let data = await Guild.findOne({ guildID: guild.id });
-if(!data) return;
+    if (!data) return;
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+      if (!rbody["message"])
+        return res.send({
+          error: true,
+          message: "Fill the must be blank *goodbye message",
+        });
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
 
@@ -54,21 +59,34 @@ if(!data) return;
       );
       res.send({ success: true, message: "successfully" });
     }
-    if(rbody["goodbyeonoff"]=== "false"){
-    }
-    if(rbody["goodbyeonoff"] === "true"){
-    await Guild.findOneAndUpdate(
-      { guildID: req.params.guildID },
-      {
-        $set: {
-          "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
-          "plugins.goodbye.withImage": rbody["withImg"] === "true",
+    if (rbody["goodbyeonoff"] === "false") {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "plugins.goodbye.enabled": false,
+            "plugins.goodbye.withImage": null,
+            "plugins.goodbye. message": null,
+            "plugins.goodbye.channel": null,
+          },
         },
-      },{upsert: true}
-    )
-  }
+        { upsert: true }
+      );
     }
-)
+    if (rbody["goodbyeonoff"] === "true") {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
+            "plugins.goodbye.withImage": rbody["withImg"] === "true",
+          },
+        },
+        { upsert: true }
+      );
+    }
+  }
+);
 app.post(
   "/dashboard/guild/:guildID/welcome",
   global.checkAuth,
@@ -81,7 +99,11 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-      if(!rbody ["message"]) return res.send({error: true, message:"Fill the must any blanks *welcome message"})
+      if (!rbody["message"])
+        return res.send({
+          error: true,
+          message: "Fill the must any blanks *welcome message",
+        });
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -96,27 +118,34 @@ app.post(
       res.send({ success: true, message: "successfully" });
     }
 
-    
-    if(rbody ["onoff"] === "false"){
-      await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{
-        "plugins.welcome.enabled": false,
-        "plugins.welcome.message":null,
-        "plugins.welcome.withImage": null,
-        "plugins.welcome.channel": null,
-      }},{upsert: true})
-    }
-if(rbody["onoff"] === "true"){
-    await Guild.findOneAndUpdate(
-      { guildID: req.params.guildID },
-      {
-        $set: {
-          "plugins.welcome.enabled": rbody["onoff"] === "true",
-          "plugins.welcome.withImage": rbody["withImg"] === "true",
+    if (rbody["onoff"] === "false") {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "plugins.welcome.enabled": false,
+            "plugins.welcome.message": null,
+            "plugins.welcome.withImage": null,
+            "plugins.welcome.channel": null,
+          },
         },
-      },{ upsert: true},
-    );
-}
-    console.log("hama")}
+        { upsert: true }
+      );
+    }
+    if (rbody["onoff"] === "true") {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "plugins.welcome.enabled": rbody["onoff"] === "true",
+            "plugins.welcome.withImage": rbody["withImg"] === "true",
+          },
+        },
+        { upsert: true }
+      );
+    }
+    console.log("hama");
+  }
 );
 
 module.exports = app;
