@@ -41,11 +41,11 @@ app.post(
     if (!data) return;
     if(rbody["goodbyeonoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-      if (!rbody["message"])
+    /*  if (!rbody["message"])
         return res.send({
           error: true,
           message: "Fill the must be blank ",
-        });
+        });*/
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
 
@@ -56,6 +56,7 @@ app.post(
           },
         }
       );
+      if(!rbody["message"]){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.goodbye.message":null}},{upsert:true})}
       res.send({ success: true, message: "successfully" });
     }}
     if (rbody["goodbyeonoff"] === "false") {
@@ -98,11 +99,11 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-      if (!rbody["message"])
+      /*if (!rbody["message"])
         return res.send({
           error: true,
           message: "Fill the must any blanks ",
-        });
+        })*/
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -113,6 +114,7 @@ if(rbody["onoff"] === "true"){
           },
         }
       );
+      if(!rbody["message"]){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{ "plugins.welcome.message":null}},{upsert:true})}
 
       res.send({ success: true, message: "successfully" });
     }}
