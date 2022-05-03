@@ -1,5 +1,5 @@
 <%- include ("../parts/sidebarguild",{bot,user}) %>
-<br>
+<b>
   <br>
   
   
@@ -53,12 +53,13 @@
     <div class="variables">
       <span>{membercount}</span><p>member count of server</p>
       
-    </div>
+    </div><!--
     <div class="variables">
       <span>{inviter}</span><p>Mention inviter</p>
-    </div>
+    </div>-->
+
     <br>
-    <br>
+   
     <% if(data.plugins.welcome.withImage){%>
     <input class="form-check-input" type="checkbox" id="withImg" checked>
 
@@ -71,7 +72,7 @@
   <% }%>
     <br>
     <br>
-    <textarea maxlength="600" style="width: 100%; height: 300px;" class="form-control"  id="welcomemessage" required><%= data.plugins.welcome.message%></textarea>
+    <textarea maxlength="600" style="width: 100%; height: 300px;" class="form-control"  id="welcomemessage" required="required"><%= data.plugins.welcome.message%></textarea>
   </div> 
     
     
@@ -119,19 +120,19 @@
     <div class="variables">
       <span>{membercount}</span><p>member count of server</p>
       
-    </div>
+    </div><!--
     <div class="variables">
       <span>{inviter}</span><p>Mention inviter</p>
-    </div>
+    </div>-->
     <br>
-    <br>
+    
     
     <input type="checkbox" class="form-check-input" id="withImggoodbye">
     <label for="withImggoodbye">WithImg</label>
     <br>
     <br>
-    <textarea class="form-control" maxlength="300" style="width:100%; height:300px;" id="goodbyemessage" required></textarea>
-  </div> 
+    <textarea class="form-control" maxlength="300" style="width:100%; height:300px;" id="goodbyemessage"  placeholder="When you enabled goodbye system must put any words in here" required="required">
+ <%= data.plugins.goodbye.message%></textarea> </div> 
     
     
 </div>
@@ -212,9 +213,7 @@ if(checkimg.checked){
          
          //////////////   
          var checkbox2 = document.querySelector('input[id="withImg"]');
-         
          checkbox2.addEventListener('change', function (){
-           
          if(checkbox2.checked){
            $.post("/dashboard/guild/<%=guild.id%>/welcome",{
              withImg: true,
@@ -251,9 +250,9 @@ if(checkbox.checked){
       // do this
     } else {
       
-  let hama = document.getElementById("hama")
-     hama.style.transition = "all 2s";
-      ham.style.display = "none";
+  var H = document.getElementById("hama")
+    H.style.display = "none";
+      H.style.transition = "all 3s";
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
         
