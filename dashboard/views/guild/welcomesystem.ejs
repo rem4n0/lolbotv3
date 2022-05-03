@@ -251,7 +251,9 @@ if(checkbox.checked){
       // do this
     } else {
       
-  document.getElementById("hama").style.display = "none";
+  let hama = document.getElementById("hama")
+     hama.style.transition = "all 2s";
+      ham.style.display = "none";
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
         
