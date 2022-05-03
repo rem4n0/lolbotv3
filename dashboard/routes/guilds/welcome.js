@@ -88,6 +88,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+      if(!rbody ["message"]) return res.send({error: true, message:"Fill the must any blanks"})
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -102,6 +103,16 @@ app.post(
       res.send({ success: true, message: "successfully" });
     }
 
+    
+    if(rbody ["onoff"] === "false"){
+      await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{
+        "plugins.welcome.enabled": false,
+        "plugins.welcome.message":null,
+        "plugins.welcome.withImage": null,
+        "plugins.welcome.channel": null,
+      }},{upsert: true})
+    }
+if(rbody["onoff"] === "true"){
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
@@ -111,7 +122,7 @@ app.post(
         },
       },{ upsert: true},
     );
-    
+}
     console.log("hama")}
 );
 
