@@ -56,6 +56,7 @@ app.post(
     data.plugins.goodbye ={
       enabled: rbody["goodbyeonoff"] === "true",
       withImage: rbody["withImg"] === "true",
+      message: rbody["message"],
       
       
     }
