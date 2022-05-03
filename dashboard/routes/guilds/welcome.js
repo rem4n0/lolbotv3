@@ -40,7 +40,7 @@ app.post(
     if (!rbody["message"])
       return res.send({ error: true, message: " Goodbye message is empty" });
     let data = await Guild.findOne({ guildID: guild.id });
-if(!data) return;/*
+if(!data) return;
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -53,7 +53,7 @@ if(!data) return;/*
         }
       );
       res.send({ success: true, message: "successfully" });
-    }/*
+    }
     data.plugins.goodbye ={
       enabled: rbody["goodbyeonoff"] === "true",
       withImage: rbody["withImg"] === "true",
@@ -63,7 +63,7 @@ if(!data) return;/*
     }
     data.markModified("plugins.goodbye")
     await data.save();
-    */
+    /*
     if(rbody["goodbyeonoff"] === "true" ||"false"){
     await Guild.updateOne(
       { guildID: req.params.guildID },
@@ -72,8 +72,8 @@ if(!data) return;/*
           "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
           "plugins.goodbye.withImage": rbody["withImg"] === "true",
         },
-      }
-    )}
+      
+    )}*/
   }
 )
 app.post(
@@ -84,8 +84,7 @@ app.post(
     let rbody = req.body;
     let h = rbody["onoff"] === "true";
     console.log(h);
-    if (!rbody["message"])
-      return res.send({ error: true, message: "welcome message is empty" });
+    //if (!rbody["message"]){return res.send({ error: true, message: "welcome message is empty" });}
     let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
@@ -110,9 +109,10 @@ app.post(
           "plugins.welcome.enabled": rbody["onoff"] === "true",
           "plugins.welcome.withImage": rbody["withImg"] === "true",
         },
-      }
+      },{ upsert: true},
     );
-  }
+    
+    console.log("hama")}
 );
 
 module.exports = app;
