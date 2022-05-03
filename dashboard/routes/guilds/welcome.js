@@ -110,7 +110,7 @@ if(rbody["onoff"] === "true"){
           },
         }
       );
-      if(String(!rbody["message"])){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{ "plugins.welcome.message":null}},{upsert:true})}
+      //if(String(!rbody["message"])){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{ "plugins.welcome.message":null}},{upsert:true})}
 
       res.send({ success: true, message: "successfully" });
     }}
