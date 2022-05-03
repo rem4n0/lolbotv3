@@ -40,6 +40,7 @@ app.post(
     if (!rbody["message"])
       return res.send({ error: true, message: " Goodbye message is empty" });
     let data = await Guild.findOne({ guildID: guild.id });
+if(!data) return;/*
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -52,7 +53,7 @@ app.post(
         }
       );
       res.send({ success: true, message: "successfully" });
-    }
+    }/*
     data.plugins.goodbye ={
       enabled: rbody["goodbyeonoff"] === "true",
       withImage: rbody["withImg"] === "true",
@@ -62,9 +63,9 @@ app.post(
     }
     data.markModified("plugins.goodbye")
     await data.save();
-      /*
-    
-    await Guild.findOneAndUpdate(
+    */
+    if(rbody["goodbyeonoff"] === "true" ||"false"){
+    await Guild.updateOne(
       { guildID: req.params.guildID },
       {
         $set: {
@@ -72,7 +73,7 @@ app.post(
           "plugins.goodbye.withImage": rbody["withImg"] === "true",
         },
       }
-    )*/;
+    )}
   }
 )
 app.post(
