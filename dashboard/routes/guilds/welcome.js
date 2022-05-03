@@ -37,15 +37,14 @@ app.post(
     let rbody = req.body;
     let h = rbody["goodbyeonoff"] === "true";
     console.log(h);
-    if (!rbody["message"])
-      return res.send({ error: true, message: " Goodbye message is empty" });
     let data = await Guild.findOne({ guildID: guild.id });
     if (!data) return;
+    if(rbody["goodbyeonoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       if (!rbody["message"])
         return res.send({
           error: true,
-          message: "Fill the must be blank *goodbye message",
+          message: "Fill the must be blank ",
         });
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -58,7 +57,7 @@ app.post(
         }
       );
       res.send({ success: true, message: "successfully" });
-    }
+    }}
     if (rbody["goodbyeonoff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -97,12 +96,12 @@ app.post(
     console.log(h);
     //if (!rbody["message"]){return res.send({ error: true, message: "welcome message is empty" });}
     let data = await Guild.findOne({ guildID: guild.id });
-
+if(rbody["onoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       if (!rbody["message"])
         return res.send({
           error: true,
-          message: "Fill the must any blanks *welcome message",
+          message: "Fill the must any blanks ",
         });
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -116,7 +115,7 @@ app.post(
       );
 
       res.send({ success: true, message: "successfully" });
-    }
+    }}
 
     if (rbody["onoff"] === "false") {
       await Guild.findOneAndUpdate(
