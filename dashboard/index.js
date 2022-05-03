@@ -179,7 +179,11 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
     if (geo) {
       await Site.updateOne(
         { id: config.clientID },
-        { $inc: { [`country.${geo.country}`]: 1 } },
+        { $set: { [`country.${geo.country}`]: 1}
+        
+        
+        
+        },
         { upsert: true }
       );
     }
