@@ -54,27 +54,20 @@ if(!data) return;
       );
       res.send({ success: true, message: "successfully" });
     }
-    data.plugins.goodbye ={
-      enabled: rbody["goodbyeonoff"] === "true",
-      withImage: rbody["withImg"] === "true",
-      message: rbody["message"],
-      
-      
+    if(rbody["goodbyeonoff"]=== "false"){
     }
-    data.markModified("plugins.goodbye")
-    await data.save();
-    /*
-    if(rbody["goodbyeonoff"] === "true" ||"false"){
-    await Guild.updateOne(
+    if(rbody["goodbyeonoff"] === "true"){
+    await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
         $set: {
           "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
           "plugins.goodbye.withImage": rbody["withImg"] === "true",
         },
-      
-    )}*/
+      },{upsert: true}
+    )
   }
+    }
 )
 app.post(
   "/dashboard/guild/:guildID/welcome",
@@ -88,7 +81,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-      if(!rbody ["message"]) return res.send({error: true, message:"Fill the must any blanks"})
+      if(!rbody ["message"]) return res.send({error: true, message:"Fill the must any blanks *welcome message"})
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
