@@ -53,6 +53,16 @@ app.post(
       );
       res.send({ success: true, message: "successfully" });
     }
+    data.plugins.goodbye ={
+      enabled: rbody["goodbyeonoff"] === "true",
+      withImage: rbody["withImg"] === "true",
+      
+      
+    }
+    data.markModified("plugins.goodbye")
+    await data.save();
+      /*
+    
     await Guild.findOneAndUpdate(
       { guildID: req.params.guildID },
       {
@@ -61,10 +71,9 @@ app.post(
           "plugins.goodbye.withImage": rbody["withImg"] === "true",
         },
       }
-    );
+    )*/;
   }
-);
-
+)
 app.post(
   "/dashboard/guild/:guildID/welcome",
   global.checkAuth,

@@ -250,8 +250,7 @@ if(checkbox.checked){
       // do this
     } else {
       
-  var H = document.getElementById("hama")
-    H.style.display = "none";
+  document.getElementById("hama").style.display = "none";
     
       $.post("/dashboard/guild/<%=guild.id%>/welcome",{
         onoff:false,
