@@ -67,22 +67,20 @@
         <input class="form-check-input" type="checkbox" id="withImg">
       
     
-    <label for="withImg">WithImage</label>
+    <label for="withImg">With Image</label>
   <% }%>
     <br>
     <br>
-    <textarea maxlength="600" class="form-control"  id="welcomemessage" required="required"><%= data.plugins.welcome.message%></textarea>
+    <textarea maxlength="600" class="form-control"  id="welcomemessage" required><%= data.plugins.welcome.message%></textarea>
   </div> 
     
     
-</div>
 <hr>
   
   
   <br>
   <br>
-      <br>
-    <br>
+      
     <!--
        <div class="form-group d-flex">
        <label><h4 class="head">Goodbye</h4></label>
@@ -138,13 +136,13 @@
 -->
 
   <br><br>
-    </div>
+  
      <br>
     <br>
     <br>
     
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-    </div>
+    </div></div></div>
   </div>
   </form>
   
@@ -162,7 +160,7 @@
         
         
        document.addEventListener('DOMContentLoaded', function () {
-   
+   /*
             
         
   var check = document.querySelector('input[id="flex"]');
@@ -207,7 +205,7 @@ if(checkimg.checked){
       })
       // do that
     }
-  });           
+  });           */
          
          
          //////////////   
@@ -261,15 +259,7 @@ if(checkbox.checked){
     }
   });
 }); 
-        function clickOnAdd(){
-          $("body").load("/dashboard/guild/<%= guild.id%>/autorole",function() {
-  window.history.pushState("nothing","autorole","/dashboard/guild/<%= guild.id%>/autorole")
-});/*
-          window.history.pushState("nothing","autorole","/dashboard/guild/<%= guild.id%>/autorole")
-          $("html").load("/dashboard/guild/<%= guild.id%>/autorole")*/
-        }
-        
-    function clickOnAd(){
+          function clickOnAdd(){
     
     
 $("#myButton").attr("disabled", true);

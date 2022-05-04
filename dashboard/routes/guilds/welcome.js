@@ -98,7 +98,7 @@ app.post(
   
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
-    if (Object.prototype.hasOwnProperty.call(rbody, "welcomesave")) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
     
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
@@ -128,6 +128,7 @@ if(rbody["onoff"] === "true"){
         },
         { upsert: true }
       );
+    
     }
     if (rbody["onoff"] === "true") {
       await Guild.findOneAndUpdate(
