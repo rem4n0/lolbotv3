@@ -28,65 +28,7 @@ app.get(
       user: req.isAuthenticated() ? req.user : null,
     });
   }
-);/*
-app.post(
-  "/dashboard/guild/:guildID/goodbye",
-  global.checkAuth,
-  async (req, res) => {
-    const guild = bot.guilds.cache.get(req.params.guildID);
-    let rbody = req.body;
-    let h = rbody["goodbyeonoff"] === "true";
-    console.log(h);
-    let data = await Guild.findOne({ guildID: guild.id });
-    if (!data) return;
-    if(rbody["goodbyeonoff"] === "true"){
-    if (Object.prototype.hasOwnProperty.call(rbody, "btnSubmit")) {
-    /*  if (!rbody["message"])
-        return res.send({
-          error: true,
-          message: "Fill the must be blank ",
-        });
-      await Guild.findOneAndUpdate(
-        { guildID: req.params.guildID },
-
-        {
-          $set: {
-            "plugins.goodbye.message": rbody["message"],
-            "plugins.goodbye.channel": rbody["channel"],
-          },
-        }
-      );
-      if(String(!rbody["message"])){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.goodbye.message":null}},{upsert:true})}
-      res.send({ success: true, message: "successfully" });
-    }}
-    if (rbody["goodbyeonoff"] === "false") {
-      await Guild.findOneAndUpdate(
-        { guildID: req.params.guildID },
-        {
-          $set: {
-            "plugins.goodbye.enabled": false,
-            "plugins.goodbye.withImage": null,
-            "plugins.goodbye. message": null,
-            "plugins.goodbye.channel": null,
-          },
-        },
-        { upsert: true }
-      );
-    }
-    if (rbody["goodbyeonoff"] === "true") {
-      await Guild.findOneAndUpdate(
-        { guildID: req.params.guildID },
-        {
-          $set: {
-            "plugins.goodbye.enabled": rbody["goodbyeonoff"] === "true",
-            "plugins.goodbye.withImage": rbody["withImg"] === "true",
-          },
-        },
-        { upsert: true }
-      );
-    }
-  }
-);*/
+);
 app.post(
   "/dashboard/guild/:guildID/welcome",
   global.checkAuth,
@@ -99,12 +41,14 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-    
+    if(!rbody["URL"].include("https://imugar.com/")) return res.send({error: true, message:"url not imugar formed"})
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
           $set: {
             "plugins.welcome.message": rbody["message"],
+            "plugins.welcome.titile": rbody ["title"],
+            "plugins.welcome.welcomeImage": rbody["URL"],
 
             "plugins.welcome.channel": rbody["channel"],
           },

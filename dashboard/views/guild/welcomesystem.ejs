@@ -78,13 +78,13 @@
     
     <div class="form-group withImg">
       <label> Welcome Image Title</label>
-      <input type="text" maxlength="13" class="form-control" placeholder="Typing here"><%= data.plugins.welcome.title%></input>
+      <input type="text" maxlength="13" id="ImageTitile"class="form-control" placeholder="Typing here"><%= data.plugins.welcome.title%></input>
       
       
     </div>
     <div class="form-group">
       <label> Welcome Image </label>
-      <input class="form-control" type="text" placeholder="Put your image URL must imugar URL"></input
+      <input class="form-control" id="ImageURL" type="text" placeholder="Put your image URL must imugar URL"></input
     </div>
     
 <hr>
@@ -125,7 +125,7 @@
            });
          
          }else{
-           withImage.style.display = "none
+           withImage.style.display = "none";
              $.post("/dashboard/guild/<%=guild.id%>/welcome",{
                withImg:false,
               onoff:true,
@@ -183,7 +183,8 @@ $("#myButton").attr("disabled", true);
   
               $.post('/dashboard/guild/<%=guild.id%>/welcome',{
                  channel:$('#channel').val(),
-            
+                  title: $("#ImageTitile").val(),
+                URL: $("#ImageURL").val(),
                  message:$('#welcomemessage').val(),
                  withImg: true,
                  onoff: true,
