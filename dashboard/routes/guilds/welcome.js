@@ -28,7 +28,7 @@ app.get(
       user: req.isAuthenticated() ? req.user : null,
     });
   }
-);
+);/*
 app.post(
   "/dashboard/guild/:guildID/goodbye",
   global.checkAuth,
@@ -45,7 +45,7 @@ app.post(
         return res.send({
           error: true,
           message: "Fill the must be blank ",
-        });*/
+        });
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
 
@@ -86,7 +86,7 @@ app.post(
       );
     }
   }
-);
+);*/
 app.post(
   "/dashboard/guild/:guildID/welcome",
   global.checkAuth,
