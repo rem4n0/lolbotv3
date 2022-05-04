@@ -41,7 +41,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-    if(!rbody["URL"].include("https://imugar.com/")) return res.send({error: true, message:"url not imugar formed"})
+    if(!rbody["URL"].include("https://imgur.com/")) return res.send({error: true, message:"url is not imgur formed"})
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {

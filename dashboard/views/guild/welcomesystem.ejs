@@ -75,8 +75,8 @@
     <textarea maxlength="600" class="form-control"  id="welcomemessage" required><%= data.plugins.welcome.message%></textarea>
   </div> 
     <br>
-    
-    <div class="form-group withImg">
+    <div class="withImage">
+    <div class="form-group">
       <label> Welcome Image Title</label>
       <input type="text" maxlength="13" id="ImageTitile"class="form-control" placeholder="Typing here"><%= data.plugins.welcome.title%></input>
       
@@ -86,7 +86,7 @@
       <label> Welcome Image </label>
       <input class="form-control" id="ImageURL" type="text" placeholder="Put your image URL must imugar URL"></input
     </div>
-    
+      </div>
 <hr>
   
     <br>
@@ -112,8 +112,8 @@
          
          
          //////////////   
-         var checkbox2 = document.querySelector('input[id="withImg"]');,
-           withImage = document.querySelector('.withImage');
+         var checkbox2 = document.querySelector('input[id="withImg"]');
+          var withImage = document.querySelector('.withImage');
          
          
          checkbox2.addEventListener('change', function (){
