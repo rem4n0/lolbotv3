@@ -2,7 +2,7 @@ const stringCleaner = require("@sindresorhus/slugify");
 const Canvas = require("canvas"),
   Discord = require("discord.js");
 const { resolve } = require("path");
-const guildInvites = new Map()
+const guildInvites = new Map();
 // Register assets fonts
 
 const applyText = (canvas, text, defaultFontSize) => {
@@ -12,16 +12,18 @@ const applyText = (canvas, text, defaultFontSize) => {
   } while (ctx.measureText(text).width > 600);
   return ctx.font;
 };
-
+const canvas = Canvas.createCanvas(1024, 450);
+console.log(canvas.widt
+const ctx = canvas.getContext("2d");
 module.exports = class {
   async run(member, bot, message) {
-   /* const guildInvites = await member.guild.invites.fetch();
+    /* const guildInvites = await member.guild.invites.fetch();
     console.log(guildInvites);
     */
- //   const uses = guildInvites.find((codes) => codes.uses);
-  
- //   const UserInvited = await bot.users.fetch(uses.inviterId);
-    
+    //   const uses = guildInvites.find((codes) => codes.uses);
+
+    //   const UserInvited = await bot.users.fetch(uses.inviterId);
+
     const guildData = await Guild.findOne({ guildID: member.guild.id });
     member.guild.data = guildData;
 
@@ -58,97 +60,108 @@ module.exports = class {
         const message = guildData.plugins.welcome.message
           .replace(/{user}/g, member)
           .replace(/{server}/g, member.guild.name)
-    
-          .replace(/{membercount}/g, member.guild.memberCount) || "";
 
-        if (guildData.plugins.welcome.withImage && message) {
-          const canvas = Canvas.createCanvas(1024, 450),
+          .replace(/{membercount}/g, member.guild.memberCount);
+        if (message) {
+          if (guildData.plugins.welcome.withImage && message) {
+            /* const canvas = Canvas.createCanvas(1024, 450),
             ctx = canvas.getContext("2d");
-
-          // Background language
-          const background = await Canvas.loadImage(
-            "https://imgur.com/Aa0j1pA.png"
-          );
-          // This uses the canvas dimensions to stretch the image onto the entire canvas
-          ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-          // Draw username
-          ctx.fillStyle = "#ffffff";
-          const username = stringCleaner(member.user.username, {
-            separator: " ",
-            lowercase: false,
-            decamelize: false,
-            preserveLeadingUnderscore: true,
-          });
-          ctx.font = applyText(canvas, username, 48);
-          ctx.fillText(username, canvas.width - 660, canvas.height - 248);
-          // Draw server name
-          ctx.font = applyText(canvas, member.guild.name, 53);
-          ctx.fillText(
-            member.guild.name,
-            canvas.width - 690,
-            canvas.height - 65
-          );
-          // Draw discriminator
-          ctx.font = "40px Bold";
-          ctx.fillText(
-            member.user.discriminator,
-            canvas.width - 623,
-            canvas.height - 178
-          );
-          // Draw number
-          ctx.font = "22px Bold";
-          ctx.fillText(member.guild.memberCount, 40, canvas.height - 50);
-          // Draw # for discriminator
-          ctx.fillStyle = "#44d14a";
-          ctx.font = "75px SketchMatch";
-          ctx.fillText("#", canvas.width - 690, canvas.height - 165);
-          // Draw Title with gradient
-          ctx.font = "90px Bold";
-          ctx.strokeStyle = "#1d2124";
-          ctx.lineWidth = 15;
-          ctx.strokeText("Welcome 🤗", canvas.width - 620, canvas.height - 330);
-          var gradient = ctx.createLinearGradient(
-            canvas.width - 780,
-            0,
-            canvas.width - 30,
-            0
-          );
-          gradient.addColorStop(0, "#e15500");
-          gradient.addColorStop(1, "#e7b121");
-          ctx.fillStyle = gradient;
-          ctx.fillText("Welcome 🤗", canvas.width - 620, canvas.height - 330);
-
-          // Pick up the pen
-          ctx.beginPath();
-          //Define Stroke Line
-          ctx.lineWidth = 10;
-          //Define Stroke Style
-          ctx.strokeStyle = "#03A9F4";
-          // Start the arc to form a circle
-          ctx.arc(180, 225, 135, 0, Math.PI * 2, true);
-          // Draw Stroke
-          ctx.stroke();
-          // Put the pen down
-          ctx.closePath();
-          // Clip off the region you drew on
-          ctx.clip();
-
-          const options = { format: "png", size: 512 },
-            avatar = await Canvas.loadImage(
-              member.user.displayAvatarURL(options)
+*/
+            // Background language
+            const background = await Canvas.loadImage(
+              "https://imgur.com/Aa0j1pA.png"
             );
-          // Move the image downwards vertically and constrain its height to 200, so it"s a square
-          ctx.drawImage(avatar, 45, 90, 270, 270);
+            // This uses the canvas dimensions to stretch the image onto the entire canvas
+            ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+            // Draw username
+            ctx.fillStyle = "#ffffff";
+            const username = stringCleaner(member.user.username, {
+              separator: " ",
+              lowercase: false,
+              decamelize: false,
+              preserveLeadingUnderscore: true,
+            });
+            ctx.font = applyText(canvas, username, 48);
+            ctx.fillText(username, canvas.width - 660, canvas.height - 248);
+            // Draw server name
+            ctx.font = applyText(canvas, member.guild.name, 53);
+            ctx.fillText(
+              member.guild.name,
+              canvas.width - 690,
+              canvas.height - 65
+            );
+            // Draw discriminator
+            ctx.font = "40px Bold";
+            ctx.fillText(
+              member.user.discriminator,
+              canvas.width - 623,
+              canvas.height - 178
+            );
+            // Draw number
+            ctx.font = "22px Bold";
+            ctx.fillText(member.guild.memberCount, 40, canvas.height - 50);
+            // Draw # for discriminator
+            ctx.fillStyle = "#44d14a";
+            ctx.font = "75px SketchMatch";
+            ctx.fillText("#", canvas.width - 690, canvas.height - 165);
+            // Draw Title with gradient
+            ctx.font = "90px Bold";
+            ctx.strokeStyle = "#1d2124";
+            ctx.lineWidth = 15;
+            ctx.strokeText(
+              "Welcome 🤗",
+              canvas.width - 620,
+              canvas.height - 330
+            );
+            var gradient = ctx.createLinearGradient(
+              canvas.width - 780,
+              0,
+              canvas.width - 30,
+              0
+            );
+            gradient.addColorStop(0, "#e15500");
+            gradient.addColorStop(1, "#e7b121");
+            ctx.fillStyle = gradient;
+            ctx.fillText("Welcome 🤗", canvas.width - 620, canvas.height - 330);
 
-          const attachment = new Discord.MessageAttachment(
-            canvas.toBuffer(),
-            "welcome-image.png"
-          );
+            // Pick up the pen
+            ctx.beginPath();
+            //Define Stroke Line
+            ctx.lineWidth = 10;
+            //Define Stroke Style
+            ctx.strokeStyle = "#03A9F4";
+            // Start the arc to form a circle
+            ctx.arc(180, 225, 135, 0, Math.PI * 2, true);
+            // Draw Stroke
+            ctx.stroke();
+            // Put the pen down
+            ctx.closePath();
+            // Clip off the region you drew on
+            ctx.clip();
 
-          channel.send({ content: message, files: [attachment] });
-        } else {
-          channel.send({ content: message });
+            const options = { format: "png", size: 512 },
+              avatar = await Canvas.loadImage(
+                member.user.displayAvatarURL(options)
+              );
+            // Move the image downwards vertically and constrain its height to 200, so it"s a square
+            ctx.drawImage(avatar, 45, 90, 270, 270);
+
+            const attachment = new Discord.MessageAttachment(
+              canvas.toBuffer(),
+              "welcome-image.png"
+            );
+
+            channel.send({ content: message, files: [attachment] });
+          } else {
+            channel.send({ content: message });
+          }
         }
+      } else {
+        const attachment = new Discord.MessageAttachment(
+          canvas.toBuffer(),
+          "welcome.png"
+        );
+        channel.send({ files: [attachment] });
       }
     }
   }

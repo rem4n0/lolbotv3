@@ -2,7 +2,8 @@ const stringCleaner = require("@sindresorhus/slugify");
 const Canvas = require("canvas"),
   Discord = require("discord.js");
 const { resolve } = require("path");
-const canvas = Canvas.create
+const canvas = Canvas.createCanvas(1024,450)
+const ctx = canvas.getContext("2d");
 // Register assets fonts
 /*
 Canvas.registerFont(resolve("./assets/fonts/theboldfont.ttf"), { family: "Bold" });
@@ -60,7 +61,7 @@ module.exports = class {
           }
     
     
-    
+    /*
     
     member.guild.invites.fetch().then(async(guildInvites) => {
       const uses = guildInvites.find(codes => codes.uses);
@@ -77,7 +78,7 @@ module.exports = class {
         guildData.plugins.goodbye.channel
       );
       if (channel) {
-    
+    if(guildData.plugins.goodbye.
         const message = guildData.plugins.goodbye.message
           .replace(/{user}/g, member.user.tag)
           .replace(/{server}/g, member.guild.name)
@@ -86,9 +87,6 @@ module.exports = class {
         if(message){
         if (guildData.plugins.goodbye.withImage) {
         
-          const canvas = Canvas.createCanvas(1024, 450),
-            ctx = canvas.getContext("2d");
-
           // Background language"
           const background = await Canvas.loadImage(
             "https://imgur.com/Aa0j1pA.png"
@@ -173,7 +171,7 @@ module.exports = class {
 
           const attachment = new Discord.MessageAttachment(
             canvas.toBuffer(),
-            "goodbye-image.png"
+            "goodbye.png"
           );
       
   channel.send({ content: message, files: [attachment] });
@@ -182,10 +180,10 @@ module.exports = class {
         }
           
         }else{
-          
+          const attachment = new Discord.MessagesAttachment( canvas.toBuffer(), "goodbye.png")
           channel.send({files:[attachment]})
         }
       }
     }
-  })}
+  })*/}
 };
