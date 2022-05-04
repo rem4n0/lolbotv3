@@ -68,7 +68,8 @@ if(rbody["onoff"] === "true"){
             "plugins.welcome.message": null,
             "plugins.welcome.withImage": null,
             "plugins.welcome.channel": null,
-            "pl
+            "plugins.welcome.title":null,
+            "plugins.welcome.welcomeImage":null,
           },
         },
         { upsert: true }

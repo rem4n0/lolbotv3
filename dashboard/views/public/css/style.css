@@ -94,8 +94,8 @@ body {
 
 /**----media*-*/
 @media screen and (min-width: 500px) {
-  .toast-page{
-    left:0;
+  .contact-form{
+    margin
   }
   .main-container {
     align-items: center;
@@ -261,6 +261,7 @@ body {
   background: var(--grey);
   margin-top: 10%;
   margin-bottom: 5%;
+  
   width: 100%;
 }
 .contact-form input {
