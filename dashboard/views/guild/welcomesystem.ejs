@@ -261,9 +261,11 @@ if(checkbox.checked){
     }
   });
 }); 
+        function clickOnAdd(){
+          $("body").load("/dashboard/guild/<%= guild.id%>/autorole")
+        }
         
-
-    function clickOnAdd(){
+    function clickOnAd(){
     
     
 $("#myButton").attr("disabled", true);

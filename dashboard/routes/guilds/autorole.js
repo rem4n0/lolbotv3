@@ -42,7 +42,8 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
     let data = await Guild.findOne({ guildID: guild.id });
-
+let h = rbody["onoff"] === "true";
+    console.log(h)
     
      if(Object.prototype.hasOwnProperty.call(rbody, "role")){
 await Guild.findOneAndUpdate({ guildID: req.params.guildID}
