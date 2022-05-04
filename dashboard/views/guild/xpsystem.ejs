@@ -50,10 +50,15 @@
   <% if(channel.type ==="GUILD_VOICE") return;%>
 
   
-      <option value="<%= channel.id%>">#<%=channel.name%></option>
+      <option value="<%= channel.id %>">#<%=channel.name%></option>
         <% })%>
                      
-    <% } %>
+    <% }else{%>
+      <% guild.channels.cache.map((channel)=>{%>
+        <% if(channel.type=== "GUILD_CATEGORY") return;%>
+          <% if(channel.type === "GUILD_VOICE") return;%>
+            <option value="<%= channel.id%>"><%= channel.name%></option>
+              <% }) }%>
       </select>
 
     
@@ -79,7 +84,7 @@
         </div>
     
   
- <textarea id="message" class="form-control" style="width: 100%; height: 300px;"></textarea>       
+ <textarea id="message" class="form-control" style="width: 100%; height: 300px;" required><%= data.xp.message%></textarea>       
         
         
    <br><br><br><br><br><br><br>     
