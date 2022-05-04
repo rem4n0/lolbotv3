@@ -279,8 +279,8 @@ body {
   background-color: #2c2f33;
   color: #fff;
   outline: none !important;
-    border:none;
-    box-shadow: 0 0 10px var(--sharabi);
+border:none;
+box-shadow: 0 0 10px var(--sharabi);
   
 }
 .contact-form input:focus {
