@@ -98,7 +98,7 @@ app.post(
   
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
-    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "welcomesave")) {
     
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
