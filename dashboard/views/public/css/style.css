@@ -94,8 +94,8 @@ body {
 
 /**----media*-*/
 @media screen and (min-width: 500px) {
-  .contact-form{
-    margin
+  .container form{
+    margin-left:150px;
   }
   .main-container {
     align-items: center;
