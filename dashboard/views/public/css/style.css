@@ -271,7 +271,7 @@ body {
 .contact-form textarea {
   width: 270px;
   height: 150px;
-  background-color: #2c2f33;
+  background-color: #757575;
   color: #fff;
   border: none;
 }
@@ -279,6 +279,7 @@ body {
   background-color: #2c2f33;
   color: #fff;
   border: none;
+  box-shadow: 8px 3px 5px 3px var(--sharabi)
 }
 .contact-form input:focus {
   background-color: #2c2f33;
