@@ -59,17 +59,16 @@ module.exports = class {
       if (channel) {
         const message = guildData.plugins.welcome.message
           .replace(/{user}/g, member)
+          .replace(/{userName}/g, member.username)
           .replace(/{server}/g, member.guild.name)
-
           .replace(/{membercount}/g, member.guild.memberCount);
+    
         if (message) {
           if (guildData.plugins.welcome.withImage && message) {
-            /* const canvas = Canvas.createCanvas(1024, 450),
-            ctx = canvas.getContext("2d");
-*/
-            // Background language
+            
+            // Backgroundimage
             const background = await Canvas.loadImage(
-              "https://imgur.com/Aa0j1pA.png"
+              guildData.plugins.welcome.welcomeImage
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);

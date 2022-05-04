@@ -25,10 +25,13 @@ invites:{type:Array, default:[]},
   
   plugins: { type: Object, default: { // Plugins data
   welcome: {
+    
 			enabled: false, // Whether the welcome messages are enabled
 			message: null, // The welcome message
 		channel: null, // The channel to send the welcome messages
-			withImage: null // Whether the welcome images are enabled
+		welcomeImage:null,
+    title:null,
+    withImage: null // Whether the welcome images are enabled
 		},
 		// Goodbye messages
 		goodbye: {
