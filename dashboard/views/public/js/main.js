@@ -22,5 +22,7 @@ if (toastbtn) {
 toastbtnremove.addEventListener('click', function (){
   toastLive.classList.remove("show");
 })}*/
-    
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
   
