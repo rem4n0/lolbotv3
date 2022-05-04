@@ -262,8 +262,11 @@ if(checkbox.checked){
   });
 }); 
         function clickOnAdd(){
+          $("body").load("/dashboard/guild/<%= guild.id%>/autorole",function() {
+  window.history.pushState("nothing","autorole","/dashboard/guild/<%= guild.id%>/autorole")
+});/*
           window.history.pushState("nothing","autorole","/dashboard/guild/<%= guild.id%>/autorole")
-          $("html").load("/dashboard/guild/<%= guild.id%>/autorole")
+          $("html").load("/dashboard/guild/<%= guild.id%>/autorole")*/
         }
         
     function clickOnAd(){
