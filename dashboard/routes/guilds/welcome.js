@@ -41,7 +41,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
 if(rbody["onoff"] === "true"){
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-    if(!rbody["URL"].include("https://imgur.com/")) return res.send({error: true, message:"url is not imgur formed"})
+    if(!rbody["URL"].match("https://")) return res.send({error: true, message:"You must enter a valid link."})
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -68,6 +68,7 @@ if(rbody["onoff"] === "true"){
             "plugins.welcome.message": null,
             "plugins.welcome.withImage": null,
             "plugins.welcome.channel": null,
+            "pl
           },
         },
         { upsert: true }
