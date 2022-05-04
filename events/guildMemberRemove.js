@@ -2,6 +2,7 @@ const stringCleaner = require("@sindresorhus/slugify");
 const Canvas = require("canvas"),
   Discord = require("discord.js");
 const { resolve } = require("path");
+const canvas = Canvas.create
 // Register assets fonts
 /*
 Canvas.registerFont(resolve("./assets/fonts/theboldfont.ttf"), { family: "Bold" });
@@ -76,12 +77,13 @@ module.exports = class {
         guildData.plugins.goodbye.channel
       );
       if (channel) {
+    
         const message = guildData.plugins.goodbye.message
           .replace(/{user}/g, member.user.tag)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{inviter}/g, UserInvited.tag )
+          
           .replace(/{membercount}/g, member.guild.memberCount);
-        console.log(message);
+        if(message){
         if (guildData.plugins.goodbye.withImage) {
         
           const canvas = Canvas.createCanvas(1024, 450),
@@ -173,9 +175,15 @@ module.exports = class {
             canvas.toBuffer(),
             "goodbye-image.png"
           );
- // channel.send({ content: message, files: [attachment] });
+      
+  channel.send({ content: message, files: [attachment] });
         }else {
-      //    channel.send({ content: message || "welcome" });
+        channel.send({ content: message});
+        }
+          
+        }else{
+          
+          channel.send({files:[attachment]})
         }
       }
     }

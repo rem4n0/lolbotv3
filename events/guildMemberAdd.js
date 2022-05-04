@@ -59,7 +59,7 @@ module.exports = class {
           .replace(/{user}/g, member)
           .replace(/{server}/g, member.guild.name)
     
-          .replace(/{membercount}/g, member.guild.memberCount);
+          .replace(/{membercount}/g, member.guild.memberCount) || "";
 
         if (guildData.plugins.welcome.withImage && message) {
           const canvas = Canvas.createCanvas(1024, 450),
