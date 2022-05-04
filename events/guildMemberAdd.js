@@ -13,7 +13,7 @@ const applyText = (canvas, text, defaultFontSize) => {
   return ctx.font;
 };
 const canvas = Canvas.createCanvas(1024, 450);
-console.log(canvas.widt
+console.log(canvas.width)
 const ctx = canvas.getContext("2d");
 module.exports = class {
   async run(member, bot, message) {
@@ -109,7 +109,7 @@ module.exports = class {
             ctx.strokeStyle = "#1d2124";
             ctx.lineWidth = 15;
             ctx.strokeText(
-              "Welcome 🤗",
+              guildData.plugins.welcome.title,
               canvas.width - 620,
               canvas.height - 330
             );
@@ -122,7 +122,7 @@ module.exports = class {
             gradient.addColorStop(0, "#e15500");
             gradient.addColorStop(1, "#e7b121");
             ctx.fillStyle = gradient;
-            ctx.fillText("Welcome 🤗", canvas.width - 620, canvas.height - 330);
+            ctx.fillText(guildData.plugins.welcome.title ||"welcome", canvas.width - 620, canvas.height - 330);
 
             // Pick up the pen
             ctx.beginPath();
