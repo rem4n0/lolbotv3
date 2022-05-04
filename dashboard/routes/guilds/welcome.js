@@ -40,7 +40,7 @@ app.post(
     let data = await Guild.findOne({ guildID: guild.id });
     if (!data) return;
     if(rbody["goodbyeonoff"] === "true"){
-    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "goodbyesave")) {
     /*  if (!rbody["message"])
         return res.send({
           error: true,
