@@ -45,7 +45,19 @@ app.post(
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.logs.channelCreate.channel": rbody["channelCreate"
+            "plugins.logs.channelCreate.channel": rbody["channelCreatechannel"] || null,
+            "plugins.logs.channelCreate.color":rbody["channelCreatecolor"] || null,
+            "plugins.logs.channelDelete.channel":rbody["channelDeletechannel"] || null,
+          "plugins.logs.channelDelete.color":rbody["channelDeletecolor"] || null,
+           "plugins.logs.channelUpdate.channel":rbody["channelUpdatechannel"] ||null,
+            "plugins.logs.channelUpdate.color": rbody["channelUpdatecolor"]||null,
+            "plugins.logs.roleCreate.channel":rbody["roleCreatechannel"] || null,
+            "plugins.logs.roleCreate.color":rbody["roleCreatecolor"] || null,
+            "plugins.logs.roleDelete.channel":rbody["roleDeletechannel"] || null,
+            "plugins.logs.roleDelete.color":rbody["roleDeletecolor"] || null,
+            "plugins.logs.roleUpdate.channel": rbody["roleUpdatechannel"] || null,
+            "plugins.logs.roleUpdate.color":rbody ["roleUpdatecolor"] || null,
+          
             "plugins.logs.channel": rbody["logchannel"],
           },
         }
