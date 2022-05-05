@@ -27,13 +27,13 @@ try {
     if (maintenance && maintenance.toggle == "true") return;
 
     if (cooldown.has(message.guild.id)) return;
-    if (!guildData.plugins.logs.enabled) return;
+    if (!guildData.plugins.logs.channelDelete.enabled) return;
 
     
     if (guildData) {
-      if (guildData.plugins.logs.channel) {
+      if (guildData.plugins.logs.channelDelete.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guildData.plugins.logs.channel
+          guildData.plugins.logs.channelDelete.channel
         );
         if (channelEmbed) {
           let color = config.embed.Color;
@@ -55,7 +55,7 @@ try {
 
               .setTimestamp()
               .setFooter({ text: guild.name })
-              .setColor(color);
+              .setColor(guildData.plugins.logs.channelDelete.color);
 
             if (message.parent && message.type !== "category")
               if (
@@ -92,7 +92,7 @@ try {
 
               .setTimestamp()
               .setFooter({ text: message.guild.name })
-              .setColor(color);
+              .setColor(guildData.plugins.logs.channelDelete.color);
 
             if (
               channelEmbed &&

@@ -24,14 +24,14 @@ try {
     if (maintenance && maintenance.toggle == "true") return;
 
     if (cooldown.has(message.guild.id)) return;
-    if (!guildData.plugins.logs.enabled) return;
+    if (!guildData.plugins.logs.channelCreate.enabled) return;
 
     /// if (message.name.indexOf("Room") >= 0) return;
 
     if (guildData) {
-      if (guildData.plugins.logs.channel) {
+      if (guildData.plugins.logs.channelCreate.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guildData.plugins.logs.channel
+          guildData.plugins.logs.channelCreate.channel
         );
         if (channelEmbed) {
           let color = config.embed.Color;
@@ -53,7 +53,7 @@ try {
 
               .setTimestamp()
               .setFooter({ text: guild.name })
-              .setColor(color);
+              .setColor(guildData.plugins.logs.channelCreate.color);
 
             if (message.parent && message.type !== "category")
               if (
@@ -90,7 +90,7 @@ try {
 
               .setTimestamp()
               .setFooter({ text: message.guild.name })
-              .setColor(color);
+              .setColor(guildData.plugins.logs.channelCreate.color);
 
             if (
               channelEmbed &&
