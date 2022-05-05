@@ -48,8 +48,8 @@ app.post(
             "plugins.logs.channelCreate.channel": rbody["channelCreatechannel"] || null,
             "plugins.logs.channelCreate.color":rbody["channelCreatecolor"] || null,
             "plugins.logs.channelDelete.channel":rbody["channelDeletechannel"] || null,
-          "plugins.logs.channelDelete.color":rbody["channelDeletecolor"] || null,
-           "plugins.logs.channelUpdate.channel":rbody["channelUpdatechannel"] ||null,
+            "plugins.logs.channelDelete.color":rbody["channelDeletecolor"] || null,
+            "plugins.logs.channelUpdate.channel":rbody["channelUpdatechannel"] ||null,
             "plugins.logs.channelUpdate.color": rbody["channelUpdatecolor"]||null,
             "plugins.logs.roleCreate.channel":rbody["roleCreatechannel"] || null,
             "plugins.logs.roleCreate.color":rbody["roleCreatecolor"] || null,
@@ -58,25 +58,26 @@ app.post(
             "plugins.logs.roleUpdate.channel": rbody["roleUpdatechannel"] || null,
             "plugins.logs.roleUpdate.color":rbody ["roleUpdatecolor"] || null,
           
-            "plugins.logs.channel": rbody["logchannel"],
-          },
-        }
+          }
+        },{ upsert:true}
       );
       res.send({ success: true, message: " successfully" });
     }
+if(rbody["channelCreateonoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.channCreate.enabled":true}},{upsert:true})}
+ if(rbody["
 
+    
     await Guild.findOneAndUpdate(
       {
         guildID: req.params.guildID,
       },
       {
         $set: {
+          
           "plugins.logs.enabled": rbody["onoff"] === "true",
         },
-      }
+      },{upsert: true}
     );
-
-    ///  return res.send({ success: true, message: "successfully" });
   }
 );
 module.exports = app;
