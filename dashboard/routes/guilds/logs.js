@@ -70,6 +70,9 @@ if(rbody["channelCreateonoff"] === "true"){ await Guild.findOneAndUpdate({guildI
     if(rbody["channelUpdateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{$set:{ "plugins.logs.channelUpdate.enabled": true}},{upsert: true})}
     
 if(rbody["channelUpdateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelUpdate.enabled": false}},{upsert: true})}
+    if(rbody["roleCreateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleCreate.enabled": true}},{upsert: true})}
+    if(rbody["roleCreateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleCreate.enabled": false}},{ upsert: true})}
+    if(rbody["roleDeleteonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ 
     
     await Guild.findOneAndUpdate(
       {
