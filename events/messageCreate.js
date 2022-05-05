@@ -75,27 +75,7 @@ if(!Mute){
     
     
   
-  /*  setInterval(() => {
-      
-        
-            if (guild.member.time <= Date.now()) {
-                const guild = bot.guilds.cache.get(guild.guildID);
-                const member = guild.members.cache.get(guild.member.user);
-                const role = guild.roles.cache.find(r => r.name == "Muted");
-                if (role) member.roles.remove(role);
-                guild.member = {
-                  user:null,
-                  time:0,
-                  reason:null,
-                  mute:false,
   
-                }
-            guild.markModified('member')
-              guild.save();
-            }
-        }, 1000 * 5);
-    */
-
     
     
     if (guild) {
