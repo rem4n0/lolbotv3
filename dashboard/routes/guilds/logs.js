@@ -72,19 +72,11 @@ if(rbody["channelCreateonoff"] === "true"){ await Guild.findOneAndUpdate({guildI
 if(rbody["channelUpdateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelUpdate.enabled": false}},{upsert: true})}
     if(rbody["roleCreateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleCreate.enabled": true}},{upsert: true})}
     if(rbody["roleCreateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleCreate.enabled": false}},{ upsert: true})}
-    if(rbody["roleDeleteonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ 
+    if(rbody["roleDeleteonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{"plugins.logs.roleDelete.enabled": true}},{ upsert: true})}
+    if(rbody["roleDeleteonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleDelete.enabled":false}},{ upsert: true})}
+    if(rbody["roleUpdateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleUpdate.enabled": true}},{ upsert: true})}
+    if(rbody["roleUpdateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.roleUpdate.enabled": false}},{ upsert: true})}
     
-    await Guild.findOneAndUpdate(
-      {
-        guildID: req.params.guildID,
-      },
-      {
-        $set: {
-          
-          "plugins.logs.enabled": rbody["onoff"] === "true",
-        },
-      },{upsert: true}
-    );
   }
 );
 module.exports = app;
