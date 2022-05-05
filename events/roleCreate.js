@@ -10,7 +10,7 @@ module.exports = class {
     if (!role) return;
     
     const { guild } = role;
-    if(!guild.me. permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+    if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
 try {
     const entry1 = await guild
       .fetchAuditLogs({ type: "ROLE_CREATE" })
@@ -30,9 +30,9 @@ try {
     if (!guild.plugins.logs.enabled) return;
 
     if (guild) {
-      if (guild.plugins.logs.channel) {
+      if (guild.plugins.logs.roleCreate.channel) {
         const channelEmbed = await role.guild.channels.cache.get(
-          guild.plugins.logs.channel
+          guild.plugins.logs.roleCreate.channel
         );
 
         if (channelEmbed) {
@@ -47,7 +47,7 @@ try {
             )
             .setTimestamp()
             .setFooter({ text: role.guild.name })
-            .setColor(color);
+            .setColor(guild.plugins.logs.roleCreate.color);
 
           if (
             channelEmbed &&

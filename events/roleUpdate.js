@@ -9,9 +9,9 @@ async run( newRole,oldRole){
 
   try {
   let data = await Guild.findOne({guildID: newRole.guild.id})
-    const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.channel);
+    const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.roleUpdate.channel);
     if (!logChannel) return;
-  if(!data.plugins.logs.enabled)
+  if(!data.plugins.logs.roleUpdate.enabled)
   return;
                     
     const allLogs = await newRole.guild.fetchAuditLogs({ type: "ROLE_UPDATE" });
@@ -20,7 +20,8 @@ async run( newRole,oldRole){
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true }) })
         .setDescription(`😛 **\`${newRole.name}\` has been updated.**`)
-        .setFooter({ text: fetchModerator.executor.tag, iconURL: fetchModerator.executor.displayAvatarURL({ dynamic: true }) })
+     .setColor(data.plugins.logs.roleUpdate.color)
+   .setFooter({ text: fetchModerator.executor.tag, iconURL: fetchModerator.executor.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .addFields(
             {
@@ -42,6 +43,7 @@ async run( newRole,oldRole){
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true }) })
         .setDescription(`😛 **\`${newRole.name}\` has been updated.**`)
+      .setColor
         .setFooter({ text: fetchModerator.executor.tag, iconURL: fetchModerator.executor.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .addFields(

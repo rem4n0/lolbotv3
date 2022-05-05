@@ -17,13 +17,16 @@ const channelEmbed = await guild.channels.cache.get(data.plugins.logs.channel)
 if(maintenance && maintenance.toggle == "true") return;
     
     let type;
-
+  
+if(data){
+  
+  if(data.plugins.logs.channelUpdate.enabled){
   if(newChannel.type === "GUILD_CATEGORY") type = "Category";
   if(newChannel.type === "GUILD_TEXT") type = "Text Channel";
   if(newChannel.type === "GUILD_VOICE") type = "Voice Channel";
   
       let embed = new Discord.MessageEmbed()
-      .setColor(config.embed.Color)
+      .setColor(data.plugins.logs.channelUpdate.color)
       .setAuthor({name: guild.name, urlIcon: guild.iconURL()})
       .addField('Channel',`${ newChannel}`, true)
     .setFooter(`Channel ID: ${newChannel.id}`)
@@ -94,6 +97,6 @@ cooldown.delete(newChannel.guild.id)
     
     
   }}
-    
+  }}
     
     

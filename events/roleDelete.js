@@ -26,12 +26,12 @@ try {
 
     if (cooldown.has(role.guild.id)) return;
 
-    if (!guild.plugins.logs.enabled) return;
+    if (!guild.plugins.logs.roleDelete.enabled) return;
 
     if (guild) {
       if (guild.plugins.logs.channel) {
         const channelEmbed = await role.guild.channels.cache.get(
-          guild.plugins.logs.channel
+          guild.plugins.logs.roleDelete.channel
         );
 
         if (channelEmbed) {
@@ -46,7 +46,7 @@ try {
             )
             .setTimestamp()
             .setFooter({ text: role.guild.name })
-            .setColor(color);
+            .setColor(guild.plugins.logs.roleDelete.color);
 
           if (
             channelEmbed &&
