@@ -37,41 +37,46 @@
          
          <hr>
 <div id="hama">
-  <div class="form-group">
-  <label for="logchannel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
-
-<select id="logchannel" style="width:200px; background:#717179;color: white;">
-<% guild.channels.cache.map((channel)=>{%>
-  <% if(channel.type==="GUILD_CATEGORY") return;%>
- <% if(channel.type === "GUILD_VOICE") return; %>
-  
-  <option value="<%= channel.id %>"><%=channel.name%></option>
-    <% })%>
-</select>
-</div>
-
-
   <br><br>
-HTML SCSS Result Skip Results Iframe
-<!-- Updated border colors such as for an error state -->
-<!-- Add to .select ➡️ style="--select-border: red; --select-focus: red" -->
+  
+  
+      <div class="boxs">
+           <div class="box-body">
+            
+             <div class= "form-group d-flex">
+               <label><h4 class="head">Channel Create</h4></label>
+               <div class="form-check form-switch">
+                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelCreate.color){%>
 
-<label for="standard-select">Standard Select</label>
-<div class="select">
-  <select id="standard-select">
-    <option value="Option 1">Option 1</option>
-    <option value="Option 2">Option 2</option>
-    <option value="Option 3">Option 3</option>
-    <option value="Option 4">Option 4</option>
-    <option value="Option 5">Option 5</option>
-    <option value="Option length">Option that has too long of a value to fit</option>
-  </select>
-  <span class="focus"></span>
-</div>
-     <br>
-    
+                     <label for="pickcolor"></label>
+                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                      <% } else{ %>
+                        <label for="pickcolor"></lable>
+                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <% } %>
+                   <% }else{%>
+                     
+                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <% }%>
+                      
+             </div>
+           </div>
+                          </div></div>
+      <hr>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-    </div>
+  
     </div>
   </div>
   </form>
