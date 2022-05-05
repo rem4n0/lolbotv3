@@ -50,7 +50,7 @@ app.post(
       );
       return res.send({ success: true, message: "successfully" });
     }
-    if (!rbody["onofff"] === "false") {
+    if (rbody["onofff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         { $set: { "xp.channel": null,"xp.onoff":false, "xp.message": null } },
