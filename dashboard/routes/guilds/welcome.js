@@ -47,7 +47,7 @@ if(rbody["onoff"] === "true"){
         {
           $set: {
             "plugins.welcome.message": rbody["message"],
-            "plugins.welcome.titile": rbody ["title"],
+            "plugins.welcome.titile": rbody ["title"] ||null,
             "plugins.welcome.welcomeImage": rbody["URL"],
 
             "plugins.welcome.channel": rbody["channel"],
@@ -81,7 +81,7 @@ if(rbody["onoff"] === "true"){
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome.enabled": rbody["onoff"] === "true",
+            "plugins.welcome.enabled": true,
             "plugins.welcome.withImage": rbody["withImg"] === "true",
           },
         },

@@ -53,7 +53,7 @@ app.post(
     if (!rbody["onofff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
-        { $set: { "xp.channel": null, "xp.message": null } },
+        { $set: { "xp.channel": null,"xp.onoff":false, "xp.message": null } },
         { upsert: true }
       );
     }
@@ -64,12 +64,14 @@ app.post(
         },
         {
           $set: {
-            "xp.onoff": rbody["onoff"] === "true",
+            "xp.onoff": true,
           },
         },
         { upsert: true }
       );
     }
+    
+    console.log("hamaxk")
     //return res.send({ success: true, message: "successfully" });
   }
 );
