@@ -64,8 +64,12 @@ app.post(
       res.send({ success: true, message: " successfully" });
     }
 if(rbody["channelCreateonoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.channCreate.enabled":true}},{upsert:true})}
- if(rbody["
-
+ if(rbody["channelCreateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{$set:{"plugins.logs.channelCreate.enabled": false}},{ upsert: true})}
+    if(rbody["channelDeleteonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelDelete.enabled": true}},{ upsert: true})}
+    if(rbody["channelDeleteonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelDelete.enabled": false}},{ upsert: true})}
+    if(rbody["channelUpdateonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{$set:{ "plugins.logs.channelUpdate.enabled": true}},{upsert: true})}
+    
+if(rbody["channelUpdateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelUpdate.enabled": false}},{upsert: true})}
     
     await Guild.findOneAndUpdate(
       {
