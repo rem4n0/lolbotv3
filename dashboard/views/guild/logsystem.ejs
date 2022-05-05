@@ -45,9 +45,13 @@
                <div class="form-check form-switch">
                  <% if(data.plugins.logs.channelCreate.enabled){%>
                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                   <% if(data.plugins.logs.channelCreate.color){%>
-                     
+                
+                     <label for="pickcolor"></label>
+                     <input type="color" id="colorpicker" value="<%= data.plugins.logs.channelCreate.color%>">
                       
+                        <label for="pickcolor"></lable>
+                        <input type="color" id="colorpicker" value="<%= data.plugins.logs.channelCreate.color%>">
+                        
                    <% }else{%>
                      
                      <input class="form-check-input" type="checkbox" id"flexSwitchCheckChecked">
