@@ -43,7 +43,7 @@ async run( newRole,oldRole){
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: newRole.guild.name, iconURL: newRole.guild.iconURL({ dynamic: true }) })
         .setDescription(`😛 **\`${newRole.name}\` has been updated.**`)
-      .setColor
+      .setColor(data.plugins.logs.roleUpdate.color)
         .setFooter({ text: fetchModerator.executor.tag, iconURL: fetchModerator.executor.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .addFields(
