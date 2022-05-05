@@ -61,6 +61,16 @@
                      <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                       
+  <label for="logchannel" class="form-label">LOGS CHANNEL <span style="color:rgba(175,22,22)">*</span></label>
+
+<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<% guild.channels.cache.map((channel)=>{%>
+  <% if(channel.type==="GUILD_CATEGORY") return;%>
+ <% if(channel.type === "GUILD_VOICE") return; %>
+  
+  <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% })%>
+</select>
              </div>
            </div>
                           </div></div>
