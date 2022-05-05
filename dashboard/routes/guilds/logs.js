@@ -63,6 +63,10 @@ app.post(
       );
       res.send({ success: true, message: " successfully" });
     }
+    
+    
+    
+    if(rbody["channelCreateonoff"] === "true"){ console.log("true")}else{ console.log("false")}
 if(rbody["channelCreateonoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.channCreate.enabled":true}},{upsert:true})}
  if(rbody["channelCreateonoff"] === "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{$set:{"plugins.logs.channelCreate.enabled": false}},{ upsert: true})}
     if(rbody["channelDeleteonoff"] === "true"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.channelDelete.enabled": true}},{ upsert: true})}

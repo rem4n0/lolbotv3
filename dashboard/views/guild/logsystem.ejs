@@ -102,14 +102,17 @@
        document.addEventListener('DOMContentLoaded', function () {
 
          
-       var channelCreatecheck = document.querySelector('input[class="channelCreateonoff"]')
+       var channelCreatecheck = document.querySelector('.channelCreateonoff')
       channelCreatecheck.addEventListener("change", function (){
         
  if(channelCreatecheck.checked){
          $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
            channelCreateonoff:true
            
-         })}
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             channelCreateonoff:false})
+         }
          
          
                 })
