@@ -5,19 +5,14 @@ app.get(
   "/dashboard/guild/:guildID/xpsystem",
   global.checkAuth,
   async (req, res, next) => {
-    
     const maintenance = await Maintenance.findOne({
-  server: config.serverid
-})
+      server: config.serverid,
+    });
 
-if(maintenance && maintenance.toggle == "true") {
+    if (maintenance && maintenance.toggle == "true") {
+      return res.render(res, req, "maintenance.ejs");
+    }
 
-     return res.render(res, req, "maintenance.ejs")
-
-}
-
-
-    
     const guild = bot.guilds.cache.get(req.params.guildID);
     let user = guild.members.cache.get(req.user.id);
     if (!user.permissions.has("MANAGE_GUILD")) {
@@ -41,39 +36,40 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-  let r = rbody["onoff"]=== "true";
-    console.log(r);
-    
-   if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-    
-        await Guild.findOneAndUpdate(
-          { guildID: req.params.guildID },
-          {
-            $set: {
-            
-              "xp.channel": rbody["channel"],
-              "xp.message": rbody['message'] || null,
-         /*     "xp.max": rbody["max"],
-              "xp.min": rbody["min"],*/
-            },
-          }
-        );
-return res.send({ success:true, message:"successfully"});
-      }
-  
-    let data = await Guild.findOne({ guildID: req.params.guildID });
 
-    await Guild.findOneAndUpdate(
-      {
-        guildID: req.params.guildID,
-      },
-      {
-        $set: {
-          "xp.onoff": rbody["onoff"] ==="true",
+    if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        {
+          $set: {
+            "xp.channel": rbody["channel"],
+            "xp.message": rbody["message"] || null,
+        }
         },
-      }
-    );
-
+        { upsert: true }
+      );
+      return res.send({ success: true, message: "successfully" });
+    }
+    if (!rbody["onofff"] === "false") {
+      await Guild.findOneAndUpdate(
+        { guildID: req.params.guildID },
+        { $set: { "xp.channel": null, "xp.message": null } },
+        { upsert: true }
+      );
+    }
+    if (rbody["onoff"] === "true") {
+      await Guild.findOneAndUpdate(
+        {
+          guildID: req.params.guildID,
+        },
+        {
+          $set: {
+            "xp.onoff": rbody["onoff"] === "true",
+          },
+        },
+        { upsert: true }
+      );
+    }
     //return res.send({ success: true, message: "successfully" });
   }
 );
