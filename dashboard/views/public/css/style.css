@@ -288,7 +288,7 @@ box-shadow: 0 0 10px var(--sharabi);
 }
 .contact-form select {
  
-  margin-left: -23rem;
+  margin-left: -20rem;
 }
 .contact-form input[type="color"]{
   margin-top:70px;
@@ -322,7 +322,7 @@ box-shadow: 0 0 10px var(--sharabi);
 }
 .contact-form form .row {
   margin-bottom: -7%;
-}
+}*/
 .contact-form h6 {
   margin-top: 70px;
   margin-right: 170px;

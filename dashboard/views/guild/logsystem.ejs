@@ -172,7 +172,6 @@
   
   
   
-  
   <hr>
 
        <div class= "form-group d-flex">
@@ -190,7 +189,7 @@
                         <input type="color" class="form-color roleCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
-                     
+                     <br>
                      <input class="form-check-input roleCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
@@ -210,10 +209,10 @@
     </div>
      
   
-  
+  <!--
   
   <hr>
-
+<br><br>
        <div class= "form-group d-flex">
                <label> <h4>Role Delete</h4></label>
                <div class="form-check form-switch">
@@ -229,7 +228,7 @@
                         <input type="color" class="form-color roleDeletecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
-                     
+                     <br>
                      <input class="form-check-input roleDeleteonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
@@ -248,7 +247,7 @@
     
     </div>
     
-  
+  -->
   
   <hr>
 
@@ -465,13 +464,13 @@ var roleCreatecheck = document.querySelector('.roleCreateonoff')
          var roleUpdatecheck = document.querySelector('.roleUpdateonoff')
       roleUpdatecheck.addEventListener("change", function (){
         
- if(roleUpcheck.checked){
+ if(roleUpdatecheck.checked){
          $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-           channelCreateonoff:true
+           roleUpdateonoff:true
            
          })}else{
            $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-             channelCreateonoff:false})
+             roleUpdateonoff:false})
          }
          
          
