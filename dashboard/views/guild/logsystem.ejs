@@ -115,11 +115,11 @@
         : s.append($("<li />").html(e));
     }),
       o.append($("<div />").addClass("arrow")),
-      n.append(o).append(s),
+    n.append(o).append(s),
       e.wrap(n),
       $(document).on("click", ".selectMultiple ul li", function (e) {
-        var t = $(this).parent().parent(),
-          n = $(this);
+       var t = $(this).parent().parent(),
+         n = $(this);
         if (!t.hasClass("clicked")) {
          t.addClass("clicked"),
            n.prev().addClass("beforeRemove"),
@@ -148,7 +148,8 @@
                     n.next().removeClass("afterRemove");
                 }, 200),
                 n.slideUp(400, function () {
-                  n.remove(), t.removeClass("clicked");
+                  n.remove(),
+                    t.removeClass("clicked");
                 });
             }, 600);
         }
@@ -192,7 +193,7 @@
           }, 400);
       }),
 
-      $(document).on(
+    $(document).on(
         "click",
         ".selectMultiple > div .arrow, .selectMultiple > div span",
         function (e) {
