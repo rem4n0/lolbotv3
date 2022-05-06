@@ -107,7 +107,7 @@
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
-<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<select id="channelDeletechannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -155,7 +155,7 @@
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
-<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<select id="channelUpdatechannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -402,8 +402,13 @@ $("#myButton").attr("disabled", true);
 
     setTimeout(() => {
         $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
-                logchannel:$('#logchannel').val(),
-          onoff: true,
+         channelCreatechannel: $("#channelCreatechannel").val(),
+          channelCreatecolor:$(".channelCreatecolor").val(),
+          channelDeletechannel:$("#channelDeletechannel").val(),
+          channelDeletecolor:$(".channelDeletecolor").val(),
+          channelUpdatechannel:$("#channelUpdatechannel").val(),
+          channelUpdatecolor:$(".channelUpdatecolor").val(),
+          
             
     }).done(function(data){
                 

@@ -39,7 +39,7 @@ app.post(
 
     let data = await Guild.findOne({ guildID: guild.id });
 
-    if (Object.prototype.hasOwnProperty.call(rbody, "logchannel")) {
+    if (Object.prototype.hasOwnProperty.call(rbody, "channelCreatechannel" || "channelDeletechannel"||"channelUpdatechannel")) {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -69,6 +69,7 @@ app.post(
         },
         { upsert: true }
       );
+      console.log("hama")
       res.send({ success: true, message: " successfully" });
     }
 if(rbody["onoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.enabled":true}},{ upsert: true})
