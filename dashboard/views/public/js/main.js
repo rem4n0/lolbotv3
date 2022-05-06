@@ -1,17 +1,13 @@
-function imgError(e) {
+const h = function imgError(e) {
   e.src = "https://imgur.com/tiZmKiK.png";
 }
 
 
-// Create a class attribute:
-const att = document.createAttribute("loading");
-
-// Set the value of the class attribute:
-att.value = "lazy";
-
+$(document).ready(function (){
+  
 // Add the class attribute to the first h1:
 const h1 = document.querySelector("img")
-h1.setAttribute("loading", "lazy");
+h1.setAttribute("loading", "lazy");})/*
 !(function (e) {
   "use strict";
   e(".js-fullheight").css("height", e(window).height()),
@@ -112,8 +108,8 @@ h1.setAttribute("loading", "lazy");
         $(this).removeClass("open");
       }
     );
-  }),
-  $(document).ready(function () {
+  }),*/
+  const h2 = $(document).ready(function () {
     var e = $("select[multiple]"),
       t = e.find("option"),
       n = $("<div />").addClass("selectMultiple"),
@@ -213,7 +209,7 @@ h1.setAttribute("loading", "lazy");
           $(this).parent().parent().toggleClass("open");
         }
       );
-  });
+  });/*
 var $info = $(".tooltip");
 $info.each(function () {
   var e = $(this).data("tooltip");
@@ -235,3 +231,7 @@ $(document).ready(function () {
         : $(".dashboard").toggleClass("dashboard-compact");
     });
 });
+*/
+module.exports ={
+  h,h2
+}
