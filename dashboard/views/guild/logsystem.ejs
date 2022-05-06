@@ -8,6 +8,7 @@
       align-items: center;
       position: relative;
       left:0;
+      
       height:150px;
       background: var(--nav-color);
       
@@ -24,19 +25,25 @@
       
       
     }
-    
-    .container #hama .box input [type="checkbox"]:checked{
+    .container #hama .box input[type="color"]{
+      position: absolute;
+      bottom:0;
+      min-width:200px;
+      left:80px;
       
-      background:
-    }
-    
-    .container #hama .box input[type="checkbox"]:not(:checked){
-    
       
     }
+    
+
     .container #hama .box select {
       position: absolute;
-      left:0;
+      left:80px;
+    }
+    .container #hama .box{
+      position: absolute;
+      bottom:0;
+      
+      
     }
     
   </style>
@@ -91,10 +98,10 @@
                    <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.channelCreate.color){%>
 
-                     <label for="pickcolor"></label>
+                     <label for="pickcolor" class="colorpicker">Color</label>
                      <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor"></lable>
+                        <label for="pickcolor">Color</lable>
                         <input type="color" class="form-color channelCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
