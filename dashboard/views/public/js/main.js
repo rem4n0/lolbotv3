@@ -1,8 +1,9 @@
 const h = function imgError(e) {
-  e.src = "https://imgur.com/tiZmKiK.png";
+  e.src = "https://imgur.com/tiZmKiK.png"; 
+  e.alt= "undifined";
 }
 
-
+/*
 $(document).ready(function (){
   
 // Add the class attribute to the first h1:
@@ -108,7 +109,7 @@ h1.setAttribute("loading", "lazy");})/*
         $(this).removeClass("open");
       }
     );
-  }),*/
+  }),
   const h2 = $(document).ready(function () {
     var e = $("select"),
       t = e.find("option"),
@@ -209,7 +210,7 @@ h1.setAttribute("loading", "lazy");})/*
           $(this).parent().parent().toggleClass("open");
         }
       );
-  });/*
+  });
 var $info = $(".tooltip");
 $info.each(function () {
   var e = $(this).data("tooltip");
@@ -231,7 +232,7 @@ $(document).ready(function () {
         : $(".dashboard").toggleClass("dashboard-compact");
     });
 });
-*/
+
 module.exports ={
   h,h2
-}
+}*/

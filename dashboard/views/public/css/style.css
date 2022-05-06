@@ -284,6 +284,11 @@ border:none;
 box-shadow: 0 0 10px var(--sharabi);
   
 }
+.contact-form select {
+ 
+  margin-left: -16rem;
+}
+.contact-form input [ty
 .contact-form input:focus {
   background-color: #2c2f33;
   color: #fff;
