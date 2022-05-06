@@ -286,12 +286,12 @@ box-shadow: 0 0 10px var(--sharabi);
 }
 .contact-form select {
  
-  margin-left: -16rem;
+  margin-left: -23rem;
 }
 .contact-form input[type="color"]{
   margin-top:70px;
   width:150px;
-  margin-left:-16rem;
+  margin-left:-23rem;
   
 }
 .contact-form input:focus {
@@ -327,12 +327,14 @@ box-shadow: 0 0 10px var(--sharabi);
 }
 .contact-form #hama h4 {
   margin-bottom: 8%;
-  margin-top: -10%;
+  white-space: nowrap;
+
   font-size: 23px;
   text-align: center;
   color: #fff;
   
 }
+
 .contact-form .btnContact {
   width: 50%;
   border: none;
@@ -370,6 +372,12 @@ box-shadow: 0 0 10px var(--sharabi);
     display: flex;
   }
 } 
+.contact-form {
+  
+  
+  
+  
+}
 /*command*/
 .contact-form .col {
   line-height: 90px;
