@@ -328,10 +328,10 @@ box-shadow: 0 0 10px var(--sharabi);
 .contact-form #hama h4 {
   margin-bottom: 8%;
   margin-top: -10%;
-  font-size: 17px;
-  text-wrap: wrap;
+  font-size: 23px;
   text-align: center;
-  color: #fff
+  color: #fff;
+  
 }
 .contact-form .btnContact {
   width: 50%;
