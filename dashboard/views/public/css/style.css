@@ -371,7 +371,7 @@ box-shadow: 0 0 10px var(--sharabi);
     position: relative;
     display: flex;
   }
-} 
+} /*
 .contact-form #hama{
   position: relative;
   background:red;
@@ -380,7 +380,7 @@ box-shadow: 0 0 10px var(--sharabi);
   height:200px;
    
   
-}
+}*/
 /*command*/
 .contact-form .col {
   line-height: 90px;
