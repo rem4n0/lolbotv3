@@ -2,6 +2,10 @@
 <br>
   <br>
   <style>
+    .container #hama{
+    position: relative;
+  
+    }
     .container #hama .box{
       min-width: 200px;
       text-align: center;
@@ -38,14 +42,16 @@
     .container #hama .box select {
       position: absolute;
       left:80px;
-    }
-    .container #hama .box{
+    }/*
+    .container #hama .box .colorpicker{
       position: absolute;
-      bottom:0;
+      bottom:40px;
+      font-size: 23px;
+      left:150px;
       
       
     }
-    
+    **/
   </style>
   
    <div class="container"><!--
@@ -98,10 +104,10 @@
                    <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.channelCreate.color){%>
 
-                     <label for="pickcolor" class="colorpicker">Color</label>
+                     <label for="pickcolor" class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor">Color</lable>
+                        <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
@@ -137,10 +143,10 @@
                    <input class="form-check-input channelDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.channelDelete.color){%>
 
-                     <label for="pickcolor"></label>
+                     <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color channelDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor"></lable>
+                        <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelDeletecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
@@ -185,10 +191,10 @@
                    <input class="form-check-input channelUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.channelUpdate.color){%>
 
-                     <label for="pickcolor"></label>
+                     <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color channelUpdatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor"></lable>
+                        <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelUpdatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
@@ -226,10 +232,10 @@
                    <input class="form-check-input roleCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.roleCreate.color){%>
 
-                     <label for="pickcolor"></label>
+                     <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor"></lable>
+                        <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color roleCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
@@ -265,10 +271,10 @@
                    <input class="form-check-input roleDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.roleDelete.color){%>
 
-                     <label for="pickcolor"></label>
+                     <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
-                        <label for="pickcolor"></lable>
+                        <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color roleDeletecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
