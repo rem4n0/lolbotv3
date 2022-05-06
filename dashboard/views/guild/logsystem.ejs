@@ -116,26 +116,25 @@
     }),
       o.append($("<div />").addClass("arrow")),
       n.append(o).append(s),
-      e.wrap(n),/
+      e.wrap(n),
       $(document).on("click", ".selectMultiple ul li", function (e) {
         var t = $(this).parent().parent(),
           n = $(this);
         if (!t.hasClass("clicked")) {
-          t.addClass("clicked"),
-            n.prev().addClass("beforeRemove"),
+         t.addClass("clicked"),
+           n.prev().addClass("beforeRemove"),
             n.next().addClass("afterRemove"),
-            n.addClass("remove");
+          n.addClass("remove");
           var o = $("<a />")
             .addClass("notShown")
             .html("<em>" + n.text() + "</em><i></i>")
-            .hide()
-            .appendTo(t.children("div"));
+            .show()
+        .appendTo(t.children("div"));
           o.slideDown(400, function () {
             setTimeout(function () {
               o.addClass("shown"),
                 t.children("div").children("span").addClass("hide"),
-                t
-                  .find("option:contains(" + n.next() + ")")
+                t.find("option:contains(" + n.next() + ")")
                   .prop("selected", !0);
             }, 500);
           }),
