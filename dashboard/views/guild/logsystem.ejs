@@ -62,7 +62,7 @@
                         <input type="color" class="form-color channelCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
-                     
+                     <br>
                      <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
@@ -88,22 +88,22 @@
   
       
              <div class= "form-group d-flex">
-               <label> <h4>Channel Create</h4></label>
+               <label> <h4>Channel Delete</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                 <% if(data.plugins.logs.channelDelete.enabled){%>
                   
-                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                   <input class="form-check-input channelDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelDelete.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color channelDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
-                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <input type="color" class="form-color channelDeletecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
-                     
-                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <br>
+                     <input class="form-check-input channelDeleteonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
@@ -122,9 +122,6 @@
     </div>
      
   
-  
-  
-  <hr>
 
   
   
@@ -139,22 +136,22 @@
   
       
              <div class= "form-group d-flex">
-               <label> <h4>Channel Create</h4></label>
+               <label> <h4>Channel Update</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                 <% if(data.plugins.logs.channelUpdate.enabled){%>
                   
-                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                   <input class="form-check-input channelUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelUpdate.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color channelUpdatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
-                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <input type="color" class="form-color channelUpdatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
-                     
-                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <br>
+                     <input class="form-check-input channelUpdateonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
@@ -172,13 +169,7 @@
     
     </div>
      
-  
-  
-  
-  <hr>
 
-  
-  
   
   
   </div>
@@ -317,7 +308,41 @@
        
         
        document.addEventListener('DOMContentLoaded', function () {
-
+var channelDeletecheck = document.querySelector('.channelDeleteonoff')
+      channelDeletecheck.addEventListener("change", function (){
+        
+ if(channelDeletecheck.checked){
+         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+           channelDeleteonoff:true
+           
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             channelDeleteonoff:false})
+         }
+         
+         
+                })
+         
+         
+         
+         var channelUpdatecheck = document.querySelector('.channelUpdateonoff')
+      channelUpdatecheck.addEventListener("change", function (){
+        
+ if(channelUpdatecheck.checked){
+         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+           channelUpdateonoff:true
+           
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             channelUpdateonoff:false})
+         }
+         
+         
+                })
+         
+         
+         
+         
          
        var channelCreatecheck = document.querySelector('.channelCreateonoff')
       channelCreatecheck.addEventListener("change", function (){
