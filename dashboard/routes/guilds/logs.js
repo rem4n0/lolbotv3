@@ -75,7 +75,10 @@ app.post(
 if(rbody["onoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.enabled":true}},{ upsert: true})
                              }
     if(rbody["onoff"]=== "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.enabled": false}},{ upsert: true})}
-    if (rbody["channelCreateonoff"] === "true") {
+   
+    
+    
+    if (rbody["roleDeleteonoff"] === "true") {
       console.log("true");
     } else {
       console.log("false");

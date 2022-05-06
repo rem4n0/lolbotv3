@@ -40,7 +40,7 @@
          </div>   
          <hr>
   <div class="columns is-multiline is-desktop is-variable is-7 mt-3 pt-5">
-         
+      
            
 <div id="hama">
   <br><br>
@@ -236,7 +236,7 @@
                 <% if(data.plugins.logs.roleDelete.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.roleDelete.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
                         <input type="color" class="form-color roleDeletecolor" id="colorpicker">
@@ -284,7 +284,7 @@
                 <% if(data.plugins.logs.roleUpdate.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleUpdateecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleUpdatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
                         <input type="color" class="form-color roleUpdatecolor" id="colorpicker">
@@ -315,18 +315,7 @@
   <hr>
 
   
-  
-  
-
-  
-  
-
-  
-  
-  
   </div>
-  
-  
   
   
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
@@ -466,6 +455,7 @@
          
          
                 })
+         
          var roleDeletecheck = document.querySelector('.roleDeleteonoff')
       roleDeletecheck.addEventListener("change", function (){
         
