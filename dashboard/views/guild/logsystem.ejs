@@ -37,7 +37,7 @@
   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
 </div>      
            </div>
-         </div>   
+         
          <hr>
  <!--- <div class="columns is-multiline is-desktop is-variable is-7 mt-3 pt-5">
          -->
@@ -170,33 +170,32 @@
 
   
   
-  </div>
   
   
   
   <hr>
 
        <div class= "form-group d-flex">
-               <label> <h4>Channel Create</h4></label>
+               <label> <h4>Role Create</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                 <% if(data.plugins.logs.roleCreate.enabled){%>
                   
-                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                   <input class="form-check-input roleCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.roleCreate.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
-                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <input type="color" class="form-color roleCreatecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
                      
-                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <input class="form-check-input roleCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
-<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<select id="roleCreatechannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -216,26 +215,26 @@
   <hr>
 
        <div class= "form-group d-flex">
-               <label> <h4>Channel Create</h4></label>
+               <label> <h4>Role Delete</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                 <% if(data.plugins.logs.roleDelete.enabled){%>
                   
-                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                   <input class="form-check-input roleDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.roleDelete.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
-                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <input type="color" class="form-color roleDeletecolor" id="colorpicker">
                         <% } %>
                    <% }else{%>
                      
-                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <input class="form-check-input roleDeleteonoff" type="checkbox" id"flexSwitchCheckChecked">
                      <% }%>
                        <div style="padding-bottom: 20px;"></div>
   
-<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<select id="roleDeletechannel" style="width:200px; background:#717179;color: white;">
 <% guild.channels.cache.map((channel)=>{%>
   <% if(channel.type==="GUILD_CATEGORY") return;%>
  <% if(channel.type === "GUILD_VOICE") return; %>
@@ -261,7 +260,8 @@
   
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
   
-  
+  </div>
+  </div>
 
   </form>
   
@@ -430,6 +430,52 @@ var channelDeletecheck = document.querySelector('.channelDeleteonoff')
          
                 })
          
+         
+         ///////roles
+var roleCreatecheck = document.querySelector('.roleCreateonoff')
+      roleCreatecheck.addEventListener("change", function (){
+        
+ if(roleCreatecheck.checked){
+         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+           roleCreateonoff:true
+           
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             roleCreateonoff:false})
+         }
+         
+         
+                })
+         var roleDeletecheck = document.querySelector('.roleDeleteonoff')
+      roleDeletecheck.addEventListener("change", function (){
+        
+ if(roleDeletecheck.checked){
+         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+           roleDeleteonoff:true
+           
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             roleDeleteonoff:false})
+         }
+         
+         
+                })
+         
+         
+         var roleUpdatecheck = document.querySelector('.roleUpdateonoff')
+      roleUpdatecheck.addEventListener("change", function (){
+        
+ if(roleUpcheck.checked){
+         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+           channelCreateonoff:true
+           
+         })}else{
+           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+             channelCreateonoff:false})
+         }
+         
+         
+                })
          
          
          
