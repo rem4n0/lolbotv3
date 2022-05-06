@@ -9,7 +9,7 @@
       <i></i>
   </div>
   
-  <form method="POST" role="form">
+  <form method="POST">
   
       
      <div class="row">
@@ -40,7 +40,7 @@
          </div>   
          <hr>
   <div class="columns is-multiline is-desktop is-variable is-7 mt-3 pt-5">
-      
+         
            
 <div id="hama">
   <br><br>
@@ -178,144 +178,13 @@
   
   <hr>
 
-  <div id="hama">
-  <br><br>
-  
-  
-      
-             <div class= "form-group d-flex">
-               <label> <h4>Role Create</h4></label>
-               <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleCreate.enabled){%>
-                  
-                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.roleCreate.color){%>
-
-                     <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
-                      <% } else{ %>
-                        <label for="pickcolor"></lable>
-                        <input type="color" class="form-color roleCreatecolor" id="colorpicker">
-                        <% } %>
-                   <% }else{%>
-                     <br>
-                     <input class="form-check-input roleCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
-                     <% }%>
-                       <div style="padding-bottom: 20px;"></div>
-  
-<select id="roleCreatechannel" style="width:200px; background:#717179;color: white;">
-<% guild.channels.cache.map((channel)=>{%>
-  <% if(channel.type==="GUILD_CATEGORY") return;%>
- <% if(channel.type === "GUILD_VOICE") return; %>
-  
-  <option value="<%= channel.id %>"><%=channel.name%></option>
-    <% })%>
-</select>
-    
-   </div>
-    
-    
-    </div>
-  </div>
   
   
   
-  <hr>
-
- <div id="hama">
-  <br><br>
-  
-  
-      
-             <div class= "form-group d-flex">
-               <label> <h4>Role Delete</h4></label>
-               <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleDelete.enabled){%>
-                  
-                   <input class="form-check-input roleDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.roleDelete.color){%>
-
-                     <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.roleDelete.color%>">
-                      <% } else{ %>
-                        <label for="pickcolor"></lable>
-                        <input type="color" class="form-color roleDeletecolor" id="colorpicker">
-                        <% } %>
-                   <% }else{%>
-                     <br>
-                     
-                     <input class="form-check-input roleDeleteonoff" type="checkbox" id"flexSwitchCheckChecked">
-                     <% }%>
-                       <div style="padding-bottom: 20px;"></div>
-  
-<select id="roleDeletechannel" style="width:200px; background:#717179;color: white;">
-<% guild.channels.cache.map((channel)=>{%>
-  <% if(channel.type==="GUILD_CATEGORY") return;%>
- <% if(channel.type === "GUILD_VOICE") return; %>
-  
-  <option value="<%= channel.id %>"><%=channel.name%></option>
-    <% })%>
-</select>
-    
-   </div>
-    
-    
-    </div>
-     
   
   </div>
   
-  <hr>
-
   
-  
-  
-<div id="hama">
-  <br><br>
-  
-  
-      
-             <div class= "form-group d-flex">
-               <label> <h4>Role Update</h4></label>
-               <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleUpdate.enabled){%>
-                  
-                   <input class="form-check-input roleUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.roleUpdate.color){%>
-
-                     <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleUpdatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
-                      <% } else{ %>
-                        <label for="pickcolor"></lable>
-                        <input type="color" class="form-color roleUpdatecolor" id="colorpicker">
-                        <% } %>
-                   <% }else{%>
-                     <br>
-                     <input class="form-check-input roleUpdateonoff" type="checkbox" id"flexSwitchCheckChecked">
-                     <% }%>
-                       <div style="padding-bottom: 20px;"></div>
-  
-<select id="roleUpdatechannel" style="width:200px; background:#717179;color: white;">
-<% guild.channels.cache.map((channel)=>{%>
-  <% if(channel.type==="GUILD_CATEGORY") return;%>
- <% if(channel.type === "GUILD_VOICE") return; %>
-  
-  <option value="<%= channel.id %>"><%=channel.name%></option>
-    <% })%>
-</select>
-    
-   </div>
-    
-    
-    </div>
-     
-  </div>
-  
-  
-  <hr>
-
-  
-  </div>
   
   
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
@@ -439,63 +308,6 @@
        
         
        document.addEventListener('DOMContentLoaded', function () {
-         
-         
-         var roleCreatecheck = document.querySelector('.roleCreateonoff')
-      roleCreatecheck.addEventListener("change", function (){
-        
- if(roleCreatecheck.checked){
-         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-           roleCreateonoff:true
-           
-         })}else{
-           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-             roleCreateonoff:false})
-         }
-         
-         
-                })
-        
-         var roleDeletecheck = document.querySelector('.roleDeleteonoff')
-      roleDeletecheck.addEventListener("change", function (){
-        
- if(roleDeletecheck.checked){
-         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-          roleDeleteonoff:true,
-         })
- 
- }else{
-           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-             roleDeleteonoff:false,
-           
-           
-           
-           })
-         }
-         
-         
-                })
-         
-         var roleUpdatecheck = document.querySelector('.roleUpdateonoff')
-      roleUpdatecheck.addEventListener("change", function (){
-        
- if(roleUpdatecheck.checked){
-         $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-           roleUpdateonoff:true
-           
-         })}else{
-           $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-             roleUpdateonoff:false})
-         }
-         
-         
-                })
-         
-         
-         
-         
-         
-         
 var channelDeletecheck = document.querySelector('.channelDeleteonoff')
       channelDeletecheck.addEventListener("change", function (){
         
@@ -561,7 +373,7 @@ if(checkbox.checked){
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
-      $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
         onoff:true,
       
       })
@@ -570,7 +382,7 @@ if(checkbox.checked){
     } else {
       
   document.getElementById("hama").style.display = "none";
-      $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
         onoff:false,
       
         
@@ -589,7 +401,7 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-        $.post('/dashboard/guild/<%= guild.id%>/logsystem',{
+        $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
          channelCreatechannel: $("#channelCreatechannel").val(),
           channelCreatecolor:$(".channelCreatecolor").val(),
           channelDeletechannel:$("#channelDeletechannel").val(),
