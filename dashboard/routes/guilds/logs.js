@@ -37,7 +37,7 @@ app.post(
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
 
-    let data = await Guild.findOne({ guildID: guild.id });
+  //  let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channelCreatechannel" || "channelDeletechannel"||"channelUpdatechannel")) {
       await Guild.findOneAndUpdate(
@@ -69,16 +69,17 @@ app.post(
         },
         { upsert: true }
       );
-      console.log("hama")
+    
       res.send({ success: true, message: " successfully" });
     }
+    /**
 if(rbody["onoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.enabled":true}},{ upsert: true})
                              }
     if(rbody["onoff"]=== "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.enabled": false}},{ upsert: true})}
-   
+  */
     
     
-    if (rbody["roleDeleteonoff"] === "true") {
+    if (rbody["roleCreateonoff"] === "true") {
       console.log("true");
     } else {
       console.log("false");

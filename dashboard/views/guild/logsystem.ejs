@@ -455,17 +455,22 @@
          
          
                 })
-         
+        
          var roleDeletecheck = document.querySelector('.roleDeleteonoff')
       roleDeletecheck.addEventListener("change", function (){
         
  if(roleDeletecheck.checked){
          $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-           roleDeleteonoff:true
-           
-         })}else{
+          roleDeleteonoff:true,
+         })
+ 
+ }else{
            $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
-             roleDeleteonoff:false})
+             roleDeleteonoff:false,
+           
+           
+           
+           })
          }
          
          
