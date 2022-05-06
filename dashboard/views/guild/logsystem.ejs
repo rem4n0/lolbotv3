@@ -176,8 +176,8 @@
                             .find(
                               "option:contains(" + n.children("em").text() + ")"
                             )
-                            .prop("selected", !1),
-                            t.find("option:selected").length ||
+                            .prop("selected", 1),
+                            t.find("option:selected").length||
                               t
                                 .children("div")
                                 .children("span")
