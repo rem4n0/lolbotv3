@@ -3,7 +3,15 @@ function imgError(e) {
 }
 
 
+// Create a class attribute:
+const att = document.createAttribute("loading");
 
+// Set the value of the class attribute:
+att.value = "lazy";
+
+// Add the class attribute to the first h1:
+const h1 = document.querySelector("img")
+h1.setAttribute("loading", "lazy");
 !(function (e) {
   "use strict";
   e(".js-fullheight").css("height", e(window).height()),
