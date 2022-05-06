@@ -72,14 +72,10 @@ app.post(
     
       res.send({ success: true, message: " successfully" });
     }
-    /**
-if(rbody["onoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{$set:{"plugins.logs.enabled":true}},{ upsert: true})
-                             }
-    if(rbody["onoff"]=== "false"){ await Guild.findOneAndUpdate({ guildID: req.params.guildID},{ $set:{ "plugins.logs.enabled": false}},{ upsert: true})}
-  */
     
     
-    if (rbody["roleCreateonoff"] === "true") {
+    
+    if (rbody["channelCreateonoff"] === "true") {
       console.log("true");
     } else {
       console.log("false");

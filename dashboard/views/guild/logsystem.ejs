@@ -9,7 +9,7 @@
       <i></i>
   </div>
   
-  <form method="POST">
+  <form method="POST" role="form">
   
       
      <div class="row">
@@ -561,7 +561,7 @@ if(checkbox.checked){
     if (checkbox.checked) {
     document.getElementById("hama").style.display="block";
       
-      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
         onoff:true,
       
       })
@@ -570,7 +570,7 @@ if(checkbox.checked){
     } else {
       
   document.getElementById("hama").style.display = "none";
-      $.post("/dashboard/guild/<%=guild.id%>/logsystem",{
+      $.post("/dashboard/guild/<%= guild.id%>/logsystem",{
         onoff:false,
       
         
@@ -589,7 +589,7 @@ $("#myButton").attr("disabled", true);
     $("#myButton").html('<i class="p-2 fad fa-spinner fa-w-16 fa-pulse fa-lg"></i>');
 
     setTimeout(() => {
-        $.post('/dashboard/guild/<%=guild.id%>/logsystem',{
+        $.post('/dashboard/guild/<%= guild.id%>/logsystem',{
          channelCreatechannel: $("#channelCreatechannel").val(),
           channelCreatecolor:$(".channelCreatecolor").val(),
           channelDeletechannel:$("#channelDeletechannel").val(),
