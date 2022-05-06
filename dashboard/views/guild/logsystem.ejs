@@ -116,7 +116,7 @@
     }),
       o.append($("<div />").addClass("arrow")),
       n.append(o).append(s),
-      e.wrap(n),
+      e.wrap(n),/
       $(document).on("click", ".selectMultiple ul li", function (e) {
         var t = $(this).parent().parent(),
           n = $(this);
@@ -192,6 +192,7 @@
               }, 300);
           }, 400);
       }),
+
       $(document).on(
         "click",
         ".selectMultiple > div .arrow, .selectMultiple > div span",

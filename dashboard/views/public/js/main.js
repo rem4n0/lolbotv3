@@ -110,7 +110,7 @@ h1.setAttribute("loading", "lazy");})/*
     );
   }),*/
   const h2 = $(document).ready(function () {
-    var e = $("select[multiple]"),
+    var e = $("select"),
       t = e.find("option"),
       n = $("<div />").addClass("selectMultiple"),
       o = $("<div />"),
