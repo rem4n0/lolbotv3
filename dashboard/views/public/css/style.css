@@ -288,7 +288,12 @@ box-shadow: 0 0 10px var(--sharabi);
  
   margin-left: -16rem;
 }
-.contact-form input [ty
+.contact-form input[type="color"]{
+  margin-top:70px;
+  width:150px;
+  margin-left:-16rem;
+  
+}
 .contact-form input:focus {
   background-color: #2c2f33;
   color: #fff;
@@ -320,11 +325,13 @@ box-shadow: 0 0 10px var(--sharabi);
   margin-top: 70px;
   margin-right: 170px;
 }
-.contact-form h3 {
+.contact-form #hama h4 {
   margin-bottom: 8%;
   margin-top: -10%;
+  font-size: 17px;
+  text-wrap: wrap;
   text-align: center;
-  color: #0062cc;
+  color: #fff
 }
 .contact-form .btnContact {
   width: 50%;
@@ -362,17 +369,7 @@ box-shadow: 0 0 10px var(--sharabi);
     position: relative;
     display: flex;
   }
-  .contact-form .col-md-6 {
-    margin-left: 120px;
-  }
-} /*
- .contact-form select {
-   color:#4E5053;
-   border:2px solid var(--black);
-   background:var(--grey);
-   
-   width:200px;
-}*/
+} 
 /*command*/
 .contact-form .col {
   line-height: 90px;
@@ -380,7 +377,7 @@ box-shadow: 0 0 10px var(--sharabi);
 .contact-form .variables {
   display: flex;
   line-height: 40px;
-  /*  margin-right:140px;*/
+  
 }
 .contact-form .variables span {
   color: #a60c44;
