@@ -18,14 +18,17 @@
     <br>
     <br>
   
-      
+
       
       
   
       
        <div class="form-group d-flex">
        <label><h4 class="head">LOGS</h4></label>
-     <div class="form-check form-switch">
+  
+         
+         
+         <div class="form-check form-switch">
        <% if(data.plugins.logs.enabled){ %>
   <input  class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
          <% } else{%>
@@ -34,9 +37,52 @@
   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
 </div>      
            </div>
-         
+         </div>   
          <hr>
+  <div class="columns is-multiline is-desktop is-variable is-7 mt-3 pt-5">
+         
+           
 <div id="hama">
+  <br><br>
+  
+  
+      
+             <div class= "form-group d-flex">
+               <label> <h4>Channel Create</h4></label>
+               <div class="form-check form-switch">
+                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                  
+                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelCreate.color){%>
+
+                     <label for="pickcolor"></label>
+                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                      <% } else{ %>
+                        <label for="pickcolor"></lable>
+                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <% } %>
+                   <% }else{%>
+                     
+                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <% }%>
+                       <div style="padding-bottom: 20px;"></div>
+  
+<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<% guild.channels.cache.map((channel)=>{%>
+  <% if(channel.type==="GUILD_CATEGORY") return;%>
+ <% if(channel.type === "GUILD_VOICE") return; %>
+  
+  <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% })%>
+</select>
+    
+   </div>
+    
+    
+    </div>
+     
+  <hr>
+  <div id="hama">
   <br><br>
   
   
@@ -84,15 +130,77 @@
   
   
   
+  </div>
   
+  <hr>
+  <div id="hama">
+  <br><br>
+  
+  
+      
+             <div class= "form-group d-flex">
+               <label> <h4>Channel Create</h4></label>
+               <div class="form-check form-switch">
+                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                  
+                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelCreate.color){%>
+
+                     <label for="pickcolor"></label>
+                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                      <% } else{ %>
+                        <label for="pickcolor"></lable>
+                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <% } %>
+                   <% }else{%>
+                     
+                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <% }%>
+                       <div style="padding-bottom: 20px;"></div>
+  
+<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<% guild.channels.cache.map((channel)=>{%>
+  <% if(channel.type==="GUILD_CATEGORY") return;%>
+ <% if(channel.type === "GUILD_VOICE") return; %>
+  
+  <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% })%>
+</select>
+    
+   </div>
+    
+    
+    </div>
+     
+  
+  
+  
+  <hr>
+
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <hr>
+
+  
+  
+  
+  
+  </div>
   
   
   
   
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
   
-    </div>
+  
   </div>
+                       </div>
   </form>
   
 

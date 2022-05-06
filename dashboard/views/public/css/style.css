@@ -372,10 +372,13 @@ box-shadow: 0 0 10px var(--sharabi);
     display: flex;
   }
 } 
-.contact-form {
-  
-  
-  
+.contact-form #hama{
+  position: relative;
+  background:red;
+  margin-left: -13rem;
+  width:300px;
+  height:200px;
+   
   
 }
 /*command*/
