@@ -340,10 +340,10 @@
                  <% if(data.plugins.logs.roleUpdate.enabled){%>
                   
                    <input class="form-check-input roleUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                <% if(data.plugins.logs.roleUpdate.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleUpdatwecolor" value="<%= data.plugins.logs.roleUpdate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleUpdatecolor" value="<%= data.plugins.logs.roleUpdate.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
                         <input type="color" class="form-color roleUpdatecolor" id="colorpicker">
@@ -642,6 +642,13 @@ $("#myButton").attr("disabled", true);
           channelDeletecolor:$(".channelDeletecolor").val(),
           channelUpdatechannel:$("#channelUpdatechannel").val(),
           channelUpdatecolor:$(".channelUpdatecolor").val(),
+          roleCreatechannel:$("#roleCreatechannel").val(),
+          roleCreatecolor:$(".roleCreatecolor").val(),
+          roleDeletechannel:$("#roleDeletechannel").val(),
+          roleDeletecolor:$(".roleDeletecolor").val(),
+          roleUpdatechannel:$("#roleDeletechannel").val(),
+          roleUpdatecolor:$(".roleDeletecolor").val(),
+          
           
             
     }).done(function(data){
