@@ -12,7 +12,7 @@
 
 .sidebar {
   z-index: 1;
-top: 20px;
+top:-10%;
   left: 0;
   width: 240px;
   height: 100%;
@@ -193,6 +193,7 @@ align-items: center;
 }
 
 .home-section .home-profile .list2 li a {
+  font-size:10px;
   text-decoration: none;
   color:var(--white);
   padding-right:30px; 
@@ -315,6 +316,3 @@ align-items: center;
   }
 }
 /**-++++-+++++admin section-------*/
-.sidebar .nav-list .list li .admin {
-  
-}

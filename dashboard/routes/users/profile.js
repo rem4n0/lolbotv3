@@ -19,8 +19,7 @@ app.get(
     const maintenance = await Maintenance.findOne({
   server: config.serverid
 })
-const status = bot.guilds.fetch();
-    console.log(status)
+
 if(maintenance && maintenance.toggle == "true") {
 
      return res.render(res, req, "maintenance.ejs")
@@ -29,6 +28,7 @@ if(maintenance && maintenance.toggle == "true") {
 
 
     const user = bot.users.fetch(req.params.userID).then(async (a)=>{
+
     if(!a) res.redirect("/");
   let data = await User.findOne({userID: a.id});
     
