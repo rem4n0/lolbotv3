@@ -315,8 +315,45 @@
   
   
   <hr>
-
+<div class="box">
   
+             <div class= "form-group d-flex">
+               <label> <h4>Channel Create</h4></label>
+               <div class="form-check form-switch">
+                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                  
+                   <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
+                <% if(data.plugins.logs.channelCreate.color){%>
+
+                     <label for="pickcolor"></label>
+                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                      <% } else{ %>
+                        <label for="pickcolor"></lable>
+                        <input type="color" class="form-color channelCreatecolor" id="colorpicker">
+                        <% } %>
+                   <% }else{%>
+                     
+                     <input class="form-check-input channelCreateonoff" type="checkbox" id"flexSwitchCheckChecked">
+                     <% }%>
+                       <div style="padding-bottom: 20px;"></div>
+  
+<select id="channelCreatechannel" style="width:200px; background:#717179;color: white;">
+<% guild.channels.cache.map((channel)=>{%>
+  <% if(channel.type==="GUILD_CATEGORY") return;%>
+ <% if(channel.type === "GUILD_VOICE") return; %>
+  
+  <option value="<%= channel.id %>"><%=channel.name%></option>
+    <% })%>
+</select>
+    
+   </div>
+    
+    
+    </div>
+     
+  
+  </div>
+<hr>
   
 
   
