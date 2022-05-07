@@ -696,6 +696,11 @@ span.selectOption:hover {
     width:700px;
     
   }*/
+  .guild-list ul{
+    line-height:50px;
+    
+    
+  }
   .guild-list li .btn{
     border:none;
     right:80px;
@@ -714,7 +719,7 @@ span.selectOption:hover {
   
   }}
 .guild-list li {
-  
+  padding-bottom: 40px;
 
 
   border-radius:5%;
@@ -722,7 +727,13 @@ span.selectOption:hover {
   list-style:none;
   height:70px;
   }
-  
+  .guild-list li p {
+    color:white;
+    font-size: 17px;
+    margin-left:80px;
+    margin-top:-40px;
+    
+}
   .guild-list li img{
   
     margin-top:10px;
@@ -733,10 +744,10 @@ span.selectOption:hover {
   }
 
   .guild-list li .btn {
-    margin-left:180px;
-    border:none
-  
-    
+    margin-left:200px;
+    border:none;
+  position: absolute;
+    right:0;
     
     
   }
