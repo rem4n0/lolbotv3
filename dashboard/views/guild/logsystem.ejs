@@ -16,7 +16,7 @@
     }
     .container #hama{
     position: relative;
-      line-height:30px;
+      
   
     }
     .container #hama .box{
@@ -25,7 +25,7 @@
       align-items: center;
       position: relative;
       left:0;
-      
+    
       height:150px;
       background: var(--nav-color);
       
@@ -244,10 +244,11 @@
                   
                    <input class="form-check-input roleCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.roleCreate.color){%>
-
+<br>
                      <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
+                        <br>
                         <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color roleCreatecolor" id="colorpicker">
                         <% } %>
@@ -280,13 +281,14 @@
                <label> <h4>Role Delete</h4></label>
                <div class="form-check form-switch">
                  <% if(data.plugins.logs.roleDelete.enabled){%>
-                  
+                  <br>
                    <input class="form-check-input roleDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.roleDelete.color){%>
 
                      <label for="pickcolor"class="colorpicker"></label>
                      <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.channelCreate.color%>">
                       <% } else{ %>
+                        <br>
                         <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color roleDeletecolor" id="colorpicker">
                         <% } %>
