@@ -74,7 +74,7 @@ margin-left:60px;
   position: fixed;
   color: var(--white);
   text-align: center;
-  margin-left:150px;
+  margin-left:180px;
    display:flex;
   line-height:20px;
   min-width: 78px;
@@ -230,7 +230,7 @@ align-items: center;
 }
 
 
-
+/*
 .sidebar.close .logo-detail{
   animation: fadeIn ease 0.5s;
   transition: all 1s ease;
@@ -239,16 +239,16 @@ align-items: center;
 
   .sidebar.close .nav-list{
     transition: all 1s ease;
-    display:none;
+    display:n
     
-}
+}*/
 .sidebar.close {
   top: 50px;
   border-top-right-radius: 30px;
-  display: none;
+  display: block;
   transition: all 1s ease;
   position: fixed;
-  width:0;
+
   animation: fadeIn ease 0.5s;
 }
 @keyframes fadeIn {
