@@ -90,7 +90,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
         process.nextTick(() => done(null, profile));
       
       const { id, username, discriminator, avatar, guilds } = profile;
-        console.log(id, username, discriminator, avatar, guilds);
+     ///   console.log(id, username, discriminator, avatar, guilds);
        
       
         try {
@@ -102,22 +102,21 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
             );
             if (findUser) {
                 console.log('User was found');
-                return done(null, findUser);
+               // return done(null, findUser);
             } else {
                 const newUser = await User.create({
                     userID: id,
                     
                 });
-                return done(null, newUser);
+                //return done(null, newUser);
             }
         } catch (err) {
             console.log(err);
-            return done(err, null);
+           /// return done(err, null);
         }
         
         
-        console.log(accessToken);
-    console.log(refreshToken);
+  
    // console.log(profile);
       }
     )

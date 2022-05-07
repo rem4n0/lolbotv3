@@ -51,7 +51,7 @@
      <li>         
   
         <img src="<%= iconurl %>"/>
-        
+       <p><% guild.memberCount%></p>
        
        <a class="btn btn-success" href="/dashboard/guild/<%= guild.id%>">Dashboard</a>
   
@@ -64,6 +64,7 @@
        <ul class="guild-list">
          <li> 
            <img src="<%= iconurl%>"/>
+           <p><% guild.memberCount%></p>
            <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=<%= bot .user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>">invite</a>
          </li>
        </ul>
