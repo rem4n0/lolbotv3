@@ -16,7 +16,7 @@ module.exports = {
 
            const queue = player.getQueue(message.guild.id);
 
-        if (!queue || !queue.playing) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
+        if (!queue || !queue.playing) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
 
         const track = queue.current;
 
@@ -31,7 +31,7 @@ module.exports = {
         const timestamp = queue.getPlayerTimestamp();
         const trackDuration = timestamp.progress == 'Infinity' ? 'infinity (live)' : track.duration;
 
-        embed.setDescription(`Volume **${queue.volume}**%\nDuration **${trackDuration}**\nLoop mode **${methods[queue.repeatMode]}**\nRequested by ${track.requestedBy}`);
+        embed.setDescription({content:`Volume **${queue.volume}**%\nDuration **${trackDuration}**\nLoop mode **${methods[queue.repeatMode]}**\nRequested by ${track.requestedBy}`});
 
         embed.setTimestamp();
    //     embed.setFooter('Music comes first - Made with heart by Zerio ❤️', message.author.avatarURL({ dynamic: true }));

@@ -16,7 +16,7 @@ module.exports = {
 if(!message.member.voice.channel){ return message.reply({content:`You cant pause songs `})}
         const queue = player.getQueue(message.guild.id);
 
-        if (!queue) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
+        if (!queue) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
 
         const success = queue.setPaused(true);
         return message.channel.send({content: `Current music ${queue.current.title} paused ✅`});

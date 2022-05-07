@@ -16,10 +16,10 @@ module.exports = {
 if(!message.member.voice.channel){ return message.reply({content:`You can't change loop mode`})}
         const queue = player.getQueue(message.guild.id);
 
-        if (!queue || !queue.playing) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
+        if (!queue || !queue.playing) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
 
         if (args.join('').toLowerCase() === 'queue') {
-            if (queue.repeatMode === 1) return message.channel.send(`You must first disable the current music in the loop mode (${client.config.app.px}loop) ${message.author}... try again ? ❌`);
+            if (queue.repeatMode === 1) return message.channel.send({content:`You must first disable the current music in the loop mode (${client.config.app.px}loop) ${message.author}... try again ? ❌`});
 
             const success = queue.setRepeatMode(queue.repeatMode === 0 ? QueueRepeatMode.QUEUE : QueueRepeatMode.OFF);
 
