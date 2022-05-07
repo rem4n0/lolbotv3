@@ -156,28 +156,29 @@ body {
 }
 
 .boxs .box1 {
-  background: url("https://imgur.com/wgljRvr.png");
-  background-position: center;
+  border: 2px solid #7D7E80;
+ /* background: url("https://imgur.com/wgljRvr.png");
+ */ background-position: center;
 
   background-size: 100%;
 }
 
 .boxs .box2 {
-  background: url("https://imgur.com/wH8wcgv.png");
-
+ /* background: url("https://imgur.com/wH8wcgv.png");
+*/
   background-position: center;
   background-size: 100%;
 }
 
 .boxs .box3 {
-  background: url("https://imgur.com/StTO12l.png");
-
+  /*background: url("https://imgur.com/StTO12l.png");
+*/
   background-position: center;
   background-size: 100%;
 }
 .boxs .box4 {
-  background: url("https://imgur.com/MZzt9zF.png");
-  background-position: center;
+ /* background: url("https://imgur.com/MZzt9zF.png");
+ */ background-position: center;
 
   background-size: 100%;
 }
@@ -677,8 +678,16 @@ span.selectOption:hover {
 }
 .container .boxs .box .containerB i {
   margin-left: 220px;
-  font-size: 45px;
+  
+  font-size: 35px;
   margin-top: 14px;
+}
+.container .boxs .box .containerB i .card-user{
+width:40px;
+  
+  height:40px;
+background: #8A6B13;
+
 }
 .container .boxs .box .containerB .text {
   font-size: 15px;
