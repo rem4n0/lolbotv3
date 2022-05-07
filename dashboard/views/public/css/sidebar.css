@@ -12,11 +12,11 @@
 
 .sidebar {
   z-index: 1;
-  top: -10%;
+/*  top: -10%;*/
   left: 0;
   width: 240px;
   height: 100%;
-  display: none;
+  display: block;
   position: fixed;
   background: var(--nav-color);
 }
