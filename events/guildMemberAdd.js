@@ -31,6 +31,8 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
+const welcomeimg = guildData.plugins.welcome.welcomeIng
+if(!welcomeimg.mattch("https://imgur.com/"))return  welcomeimg = null;
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -68,7 +70,7 @@ module.exports = class {
             
             // Backgroundimage
             const background = await Canvas.loadImage(
-              guildData.plugins.welcome.welcomeImage
+            welcomeimg
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
