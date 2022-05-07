@@ -285,11 +285,11 @@ body {
 border:none;
 box-shadow: 0 0 10px var(--sharabi);
   
-}
+}/*
 .contact-form select {
  
   margin-left: -23rem;
-}
+}*/
 .contact-form input[type="color"]{
   margin-top:70px;
   width:150px;
