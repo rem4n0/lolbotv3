@@ -688,19 +688,15 @@ span.selectOption:hover {
 }
 /*-----guuildlis
 -------*/
-
+/*
 @media screen and (min-height:800px){
-  /*
+  
 .container .row .guild-list li {
     background:var(--nav-color);
     width:700px;
     
-  }*/
-  .guild-list ul{
-    line-height:50px;
-    
-    
   }
+  
   .guild-list li .btn{
     border:none;
     right:80px;
@@ -712,16 +708,22 @@ span.selectOption:hover {
     left:50px;
     
   }
+  .guild-list li p {
+margin-top:80px;
+    
+    
+  }
   .guild-list{
   width:100%;
     top:200px;
   
   
-  }}
+  }}*/
 .guild-list li {
   padding-bottom: 40px;
-
-
+width:100%;
+background:black;
+  border-left: 2px solid yellow;
   border-radius:5%;
 
   list-style:none;
@@ -748,9 +750,9 @@ span.selectOption:hover {
     border:none;
   position: absolute;
     right:0;
+    margin-top:-50px;
     
-    
-  }
+}
   .select-server {
     text-align: center;
   color:var(--white);
