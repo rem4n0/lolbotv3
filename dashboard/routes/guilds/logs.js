@@ -159,13 +159,13 @@ if(rbody["onoff"] === "true"){ await Guild.findOneAndUpdate({guildID: req.params
         { upsert: true }
       );
     }
-    if (rbody["roleUpdateonoff"] === "true") {
+    if (rbody["roleUpdateonoff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         { $set: { "plugins.logs.roleUpdate.enabled": false } },
         { upsert: true }
       );
-console.log("onx")
+
     }
   }
 );
