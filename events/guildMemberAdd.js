@@ -63,7 +63,7 @@ module.exports = class {
           .replace(/{server}/g, member.guild.name)
           .replace(/{membercount}/g, member.guild.memberCount);
     
-        if (message) {
+        
           if (guildData.plugins.welcome.withImage && message) {
             
             // Backgroundimage
@@ -150,18 +150,12 @@ module.exports = class {
               "welcome-image.png"
             );
 
-            channel.send({ content: message, files: [attachment] });
+            channel.send({ content: message|| null, files: [attachment] });
           } else {
-            channel.send({ content: message });
+            channel.send({ content: message || null });
           }
         }
-      } else {
-        const attachment = new Discord.MessageAttachment(
-          canvas.toBuffer(),
-          "welcome.png"
-        );
-        channel.send({ files: [attachment] });
-      }
+    
     }
   }
 };
