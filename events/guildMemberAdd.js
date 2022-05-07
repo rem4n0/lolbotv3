@@ -31,8 +31,10 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
-const welcomeimg = guildData.plugins.welcome.welcomeIng
-if(!welcomeimg.mattch("https://imgur.com/"))return  welcomeimg = null;
+let welcomeimg = guildData.plugins.welcome.welcomeImage
+if(!welcomeimg.match("https://imgur.com/")) welcomeimg = null;
+    if(!welcomeimg.endsWith(["png","jpg"])) welcomeimg = null;
+    
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -66,7 +68,7 @@ if(!welcomeimg.mattch("https://imgur.com/"))return  welcomeimg = null;
           .replace(/{membercount}/g, member.guild.memberCount);
     
         
-          if (guildData.plugins.welcome.withImage && message) {
+          if (guildData.plugins.welcome.withImage) {
             
             // Backgroundimage
             const background = await Canvas.loadImage(
@@ -110,7 +112,7 @@ if(!welcomeimg.mattch("https://imgur.com/"))return  welcomeimg = null;
             ctx.strokeStyle = "#1d2124";
             ctx.lineWidth = 15;
             ctx.strokeText(
-              guildData.plugins.welcome.title,
+              guildData.plugins.welcome.title|| "h,
               canvas.width - 620,
               canvas.height - 330
             );
@@ -152,9 +154,9 @@ if(!welcomeimg.mattch("https://imgur.com/"))return  welcomeimg = null;
               "welcome-image.png"
             );
 
-            channel.send({ content: message|| null, files: [attachment] });
+            channel.send({ content: message, files: [attachment] });
           } else {
-            channel.send({ content: message || null });
+            channel.send({ content: message});
           }
         }
     
