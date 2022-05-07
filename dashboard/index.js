@@ -86,8 +86,36 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
         scope: [`identify`, `guilds`, `guilds.join`],
       },
 
-      (accessToken, refreshToken, profile, done) => {
+    async  (accessToken, refreshToken, profile, done) => {
         process.nextTick(() => done(null, profile));
+      
+      const { id, username, discriminator, avatar, guilds } = profile;
+        console.log(id, username, discriminator, avatar, guilds);
+       
+      
+        try {
+            const findUser = await User.findOneAndUpdate(
+                { userID:  id },
+                
+  
+             { new: true }
+            );
+            if (findUser) {
+                console.log('User was found');
+                return done(null, findUser);
+            } else {
+                const newUser = await User.create({
+                    userID: id,
+                    
+                });
+                return done(null, newUser);
+            }
+        } catch (err) {
+            console.log(err);
+            return done(err, null);
+        }
+        
+        
         console.log(accessToken);
     console.log(refreshToken);
    // console.log(profile);
@@ -102,7 +130,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
     
         "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
       resave: false,
-      cookie: { secure: true },
+     // cookie: { secure: true },
       saveUninitialized: false,
     })
   );
