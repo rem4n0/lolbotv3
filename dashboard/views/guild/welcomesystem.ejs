@@ -53,11 +53,7 @@
 <span>{membercount}</span>
       <p>member count of server</p>
       
-    </div><!--
-    <div class="variables">
-      <span>{inviter}</span><p>Mention inviter</p>
-    </div>-->
-
+    </div>
     <br>
    
     <% if(data.plugins.welcome.withImage){%>
@@ -87,14 +83,16 @@
       <input class="form-control" id="ImageURL" type="text" value="<%= data.plugins.welcome.welcomeImage%>" placeholder="Put your image URL must imugar URL"></input
     </div>
       </div>
+    </div>
 <hr>
   
     <br>
     <br>
     </div>
     <button type="submit" id="myButton" onclick="clickOnAdd()" name="btnSubmit" class="btn btn-primary"><i class="fad fa-save"></i>Apply</button>
-    </div></div>
-  </div>
+    </div>
+    </div>
+  
   </form>
   
 
@@ -114,10 +112,11 @@
          //////////////   
          var checkbox2 = document.querySelector('input[id="withImg"]');
           var withImage = document.querySelector('.withImage');
-         
+         var hama = document.querySelector("#hama");
          
          checkbox2.addEventListener('change', function (){
          if(checkbox2.checked){
+           
            withImage.style.display = "block";
            $.post("/dashboard/guild/<%=guild.id%>/welcome",{
              withImg: true,
@@ -125,6 +124,7 @@
            });
          
          }else{
+           
            withImage.style.display = "none";
              $.post("/dashboard/guild/<%=guild.id%>/welcome",{
                withImg:false,
@@ -132,7 +132,13 @@
              });
          }///////////
          })
-         
+         if(checkbox2.checked){
+           
+           withImage.style.display= "block";
+         }else{
+           withImage.style.display = "none";
+           
+         }
   var checkbox = document.querySelector('input[id="welcomeswitch"]');
 if(checkbox.checked){
   
