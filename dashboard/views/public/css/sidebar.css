@@ -12,12 +12,13 @@
 
 .sidebar {
   z-index: 1;
-/*  top: -10%;*/
+top: 20px;
   left: 0;
   width: 240px;
   height: 100%;
   display: block;
   position: fixed;
+  transition: all 1s ease;
   background: var(--nav-color);
 }
 
@@ -33,6 +34,7 @@
 }
 
 .sidebar .logo-name {
+  
   color: var(--white);
   font-size: 18px;
   margin-left: 90px;
@@ -44,6 +46,7 @@
   min-width: 70px;
 }
 .sidebar .nav-list {
+  transition:all 1s ease;
   position: relative;
   left: 0;
 
@@ -51,12 +54,6 @@
   height: 100%;
 }
 
-.sidebar.guild .nav-list .list {
-  
-  position: relative;
-  left:0;
-  margin-left:0px;
-}
 
 .sidebar .nav-list .list{
   
@@ -216,12 +213,24 @@ align-items: center;
   width: calc(100% - 78px);
 }
 
-  
+
+
+.sidebar.close .logo-detail{
+  animation: fadeIn ease 0.5s;
+  transition: all 1s ease;
+  display:none}
+  .sidebar.close .nav-list{
+    transition: all 1s ease;
+    display:none;
+    
+}
 .sidebar.close {
   top: 50px;
   border-top-right-radius: 30px;
-  display: block;
+ /* display: none;*/
+  transition: all 1s ease;
   position: fixed;
+  width:0;
   animation: fadeIn ease 0.5s;
 }
 @keyframes fadeIn {
