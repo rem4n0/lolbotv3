@@ -366,11 +366,7 @@ box-shadow: 0 0 10px var(--sharabi);
   font-size: 25px;
   line-height: 20px;
 }
-.contact-form #hama{
-  margin-left: -2rem;
-  
-  
-}
+
 /****---------end--------------***/
 @media only screen and (min-height: 800px) {
   .boxs .box {
