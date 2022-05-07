@@ -32,9 +32,7 @@ module.exports = class {
       guildID: member.guild.id,
     });
 let welcomeimg = guildData.plugins.welcome.welcomeImage
-if(!welcomeimg.match("https://imgur.com/")) welcomeimg = null;
-    if(!welcomeimg.endsWith(["png","jpg"])) welcomeimg = null;
-    
+
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -69,7 +67,8 @@ if(!welcomeimg.match("https://imgur.com/")) welcomeimg = null;
     
         
           if (guildData.plugins.welcome.withImage) {
-            
+            if(!welcomeimg.startsWith("https://")) welcomeimg = null;
+            if(! welcomeimg.endsWith(["png","jpg"])) welcomeimg = null;
             // Backgroundimage
             const background = await Canvas.loadImage(
             welcomeimg
@@ -112,7 +111,7 @@ if(!welcomeimg.match("https://imgur.com/")) welcomeimg = null;
             ctx.strokeStyle = "#1d2124";
             ctx.lineWidth = 15;
             ctx.strokeText(
-              guildData.plugins.welcome.title|| "h,
+              guildData.plugins.welcome.title|| "welcome",
               canvas.width - 620,
               canvas.height - 330
             );
