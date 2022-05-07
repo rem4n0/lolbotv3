@@ -88,6 +88,9 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
 
       (accessToken, refreshToken, profile, done) => {
         process.nextTick(() => done(null, profile));
+        console.log(accessToken);
+    console.log(refreshToken);
+   // console.log(profile);
       }
     )
   );
@@ -96,8 +99,10 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
     session({
       store: new MemoryStore({ checkPeriod: 86400000 }),
       secret:
+    
         "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
       resave: false,
+      cookie: { secure: true },
       saveUninitialized: false,
     })
   );
@@ -137,8 +142,8 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
     },
     passport.authenticate("discord" /*, { prompt: "none" }*/)
   );
-  app.get(
-    `/callback`,
+  const domain = config.callback;
+  app.get("/callback",
     passport.authenticate(`discord`, { failureRedirect: "/" }),
     async (req, res) => {
       let maintenc = await Maintenance.findOne({server: config.serverid})
