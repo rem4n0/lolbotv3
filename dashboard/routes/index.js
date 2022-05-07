@@ -36,6 +36,14 @@ app.get('/policy-terms', async(req,res)=>{
     req:req,})
   
 })
+app.get("/be-partner", async(req,res)=>{
+  
+  
+  res.render("be-partner",{
+    
+    user: req.isAuthenticated() ? req.user:null,
+    req:req,
+  })})
 app.get('/commands',async(req,res,next)=>{
   const maintenance = await Maintenance.findOne({
   server: config.serverid
