@@ -48,7 +48,7 @@
            
           
         
-           <p id="timerefresh">Time Left<%= times.h%>H <%= times.m%>M</p>
+           <p id="timerefresh">Time Left<%= times.h%>H <%= times.m%>M <%= times.s%>S</p>
              <button class="btn btn-danger" disabled>when Time left ended Must refresh page</button>
              
       
@@ -80,8 +80,7 @@
       
         document.getElementById("demo-form").submit();
     }*/
-   document.getElementById("time").contentWindow.location.reload(true)
-
+   
 var urlParams = new URLSearchParams(window.location.search);
     if(urlParams.has('success') && urlParams.get('success')){
     Swal.fire({
