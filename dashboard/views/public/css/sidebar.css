@@ -49,7 +49,7 @@ top: 20px;
   transition:all 1s ease;
   position: relative;
   left: 0;
-
+display:block;
   background: var(--nav-color);
   height: 100%;
 }
@@ -130,11 +130,13 @@ text-align: center;
 
   display: block;
 }
+
 .sidebar .nav-list .list li .icon {
   align-items: center;
   display:flex;
   justify-content: space-between;
 }
+
 .sidebar .nav-list .list li .link_name:hover {
   font-size: 22px;
   color:var(--sharabi);
@@ -158,6 +160,7 @@ align-items: center;
   height: 42px;
   
 }
+
  .home-section .home-profile .list2{
    width:100%;
 
@@ -173,17 +176,20 @@ align-items: center;
    margin-top: 20px;
 }
 
+
 .home-section .home-profile .list2 li{
   list-style: none;
 
   margin-top:20px;
   
 }
+
 .home-section .home-profile .list2 li a {
   text-decoration: none;
   color:var(--white);
   padding-right:30px; 
 }
+
 .home-section .home-profile .list2.close{
   display:flex;
 }
@@ -205,6 +211,8 @@ align-items: center;
   display:flex;
   height: 60px;
   align-items: center;
+
+
 }
 .sidebar .home-section {
   display: flex;
@@ -218,20 +226,22 @@ align-items: center;
 .sidebar.close .logo-detail{
   animation: fadeIn ease 0.5s;
   transition: all 1s ease;
-  display:none}
+  display:none
+}
+
   .sidebar.close .nav-list{
     transition: all 1s ease;
     display:none;
     
 }
 .sidebar.close {
-  top: 50px;
+  /*top: 50px;
   border-top-right-radius: 30px;
  /* display: none;*/
   transition: all 1s ease;
   position: fixed;
   width:0;
-  animation: fadeIn ease 0.5s;
+ /* animation: fadeIn ease 0.5s;*/
 }
 @keyframes fadeIn {
   0% {
