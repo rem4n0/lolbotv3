@@ -5,6 +5,13 @@ const market = require (`${process.cwd()}/shop/market.json`);
 console.log("profile router loaded");
 const _ = require('lodash');
 
+
+
+
+
+
+
+
 app.get(
   "/profile/:userID",
   global.checkAuth,
@@ -12,7 +19,8 @@ app.get(
     const maintenance = await Maintenance.findOne({
   server: config.serverid
 })
-
+const status = bot.guilds.fetch();
+    console.log(status)
 if(maintenance && maintenance.toggle == "true") {
 
      return res.render(res, req, "maintenance.ejs")

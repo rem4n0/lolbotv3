@@ -682,7 +682,12 @@ span.selectOption:hover {
   font-size: 35px;
   margin-top: 14px;
 }
-
+.container .boxs .box .containerB i .fa-addrees-card{
+  background: #8A6B13;
+  width:60px;
+  height:60px;
+  
+}
 .container .boxs .box .containerB .text {
   font-size: 15px;
   top: 0;
