@@ -70,7 +70,7 @@ let welcomeimg = guildData.plugins.welcome.welcomeImage
           
             // Backgroundimage
             const background = await Canvas.loadImage(
-            guildData.plugins.welcome.welcomeImage.endsWith(["png","jpg"])||"https://imgur.com/Aa0j1pA.png"
+            guildData.plugins.welcome.welcomeImage.endsWith(["png","jpg"])||null
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
