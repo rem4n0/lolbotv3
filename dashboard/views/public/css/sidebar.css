@@ -71,7 +71,7 @@ margin-left:60px;
 }
 
 
-.sidebar .nav-list  li i {
+.sidebar .nav-list  li a i {
   position: relative;
   color: var(--white);
   text-align: center;
@@ -92,6 +92,7 @@ margin-left:60px;
 .sidebar .nav-list  li a {
   flex-wrap: nowrap;
   color:white;
+  background:red;
   font-size:14px;
   
   text-decoration: none;
