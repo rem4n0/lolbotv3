@@ -1,54 +1,134 @@
 
- <%- include ("../parts/sidebarguild",{bot,user})%>
+ <%- include ("../parts/head.ejs",{bot,user})%>
+ <br>
+   <br>
+   
+   
+   <style>
+     .card{
+       border-radius: 13px;
+       background:#1E1E1E;
+     border-left: 3px solid #277ECD;
+       border-left-top-radius: 2px;
+     
+     }
+     .card2{
+       border-radius:13px;
+       background:#1E1E1E;
+       border-left: 3px solid #A8C714;
+       border-left-top-radius:2px;}
+     .card3{
+       border-radius: 13px;
+       background:#1E1E1E;
+       border-left: 3px solid #018872;
+       border-left-top-radius:2px}
+     
+     
+     .card4{
+       border-radius:13px;
+       background:#1E1E1E;
+       border-left:3px solid #DA004E;
+       border-left-top-radius:2px}
+     .card-body{
+       
+       
+       background:#1E1E1E}
+     
+     
+     
+     
+     
+   </style>
 
-  <br>
-   <br>
-   <br>
-   <br>
+   
+     
+     
+   <div class="container">
   <h3 class="all-header">Welcome to my dashboard </h3>
 
   
-  <div class="container">
+  
 <% if(data){%>
-  
-
-<div class="boxs">
-<div class="box1 box">
-
-       <div class="containerB">
-         <i class="fas fa-chevron-circle-up"></i>
-           <h4 class="bigText"><%=join1%></h4>
-             <p class="text">JOIN IN DAY</p>   
-      </div>
-                                       
-</div>
-  
-  <br>
-  <br>
-
-  <div class="box2 box">
-    
-    <div class="containerB">
-      <i class="fas fa-angle-double-up"></i>
-      <h4 class="bigText"><%=join2%></h4>
-        <p class="text">JOIN IN 7DAYS</p>
+  <div class="row">
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Join To Day</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= join1%></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa-soli
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-   
-  <br>
-    <br>
-  <div class="box3 box">
-    <div class="containerB">
-      <i class="fa-solid fa-users"></i>
-      <h4 class="bigText"><%= guild.memberCount%></h4>
-      <p class="text">TOTAL MEMBER</p.
+
+  
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card2 bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                          Join in 7 Days</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= join2%></div>
+                    </div>
+                    <div class="col-auto">
+                      
+                    </div>
+                </div>
+            </div>
         </div>
-  </div>
-<br>
-    <br>
-    
-  </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card3 bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Cases Count</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= data.casesCount%></div>
+                    </div>
+                    <div class="col-auto">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card4 bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Prefix in Guild </div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= data.prefix%></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fal fa-robot fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+  
+  
+      </div>
+  
+  
    <% }%> 
     
      </div>
