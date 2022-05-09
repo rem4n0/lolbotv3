@@ -26,11 +26,12 @@ let invites = await message.guild.invites.fetch()
       if (i.uses === 0) {
         return;
       }
-      possibleInvites.push([
+possibleInvites.reduce(()=> i.inviter.username + "" +i.uses)
+      /*possibleInvites.push([
         "\n " +  i.inviter.username + "  :  " + i.uses
-      ]);
+      ]);*/
     });
-    possibleInvites.reduce({
+  
     let embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .addField("Top Invites.", `${possibleInvites}`);
