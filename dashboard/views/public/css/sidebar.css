@@ -144,7 +144,8 @@ text-align: center;
 .sidebar .nav-list ul li a {
   
   text-decoration:none;
-  
+  white-space:nowrap;
+  text-wrap: nowrap;
   color: white;
   
 }
