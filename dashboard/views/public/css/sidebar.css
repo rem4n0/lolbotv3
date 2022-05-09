@@ -90,6 +90,10 @@ margin-left:60px;
   transition: all 0s ease;
 }
 .sidebar .nav-list  li a {
+  flex-wrap: nowrap;
+  color:white;
+  font-size:14px;
+  
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -140,7 +144,7 @@ text-align: center;
   font-size: 22px;
   color:var(--sharabi);
   opacity:1;
-}*/
+}*//*
 .sidebar .nav-list ul li a {
   
   text-decoration:none;
@@ -148,7 +152,7 @@ text-align: center;
   text-wrap: nowrap;
   color: white;
   
-}
+}*/
 
 
 
