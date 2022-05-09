@@ -1,4 +1,4 @@
-  const Discord = require("discord.js");
+  let Discord = require("discord.js");
 
 
 module.exports = {
@@ -16,10 +16,11 @@ module.exports = {
 
 
 
-var invites = await message.guild.invites.fetch()
+let invites = await message.guild.invites.fetch()
     
   
     let possibleInvites = ["User Invited |  Uses "];
+    
     invites.forEach(i => {
   
       if (i.uses === 0) {
@@ -29,6 +30,7 @@ var invites = await message.guild.invites.fetch()
         "\n " +  i.inviter.username + "  :  " + i.uses
       ]);
     });
+    possibleInvites.reduce({
     let embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .addField("Top Invites.", `${possibleInvites}`);
