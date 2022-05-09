@@ -1,6 +1,6 @@
 const h = function imgError(e) {
   e.src = "https://imgur.com/tiZmKiK.png"; 
-  e.alt= "undifined";
+  
 }
 
 /*

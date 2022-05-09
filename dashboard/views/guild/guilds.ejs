@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-auto">
                       
-                      <img loading="lazy" style="border: 2px solid green; border-radius: 50%;" src="<%= iconurl%>">
+                      <img loading="lazy" onerror="imgError(this);style="border: 2px solid green; border-radius: 50%;" src="<%= iconurl%>">
                       
                       
                         
@@ -95,7 +95,7 @@
                         <div class="h5 mb-0 font-weight-bold text-white"><a href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=67206193&scope=bot&guild_id=<%= guild.id%>" class="btn btn-primary">Invite</a></div>
                     </div>
                     <div class="col-auto">
-                        
+                        <img loading="lazy" onerror="imgError(this)"; src="<%= iconurl%>">
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
 
   
   
-           <a class="btn btn-primary" onerror="imgError(this);"href="https://discord.com/api/oauth2/authorize?client_id=<%= bot .user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>">invite</a>
+      
     
        <% }%>
        
@@ -116,6 +116,11 @@
     
          
 <script>
+function imgError(e) {
+  e.src = "https://imgur.com/tiZmKiK.png";
+}
+  
+  
   let arrow = document.querySelectorAll(".link_name")
   
   for(i=0; i < arrow.length;i++){
