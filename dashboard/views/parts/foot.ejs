@@ -2,7 +2,11 @@
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
-})</script>
+})
+const tooltip = document.querySelector('img[data-bs-toogle="tooltip"]')
+tooltip.show()
+
+</script>
   
 
 <style>
