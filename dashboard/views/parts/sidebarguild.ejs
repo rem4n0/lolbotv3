@@ -22,7 +22,7 @@
     </div>
     <br>
  <div class="nav-list">
-   <ul class="list">
+   
      <% if (guild.icon) {
  iconurl = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png??size=300";
 } else {
@@ -34,20 +34,19 @@
        <p style="color:var(--white);"><%= guild.name%></p>
      </div>
      
-     
+     <ul>
      
      <li>
-    
          <a href="/dashboard/guild/<%=guild.id%>/setting">
            <i class="fa-solid fa-gear"></i>
            <span class="link_name">Setting</span>
          </a>
-       </div>
+    
      </li>
 
      <li>
           
-    <div class="icon">
+    
                
       <a href="/dashboard/guild/<%=guild.id%>/xpsystem">
         <i class="fa-solid fa-chart-column"></i>
@@ -57,10 +56,10 @@
        </a>
  
        
-     </div>
+     
      </li>
           <li>
-        <div class="icon">
+        
                
       <a href="/dashboard/guild/<%=guild.id%>/autorole">
         <i class="fa-solid fa-user"></i>
@@ -70,12 +69,12 @@
        </a>
           
        
-       </div>
+  
 
         
      </li>
      <li>
-        <div class="icon">
+      
                
       <a href="/dashboard/guild/<%=guild.id%>/logsystem">
         <i class="fa-solid fa-clock-rotate-left"></i>
@@ -85,12 +84,12 @@
        </a>
           
        
-       </div>
+  
 
        
      </li>
      <li>
-        <div class="icon">
+        
                
       <a href="/dashboard/guild/<%= guild.id%>/welcome">
         <i class="fa-solid fa-user-plus"></i>
@@ -100,22 +99,22 @@
        </a>
 
        
-       </div>
+       
        </li>
        <li>
-         <div class="icon">
+        
            <a href="/dashboard/<%=guild.id%>/leaderboard">
              <i class="fa-solid fa-users"></i>
              <span class="link_name">LeadrBoard</span>
            </a>
-         </div>
+        
          
 
         
      </li>
 <br>
        </div>
-       </ul>
+      
          </div>
          
    
