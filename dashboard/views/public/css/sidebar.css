@@ -18,6 +18,7 @@ top:-10%;
   width: 240px;
   height: 100%;
   display: none;
+  ::webkit-scrollbar: widt
   position: relative;
   transition: all 1s ease;
   background: var(--nav-color);
