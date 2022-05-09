@@ -70,14 +70,13 @@ margin-left:60px;
   font-size: 18px;
 }
 
-
 .sidebar .nav-list  li a i {
   position: relative;
   color: var(--white);
   text-align: center;
-  margin-left:80px;
+  right:0;
   
-  min-width: 78px;
+ /* min-width: 78px;*/
 
 
   font-size: 18px;
