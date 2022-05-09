@@ -13,6 +13,7 @@
 .sidebar {
   z-index: 1;
 top:-10%;
+  overflow: scroll;
   left: 0;
   width: 240px;
   height: 100%;
@@ -71,14 +72,13 @@ margin-left:60px;
 
 
 .sidebar .nav-list  li i {
-  position: fixed;
+  position: relative;
   color: var(--white);
   text-align: center;
-  margin-left:180px;
-   display:flex;
-  line-height:20px;
+  margin-left:80px;
+  
   min-width: 78px;
-  transition: all 0s ease;
+
 
   font-size: 18px;
 }
@@ -228,9 +228,11 @@ align-items: center;
 
   left: 0px;
   width: calc(100% - 78px);
-}
-
-
+}/*
+.sidebar .nav-list ul{
+  
+  overflow: auto;}
+*/
 /*
 .sidebar.close .logo-detail{
   animation: fadeIn ease 0.5s;
