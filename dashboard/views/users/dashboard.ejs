@@ -6,10 +6,17 @@
    
    <style>
      .card{
+       border-radius: 13px;
        background:#1E1E1E;
-     border-left: 3px solid 
+     border-left: 3px solid #277ECD;
+       border-left-top-radius: 2px;
      
      }
+     .card2{
+       border-ra
+       background:#1E1E1E;
+       border-left: 3px solid #A8C714;
+       border-left-top-radius:2px;}
      
      .card-body{
        
@@ -31,15 +38,53 @@
   
   
 <% if(data){%>
-  
+  <div class="row">
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card bg-dark-200 border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            UnApproved Bots</div>
-                        <div class="h5 mb-0 font-weight-bold text-white"><%=data.money%></div>
+                            User Balance</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white">$<%=convert(data.money)%></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fal fa-robot fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card2 bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            User Information</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><%= data.info%></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fal fa-robot fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            User Balance</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white">$<%=convert(data.money)%></div>
                     </div>
                     <div class="col-auto">
                         <i class="fal fa-robot fa-2x text-white"></i>
@@ -51,50 +96,7 @@
 
   
   
-  
-  <!--
-<div class="boxs">
-  
-<div class="box1 box">
-
-       <div class="containerB">
-         <i class="fas fa-address-card"></i>
-           <h4 class="bigText"><%=data.info%></h4>
-             <p class="text">INFO</p>
       </div>
-                                       
-
-    </div>
-  <br>
-  <br>
-
-  <div class="box2 box">
-    
-    <div class="containerB">
-      <i class="fas fa-sack-dollar"></i>
-    
-      <h4 class="bigText">$<%= data.money.toLocaleString()%></h4>
-        <p class="text"> MONEY</p>
-        </div>
-
-    </div>
-   
-  <br>
-    <br>
-    
-  <div class="box3 box">
-
-    <div class="containerB">
-      <i class="fas fa-badge-check"></i>
-      <h4 class="bigText"><%= user_rank%></h4>
-        <p class="text">RANK</p>
-        </div>
-  </div>
-                         
-<br>
-    <br>
-    
-  </div>-->
   
   
    <% }%> 
