@@ -33,27 +33,27 @@ let data = await User.findOne({userID:member.id})
 let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None";
 ///
 const bots = member.user.bot ? "True" : "False";
-///
+    /*
 if (member.premiumSince) {
     boost = "Yes"
   } else {
     boost = "No"
-  }
+  }*/
 ///
 
       const userFlags = member.user.flags.toArray();
       const embed = new MessageEmbed()
-      .setColor(Color)
+      .setColor(config.embed.Color)
       .setThumbnail(member.user.displayAvatarURL())
       .addField("Username", `${member.user.username}`, true)
       .addField("Discriminator", `${member.user.discriminator}`, true)
       .addField("Nickname", `${nickname}`, true)
       .addField("User Id", `${member.id}`, true)
       .addField("Is Bot", `${bots}`, true)
-      .addField("Subscription",`${data.isPremium}`, true)
-      .addField("Plan",`${data.premium.plan || "No have premium"}`, true)
+     // .addField("premium of bot ",`${data.isPremium}`, true)
+     // .addField("Plan",`${data.premium.plan || "No have premium"}`, true)
             
-      .addField("Booster", `${boost}`, true)
+     // .addField("Booster", `${boost}`, true)
       .addField("Flags", `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`, true)
       .addField("Join", member.joinedAt.toDateString())
       .addField("Creation", member.user.createdAt.toDateString())

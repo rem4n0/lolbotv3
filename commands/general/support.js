@@ -9,6 +9,6 @@ module.exports = {
   cooldown: 3000,
   run: async (bot, message, args, dev) => {
 
-message.channel.send({content: `This is a server support **Bobo** if you need help, enter the server -> \n https://discord.gg/WfNfYabd9E`});
+message.channel.send({content: `This is a server support **Bobo** if you need help, enter the server -> \n ${config.support}`});
     } 
 }
