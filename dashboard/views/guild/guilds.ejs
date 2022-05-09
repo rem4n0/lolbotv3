@@ -4,6 +4,15 @@
   
   <br>
   <br>
+  <style>
+     .card{
+       border-radius: 13px;
+       background:#1E1E1E;
+     border-left: 3px solid #277ECD;
+       border-left-top-radius: 2px;
+     
+     }
+  </style>
   
   <div class="row">
   
@@ -52,16 +61,16 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Guild Name</div>
+                            <%= guild.name%></div>
                       <hr>
-                        <div class="h5 mb-0 font-weight-bold text-white"><a href="/dashboard/guild/<%= guild.id%"><%= guild.name%></a></div>
+                        <div class="h5 mb-0 font-weight-bold text-white"><a href="/dashboard/guild/<%= guild.id%>" class="btn btn-success">Dashboard</a></div>
                     </div>
                     <div class="col-auto">
                       
-                      <img loading="lazy" src
+                      <img loading="lazy" src="<%= iconurl%>">
                       
                       
-                        <i class="fal fa-robot fa-2x text-white"></i>
+                    
                     </div>
                 </div>
             </div>
@@ -82,19 +91,7 @@
       
        <a class="btn btn-success" href="/dashboard/guild/<%= guild.id%>">Dashboard</a>
   
-     </li>
-    </ul>
-    <% }%>
-     <% if(!bot.guilds.cache.get(guild.id)){%>
-       <br>
-       <br>
-       <ul class="guild-list">
-         <li> 
-           <img loading="lazy" src="<%= iconurl%>"/>
-           <p><%= guild.name%></p>
-           <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=<%= bot .user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>">invite</a>
-         </li>
-       </ul>-->
+  
        <% }%>
        
        
