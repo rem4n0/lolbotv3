@@ -18,12 +18,10 @@ module.exports = {
 
 var invites = await message.guild.invites.fetch()
     
-   // invites = invites.values();
-    invites, "uses", { reverse: true };
-    console.log(invites)
+  
     let possibleInvites = ["User Invited |  Uses "];
     invites.forEach(i => {
-      console.log(i);
+  
       if (i.uses === 0) {
         return;
       }
