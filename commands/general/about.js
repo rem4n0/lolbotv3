@@ -5,7 +5,7 @@ module.exports = {
   
 name:"about",
   description:"aboutbot",
-  
+  aliases:["about","botinfo"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
