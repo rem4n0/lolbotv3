@@ -74,9 +74,8 @@ margin-left:60px;
   position: relative;
   color: var(--white);
   text-align: center;
-  right:0;
   
- /* min-width: 78px;*/
+ min-width: 78px;
 
 
   font-size: 18px;
