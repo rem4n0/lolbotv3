@@ -70,8 +70,7 @@ module.exports = {
 
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 
-            
-       
+        
 		const members = message.guild.members.cache;
 
 	        let guild = await Guild.findOne({ guildID: message.guild.id });
@@ -84,7 +83,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
                         .setTitle("Guild information")
-			.setColor(Color)
+			.setColor(config.embed.Color)
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 			.addField("Name", `${message.guild.name}`)
                         .addField("ID", `${message.guild.id}`)
