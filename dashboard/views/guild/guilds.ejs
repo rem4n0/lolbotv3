@@ -45,7 +45,34 @@
 %>
 
   <% if(bot.guilds.cache.get(guild.id)) { %>
+    
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-dark-200 border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Guild Name</div>
+                      <hr>
+                        <div class="h5 mb-0 font-weight-bold text-white"><a href="/dashboard/guild/<%= guild.id%"><%= guild.name%></a></div>
+                    </div>
+                    <div class="col-auto">
+                      
+                      <img loading="lazy" src
+                      
+                      
+                        <i class="fal fa-robot fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   
+  
+    
+    
+  <!--
    <ul class="guild-list">
      
      <li>         
@@ -67,7 +94,7 @@
            <p><%= guild.name%></p>
            <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=<%= bot .user.id%>&permissions=67206193&scope=bot&guild_id=<%=guild.id%>">invite</a>
          </li>
-       </ul>
+       </ul>-->
        <% }%>
        
        

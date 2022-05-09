@@ -34,7 +34,7 @@ date:{ type:Date, default:null},
     },
   },
 
-  data: { 
+  data: {
     note:{ type: Array, default:{
       ID:{type:String, default:null},
       NAME:{type:String, default:null},
