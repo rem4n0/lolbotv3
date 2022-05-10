@@ -54,12 +54,12 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       });
 
     const queue = player.createQueue(interaction.guild, {
-      metadata: interaction.
-      // disabling volume controls can improve performance
+      metadata: interaction.channel,      // disabling volume controls can improve performance
       leaveOnEnd: false,
       leaveOnStop: false,
       spotifyBridge: true,
     });
+await interaction.deferReply({ ephemeral: true });
 
     try {
       if (!queue.connection)
