@@ -9,6 +9,7 @@
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "MANAGE_ROLES"],
   ownerOnly: false,
   cooldown: 6000,
+     prime:false,
   run: async (bot, message, args, dev, data) => {
     
 

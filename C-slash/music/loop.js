@@ -13,22 +13,25 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async (interaction, args) => {
+    
+    
+    const h = await interaction.options.getString("");
 if(!interaction.member.voice.channel){ return interaction.reply({content:`You can't change loop mode`})}
         const queue = player.getQueue(interaction.guild.id);
 
-        if (!queue || !queue.playing) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
+        if (!queue || !queue.playing) return interaction.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
 
-        if (args.join('').toLowerCase() === 'queue') {
-            if (queue.repeatMode === 1) return message.channel.send({content:`You must first disable the current music in the loop mode (${client.config.app.px}loop) ${message.author}... try again ? ❌`});
+        if (interaction.join('').toLowerCase() === 'queue') {
+            if (queue.repeatMode === 1) return interaction.channel.send({content:`You must first disable the current music in the loop mode (${client.config.app.px}loop) ${message.author}... try again ? ❌`});
 
             const success = queue.setRepeatMode(queue.repeatMode === 0 ? QueueRepeatMode.QUEUE : QueueRepeatMode.OFF);
 
-            return message.channel.send({content: `Repeat mode **${queue.repeatMode === 0 ? 'disabled' : 'enabled'}** the whole queue will be repeated endlessly 🔁`});
+            return interaction.channel.send({content: `Repeat mode **${queue.repeatMode === 0 ? 'disabled' : 'enabled'}** the whole queue will be repeated endlessly 🔁`});
         } else {
-            if (queue.repeatMode === 2) return message.channel.send(`You must first disable the current queue in the loop mode (${client.config.app.px}loop queue) ${message.author}... try again ? ❌`);
+            if (queue.repeatMode === 2) return interaction.channel.send({content:`You must first disable the current queue in the loop mode loop queue ${interaction.user}... try again ? ❌`});
 
             const success = queue.setRepeatMode(queue.repeatMode === 0 ? QueueRepeatMode.TRACK : QueueRepeatMode.OFF);
 
-            return message.channel.send({content: `Repeat mode **${queue.repeatMode === 0 ? 'disabled': 'enabled'}** the current music will be repeated endlessly (you can loop the queue with the <queue> option) 🔂`});
+            return interaction.channel.send({content: `Repeat mode **${queue.repeatMode === 0 ? 'disabled': 'enabled'}** the current music will be repeated endlessly (you can loop the queue with the <queue> option) 🔂`});
         };
   }}
