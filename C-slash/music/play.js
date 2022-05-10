@@ -25,7 +25,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async ( interaction, args) => {
-    const songSearch =  interaction.options.getString("find_song");
+    const songSearch =  interaction.options.getString("find_song") ||
 /*
     if (!songSearch)
       return interaction.reply({
@@ -48,8 +48,10 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
         content: " You need to join a voice channel for me to play song!",
       });
 
+  await interaction.deferReply();
+       
     const searchResult = await player.search(songSearch, {
-      requestedBy: interaction.member.user,
+      requestedBy: interaction.user,
       searchEngine: QueryType.AUTO,
     });
 
