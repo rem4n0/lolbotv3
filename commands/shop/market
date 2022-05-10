@@ -6,8 +6,9 @@ const text = require(`${process.cwd()}/util/string`);
 const Discord = require("discord.js")
 
 module.exports = {
-  name: "market",
+  name: "",
   aliases: ["market","shop"],
+  description:"Buy Items
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],		
   botPermissions: [ "SEND_MESSAGES","EMBED_LINKS" ],		
