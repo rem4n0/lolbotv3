@@ -23,7 +23,7 @@ module.exports = {
     ownerOnly: false,
     cooldown: 6000,
   run: async (bot, interaction, args, dev) => {
-    const queue = player.getQueue(interaction.guild.id);
+    const queue = player.getQueue(interaction.guildId);
     if(!interaction.member.voice.channel){ return interaction.reply({content:`You cant use filter`})}
 if (!queue || !queue.playing) return interaction.reply({content:`No music currently playing ${message.author}... try again ? ❌`});
 const actualFilter = queue.getFiltersEnabled()[0];
@@ -34,9 +34,9 @@ if (!args[1]) return interaction.channel.send({content:`Please specify a valid f
     queue.getFiltersEnabled().map(x => filters.push(x));
         queue.getFiltersDisabled().map(x => filters.push(x));
 
-        const filter = filters.find((x) => x.toLowerCase() === args[1].toLowerCase());
-interaction.deferReply()
-        if (!filter) return interaction.channel.send({content:`This filter doesn't exist ${message.author}... try again ? ❌\n${actualFilter ? `Filter currently active ${actualFilter}.\n` : ''}List of available filters ${filters.map(x => `**${x}**`).join(', ')}.`});
+        const filter = await interaction.options.getString("filter");/// filters.find((x) => x.toLowerCase() === args[1].toLowerCase());
+
+        if (!filter) return interaction.channel.send({content:`This filter doesn't exist ${interaction.user.tag}... try again ? ❌\n${actualFilter ? `Filter currently active ${actualFilter}.\n` : ''}List of available filters ${filters.map(x => `**${x}**`).join(', ')}.`});
 
         const filtersUpdated = {};
 

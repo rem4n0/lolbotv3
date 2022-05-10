@@ -25,7 +25,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async ( interaction, args) => {
-    const songSearch =  await interaction.options.getString("find_song");
+    const songSearch =  await interaction.options.getString("song");
     
 if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 				return interaction.reply({
@@ -46,8 +46,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
     const searchResult = await player.search(songSearch, {
       requestedBy: interaction.user,
     searchEngine: QueryType.AUTO,
-    });
-
+    }).catch((err)=>{ console.log(err)})
     if (!searchResult || !searchResult.tracks.length)
       return interaction.reply({
         content:
@@ -55,7 +54,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       });
 
     const queue = player.createQueue(interaction.guild, {
-      metadata: interaction.channel,
+      metadata: interaction.
       // disabling volume controls can improve performance
       leaveOnEnd: false,
       leaveOnStop: false,
