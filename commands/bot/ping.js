@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "ping",
   aliases: ['pong'],
-  description:"Sppef of bot",
+  description:"Speed of bot",
   enabled: true,			
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

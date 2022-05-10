@@ -5,7 +5,7 @@ module.exports = {
   name: "unlock",
   aliases: ["open","unlock"],
   description: "open he current or selected text channels",
-  usage: ["[Prefix]unlock"],
+  usage: ["unlock","unlock @Channel"],
   category: ["moderation"],
   enabled: true,			  
   memberPermissions: [ "MANAGE_CHANNELS","SEND_MESSAGES" ],			
