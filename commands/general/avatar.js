@@ -6,6 +6,7 @@ module.exports = {
 name:"avatar",
   description:"avatar images",
   aliases:["avatar"],
+  usage:["avatar","avatar @user"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

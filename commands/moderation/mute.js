@@ -3,7 +3,7 @@ const resolve = require('../../helpers/resolvers')
 const ms = require('ms')
 module.exports = {
   name: "tempmute",
-  aliases: ["tempmute"],
+  aliases: ["tempmute","mute"],
   description: "mute user",
   usage: ["mute <user>"],
   category: ["moderation"],
@@ -32,24 +32,13 @@ module.exports = {
 		const memberData = await Mute.findOneAndUpdate({ id: member.id, guildID: message.guild.id });
     //if(!memberData) new Member({id:member.id, guildID: message.guild.id});
 
-		const time = args[2];
+		const time = args[2] || "10m"
 		if(!time || isNaN(ms(time))){
 			return message.channel.send({content:`time must include (10s,10m,10h,1mon`})
 		}
 
 		let reason = args.slice(3).join(" ");
-		/*if(!reason){
-			reason = message.channel.send({content:`what is the reason`})
-		}
-*/
-    /*et mute = message.guild.roles.cache.find(role => role.name.toLowerCase()=== "BoboMuted");
-    if (!mute){
-      mute = await message.guild.roles.create({
-        data: {
-          name: "BoboMuted",
-          color: "#0000",
-          permissions: []
-        }})*/
+
     let mute = message.guild.roles.cache.find(role => role.name === "Muted");
     if (!mute)
       mute = await message.guild.roles.create({
@@ -66,17 +55,6 @@ module.exports = {
         CONNECT: false
       });
     });/**/
-    
-/*
-    
-		message.guild.channels.cache.forEach((channel) => {
-			channel.permissionOverwrites.edit(member.id, {
-				SEND_MESSAGES: false,
-				ADD_REACTIONS: false,
-				CONNECT: false
-			}).catch(() => {});
-		});*/
- 
     setTimeout(()=>{
   
     message.guild.members.cache.get(member.id).roles.add(mute);
@@ -117,8 +95,8 @@ member.send(`Sir **${member.username}**
 		await data.guild.save();
 
 		bot.databaseCache.mutedUsers.set(`${member.id}${message.guild.id}`, memberData);}
-
-		if(data.guild.plugins.modlogs){
+/*
+		if(data.guild.plugins){
 			const channel = message.guild.channels.cache.get(data.guild.plugins.modlogs);
 			if(!channel) return;
 			const embed = new Discord.MessageEmbed()
@@ -130,7 +108,7 @@ member.send(`Sir **${member.username}**
 			//	.addField("expire", message.printDate(new Date(Date.now()+ms(time))), true)
 				.setColor(config.embed.Color);
 			channel.send({ embeds: [embed] });
-		}
+    }*/
 
 	}
 

@@ -8,7 +8,8 @@ const fetch = require("node-fetch")
 module.exports = {
   name: "hug",
   aliases: ["hug"],
-  enabled: true,			    
+  enabled: true,		
+  usage:["hug","hug @user"],
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
   ownerOnly: false,			

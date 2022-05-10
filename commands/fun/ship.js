@@ -7,7 +7,7 @@ module.exports = {
   name: "ship",
   aliases: ["ship"],
   description: "ship people ",
-  usage: ["ship"],
+  usage: ["ship","ship @user"],
   category: ["Fun"],
   enabled: true,            
   memberPermissions: [ "SEND_MESSAGES" ],            

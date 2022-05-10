@@ -5,9 +5,9 @@ const fetch = require("node-fetch")
 module.exports = {
   name: "slap",
   aliases: ["slap"],
-  description: "Change the prefix of the bot",
-  usage: ["s!prefix [Prefix]"],
-  category: ["Moderation"],
+  description: "slap someone",
+  usage: ["slap","slap @user"],
+  category: ["slap"],
   enabled: true,            
   memberPermissions: [ "SEND_MESSAGES" ],            
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],        

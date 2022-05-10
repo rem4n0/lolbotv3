@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 module.exports = {
   name: "birthday",
   aliases: ["birthday","bh"],
+  usage:["Bobirthday [Your Date]"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS" ],		

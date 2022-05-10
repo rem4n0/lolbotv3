@@ -9,7 +9,7 @@ module.exports = {
   usage: ["Boprefix [Prefix]"],
   category: ["admin"],
   enabled: true,            
-  memberPermissions: [ "A" ],            
+  memberPermissions: [ "MANAGE_GUILD" ],            
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],        
   ownerOnly: false,            
   cooldown: 10000,

@@ -3,6 +3,8 @@ const profile = require(`${process.cwd()}/data/user`);
     module.exports = {
   name: "xpreset",
   aliases: ["xpreset"],
+      
+  description:"Rese all xp from members on server",
   enabled: true,			    
   memberPermissions: [ "MANAGE_GUILD" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		

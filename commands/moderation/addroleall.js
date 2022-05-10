@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 module.exports = {
   name: "addroleall",
   aliases: ["arall", "aroleall", "giveroleall"],
-  usage: ["addroleall <roles>"],
+  usage: ["addroleall <@roles>"],
   description: "Add a role to all user of the current server",
   category: "moderation",
   enabled:true,

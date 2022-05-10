@@ -2,7 +2,7 @@
   name: "resetroles",
   aliases: ["resetroles", "resetrole"],
   description: "reseroles of your user want",
-  usage: ["resetroles"],
+  usage: ["resetroles @User"],
   category: ["moderation"],
   enabled: true,
   memberPermissions: ["MANAGE_ROLES","SEND_MESSAGES"],

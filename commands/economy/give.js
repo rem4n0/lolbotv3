@@ -7,7 +7,7 @@ module.exports = {
   name: "give",
   aliases: ["give", "send"],
   description: "To send credit",
-  usage: ["credits @user @amount"],
+  usage: ["credits @amount @user"],
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

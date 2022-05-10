@@ -4,7 +4,7 @@ module.exports = {
   name: "lock",
   aliases: ["close","lock"],
   description: "Locks the current or selected text channels",
-  usage: ["[Prefix]lock"],
+  usage: ["lock","lock <@ channel>"],
   category: ["moderation"],
   enabled: true,			  
   memberPermissions: [ "MANAGE_CHANNELS","SEND_MESSAGES" ],			

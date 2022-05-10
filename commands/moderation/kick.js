@@ -3,7 +3,7 @@ module.exports = {
     name: "kick",
     aliases: ["kick"],
     description: "kick",
-    usage: ["kick"],
+    usage: ["kick [@User]"],
     category: ["moderation"],
     enabled: true,
     memberPermissions: ["KICK_MEMBERS","SEND_MESSAGES"],

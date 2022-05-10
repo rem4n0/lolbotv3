@@ -7,7 +7,7 @@ module.exports = {
   name: "kiss",
   aliases: ["kiss"],
   description: "kiss any one",
-  usage: [""],
+  usage: ["kiss","kiss @user"],
   category: ["fun"],
   enabled: true,            
   memberPermissions: [ "SEND_MESSAGES" ],            

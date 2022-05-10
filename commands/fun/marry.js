@@ -6,6 +6,7 @@ const pendings = {};
 module.exports = {
   name: "marry",
   aliases: ["marry"],
+  usage:"marry @user",
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
