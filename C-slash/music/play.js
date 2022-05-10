@@ -25,13 +25,7 @@ module.exports = {
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
   run: async ( interaction, args) => {
-    const songSearch =  await interaction.options.getString('find_song') 
-/*
-    if (!songSearch)
-      return interaction.reply({
-        content: "You didn't provide me a name of song to play!",
-      });
-*/
+    const songSearch =  await interaction.options.getString("find_song");
     
 if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 				return interaction.reply({
@@ -65,7 +59,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       // disabling volume controls can improve performance
       leaveOnEnd: false,
       leaveOnStop: false,
-      spotifyBridge: false,
+      spotifyBridge: true,
     });
 
     try {
