@@ -6,7 +6,7 @@ module.exports = {
   name: "banall",
   aliases: ["banall"],
   description: "",
-  usage: [""],
+  usage: ["Bobanall"],
   category: ["admin"],
   enabled: true,            
   memberPermissions: [ "SEND_MESSAGES" ],            

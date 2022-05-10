@@ -7,6 +7,7 @@ const Guild = require('../../data/news.js')
 
 module.exports = {
   name: "news",
+  description:"All last news here ",
   aliases: ["news"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			

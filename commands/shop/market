@@ -7,7 +7,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "",
-  aliases: ["market","shop"],
+  aliases: [""],
   description:"Buy Items
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],		

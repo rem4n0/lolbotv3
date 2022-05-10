@@ -4,6 +4,7 @@ const Discord = require("discord.js")
 module.exports = {
   name: "invite",
   aliases: ["invites","inv","invite"],
+  description:"invite link of bot",
   enabled: true,
   memberPermissions: ["SEND_MESSAGES"],
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],

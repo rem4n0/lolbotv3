@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
   
 name:"about",
-  description:"aboutbot",
+  description:"some information about bot",
   aliases:["about","botinfo"],
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
