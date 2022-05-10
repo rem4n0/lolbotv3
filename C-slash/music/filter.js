@@ -22,13 +22,13 @@ module.exports = {
     botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     ownerOnly: false,
     cooldown: 6000,
-  run: async (bot, interaction, args, dev) => {
+  run: async (interaction, args, dev) => {
     const queue = player.getQueue(interaction.guildId);
     if(!interaction.member.voice.channel){ return interaction.reply({content:`You cant use filter`})}
-if (!queue || !queue.playing) return interaction.reply({content:`No music currently playing ${message.author}... try again ? ❌`});
+if (!queue || !queue.playing) return interaction.reply({content:`No music currently playing ${interaction.user.tag}... try again ? ❌`});
 const actualFilter = queue.getFiltersEnabled()[0];
-    interaction.deferReply()
-if (!args[1]) return interaction.channel.send({content:`Please specify a valid filter to enable or disable ${message.author}... try again ? ❌\n${actualFilter ? `Filter currently active ${actualFilter} (filter ${actualFilter} to disable it).\n` : ''}`});
+    
+//if (!args[1]) return interaction.channel.send({content:`Please specify a valid filter to enable or disable ${message.author}... try again ? ❌\n${actualFilter ? `Filter currently active ${actualFilter} (filter ${actualFilter} to disable it).\n` : ''}`});
 
         const filters = [];
     queue.getFiltersEnabled().map(x => filters.push(x));

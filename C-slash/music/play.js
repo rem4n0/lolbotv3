@@ -28,7 +28,7 @@ module.exports = {
     const songSearch =  await interaction.options.getString("song");
     
 if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
-				return interaction.reply({
+				return interaction.channel.send({
 					embeds: [new Discord.MessageEmbed()
 						.setColor(config.embed.Color)
 					
@@ -38,7 +38,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 				});
     
     if (!interaction.member.voice.channel)
-      return await interaction.followUp({
+      return await interaction.channel.send({
         content: " You need to join a voice channel for me to play song!",
       });
 
@@ -48,7 +48,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
     searchEngine: QueryType.AUTO,
     }).catch((err)=>{ console.log(err)})
     if (!searchResult || !searchResult.tracks.length)
-      return interaction.reply({
+      return interaction.channel.send({
         content:
           " Hmm, I couldn't quite find the song you requested for; try playing another one!",
       });
@@ -59,16 +59,15 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       leaveOnStop: false,
       spotifyBridge: true,
     });
-await interaction.deferReply({ ephemeral: true });
 
     try {
       if (!queue.connection)
         await queue.connect(interaction.member.voice.channel);
     } catch {
-      await player.deleteQueue(interaction.guild.id);
+      await player.deleteQueue(interaction.guildId);
 
       queue.destroy();
-      return interaction.reply({
+      return interaction.channel.send({
         content:
           "There was an error with your request, please trye again later!",
       });
