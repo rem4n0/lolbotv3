@@ -24,7 +24,7 @@ options:[{
   run: async (client, interaction, args) => {
 
 
-    const songSearch = args.slice(1).join("");
+    const songSearch = interaction.options.getString('input');
     
       
     if (!songSearch)
