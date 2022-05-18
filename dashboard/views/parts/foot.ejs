@@ -1,17 +1,9 @@
-<script>
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-const tooltip = document.querySelector('img[data-bs-toogle="tooltip"]')
-tooltip.show()
 
-</script>
-  
 
 <style>
-  .columns ul{
-    display:flex;
+
+   ul{
+  
     justify-content:space-around;
   }
   ul li{
@@ -39,12 +31,27 @@ background:var(--sharabi);
   
   
 </style>
+<div class="list-group"> 
+  <a href="#" class="list-group-item active"> 
+   <span class="glyphicon glyphicon-camera"></span> Pictures <span class="badge">25</span> 
+  </a> 
+  <a href="#" class="list-group-item"> 
+   <span class="glyphicon glyphicon-file"></span> Documents <span class="badge">145</span> 
+  </a> 
+  <a href="#" class="list-group-item"> 
+   <span class="glyphicon glyphicon-music"></span> Music <span class="badge">50</span> 
+  </a> 
+  <a href="#" class="list-group-item"> 
+   <span class="glyphicon glyphicon-film"></span> Videos <span class="badge">8</span> 
+  </a> 
+ </div> 
+ <!--
 
 
 
-
-    <div class="container" style="background:var(--sharabi); position: relative; bottom:0;">
-      <div class="columns is-3" >
+    <div class="container" style=" position: relative; bottom:0;">
+     <div class="row">
+    
         <hr>
         <ul>
           <li><a href="/support"><i class="fa-brands fa-discord"></i>   Discord</a></li>
@@ -53,9 +60,11 @@ background:var(--sharabi);
         </hr>
         <div class="copyright text-center my-auto">
             <span>Copyright 2022 &copy; BoBo Team</span>
-        </div>
+ 
+       </div>
+    
     </div>
-
+-->
 
 </body>
 </html>
