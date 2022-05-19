@@ -49,7 +49,7 @@ app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
             github: rBody['github']||null,
             twitter: rBody['twitter']||null,
             instagram: rBody['instagram']||null,
-          "attch.color": rBody['color'>
+          "attch.color": rBody['color']||null
         }
     }, {
         upsert: true

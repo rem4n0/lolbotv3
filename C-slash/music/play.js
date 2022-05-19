@@ -6,9 +6,7 @@ const talkedRecently = new Set();
 module.exports = {
   name: "play",
   aliases: ["play"],
-  usage: ["Boplay Song"],
   description: "Play your favorite music or anything you want",
-
   options: [
     {
       String: {

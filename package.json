@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
-    "@sindresorhus/slugify": "^2.1.0",
+    "@sindresorhus/slugify": "^1.1.0",
     "ascii-table": "0.0.9",
     "axios": "^0.27.2",
     "canvacord": "^5.2.3",
