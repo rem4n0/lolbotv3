@@ -26,7 +26,7 @@ module.exports = {
     const songSearch =  await interaction.options.getString("song");
     
 if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
-				return interaction.channel.send({
+				return interaction.reply({
 					embeds: [new Discord.MessageEmbed()
 						.setColor(config.embed.Color)
 					
@@ -36,20 +36,20 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 				});
     
     if (!interaction.member.voice.channel)
-      return await interaction.channel.send({
+      return await interaction.reply({
         content: " You need to join a voice channel for me to play song!",
       });
 
 
     
     
-  await interaction.deferReply();
+  
     const searchResult = await player.search(songSearch, {
       requestedBy: interaction.user,
     searchEngine: QueryType.AUTO,
     }).catch((err)=>{ console.log(err)})
     if (!searchResult || !searchResult.tracks.length)
-      return interaction.channel.send({
+      return interaction.reply({
         content:
           " Hmm, I couldn't quite find the song you requested for; try playing another one!",
       });
@@ -69,7 +69,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       await player.deleteQueue(interaction.guildId);
 
       queue.destroy();
-      return interaction.channel.send({
+      return interaction.reply({
         content:
           "There was an error with your request, please trye again later!",
       });
@@ -79,8 +79,10 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       : queue.addTrack(searchResult.tracks[0]);
 
     if (!queue.playing) await queue.play();
-    await interaction.editReply({content:`Your song is playing now`}).then((a)=>{
-    })
+    
+    await interaction.deferReply();
+  //  await interaction.editReply({content:`Your song is playing now`})
+  
     
   }
 };

@@ -37,7 +37,7 @@ player.on("tracksAdd", (queue,tracks)=>{
 })*/
 player.on("trackAdd", (queue, track) => {
 
-  queue.metadata.send({ content: `  Searching 🔍 `})
+  queue.metadata.send({ content: ``})
     
 
 
