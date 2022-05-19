@@ -37,9 +37,11 @@ player.on("tracksAdd", (queue,tracks)=>{
 })*/
 player.on("trackAdd", (queue, track) => {
 
-  queue.metadata.send({ content: `  Searching 🔍 `}).then((a)=>{
-    setTimeout(() => a.delete(), 5000);
-      });
+  queue.metadata.send({ content: `  Searching 🔍 `})
+    
+
+
+  
 });
 
 player.on("botDisconnect", (queue) => {

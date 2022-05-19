@@ -43,7 +43,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 
     
     
-  setTimeout(async()=>{
+  await interaction.deferReply();
     const searchResult = await player.search(songSearch, {
       requestedBy: interaction.user,
     searchEngine: QueryType.AUTO,
@@ -60,6 +60,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       leaveOnStop: false,
       spotifyBridge: true,
     });
+
 
     try {
       if (!queue.connection)
@@ -78,5 +79,8 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       : queue.addTrack(searchResult.tracks[0]);
 
     if (!queue.playing) await queue.play();
-  },6000)}
+    await interaction.editReply({content:`Your song is playing now`}).then((a)=>{
+    })
+    
+  }
 };
