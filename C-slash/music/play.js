@@ -80,7 +80,7 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
 
     if (!queue.playing) await queue.play();
     
-    await interaction.deferReply();
+  
   //  await interaction.editReply({content:`Your song is playing now`})
   
     
