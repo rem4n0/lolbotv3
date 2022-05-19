@@ -42,13 +42,14 @@ app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
         userID: member.id
     }, {
         $set: {
-          "attch.background": rBody['background'],
-            info: rBody['biography'],
-            website: rBody['website'],
+          "attch.background": rBody['background']|| null,
+            info: rBody['biography']||null,
+            website: rBody['website']||null,
             "laschange.date": d.getFullYear(),
-            github: rBody['github'],
-            twitter: rBody['twitter'],
-            instagram: rBody['instagram']
+            github: rBody['github']||null,
+            twitter: rBody['twitter']||null,
+            instagram: rBody['instagram']||null,
+          "attch.color": rBody['color'>
         }
     }, {
         upsert: true
