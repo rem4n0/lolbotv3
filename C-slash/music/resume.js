@@ -18,7 +18,7 @@ if(!interaction.member.voice.channel){ return interaction.reply({content:`You ca
 
 const queue = player.getQueue(interaction.guild.id);
 
-        if (!queue) return interaction.reply(`No music currently playing ${... try again ? ❌`);
+        if (!queue) return interaction.reply(`No music currently playing ... try again ? ❌`);
 
         const success = queue.setPaused(false);
 
