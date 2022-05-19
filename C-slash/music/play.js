@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const { QueryType } = require("discord-player");
 const player = require("../../handler/player");
-
+const wait = require('node:timers/promises').setTimeout;
 const talkedRecently = new Set();
 module.exports = {
   name: "play",
@@ -41,6 +41,9 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       });
 
 
+    
+    
+  setTimeout(async()=>{
     const searchResult = await player.search(songSearch, {
       requestedBy: interaction.user,
     searchEngine: QueryType.AUTO,
@@ -75,5 +78,5 @@ if (interaction.member.voice.userLimit != 0 && interaction.member.voice.full)
       : queue.addTrack(searchResult.tracks[0]);
 
     if (!queue.playing) await queue.play();
-  },
+  },6000)}
 };
