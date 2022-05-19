@@ -72,8 +72,8 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
  app.use(
     "/js",
     express.static(path.resolve(`${templateDir}${path.sep}public/js`))
-  );
-  
+  )
+  console.log(express.static(path.resolve(`${templateDir}${path.sep}
   passport.serializeUser((user, done) => done(null, user));
   passport.deserializeUser((obj, done) => done(null, obj));
 
