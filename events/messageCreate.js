@@ -86,10 +86,12 @@ if(!Mute){
         .slice(guild.prefix.length)
         .trim()
         .split(/ +/g);
-      const cmd = argsr.shift().toLowerCase();
+      
+      const cmd =   argsr.shift().toLowerCase();
       if (cmd.length === 0) return;
       let command = bot.commands.get(cmd);
-      if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+      
+      if (!command) command = bot.commands.get( bot.aliases.get(cmd));
       if (!command) return;
       if (command.prime) {
         let data = await Prime.findOne({ Guild: message.guild.id });
