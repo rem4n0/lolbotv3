@@ -1,11 +1,14 @@
 {
-  "token": "OTI4Nzg2MzI2NDAzMzEzNzY1.Ydd1rA.LcA7KuisGxHQzzjdU4af_Oqlw5g",
-  "clientID": "928786326403313765",
-  "secret": "Okt3BhgMqHXTI8R0PJxaCUbhJKoLZ_uH",
-  "callback": "https://ambiguous-fish-pine.glitch.me/callback",
+  "token":"OTIwNDEwMzU2MDM0MTc5MDgy.Ybj88Q.-YMkIRFlAK-XmahKa5Bx-S6qfFs",
+  "clientID": "920410356034179082",
+  "secret":"b7BSLv8pmXaJGJ5UrMYxezWFZ9S-bpMs",
+  "callback":"https://boboworld.tk/callback",
   "prefix": "Bo",
-  "serverid": "939212559356145736",
-  "owners": ["768944616724103170", "916405474759430176"],
+
+  "serverid":"709572220506341536",
+
+  "owners":["768944616724103170","916405474759430176"],
+
   "server": {
     "role": {
       "partnerRole": "941441088235929641",
@@ -16,18 +19,22 @@
   "music":{
     "maxV":"100"
   },
-  "invitelink": "https://discord.com/api/oauth2/authorize?client_id=928786326403313765&permissions=8&redirect_uri=https%3A%2F%2Fquill-abounding-juniper.glitch.me%2Fcallback&response_type=code&scope=identify%20guilds%20guilds.join%20bot",
-  "mongoURL": "mongodb+srv://testbobo:hama1234+@cluster0.cizb6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  "channels": {
-    "webstatus": "939212559884623913",
-    "logChannel": "927472619123523594",
-    "debug": "930818872209207368"
-  },
-  "badge": {
-    "invite": "https://media.discordapp.net/attachments/934034173780455454/934036587673698354/images.jpeg",
-    "game": "",
-    "lover": "https://media.discordapp.net/attachments/934034173780455454/934043059161792612/PicsArt_01-21-02.13.07.png"
-  },
+
+
+  "invitelink":"https://discord.com/api/oauth2/authorize?client_id=920410356034179082&permissions=1644971949559&scope=bot%20applications.commands",
+  "mongoURL": "mongodb+srv://bobk:bobo1234+@cluster0.8zckc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "channels":{
+    "webstatus":"962002703200956472",
+  "logChannel":"936779017854529608",
+  "debug":"936779554226335784"},
+
+
+
+  "badge":{  
+  "invite":"https://media.discordapp.net/attachments/934034173780455454/934036587673698354/images.jpeg",
+  "game":"",
+  "lover":"https://media.discordapp.net/attachments/934034173780455454/934043059161792612/PicsArt_01-21-02.13.07.png"
+  }
   "support": "https://discord.gg/CuF4yKM9K7",
   "embed": {
     "Color": "#00B7BE",
