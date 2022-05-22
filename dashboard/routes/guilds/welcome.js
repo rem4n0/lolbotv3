@@ -61,7 +61,7 @@ if(rbody["onoff"] === "true"){
       res.send({ success: true, message: "successfully" });
     }}
 
-    if (rbody["onoff"] === "false") {
+ /*   if (rbody["onoff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -77,8 +77,8 @@ if(rbody["onoff"] === "true"){
         { upsert: true }
       );
     
-    }
-    if (rbody["onoff"] === "true") {
+    }*/
+   
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
@@ -91,7 +91,7 @@ if(rbody["onoff"] === "true"){
       );
     }
     
-  }
+  
 );
 
 module.exports = app;
