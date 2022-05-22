@@ -20,13 +20,13 @@ if(maintenance && maintenance.toggle == "true") return;
   
 if(data){
   
-  if(data.plugins.logs.channelUpdate.enabled){
+  if(data.plugins.logs?.channelUpdate?.enabled){
   if(newChannel.type === "GUILD_CATEGORY") type = "Category";
   if(newChannel.type === "GUILD_TEXT") type = "Text Channel";
   if(newChannel.type === "GUILD_VOICE") type = "Voice Channel";
   
       let embed = new Discord.MessageEmbed()
-      .setColor(data.plugins.logs.channelUpdate.color)
+      .setColor(data.plugins.logs?.channelUpdate?.color)
       .setAuthor({name: guild.name, urlIcon: guild.iconURL()})
       .addField('Channel',`${ newChannel}`, true)
     .setFooter(`Channel ID: ${newChannel.id}`)
