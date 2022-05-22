@@ -35,23 +35,19 @@ app.post(
   async (req, res) => {
     const guild = bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
-    let h = rbody["onoff"] === "true";
-    console.log(h);
-  
+   
     let data = await Guild.findOne({ guildID: guild.id });
 
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
-      const url = rbody["URL"].match("https://imgur.com/") || null;
-   /// if(!rbody["URL"].match("https://imgur.com/")) return res.send({error: true, message:"You must enter a valid link."}) || null;
-      await Guild.findOneAndUpdate(
+       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome?.message": rbody["message"]|| null,
+            "plugins.welcome.message": rbody["message"]|| null,
             "plugins.welcome?.titile": rbody ["title"] ||null,
             "plugins.welcome?.welcomeImage": rbody["URL"],
 
-            "plugins.welcome?.channel": rbody["channel"]|| null,
+            "plugins.welcome.channel": rbody["channel"]|| null,
           },
         }
       );
@@ -60,36 +56,37 @@ app.post(
       res.send({ success: true, message: "successfully" });
     }
 
- /*   if (rbody["onoff"] === "false") {
+   if (rbody["onoff"] === "false") {
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome?.enabled": false,
-            "plugins.welcome?.message": null,
-            "plugins.welcome?.withImage": null,
-            "plugins.welcome?.channel": null,
-            "plugins.welcome?.title":null,
+            "plugins.welcome.enabled": false,
+            "plugins.welcome.message": null,
+            "plugins.welcome.withImage": null,
+            "plugins.welcome.channel": null,
+            "plugins.welcome.title":null,
             "plugins.welcome?.welcomeImage":null,
           },
         },
         { upsert: true }
       );
     
-    }*/
-   
+    }
+if (rbody["onoff"] === "true") {
+
       await Guild.findOneAndUpdate(
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome?.enabled": true,
-            "plugins.welcome?.withImage": rbody["withImg"] === "true",
+            "plugins.welcome.enabled": true,
+            "plugins.welcome.withImage": rbody["withImg"] === "true",
           },
         },
         { upsert: true }
       );
     }
-    
+    }
   
 );
 
