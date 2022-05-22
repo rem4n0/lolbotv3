@@ -1,7 +1,6 @@
 {
-"token":"OTIwNDEwMzU2MDM0MTc5MDgy.GPyf2l.OJK3yVpqE2mbruu0ZcTrWULbdi_dR0Axysbchc",
-
-    "clientID": "920410356034179082",
+"token":"OTIwNDEwMzU2MDM0MTc5MDgy.G8WBjb.FiMZpev5sBD57dss3mVy2b3fUd13TQwEvD1k4w",
+  "clientID": "920410356034179082",
   "secret":"b7BSLv8pmXaJGJ5UrMYxezWFZ9S-bpMs",
   "callback":"https://boboworld.tk/callback",
   "prefix": "Bo",
@@ -27,13 +26,14 @@
   "channels":{
     "webstatus":"962002703200956472",
   "logChannel":"936779017854529608",
-  "debug":"936779554226335784"},
+  "debug":"936779554226335784"
+},
 
 
 
   "badge":{  
   "invite":"https://media.discordapp.net/attachments/934034173780455454/934036587673698354/images.jpeg",
-  "game":"",
+  "game":"xxxxxxxxxxx",
   "lover":"https://media.discordapp.net/attachments/934034173780455454/934043059161792612/PicsArt_01-21-02.13.07.png"
   }
   "support": "https://discord.gg/CuF4yKM9K7",
