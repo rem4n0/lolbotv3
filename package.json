@@ -63,8 +63,8 @@
     "btoa": "^1.2.1",
     "socket.io": "^4.5.1",
     "typed.js": "^2.0.12",
-    "discord-player": "^5.2.2",
-    "ytdl-core": "^4.11.0"
+    "discord-player": "^5.2.2"
+    
   },
   "engines": {
     "node": "16.x"
