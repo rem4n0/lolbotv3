@@ -1,5 +1,6 @@
+
 {
-"token":"OTIwNDEwMzU2MDM0MTc5MDgy.G8WBjb.FiMZpev5sBD57dss3mVy2b3fUd13TQwEvD1k4w",
+  "token":"OTIwNDEwMzU2MDM0MTc5MDgy.G8WBjb.FiMZpev5sBD57dss3mVy2b3fUd13TQwEvD1k4w",
   "clientID": "920410356034179082",
   "secret":"b7BSLv8pmXaJGJ5UrMYxezWFZ9S-bpMs",
   "callback":"https://boboworld.tk/callback",
@@ -9,49 +10,39 @@
 
   "owners":["768944616724103170","916405474759430176"],
 
-  "server": {
-    "role": {
-      "partnerRole": "941441088235929641",
-      "administrator": "956311291365052468",
-      "moderator": "956311291365052468"
-    }
-  },
-  "music":{
-    "maxV":"100"
-  },
-
+  "server":{
+    "role":{
+      "partnerRole":"847495633283842048",
+      "administrator":"847495627788255312",
+      "moderator":"847495628619644970"
+    }},
 
   "invitelink":"https://discord.com/api/oauth2/authorize?client_id=920410356034179082&permissions=1644971949559&scope=bot%20applications.commands",
   "mongoURL": "mongodb+srv://bobk:bobo1234+@cluster0.8zckc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "channels":{
     "webstatus":"962002703200956472",
   "logChannel":"936779017854529608",
-  "debug":"936779554226335784"
-},
-
-
-
+  "debug":"936779554226335784"},
   "badge":{  
   "invite":"https://media.discordapp.net/attachments/934034173780455454/934036587673698354/images.jpeg",
-  "game":"xxxxxxxxxxx",
+  "game":"",
   "lover":"https://media.discordapp.net/attachments/934034173780455454/934043059161792612/PicsArt_01-21-02.13.07.png"
   }
-  "support": "https://discord.gg/CuF4yKM9K7",
-  "embed": {
-    "Color": "#00B7BE",
-    "footer": "BoBo Team"
-  },
-  "webhook": {
-    "id2": "963051278097866844",
-    "token2":"iEX5P8B9fIg3pf_vXW05c2HTJ4kYoyfrvTXIrgllcSogB8SVQLJsuPIuTmZLGuL4mQ6p",
-    "id": "898151785783508993",
-    "token": "pNBxD74wVmXvUTdgG5KmEEA_lfrXxorLOZzA96KJ9EY6FDqJd0fOPUrlfPNEXjOI0ag3"
-  },
-
-  "img": {
-    "blue": "https://imgur.com/wgljRvr.png",
-    "mor": "https://imgur.com/wH8wcgv.png",
-    "bainjani": "https://imgur.com/StTO12l.png",
-    "prtaqali": "https://imgur.com/MZzt9zF.png"
+,
+  "support":"https://discord.gg/rjhPpahNNR",
+  "embed":{
+  "Color":"#00B7BE",
+  "footer":"BoBo Team"},
+  "webhook":{
+  "id":"898151785783508993",
+  "token":"pNBxD74wVmXvUTdgG5KmEEA_lfrXxorLOZzA96KJ9EY6FDqJd0fOPUrlfPNEXjOI0ag3"
+  } ,
+  
+  "img":{
+    
+    "blue":"https://imgur.com/wgljRvr.png",
+    "mor":"https://imgur.com/wH8wcgv.png",
+    "bainjani":"https://imgur.com/StTO12l.png",
+    "prtaqali":"https://imgur.com/MZzt9zF.png"
   }
 }
