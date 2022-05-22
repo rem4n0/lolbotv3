@@ -128,13 +128,13 @@
              <div class= "form-group d-flex">
                <label> <h4>Channel</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelCreate.enabled){%>
+                 <% if(data.plugins.logs?.channelCreate?.enabled){%>
                   
                    <input class="form-check-input channelCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelCreate.color){%>
+                <% if(data.plugins.logs?.channelCreate?.color){%>
 
                      <label for="pickcolor" class="colorpicker"></label>
-                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs.channelCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color channelCreatecolor" value="<%= data.plugins.logs?.channelCreate?.color%>">
                       <% } else{ %>
                         <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelCreatecolor" id="colorpicker">
@@ -167,13 +167,13 @@
              <div class= "form-group d-flex">
                <label> <h4>Channel Delete</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelDelete.enabled){%>
+                 <% if(data.plugins.logs?.channelDelete?.enabled){%>
                   
                    <input class="form-check-input channelDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelDelete.color){%>
+                <% if(data.plugins.logs?.channelDelete?.color){%>
 
                      <label for="pickcolor"class="colorpicker"></label>
-                     <input type="color" id="colorpicker" class="form-color channelDeletecolor" value="<%= data.plugins.logs.channelDelete.color%>">
+                     <input type="color" id="colorpicker" class="form-color channelDeletecolor" value="<%= data.plugins.logs?.channelDelete?.color%>">
                       <% } else{ %>
                         <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelDeletecolor" id="colorpicker">
@@ -215,13 +215,13 @@
              <div class= "form-group d-flex">
                <label> <h4>Channel Update</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.channelUpdate.enabled){%>
+                 <% if(data.plugins.logs?.channelUpdate?.enabled){%>
                   
                    <input class="form-check-input channelUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.channelUpdate.color){%>
+                <% if(data.plugins.logs?.channelUpdate?.color){%>
 
                      <label for="pickcolor"class="colorpicker"></label>
-                     <input type="color" id="colorpicker" class="form-color channelUpdatecolor" value="<%= data.plugins.logs.channelUpdate.color%>">
+                     <input type="color" id="colorpicker" class="form-color channelUpdatecolor" value="<%= data.plugins.logs?.channelUpdate?.color%>">
                       <% } else{ %>
                         <label for="pickcolor"class="colorpicker"></lable>
                         <input type="color" class="form-color channelUpdatecolor" id="colorpicker">
@@ -256,13 +256,13 @@
        <div class= "form-group d-flex">
                <label> <h4>Role Create</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleCreate.enabled){%>
+                 <% if(data.plugins.logs?.roleCreate?.enabled){%>
                   
                    <input class="form-check-input roleCreateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.roleCreate.color){%>
+                <% if(data.plugins.logs?.roleCreate?.color){%>
 <br>
                      <label for="pickcolor"class="colorpicker"></label>
-                     <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs.roleCreate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleCreatecolor" value="<%= data.plugins.logs?.roleCreate?.color%>">
                       <% } else{ %>
                         <br>
                         <label for="pickcolor"class="colorpicker"></lable>
@@ -296,13 +296,13 @@
        <div class= "form-group d-flex">
                <label> <h4>Role Delete</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleDelete.enabled){%>
+                 <% if(data.plugins.logs?.roleDelete?.enabled){%>
                   <br>
                    <input class="form-check-input roleDeleteonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
-                <% if(data.plugins.logs.roleDelete.color){%>
+                <% if(data.plugins.logs?.roleDelete?.color){%>
 
                      <label for="pickcolor"class="colorpicker"></label>
-                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs.roleDelete.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleDeletecolor" value="<%= data.plugins.logs?.roleDelete?.color%>">
                       <% } else{ %>
                         <br>
                         <label for="pickcolor"class="colorpicker"></lable>
@@ -337,13 +337,13 @@
              <div class= "form-group d-flex">
                <label><h4>Role Update</h4></label>
                <div class="form-check form-switch">
-                 <% if(data.plugins.logs.roleUpdate.enabled){%>
+                 <% if(data.plugins.logs?.roleUpdate?.enabled){%>
                   
                    <input class="form-check-input roleUpdateonoff" type="checkbox" id="flexSwitchCheckChecked"checked>
                 <% if(data.plugins.logs.roleUpdate.color){%>
 
                      <label for="pickcolor"></label>
-                     <input type="color" id="colorpicker" class="form-color roleUpdatecolor" value="<%= data.plugins.logs.roleUpdate.color%>">
+                     <input type="color" id="colorpicker" class="form-color roleUpdatecolor" value="<%= data.plugins.logs?.roleUpdate?.color%>">
                       <% } else{ %>
                         <label for="pickcolor"></lable>
                         <input type="color" class="form-color roleUpdatecolor" id="colorpicker">
