@@ -1,6 +1,14 @@
 const Discord = require("discord.js")
 const { SlashCommandBuilder } = require("@discordjs/builders");
-
+function intToString (value) {
+    var suffixes = ["", "K", "M", "B","T"];
+    var suffixNum = Math.floor((""+value).length/3);
+    var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+    if (shortValue % 1 != 0) {
+        shortValue = shortValue.toFixed(1);
+    }
+    return shortValue+suffixes[suffixNum];
+}
 module.exports = {
   
 name:"about",
@@ -18,10 +26,10 @@ prime: false,
     
     let embed = new Discord.MessageEmbed()
         .setTitle(`${bot.user.username} Information`)
-        .setDescription(`This bot has been created by **<@768944616724103170>**`)
+        .setDescription(`This bot created by BoBo Team`)
         .setColor(config.embed.Color)
         .setThumbnail(bot.user.displayAvatarURL())
-    .addField(`**users**:`,`${bot.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0) }`)
+    .addField(`**users**:`,intToString(`${bot.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0) }`))
         .addField(`**Bot Name:**`, `${bot.user.tag}`)
         .addField(`**Bot ID**`, `${bot.user.id}`)
         .addField(`**Bot Prefix**`, `${data.guild.prefix}`)
