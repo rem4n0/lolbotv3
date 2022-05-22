@@ -31,7 +31,7 @@ try {
     if (guildData) {
       if (guildData.plugins.logs?.channelCreate?.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guildData.plugins.logs.channelCreate.channel
+          guildData.plugins?.logs?.channelCreate.channel
         );
         if (channelEmbed) {
           let color = config.embed.Color;
