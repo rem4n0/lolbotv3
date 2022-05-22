@@ -34,7 +34,7 @@ try {
     if (guildData) {
       if (guildData.plugins.logs?.channelDelete?.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
-          guildData.plugins.logs.channelDelete.channel
+          guildData.plugins?.logs?.channelDelete.channel
         );
         if (channelEmbed) {
           let color = config.embed.Color;
