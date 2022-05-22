@@ -9,7 +9,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Routes } = require("discord-api-types/v9");
 
 const rest = new REST({ version: "9" }).setToken(config.token);
-const guild = "939212559356145736";
+const guild = "";
 module.exports = async (bot) => {
   //////resting slash command
   const commands = [];
