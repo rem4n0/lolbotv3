@@ -48,11 +48,11 @@ if(rbody["onoff"] === "true"){
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome.message": rbody["message"]|| null,
-            "plugins.welcome.titile": rbody ["title"] ||null,
-            "plugins.welcome.welcomeImage": rbody["URL"],
+            "plugins.welcome?.message": rbody["message"]|| null,
+            "plugins.welcome?.titile": rbody ["title"] ||null,
+            "plugins.welcome?.welcomeImage": rbody["URL"],
 
-            "plugins.welcome.channel": rbody["channel"]|| null,
+            "plugins.welcome?.channel": rbody["channel"]|| null,
           },
         }
       );
@@ -66,12 +66,12 @@ if(rbody["onoff"] === "true"){
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome.enabled": false,
-            "plugins.welcome.message": null,
-            "plugins.welcome.withImage": null,
-            "plugins.welcome.channel": null,
-            "plugins.welcome.title":null,
-            "plugins.welcome.welcomeImage":null,
+            "plugins.welcome?.enabled": false,
+            "plugins.welcome?.message": null,
+            "plugins.welcome?.withImage": null,
+            "plugins.welcome?.channel": null,
+            "plugins.welcome?.title":null,
+            "plugins.welcome?.welcomeImage":null,
           },
         },
         { upsert: true }
@@ -83,8 +83,8 @@ if(rbody["onoff"] === "true"){
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome.enabled": true,
-            "plugins.welcome.withImage": rbody["withImg"] === "true",
+            "plugins.welcome?.enabled": true,
+            "plugins.welcome?.withImage": rbody["withImg"] === "true",
           },
         },
         { upsert: true }
