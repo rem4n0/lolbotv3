@@ -4,14 +4,14 @@ module.exports = class  {
 async run( newRole,oldRole){
   const { guild } =newRole
   console.log(oldRole.permissions)
-  if(!guild.me.permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+  if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
 
 
   try {
   let data = await Guild.findOne({guildID: newRole.guild.id})
-    const logChannel = newRole.guild.channels.cache.get(data.plugins.logs.roleUpdate.channel);
+    const logChannel = newRole.guild.channels.cache.get(data.plugins.logs?.roleUpdate?.channel);
     if (!logChannel) return;
-  if(!data.plugins.logs.roleUpdate.enabled)
+  if(!data.plugins.logs?.roleUpdate?.enabled)
   return;
                     
     const allLogs = await newRole.guild.fetchAuditLogs({ type: "ROLE_UPDATE" });
