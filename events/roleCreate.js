@@ -30,9 +30,9 @@ try {
     if (!guild.plugins.logs.enabled) return;
 
     if (guild) {
-      if (guild.plugins.logs.roleCreate.channel) {
+      if (guild.plugins.logs?.roleCreate?.channel) {
         const channelEmbed = await role.guild.channels.cache.get(
-          guild.plugins.logs.roleCreate.channel
+          guild.plugins.logs?.roleCreate?.channel
         );
 
         if (channelEmbed) {
