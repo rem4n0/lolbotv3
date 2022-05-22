@@ -39,8 +39,7 @@ app.post(
     console.log(h);
   
     let data = await Guild.findOne({ guildID: guild.id });
-if(rbody["onoff"] === "true"){
-  
+
     if (Object.prototype.hasOwnProperty.call(rbody, "channel")) {
       const url = rbody["URL"].match("https://imgur.com/") || null;
    /// if(!rbody["URL"].match("https://imgur.com/")) return res.send({error: true, message:"You must enter a valid link."}) || null;
@@ -59,7 +58,7 @@ if(rbody["onoff"] === "true"){
       //if(String(!rbody["message"])){ await Guild.findOneAndUpdate({guildID: req.params.guildID},{ $set:{ "plugins.welcome.message":null}},{upsert:true})}
 
       res.send({ success: true, message: "successfully" });
-    }}
+    }
 
  /*   if (rbody["onoff"] === "false") {
       await Guild.findOneAndUpdate(
