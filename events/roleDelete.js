@@ -9,7 +9,7 @@ module.exports = class {
   async run(role, message) {
     if (!role) return;
     const { guild} = role
-if(!guild.me. permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+if(!guild.me. permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
 try {
     const entry1 = await guild
       .fetchAuditLogs({ type: "ROLE_DELETE" })
@@ -26,12 +26,12 @@ try {
 
     if (cooldown.has(role.guild.id)) return;
 
-    if (!guild.plugins.logs.roleDelete.enabled) return;
+    if (!guild.plugins.logs?.roleDelete?.enabled) return;
 
     if (guild) {
       if (guild.plugins.logs.channel) {
         const channelEmbed = await role.guild.channels.cache.get(
-          guild.plugins.logs.roleDelete.channel
+          guild.plugins.logs?.roleDelete?.channel
         );
 
         if (channelEmbed) {
@@ -46,7 +46,7 @@ try {
             )
             .setTimestamp()
             .setFooter({ text: role.guild.name })
-            .setColor(guild.plugins.logs.roleDelete.color);
+            .setColor(guild.plugins.logs?.roleDelete?.color);
 
           if (
             channelEmbed &&
