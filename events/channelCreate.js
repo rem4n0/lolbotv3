@@ -8,7 +8,7 @@ const cooldown = new Set();
 module.exports = class {
   async run(message) {
     const { guild } = message;
-    if(!guild.me.permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+    if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
 try {
     const entry1 = await guild
       .fetchAuditLogs({ type: "CHANNEL_CREATE" })
@@ -24,12 +24,12 @@ try {
     if (maintenance && maintenance.toggle == "true") return;
 
     if (cooldown.has(message.guild.id)) return;
-    if (!guildData.plugins.logs.channelCreate.enabled) return;
+    if (!guildData.plugins.logs?.channelCreate?.enabled) return;
 
     /// if (message.name.indexOf("Room") >= 0) return;
 
     if (guildData) {
-      if (guildData.plugins.logs.channelCreate.channel) {
+      if (guildData.plugins.logs?.channelCreate?.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
           guildData.plugins.logs.channelCreate.channel
         );
