@@ -6,7 +6,7 @@ let Discord = require("discord.js");
 module.exports = class{
   async run(oldChannel,newChannel){
     const {guild} = oldChannel
-  
+  if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
 let data = await Guild.findOne({guildID: guild.id})
 const channelEmbed = await guild.channels.cache.get(data.plugins.logs.channel)
 
