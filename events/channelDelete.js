@@ -8,7 +8,7 @@ const cooldown = new Set();
 module.exports = class {
   async run(message) {
     const { guild } = message;
-    if(!guild.me. permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+    if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
     
     
     
@@ -27,11 +27,11 @@ try {
     if (maintenance && maintenance.toggle == "true") return;
 
     if (cooldown.has(message.guild.id)) return;
-    if (!guildData.plugins.logs.channelDelete.enabled) return;
+    if (!guildData.plugins.logs?.channelDelete?.enabled) return;
 
     
     if (guildData) {
-      if (guildData.plugins.logs.channelDelete.channel) {
+      if (guildData.plugins.logs?.channelDelete?.channel) {
         const channelEmbed = await message.guild.channels.cache.get(
           guildData.plugins.logs.channelDelete.channel
         );
