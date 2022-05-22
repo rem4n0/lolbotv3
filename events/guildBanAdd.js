@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 module.exports = class {
   async run(ban,bot) {
+if(!ban.guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNEL"])) return;
     let data = await Guild.findOne({ guildID: ban.guild.id });
     const entry1 = await ban.guild
       .fetchAuditLogs({
