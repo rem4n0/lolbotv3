@@ -3,8 +3,10 @@ const player = require("../../handler/player.js");
 module.exports = {
 
 name:"stop",
+aliases: ["stop"],
+  usage: ["Bostop"],
   description:"stop song",
-
+category: "music",
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
