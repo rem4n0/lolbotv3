@@ -67,7 +67,7 @@ let welcomeimg = guildData.plugins.welcome?.welcomeImage
           .replace(/{membercount}/g, member.guild.memberCount);
     
         
-          if (guildData.plugins?.welcome.withImage && guildData.plugins?.welcome?.welcomeImage.endsWith(["png"||"jpg"])||null) {
+          if (guildData.plugins?.welcome?.withImage) {
     
             // Backgroundimage
             const background = await Canvas.loadImage(
