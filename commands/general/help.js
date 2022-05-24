@@ -3,7 +3,7 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   enabled: true,            
-  memberPermissions: [ "ADMINISTRATOR" ],            
+  memberPermissions: [ "SEND_MESSAGES" ],            
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],        
   ownerOnly: false,            
   cooldown: 10000,
