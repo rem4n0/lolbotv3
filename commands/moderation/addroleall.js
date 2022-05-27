@@ -11,7 +11,7 @@ module.exports = {
   enabled:true,
   ownerOnly: false,
   cooldown: 6000,
-  botPermissions: ["MANAGE_ROLES","SEND_MESSAGES","EMBED_LINKS"],
+  botPermissions: ["MANAGE_ROLES"],
   memberPermissions: ["MANAGE_ROLES"],
   run: async (client, message, args) => {
     const role =
