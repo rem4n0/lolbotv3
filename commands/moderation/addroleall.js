@@ -11,8 +11,8 @@ module.exports = {
   enabled:true,
   ownerOnly: false,
   cooldown: 6000,
-  botPermissions: ["MANAGE_ROLES"],
-  memberPermissions: ["MANAGE_ROLES"],
+  botPermissions: ["MANAGE_ROLES","SEND_MESSAGES","EMBED_LINKS"],
+  memberPermissions: ["MANAGE_ROLES","SEND_MESSAGES"],
   run: async (client, message, args) => {
     const role =
       message.guild.roles.cache.find(
