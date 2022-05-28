@@ -17,7 +17,7 @@
           <tbody>
             <tr>
             <th><%= r.name%></th>
-            <th><%= h.tag%></th>
+            <th><%= h?.tag || h?.username %></th>
                 <th><%= r.memberCount%></th>
             </tr>
                 </tbody>
