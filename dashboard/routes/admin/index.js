@@ -24,4 +24,19 @@ app.get("/admin", global.checkAuth, async (req, res) => {
       
         siteD: siteD
     })
-});module.exports = app;
+});
+
+app.get("/admin/guildsin", global.checkAuth,async(req,res)=>{
+  
+  res.render("admin/guildsin.ejs",{
+    bot:bot,
+   // guilds:guilds,
+    req:req,
+    user:req.isAuthenticated() ? req.user:null,
+  })
+
+})
+
+
+
+module.exports = app;
