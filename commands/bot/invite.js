@@ -12,7 +12,7 @@ module.exports = {
   cooldown: 3000,
   run: async (bot, message, args, dev) => {
     let embed = new Discord.MessageEmbed()
-      .setColor(Color)
+      .setColor(config.embed.Color)
       .setTitle("**Bobo Bot**  InviteLink!")
       .setURL(
         `https://discord.com/api/oauth2/authorize?client_id=${bot.user.id}&permissions=260383435985&scope=bot%20applications.commands`
