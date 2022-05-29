@@ -50,17 +50,17 @@ let welcomeimg = guildData.plugins.welcome?.welcomeImage
 
     // Check if the autorole is enabled
     if (!guildData) return;
-    if (guildData.plugins?.autorole.enabled) {
+    if (guildData?.plugins?.autorole.enabled) {
       member.roles.add(guildData.plugins?.autorole.role).catch(() => {});
     }
 
     // Check if welcome message is enabled
-    if (guildData.plugins?.welcome.enabled) {
+    if (guildData?.plugins?.welcome.enabled) {
       const channel = member.guild.channels.cache.get(
-        guildData.plugins?.welcome.channel
+        guildData?.plugins?.welcome.channel
       );
       if (channel) {
-        const message = guildData.plugins?.welcome.message
+        const message = guildData?.plugins?.welcome.message
           .replace(/{user}/g, member)
           .replace(/{userName}/g, member.username)
           .replace(/{server}/g, member.guild.name)
@@ -71,7 +71,7 @@ let welcomeimg = guildData.plugins.welcome?.welcomeImage
     
             // Backgroundimage
             const background = await Canvas.loadImage(
-            guildData.plugins?.welcome?.welcomeImage || "https://imgur.com/Aa0j1pA.png"
+            guildData?.plugins?.welcome?.welcomeImage || "https://imgur.com/Aa0j1pA.png"
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
