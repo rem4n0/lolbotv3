@@ -32,7 +32,7 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
-let welcomeimg = guildData.plugins.welcome?.welcomeImage
+let welcomeimg = guildData?.plugins?.welcome?.welcomeImage
 
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
