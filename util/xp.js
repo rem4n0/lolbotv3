@@ -2,7 +2,7 @@
 async function xp(message, bot, guild, user) {
   /// let guild = await Guild.findOne({guildID: message.guild.id})
 
-  if (!guild.xp.onoff) return;
+  if (!guild?.xp?.onoff) return;
 
   let res =
     (await User.findOne({ userID: message.author.id })) ||
