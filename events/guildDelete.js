@@ -6,7 +6,7 @@ module.exports = class {
 	async run (guild,bot, message) {
     const channel = await bot.channels.cache.get(config.joinchannel);
     const owner = await guild.members.cache.get(guild.ownerId)
-    console.log(owner)
+    
  ////   const invite = await guild.invites.create(guild.channels.cache.firstKey())
     const embed = new Discord.MessageEmbed()
     .setAuthor({name: guild.name})
