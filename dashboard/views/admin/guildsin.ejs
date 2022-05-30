@@ -11,14 +11,16 @@
           <th>name</th>
           <th>owner</th>
           <th>count</th>
+<th>Id</th>
           </tr>
         </thead>
   
           <tbody>
             <tr>
             <th><%= r.name%></th>
-            <th><%= h?.tag || h?.username %></th>
+            <th style="color:red"><%= h?.tag || h?.username %></th>
                 <th><%= r.memberCount%></th>
+<th><%=r.id%></the>
             </tr>
                 </tbody>
       </table>
