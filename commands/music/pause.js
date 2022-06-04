@@ -12,7 +12,7 @@ module.exports = {
   cooldown: 6000,
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
-  run: async (client, message, args) => {
+  run: async ( message) => {
 if(!message.member.voice.channel){ return message.reply({content:`You cant pause songs `})}
         const queue = player.getQueue(message.guild.id);
 
