@@ -14,7 +14,7 @@ module.exports = {
   cooldown: 6000,
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
-  run: async ( message, args) => {
+  run: async(client, message, args) => {
 
 
     const songSearch = args.slice(1).join("");
