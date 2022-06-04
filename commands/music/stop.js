@@ -16,7 +16,7 @@ category: "music",
   cooldown: 10000,
 prime: false,
   run: async (message,bot,data) => {
-if(!message.member.voice.channel){ return message.reply({content:`You can't stop songs`})}
+if(!message.member?.voice?.channel){ return message.reply({content:`You can't stop songs`})}
     
     const queue = player.getQueue(message.guild.id);
     queue.stop()
