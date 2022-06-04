@@ -16,7 +16,7 @@ module.exports = {
   cooldown: 6000,
   botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
   memberPermissions: ["SEND_MESSAGES"],
-  run: async (client, message, args) => {
+  run: async (message, args) => {
 
 
     const queue = player.getQueue(message.guildId);
