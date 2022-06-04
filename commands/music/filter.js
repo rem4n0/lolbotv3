@@ -13,7 +13,7 @@ module.exports = {
     botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     ownerOnly: false,
     cooldown: 6000,
-  run: async (bot, message, args, dev) => {
+  run: async (message) => {
     const queue = player.getQueue(message.guild.id);
     if(!message.member.voice.channel){ return message.reply({content:`You cant use filter`})}
 if (!queue || !queue.playing) return message.channel.send({content:`No music currently playing ${message.author}... try again ? ❌`});
