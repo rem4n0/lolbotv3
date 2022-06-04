@@ -13,7 +13,7 @@ module.exports = class {
     .setDescription("**Join Guild**")
    .addFields({ name: "GUILD MEMBER COUNT", value: `${guild.memberCount}`},
                
-               {name: "GUILD OWENR NAME", value:`${owner.user.tag}`},
+               {name: "GUILD OWENR NAME", value:`${owner?.user?.tag}`},
               )
      setTimeout(async()=>{
     await channel.send({embeds:[embed]})
