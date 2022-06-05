@@ -7,8 +7,7 @@ const bot =( global.bot =new Client({
     "GUILD_MESSAGES",
     "GUILD_BANS",
     "GUILD_VOICE_STATES",
-    "GUILD_INVITES",
-    "GUILD_PRESENCES"
+    "GUILD_INVITES"
   ],
   allowedMentions: {
     parse: ["everyone", "roles", "users"],
