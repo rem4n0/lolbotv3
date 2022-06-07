@@ -64,6 +64,11 @@ module.exports = async (bot) => {
   const templateDir = path.resolve(
     `${process.cwd()}${path.sep}dashboard/views`
   );
+
+app.use(
+    "/img",
+    express.static(path.resolve(`${templateDir}${path.sep}public/img`))
+  );
   app.use(
     "/css",
     express.static(path.resolve(`${templateDir}${path.sep}public/css`))
