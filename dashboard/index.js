@@ -94,7 +94,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
 
     async  (accessToken, refreshToken, profile, done) => {
         process.nextTick(() => done(null, profile));
-      /*
+      
       const { id, username, discriminator, avatar, guilds } = profile;
      ///   console.log(id, username, discriminator, avatar, guilds);
        
@@ -123,7 +123,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
         
         
   
-   // console.log(profile);*/
+  
       }
     )
   );
