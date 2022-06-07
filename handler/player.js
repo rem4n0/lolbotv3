@@ -60,7 +60,7 @@ player.on("channelEmpty", (queue) => {
 player.on("queueEnd", (queue) => {
 
   queue.metadata.send({ content:` Party is over , I've completed every songs that was in the queue! I've left the following voice channel, although you can always add me back` });
-  queue.destroy(true);
+  queue.destroy(false);
 })
 player.on("connectionError",(queue,error)=>{
   queue.metadata.send({content: ` I have error from connection error:\`\`${error.name}\`\``})
