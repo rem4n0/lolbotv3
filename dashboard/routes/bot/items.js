@@ -18,7 +18,7 @@ if(maintenance && maintenance.toggle == "true") {
 
 
     
-    //const user = bot.users.cache.get(req.user.id);
+    const user = await bot.users.cache.get(req.user.id);
     let data = await User.findOne({ userID: user.id});
     res.render("./bot/items.ejs", {
       config: config,
