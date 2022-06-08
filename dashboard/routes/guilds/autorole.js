@@ -18,9 +18,9 @@ if(maintenance && maintenance.toggle == "true") {
 
 
     
-    const guild = bot.guilds.cache.get(req.params.guildID);
+    const guild = await bot.guilds.cache.get(req.params.guildID);
     let data = await Guild.findOne({ guildID: guild.id });
-    const user = guild.members.fetch(req.user.id);
+    const user = await guild.members.fetch(req.user.id);
     if (!user.permissions.has("MANAGE_GUILD")) {
       res.send("You can't access to this page");
     }
@@ -39,7 +39,7 @@ app.post(
   "/dashboard/guild/:guildID/autorole",
   global.checkAuth,
   async (req, res) => {
-    const guild = bot.guilds.cache.get(req.params.guildID);
+    const guild = await bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
     let data = await Guild.findOne({ guildID: guild.id });
 let h = rbody["onoff"] === "true";
