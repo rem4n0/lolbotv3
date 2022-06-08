@@ -20,7 +20,7 @@ if(maintenance && maintenance.toggle == "true") {
   
   const id = market.find((x) => x.id == req.params.id);
 
-  const user = bot.users.cache.get(req.user.id);
+  const user = bot.users.fetch(req.user.id);
   let data = await User.findOne({ userID: user.id });
   res.render("./bot/buyitem.ejs", {
     id: id,
@@ -39,7 +39,7 @@ app.post("/item/:id", global.checkAuth, async (req, res) => {
   const id = market.find((x) => x.id == req.params.id);
   let rbody = req.body;
 
-  let user = bot.users.cache.get(req.user.id);
+  let user = bot.users.fetch(req.user.id);
   let data = await User.findOne({ userID: user.id });
 
   let amt;
