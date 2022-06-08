@@ -13,8 +13,8 @@ app.get(
       return res.render(res, req, "maintenance.ejs");
     }
 
-    const guild = bot.guilds.cache.get(req.params.guildID);
-    const user = guild.members.fetch(req.user.id);
+    const guild = await bot.guilds.cache.get(req.params.guildID);
+    const user = await guild.members.fetch(req.user.id);
     if (!user.permissions.has("MANAGE_GUILD")) {
       res.send(`YOU CAN'T ACCESS`);
     }
