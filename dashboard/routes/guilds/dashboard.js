@@ -17,7 +17,7 @@ if(maintenance && maintenance.toggle == "true") {
 }
 
 
-    const guild = bot.guilds.fetch(req.params.guildID).then(async (a) => {
+    const guild = await bot.guilds.fetch(req.params.guildID).then(async (a) => {
       let data = await Guild.findOne({ guildID: a.id });
 
       const join1 = [];
