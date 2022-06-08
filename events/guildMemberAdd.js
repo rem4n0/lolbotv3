@@ -13,7 +13,7 @@ const applyText = (canvas, text, defaultFontSize) => {
   return ctx.font;
 };
 const canvas = Canvas.createCanvas(1024, 450);
-console.log(canvas.width)
+
 const ctx = canvas.getContext("2d");
 module.exports = class {
   async run(member, bot, message) {
