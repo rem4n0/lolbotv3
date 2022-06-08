@@ -24,7 +24,7 @@ if(maintenance && maintenance.toggle == "true") {
 
 
   
-  const member = bot.users.fetch(req.user.id).then(async (a)=>{
+  const member = await bot.users.fetch(req.user.id).then(async (a)=>{
   
   
   
