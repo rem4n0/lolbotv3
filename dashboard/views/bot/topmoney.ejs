@@ -8,18 +8,18 @@
     <div class="row">
     
         <% docs.slice(0,50).map((u,i) => {
-        const h = bot.users.cache.get(u.id);
+        const h = bot.users.fetch(u.id);
           const money = u.money
           const rank = String(i+1);%>
           <div class="top-section">
             <div class="user-img">
-              <img loading="lazy" onerror="imgError(this);" src=" https://cdn.discordapp.com/avatars/<%= h?.id%>/<%= h?.avatar%>.png">
+              <img loading="lazy" onerror="imgError(this);" src=" https://cdn.discordapp.com/avatars/<%= h.id%>/<%= h.avatar%>.png">
             </div>
             
         
         <div class="name">
       
-          <span><%= h?.tag%></span>
+          <span><%= h.tag%></span>
           
         </div>
           <div class="top-img">
