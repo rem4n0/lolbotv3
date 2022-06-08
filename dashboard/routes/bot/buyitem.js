@@ -20,7 +20,7 @@ if(maintenance && maintenance.toggle == "true") {
   
   const id = market.find((x) => x.id == req.params.id);
 
-  const user = bot.users.fetch(req.user.id);
+  const user = await bot.users.fetch(req.user.id);
   let data = await User.findOne({ userID: user.id });
   res.render("./bot/buyitem.ejs", {
     id: id,
