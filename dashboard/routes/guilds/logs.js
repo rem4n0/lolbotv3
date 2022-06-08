@@ -14,8 +14,8 @@ app.get(
     }
 
     const guild = bot.guilds.cache.get(req.params.guildID);
-    let user = guild.members.cache.get(req.user.id);
-    if (!user?.permissions.has("MANAGE_GUILD")) {
+    const user = guild.members.fetch(req.user.id);
+    if (!user.permissions.has("MANAGE_GUILD")) {
       res.send(`YOU CAN'T ACCESS`);
     }
     let data = await Guild.findOne({ guildID: guild.id });
