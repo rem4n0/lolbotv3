@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 module.exports = class  {
 async run( newRole,oldRole){
   const { guild } =newRole
-  console.log(oldRole.permissions)
-  if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNELS"])) return;
+  
+  if(!guild.me?.permissions.has(["MANAGE_GUILD","MANAGE_CHANNELS"])) return;
 
 
   try {
