@@ -34,7 +34,7 @@ app.post(
   "/dashboard/guild/:guildID/logsystem",
   global.checkAuth,
   async (req, res) => {
-    const guild = bot.guilds.cache.get(req.params.guildID);
+    const guild = await bot.guilds.cache.get(req.params.guildID);
     let rbody = req.body;
 
     let data = await Guild.findOne({ guildID: guild.id });
