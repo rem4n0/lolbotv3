@@ -10,7 +10,7 @@ app.get("/",(req, res,next)=> {
     support:config.support,
     req: req,
  guild:hama,
-    Typed: type,
+   
     bot: bot,
     user:req.isAuthenticated() ? req.user : null,
   });
