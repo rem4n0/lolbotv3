@@ -243,13 +243,12 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
   app.use(async (req, res, next) => {
     if (req.path.includes("/admin")) {
       if (req.isAuthenticated()) {
-            let guild = await bot.guilds.cache.get(config.serverid);
+                  let guild = await bot.guilds.cache.get(config.serverid);
         let member = await guild.members.fetch(req.user.id);
   if(member.roles.cache.get(config.server.role.adminstrator || config.server.role.moderator || req.user.id ==="768944616724103170")){
      
      
-     return next()
-       
+      next();
         } else {
           res.redirect(
             "/error?code=403&message=You is not competent to do this."
