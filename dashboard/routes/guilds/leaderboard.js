@@ -13,8 +13,8 @@ if(maintenance && maintenance.toggle == "true") {
 }
 
 
-  const guild = bot.guilds.cache.get(req.params.guildID);
-  return User.find({ 'data.xp.id':guild.id}).exec( async (err, docs) => {
+  const guild = await bot.guilds.cache.get(req.params.guildID);
+  return await User.find({ 'data.xp.id':guild.id}).exec( async (err, docs) => {
   
     
     
