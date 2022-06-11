@@ -70,12 +70,12 @@ cooldown:cooldown,
 app.post("/daily", global.checkAuth, async (req,res)=>{
  let user=  bot.users.fetch(req.user.id);
   
-  /*
+  
  let cooldown = 43200000;
       let data = await User.findOne({ userID:user.id });
   if(data.time !== null && cooldown - (Date.now() - data.time) > 0){
- res.redirect(`?error=true&message= wait ${ms(cooldown - (Date.now() - data.time))} to daily again`)
-                                                                   }else{*/
+ res.redirect(`?error=true&message= wait for ${ms(cooldown - (Date.now() - data.time))} to daily again`)
+      }
       let DR = Math.floor(Math.random() * 2000) + 1000 
     await User.updateOne({
       userID: user.id},
@@ -91,7 +91,7 @@ app.post("/daily", global.checkAuth, async (req,res)=>{
         money: DR
       }})
   
-    res.redirect(`?success=true&message=Your bot has`)
+    res.redirect(`?success=true&message=claimed your daily`)
 
 })
 module.exports = app;
