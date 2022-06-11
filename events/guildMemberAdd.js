@@ -64,7 +64,7 @@ const withImage = await guildData.plugins.welcome.withImage ? await guildData.pl
           .replace(/{user}/g, member)
           .replace(/{userName}/g, member.username)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{membercount}/g, member.guild.memberCount) ? await guildData.plugins.welcome.message : null;
+          .replace(/{membercount}/g, member.guild.memberCount);
     
         
           if (withImage) {
