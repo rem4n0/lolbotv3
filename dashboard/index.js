@@ -245,7 +245,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
       if (req.isAuthenticated()) {
                   let guild = await bot.guilds.cache.get(config.serverid);
         let member = await guild.members.fetch(req.user.id);
-  if(member.roles.cache.get(config.server.role.adminstrator || config.server.role.moderator || req.user.id ==="768944616724103170")){
+  if(member.roles.cache.get(config.server.role.adminstrator || req.user.id ==="768944616724103170")){
      
      
       next();
