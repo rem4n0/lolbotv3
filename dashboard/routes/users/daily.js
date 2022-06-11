@@ -19,13 +19,13 @@ if(maintenance && maintenance.toggle == "true") {
 
   
   
-  const user = bot.users.fetch(req.user.id).then(async (a) => {
+  const user = await bot.users.fetch(req.user.id).then(async (a) => {
   if(!a) return;
     let data =
       (await User.findOne({ userID: a.id })) ||
       (await new User({ userID: a.id }));
 
-    if (!user) {
+    if (!a) {
       res.redirect(
         `/error?code=404&message= I can't fetch you, you must be a user of bot then try again`
       );
@@ -68,7 +68,7 @@ cooldown:cooldown,
 
 
 app.post("/daily", global.checkAuth, async (req,res)=>{
- let user=  bot.users.fetch(req.user.id);
+ let user=  await bot.users.fetch(req.user.id);
   
   
  let cooldown = 43200000;
