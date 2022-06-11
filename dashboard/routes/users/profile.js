@@ -27,7 +27,7 @@ if(maintenance && maintenance.toggle == "true") {
 }
 
 
-    const user = bot.users.fetch(req.params.userID).then(async (a)=>{
+    const user = await bot.users.fetch(req.params.userID).then(async (a)=>{
 
     if(!a) res.redirect("/");
   let data = await User.findOne({userID: a.id});
