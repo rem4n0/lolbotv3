@@ -17,7 +17,7 @@ if(maintenance && maintenance.toggle == "true") {
 
   
     if(req.params.userID != req.user.id) return res.redirect('/profile/'+req.user.id+'/edit');
-    bot.users.fetch(req.user.id).then(async member => {
+    await bot.users.fetch(req.user.id).then(async member => {
         const data = await User.findOne({
             userID: member.id
         });
@@ -37,7 +37,7 @@ if(maintenance && maintenance.toggle == "true") {
 app.post("/profile/:userID/edit", global.checkAuth, async (req, res) => {
     let rBody = req.body;
   const d = new Date();
-  bot.users.fetch(req.user.id).then(async (member)=>{
+  await bot.users.fetch(req.user.id).then(async (member)=>{
     await User.findOneAndUpdate({
         userID: member.id
     }, {
