@@ -31,12 +31,12 @@ if(maintenance && maintenance.toggle == "true") {
 
 
   
-  const user = await bot.users.fetch(req.user.id).then(async (a) => {
+  const user = await bot.users.fetch(req.user.id);
   
   
     let data =
-      (await User.findOne({ userID: a.id })) ||
-      (await new User({ userID: a.id }));
+      (await User.findOne({ userID: user.id })) ||
+      (await new User({ userID: user.id }));
 
     const user_rank = await User.find({})
       .then((docs) =>
@@ -64,5 +64,5 @@ if(maintenance && maintenance.toggle == "true") {
       user: req.isAuthenticated() ? req.user : null,
     });
   });
-});
+
 module.exports = app;
