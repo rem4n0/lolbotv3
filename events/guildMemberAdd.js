@@ -3,7 +3,7 @@ const Canvas = require("canvas"),
   Discord = require("discord.js");
 const { resolve } = require("path");
 const guildInvites = new Map();
-// Register assets fonts
+// Register assets fonts 
 
 const applyText = (canvas, text, defaultFontSize) => {
   const ctx = canvas.getContext("2d");
