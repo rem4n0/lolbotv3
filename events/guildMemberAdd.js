@@ -32,8 +32,8 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
-let welcomeimg = guildData?.plugins?.welcome?.welcomeImage
-
+let welcomeimg = await guildData.plugins.welcome.welcomeImage ? await guildData.plugins.welcome.welcomeImage: null;
+const withImage = await guildData.plugins.welcome.withImage ? await guildData.plugins.welcome.withImage: null;
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -60,18 +60,17 @@ let welcomeimg = guildData?.plugins?.welcome?.welcomeImage
         guildData?.plugins?.welcome.channel
       );
       if (channel) {
-        const message = guildData?.plugins?.welcome.message
+        const message = guildData.plugins.welcome.message
           .replace(/{user}/g, member)
           .replace(/{userName}/g, member.username)
           .replace(/{server}/g, member.guild.name)
-          .replace(/{membercount}/g, member.guild.memberCount);
+          .replace(/{membercount}/g, member.guild.memberCount) ? await guildData.plugins.welcome.message : null;
     
         
-          if (guildData.plugins?.welcome?.withImage) {
+          if (withImage) {
     
             // Backgroundimage
-            const background = await Canvas.loadImage(
-            guildData?.plugins?.welcome?.welcomeImage || "https://imgur.com/Aa0j1pA.png"
+            const background = await Canvas.loadImage( welcomeimg  || "https://imgur.com/Aa0j1pA.png"
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
