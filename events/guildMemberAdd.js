@@ -32,8 +32,8 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
-let welcomeimg = await guildData.plugins.welcome.welcomeImage ? await guildData.plugins.welcome.welcomeImage: null;
-const withImage = await guildData.plugins.welcome.withImage ? await guildData.plugins.welcome.withImage: null;
+let welcomeimg =  guildData.plugins.welcome.welcomeImage ? await guildData.plugins.welcome.welcomeImage: null;
+const withImage = guildData.plugins.welcome.withImage ? await guildData.plugins.welcome.withImage: null;
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -50,14 +50,14 @@ const withImage = await guildData.plugins.welcome.withImage ? await guildData.pl
 
     // Check if the autorole is enabled
     if (!guildData) return;
-    if (guildData?.plugins?.autorole.enabled) {
+    if (guildData.plugins.autorole.enabled) {
       member.roles.add(guildData.plugins?.autorole.role).catch(() => {});
     }
 
     // Check if welcome message is enabled
-    if (guildData?.plugins?.welcome.enabled) {
+    if (guildData.plugins.welcome.enabled) {
       const channel = member.guild.channels.cache.get(
-        guildData?.plugins?.welcome.channel
+        guildData?.plugins.welcome.channel
       );
       if (channel) {
         const message = guildData.plugins.welcome.message
