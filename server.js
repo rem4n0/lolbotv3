@@ -19,7 +19,7 @@ const {Webhook} = require("discord.js");
 global.config = require("./config.json");
 const { Util } = require("discord.js");
 const fs = require("fs");
-
+const translate = require ("@vitalets/google-translate-api");
 
 
 
@@ -75,6 +75,15 @@ bot.catagories = fs.readdirSync("./commands/");
 ["command", "event","slash"].forEach((handler) => {
   require(`./handler/${handler}`)(bot)
 });
+
+bot.translate = async(text, message)=>{
+  const data = await Guild.findOne({guildID: message.guild.id});
+  const lang = data.language ? await data.language: "en";
+  const translated = await translate (text,{from: "en" , to:lang});
+  return translated.text;
+}
+
+
 require('./dashboard/index.js')(bot);
 require('./data/connect.js')(bot);
 /////////dashboard
