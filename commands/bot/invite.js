@@ -16,7 +16,7 @@ module.exports = {
         new Discord.MessageButton()
 					
 					.setLabel('invite')
-          .setURL('https://bobowolrd.tk/support')
+          .setURL('https://boboworld.tk/invite')
 					.setStyle('LINK'),
 			);
         
