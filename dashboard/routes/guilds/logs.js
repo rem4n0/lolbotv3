@@ -18,7 +18,7 @@ app.get(
     if (!user.permissions.has("MANAGE_GUILD")) {
       res.send(`YOU CAN'T ACCESS`);
     }
-    let data = await Guild.findOne({ guildID: guild.id });
+    let data = await Guild.findOne({ guildID: guild.id })|| new Guild({guildID: guild.id});
     res.render("./guild/logsystem.ejs", {
       config: config,
       data: data,
