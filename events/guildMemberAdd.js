@@ -25,15 +25,15 @@ module.exports = class {
 
     //   const UserInvited = await bot.users.fetch(uses.inviterId);
 
-    const guildData = await Guild.findOne({ guildID: member.guild.id });
+    const guildData = await Guild.findOne({ guildID: member.guild.id })|| new Guild({guildID: member.guild.id});
     member.guild.data = guildData;
 
     const memberData = await Mute.findOne({
       id: member.id,
       guildID: member.guild.id,
     });
-let welcomeimg =  guildData.plugins.welcome.welcomeImage ? await guildData.plugins.welcome.welcomeImage: null;
-const withImage = guildData.plugins.welcome.withImage ? await guildData.plugins.welcome.withImage: null;
+let welcomeimg =  guildData.plugins.welcome.welcomeImage || null;
+const withImage = guildData.plugins.welcome.withImage || null;
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
