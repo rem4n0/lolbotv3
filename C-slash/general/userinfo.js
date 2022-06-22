@@ -51,7 +51,7 @@ prime: false,
 let member = await interaction.options.getUser('target') || interaction.user
 
       const embed = new Discord.MessageEmbed()
-      .setColor(Color)
+      .setColor(config.embed.Color)
       .setThumbnail(member.displayAvatarURL())
       .addField("Join", moment(member.joinedAt).format('dddd, do MMMM YYYY'))
       .addField("Creation", moment(member.createdAt).format('dddd, do MMMM YYYY') )
