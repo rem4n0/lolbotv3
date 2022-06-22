@@ -206,7 +206,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
       res.redirect("/");
     });
   });
-
+/*
   app.use(async (req, res, next) => {
     var getIP = require("ipware")().get_ip;
     var ipInfo = getIP(req);
@@ -226,7 +226,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
       );
     }
     return next();
-  });
+  });*/
   const http = require("http").createServer(app);
   const io = require("socket.io")(http);
   io.on("connection", (socket) => {
