@@ -74,7 +74,7 @@ app.post("/daily", global.checkAuth, async (req,res)=>{
  let cooldown = 43200000;
       let data = await User.findOne({ userID:user.id });
   if(data.time !== null && cooldown - (Date.now() - data.time) > 0){
- res.redirect(`?error=true&message= wait for ${ms(cooldown - (Date.now() - data.time))} to daily again`)
+ res.send({error:true, message:`wait for ${ms(cooldown - (Date.now() - data.time))} to daily again`})
       }
       let DR = Math.floor(Math.random() * 2000) + 1000 
     await User.updateOne({
