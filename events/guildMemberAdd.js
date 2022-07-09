@@ -32,6 +32,7 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
+tr{
 let welcomeimg =  guildData.plugins.welcome.welcomeImage || null;
 const withImage = guildData.plugins.welcome.withImage || null;
     if (memberData) {
@@ -159,5 +160,6 @@ const withImage = guildData.plugins.welcome.withImage || null;
         }
     
     }
+}catch(err){ return;}
   }
 };
