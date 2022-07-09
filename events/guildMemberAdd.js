@@ -32,7 +32,7 @@ module.exports = class {
       id: member.id,
       guildID: member.guild.id,
     });
-tr{
+try{
 let welcomeimg =  guildData.plugins.welcome.welcomeImage || null;
 const withImage = guildData.plugins.welcome.withImage || null;
     if (memberData) {
