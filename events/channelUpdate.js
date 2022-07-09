@@ -5,8 +5,10 @@ const cooldown = new Set();
 let Discord = require("discord.js");
 module.exports = class{
   async run(oldChannel,newChannel){
+
     const {guild} = oldChannel
   if(!guild.me.permissions.has(["MANAGE_GUILD","MANAGE_CHANNELS"])) return;
+try{
 let data = await Guild.findOne({guildID: guild.id})
 const channelEmbed = await guild.channels.cache.get(data.plugins.logs.channel)
 
@@ -97,6 +99,8 @@ cooldown.delete(newChannel.guild.id)
     
     
   }}
+}catch(err){
+return;}
   }}
     
     
