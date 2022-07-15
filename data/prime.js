@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const guildConfigSchema = mongoose.Schema({
-
+guildID:{ type: String},
 code: {type: String, default: null},
 
 expiresAt: {type:String, default: Date.now() + 2592000000},
