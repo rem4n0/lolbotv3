@@ -27,7 +27,7 @@ module.exports = class {
       data.news = news
       //---------------prime data-////////
 
-      let prime = await Prime.findOne({ Guild: interaction.guild.id });
+      let prime = await Prime.findOne({ guildID: interaction.guild.id });
       if (prime && prime.log === "enable") return; //message.channel.send(`you don't have Premium version`);
       ///----------- white list--//
 
