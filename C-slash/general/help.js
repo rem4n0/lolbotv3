@@ -1,9 +1,8 @@
 const Discord = require("discord.js")
-const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
 name:"help",
-  description:'commands',
+  description:'show you all commands',
   enabled: true,			    
   memberPermissions: [ "SEND_MESSAGES" ],			
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],		
@@ -14,15 +13,8 @@ name:"help",
 prime: false,
   run: async (interaction,bot,data) => {
     let embed = new Discord.MessageEmbed()
-      .setColor("RED")
-      .setDescription(`a game bot for spending time and enjoying[ Invite ](https://discord.com/api/oauth2/authorize?client_id=${bot.user.id}&permissions=260383435985&scope=bot%20applications.commands) - [ Support ](https://discord.gg/rjhPpahNNR)`)
-      .addField ("Admin || ⚠️","`prefix`, `xp`")
-      .addField("General || 🌎","`news`, `about`,  `invite`, `serverinfo`, `userinfo`, `ping`, `bots`,`redeem`")  
-      .addField("Economy || 💶","`daily`, `balance`, `give`, `birthday`")
-      .addField("Game ||  🎮"," `coinflip`, `slots`")
-      .addField("Shop || 🛍️","`buy`, `shop`, `use`, `unequip`, `inventory`")
-      .addField("Fun || 🥳","`slap`, `hug`, `ship`, `kiss`, `marry`")
-      .addField("Ranking || 🧧"," `profile`, `rank`, `setinfo`, `setbackground`, `tip`, `setcolor`")
+      .setColor(config.embed.Color)
+      .setDescription(`You can find all commands in our web dashboard: https://boboworld.tk/commands `)
  interaction.reply({embeds:[embed]});
   
 
