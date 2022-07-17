@@ -33,7 +33,7 @@ module.exports = class {
     });
     
     
-    if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
+    if (!member.guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
 
     try{
           const maintenance = await Maintenance.findOne({
