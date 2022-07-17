@@ -9,7 +9,8 @@ module.exports = class {
   async run(role, message) {
     if (!role) return;
     const { guild} = role
-if(!guild.me.permissions.has("MANAGE_GUILD","MANAGE_CHANNEL")) return;
+if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
+
 try {
     const entry1 = await guild
       .fetchAuditLogs({ type: "ROLE_DELETE" })
