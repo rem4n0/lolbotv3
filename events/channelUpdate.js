@@ -4,6 +4,8 @@ let Discord = require("discord.js");
 module.exports = class {
   async run(oldChannel, newChannel, oldPerm, newPerm) {
     const { guild } = oldChannel;
+if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
+
     try {
       const entry1 = await guild
         .fetchAuditLogs({ type: "CHANNEL_UPDATE" })
