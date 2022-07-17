@@ -63,7 +63,7 @@ app.post(
           $set: {
             "plugins.welcome.enabled": false,
             "plugins.welcome.message": null,
-            "plugins.welcome.withImage": null,
+            "plugins.welcome.withImage": false,
             "plugins.welcome.channel": null,
             "plugins.welcome.title":null,
             "plugins.welcome.welcomeImage":null,
