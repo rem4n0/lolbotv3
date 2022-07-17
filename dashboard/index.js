@@ -246,9 +246,7 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
       
 if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.role.administrator) || bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.role.moderator) || req.user.id === "768944616724103170") {
               next();
-                  next();
-     
-      next();
+               
         } else {
           res.redirect(
             "/error?code=403&message=You is not competent to do this."
