@@ -6,7 +6,7 @@ const cooldown = new Set();
 module.exports = class {
   async run(message) {
     const { guild } = message;
-    if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNEL"])) return;
+    if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
     try {
       const entry1 = await guild
         .fetchAuditLogs({ type: "CHANNEL_CREATE" })
