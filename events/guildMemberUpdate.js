@@ -4,7 +4,7 @@ const Discord = require ("discord.js")
 module.exports = class{
   async run( oldMember, newMember){
 let data = await Guild.findOne({guildID: oldMember.guild.id}) || new Guild({guildID: oldMember.guild.id}).save();
-    if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
+    if (!oldMember.guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
 
     try{
        const maintenance = await Maintenance.findOne({
