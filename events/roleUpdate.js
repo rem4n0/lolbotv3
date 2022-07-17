@@ -4,7 +4,7 @@ module.exports = class {
   async run(newRole, oldRole) {
     const { guild } = newRole;
   
-    if (!guild.me.permissions.has("MANAGE_GUILD", "MANAGE_CHANNEL")) return;
+    if (!guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
 
     try {
       let data = await Guild.findOne({ guildID: newRole.guild.id });
