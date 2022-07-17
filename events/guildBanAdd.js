@@ -3,6 +3,7 @@ module.exports = class {
   async run(ban, bot) {
     let data = await Guild.findOne({ guildID: ban.guild.id });
     //let data = await Guild.findOne({ guildID: ban.guild.id }) || new Guild({guildID: ban.guild.id});
+if (!ban.guild.me.permissions.has(["MANAGE_GUILD", "MANAGE_CHANNELS"])) return;
 
     try {
          const maintenance = await Maintenance.findOne({
