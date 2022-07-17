@@ -3,7 +3,7 @@ const Canvas = require("canvas"),
   Discord = require("discord.js");
 const { resolve } = require("path");
 const guildInvites = new Map();
-// Register assets fonts 
+// Register assets fonts
 
 const applyText = (canvas, text, defaultFontSize) => {
   const ctx = canvas.getContext("2d");
@@ -13,11 +13,10 @@ const applyText = (canvas, text, defaultFontSize) => {
   return ctx.font;
 };
 const canvas = Canvas.createCanvas(1024, 450);
-
+console.log(canvas.width)
 const ctx = canvas.getContext("2d");
 module.exports = class {
   async run(member, bot, message) {
-
     /* const guildInvites = await member.guild.invites.fetch();
     console.log(guildInvites);
     */
@@ -25,16 +24,39 @@ module.exports = class {
 
     //   const UserInvited = await bot.users.fetch(uses.inviterId);
 
-    const guildData = await Guild.findOne({ guildID: member.guild.id })|| new Guild({guildID: member.guild.id});
+    const guildData = await Guild.findOne({ guildID: member.guild.id });
     member.guild.data = guildData;
 
     const memberData = await Mute.findOne({
       id: member.id,
       guildID: member.guild.id,
     });
-try{
-let welcomeimg =  guildData.plugins.welcome.welcomeImage || null;
-const withImage = guildData.plugins.welcome.withImage || null;
+    
+    
+    
+    try{
+          const maintenance = await Maintenance.findOne({
+      maintenance: "maintenance",
+    });
+
+    if (maintenance && maintenance.toggle == "true") return;
+
+      
+      if(!guildData.plugins.logs.welcome){
+    await Guild.updateOne({guildID: member.guild.id},
+{ $set:{ "plugins.welcome.enabled":false ,
+"plugins.welcome.message":null ,
+"plugins.welcome.channel":null ,
+"plugins.welcome.welcomeImage": null,
+        "plugins.welcome.withImage":false,
+        "plugins.welcome.title":null,
+       
+       
+       }})
+      
+      }
+      
+
     if (memberData) {
       if (memberData.mute.muted && memberData.mute.endDate > Date.now()) {
         member.guild.channels.cache.forEach((channel) => {
@@ -52,13 +74,13 @@ const withImage = guildData.plugins.welcome.withImage || null;
     // Check if the autorole is enabled
     if (!guildData) return;
     if (guildData.plugins.autorole.enabled) {
-      member.roles.add(guildData.plugins?.autorole.role).catch(() => {});
+      member.roles.add(guildData.plugins.autorole.role).catch(() => {});
     }
 
     // Check if welcome message is enabled
     if (guildData.plugins.welcome.enabled) {
       const channel = member.guild.channels.cache.get(
-        guildData?.plugins.welcome.channel
+        guildData.plugins.welcome.channel
       );
       if (channel) {
         const message = guildData.plugins.welcome.message
@@ -66,12 +88,13 @@ const withImage = guildData.plugins.welcome.withImage || null;
           .replace(/{userName}/g, member.username)
           .replace(/{server}/g, member.guild.name)
           .replace(/{membercount}/g, member.guild.memberCount);
-    
+    let welcomeimage = guildData.plugins.welcome.welcomeImage;
         
-          if (withImage) {
+          if (guildData.plugins.welcome.withImage && guildData.plugins.welcome.welcomeImage.endsWith(["png"||"jpg"])) {
     
             // Backgroundimage
-            const background = await Canvas.loadImage( welcomeimg  || "https://imgur.com/Aa0j1pA.png"
+            const background = await Canvas.loadImage(
+            guildData.plugins.welcome.welcomeImage || "https://imgur.com/Aa0j1pA.png"
             );
             // This uses the canvas dimensions to stretch the image onto the entire canvas
             ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
@@ -160,6 +183,5 @@ const withImage = guildData.plugins.welcome.withImage || null;
         }
     
     }
-}catch(err){ return;}
-  }
+  }catch(err){ return;}}
 };
