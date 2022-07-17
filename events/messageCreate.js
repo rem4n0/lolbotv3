@@ -4,7 +4,7 @@ const owners = "768944616724103170";
 const experience = require(`${process.cwd()}/util/xp`);
 
 module.exports = class {
-  async run(message, bot, member) {
+  async run(message) {
     const data = {};
 
     if (message.author.bot) return;
@@ -23,9 +23,9 @@ module.exports = class {
       User.create({ userID: message.author.id });
     }
     data.user = user;
-    let prime = await Prime.findOne({ guildID: message.guild.id });
+   /* let prime = await Prime.findOne({ guildID: message.guild.id });
     if (prime && prime.log === "enable") return; //message.channel.send(`you don't have Premium version`);
-
+*/
     let h = await Owner.findOne({ ownerCode: "768944616724103170" });
     if (!h) {
       Owner.create({
@@ -95,7 +95,7 @@ if (cmd.length === 0) return;
       if (!command) command = bot.commands.get( bot.aliases.get(cmd));
       if (!command) return;
       if (command.prime) {
-        let data = await Prime.findOne({ Guild: message.guild.id });
+        let data = await Prime.findOne({ guildID: message.guild.id });
         if (!data)
           return message.channel.send({
             content: `this server not haven't on data base`,
