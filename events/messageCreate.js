@@ -23,9 +23,8 @@ module.exports = class {
       User.create({ userID: message.author.id });
     }
     data.user = user;
-   /* let prime = await Prime.findOne({ guildID: message.guild.id });
+   let prime = await Prime.findOne({ guildID: message.guild.id });
     if (prime && prime.log === "enable") return; //message.channel.send(`you don't have Premium version`);
-*/
     let h = await Owner.findOne({ ownerCode: "768944616724103170" });
     if (!h) {
       Owner.create({
@@ -95,13 +94,13 @@ if (cmd.length === 0) return;
       if (!command) command = bot.commands.get( bot.aliases.get(cmd));
       if (!command) return;
       if (command.prime) {
-        let data = await Prime.findOne({ guildID: message.guild.id });
-        if (!data)
+        ///let data = await Prime.findOne({ guildID: message.guild.id });
+        if (!prime)
           return message.channel.send({
             content: `this server not haven't on data base`,
           });
-        if (!data.Permanent && Date.now() > data.time) {
-          data.delete();
+        if (!prime.Permanent && Date.now() > prime.time) {
+          prime.delete();
           return message.channel.send({
             content: `prime bot on your server ended for buy mor join support server `,
           });
