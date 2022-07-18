@@ -243,9 +243,16 @@ app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
   app.use(async (req, res, next) => {
     if (req.path.includes("/admin")) {
       if (req.isAuthenticated()) {
-      
+      /*
 if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.role.administrator) || bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.cache.get(global.config.server.role.moderator) || req.user.id === "768944616724103170") {
-              next();
+             */
+        let guild = await bot.guilds.cache.get(config.serverid);
+        let member = await guild.members.fetch(req.user.id);
+  if(member.roles.cache.get(config.server.role.adminstrator)|| member.roles.cache.get(config.server.role.moderator) || req.user.id === "768944616724103170"){
+     
+     
+
+ next();
                
         } else {
           res.redirect(
