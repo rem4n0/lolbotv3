@@ -79,8 +79,8 @@ player.on("queueEnd", (queue) => {
  // queue.destroy(true);
 })
 player.on("connectionError",(queue,error)=>{
-  queue.metadata.send({content: ` I have error from connection error:\`\`${error.name}\`\``})
-  
+ /// queue.metadata.send({content: ` I have error from connection error:\`\`${error.name}\`\``})
+console.log(error);  
   
 })
 module.exports = player;
