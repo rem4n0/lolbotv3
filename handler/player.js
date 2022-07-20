@@ -23,21 +23,35 @@ player.on("connectionError", (queue, error) => {
   );
 });
 
-player.on("trackStart", (queue, track) => {
-  const progress = queue.createProgressBar();
-      
+player.on("trackAdd", (queue, track) => {
 
-  queue.metadata.send({content: track.title + " " + "Added By" + " " + track.requestedBy.tag + " " + `added To BoBoQueue \`\`(${progress})\`\`` 
-                      });
+
+  queue.metadata.send({content:` Searching for ${track.title}`}).then((msg)=>{
+  setTimeout(()=>{
+    msg.delete();
+    
+  },5000)})
 });/*
 player.on("tracksAdd", (queue,tracks)=>{
   
   queue.metadata.send({content:` Added new Songs for queue ${tracks.title}`})
   
 })*/
-player.on("trackAdd", (queue, track) => {
+player.on("trackStart", (queue, track) => {
+  
+  
+  
+  let embed = new Discord.MessageEmbed()
+  .setAuthor({name:track.author})
+  .setTitle(track.title)
+  .setThumbnail(track.thumbnail)
+  .setTimestamp()
+///  .setDescription(`${track.description}`||"don't have description")
+  .setURL(track.url)
 
-  queue.metadata.send({ content: `track add to queue`})
+  
+
+  queue.metadata.send({embeds: [embed]})
     
 
 
@@ -46,21 +60,23 @@ player.on("trackAdd", (queue, track) => {
 
 player.on("botDisconnect", (queue) => {
   
-
-  queue.metadata.send({ content:`Iam Disconnected From Voice` });
+let embed = new Discord.MessageEmbed()
+. setDescription (" Iam Disconnected From  Your Voice")
+  queue.metadata.send({embeds:[embed]});
   queue.destroy(true);
 });
 
 player.on("channelEmpty", (queue) => {
-
-  queue.metadata.send({ content: `I've left the voice channel due to everyones absence` });
+let embed = new Discord.MessageEmbed()
+.setDescription(`I've left the voice channel due to everyones absence`)
+  queue.metadata.send({embeds:[embed]});
   queue.destroy(true);
 });
 
 player.on("queueEnd", (queue) => {
 
   queue.metadata.send({ content:` Party is over , I've completed every songs that was in the queue! I've left the following voice channel, although you can always add me back` });
-  queue.destroy(false);
+ // queue.destroy(true);
 })
 player.on("connectionError",(queue,error)=>{
   queue.metadata.send({content: ` I have error from connection error:\`\`${error.name}\`\``})
