@@ -8,7 +8,7 @@ module.exports = {
   category: ["moderation"],
   enabled: true,			  
   memberPermissions: [ "MANAGE_CHANNELS","SEND_MESSAGES" ],			
-  botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_CHANNELS" ],		
+  botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS","MANAGE_ROLES" ],		
   ownerOnly: false,			
   cooldown: 6000,
   run: async (bot, message, args, dev) => {
