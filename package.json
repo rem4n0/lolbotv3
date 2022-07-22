@@ -69,6 +69,6 @@
     "@vitalets/google-translate-api": "^8.0.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "17.x"
   }
 }
