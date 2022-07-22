@@ -1,7 +1,7 @@
 {
   "name": "hama",
   "version": "4.0.0",
-  "description": "-- AWESOMENESS --",
+  "description": "-- AWESOMENES --",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
