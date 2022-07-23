@@ -44,7 +44,7 @@ app.post(
         {
           $set: {
             "plugins.welcome.message": rbody["message"]|| null,
-            "plugins.welcome.titile": rbody ["title"] ||null,
+            "plugins.welcome.title": rbody ["title"] ||null,
             "plugins.welcome.welcomeImage": rbody["URL"],
 
             "plugins.welcome.channel": rbody["channel"]|| null,
