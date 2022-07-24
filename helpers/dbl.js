@@ -4,7 +4,9 @@ module.exports = {
 
     
 
-	init(bot){    try{
+	init(bot){   
+		
+		try{
 
     
 
@@ -58,7 +60,8 @@ app.post('/dblwebhook', webhook.listener(async (vote) => {
 
   // vote is your vote object // 221221226561929217
 
-})) 
+}
+					)) 
 
 
 
@@ -80,8 +83,9 @@ app.post('/dblwebhook', webhook.listener(async (vote) => {
 
 	}catch(err){
 
-    return;
+    console.log(err);
 
-  }}
+  }
+	}
 
 };
