@@ -60,7 +60,7 @@ app.post('/dblwebhook', webhook.listener(async (vote) => {
 
 })) // attach the middleware
 
-app.listen(8080) // your port
+// your port
 
       
 
