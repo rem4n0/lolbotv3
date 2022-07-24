@@ -7,6 +7,7 @@ const guilds = await bot.guilds.cache.reduce((acc, guild) => acc + guild.memberC
   console.log(`${bot.user.username}: registered`);
     const checkUnmutes = require("../helpers/Checkunmute.js");
 		checkUnmutes.init(bot);
-    
+    const dbl = require ("../helpers/dbl.js");
+	  dbl.init(bot);
 
 }}
