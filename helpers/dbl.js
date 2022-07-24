@@ -58,9 +58,9 @@ app.post('/dblwebhook', webhook.listener(async (vote) => {
 
   // vote is your vote object // 221221226561929217
 
-})) // attach the middleware
+})) 
 
-// your port
+
 
       
 
