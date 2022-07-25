@@ -28,10 +28,10 @@ module.exports = {
       "There is no any songs to stop"
     );
     if (!queue?.playing) {
-      return interaction.followUp({ embeds: [embed] });
+      return interaction.reply({ embeds: [embed] });
     }
 
     queue.stop();
-    message.reply({ content: `Stopped 🚫` });
+    interaction.reply({ content: `Stopped 🚫` });
   },
 };
