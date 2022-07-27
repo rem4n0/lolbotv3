@@ -73,8 +73,7 @@ app.use(
     "/css",
     express.static(path.resolve(`${templateDir}${path.sep}public/css`))
   );
-app.use("/arc-sw.js", express.static(path.resolve(`arc-sw.js`)))
- app.use(
+app.use(
     "/js",
     express.static(path.resolve(`${templateDir}${path.sep}public/js`))
   );
