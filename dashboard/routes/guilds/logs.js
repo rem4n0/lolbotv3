@@ -45,26 +45,26 @@ app.post(
         {
           $set: {
             "plugins.logs.channelCreate.channel":
-              rbody["channelCreatechannel"] || null,
+              rbody["channelCreatechannel"],
             "plugins.logs.channelCreate.color":
-              rbody["channelCreatecolor"] || null,
+              rbody["channelCreatecolor"],
             "plugins.logs.channelDelete.channel":
-              rbody["channelDeletechannel"] || null,
+              rbody["channelDeletechannel"],
             "plugins.logs.channelDelete.color":
-              rbody["channelDeletecolor"] || null,
+              rbody["channelDeletecolor"],
             "plugins.logs.channelUpdate.channel":
-              rbody["channelUpdatechannel"] || null,
+              rbody["channelUpdatechannel"],
             "plugins.logs.channelUpdate.color":
-              rbody["channelUpdatecolor"] || null,
+              rbody["channelUpdatecolor"],
             "plugins.logs.roleCreate.channel":
-              rbody["roleCreatechannel"] || null,
-            "plugins.logs.roleCreate.color": rbody["roleCreatecolor"] || null,
+              rbody["roleCreatechannel"],
+            "plugins.logs.roleCreate.color": rbody["roleCreatecolor"],
             "plugins.logs.roleDelete.channel":
-              rbody["roleDeletechannel"] || null,
-            "plugins.logs.roleDelete.color": rbody["roleDeletecolor"] || null,
+              rbody["roleDeletechannel"],
+            "plugins.logs.roleDelete.color": rbody["roleDeletecolor"],
             "plugins.logs.roleUpdate.channel":
-              rbody["roleUpdatechannel"] || null,
-            "plugins.logs.roleUpdate.color": rbody["roleUpdatecolor"] || null,
+              rbody["roleUpdatechannel"],
+            "plugins.logs.roleUpdate.color": rbody["roleUpdatecolor"],
           },
         },
         { upsert: true }
