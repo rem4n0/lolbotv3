@@ -43,7 +43,7 @@ app.post(
         {
           $set: {
             "xp.channel": rbody["channel"],
-            "xp.message": rbody["message"] || null,
+            "xp.message": rbody["message"],
         }
         },
         { upsert: true }
