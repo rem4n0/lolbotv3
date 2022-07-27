@@ -43,11 +43,11 @@ app.post(
         { guildID: req.params.guildID },
         {
           $set: {
-            "plugins.welcome.message": rbody["message"]|| null,
-            "plugins.welcome.title": rbody ["title"] ||null,
+            "plugins.welcome.message": rbody["message"],
+            "plugins.welcome.title": rbody ["title"],
             "plugins.welcome.welcomeImage": rbody["URL"],
 
-            "plugins.welcome.channel": rbody["channel"]|| null,
+            "plugins.welcome.channel": rbody["channel"],
           },
         }
       );
