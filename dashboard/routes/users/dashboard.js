@@ -13,7 +13,7 @@ function intToString (value) {
     return shortValue+suffixes[suffixNum];
 }
 
-app.get("/dashboard", global.checkAuth, async (req, res, next) => {
+app.get("/dashboard/userinfo", global.checkAuth, async (req, res, next) => {
   const maintenance = await Maintenance.findOne({
   server: config.serverid
 })
