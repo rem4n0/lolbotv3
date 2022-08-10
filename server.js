@@ -34,8 +34,8 @@ const data = {
 }
 bot.queue = new Map();
 global.webhook = new Webhook(data)
-const { Player } = require ("discord-player")
-global.Player = Player;
+//const { Player } = require ("discord-player")// 
+//global.Player = Player;
 global.mongoose = require("mongoose");
 global.Log = bot.channels.cache.get(config.channels.logChannel);
 global.Debug = bot.channels.cache.get(config.channels.debug);
