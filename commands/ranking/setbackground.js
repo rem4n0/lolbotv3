@@ -13,7 +13,7 @@ module.exports = {
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],        
   ownerOnly: false,            
   cooldown: 5000,
- prime: true,
+ prime: false,
   run: async (bot, message, args, dev, prefix) => {
    if(!args[0]) return message.channel.send({content:`${prefix}setbackground [upload you bg from your device]`})
  let data = await User.findOne({userID:message.author.id})
