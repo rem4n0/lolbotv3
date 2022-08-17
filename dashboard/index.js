@@ -303,12 +303,12 @@ if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.ca
   
   
   
-  var jwt = require('express-jwt');
-var jwks = require('jwks-rsa');
+  const jwt = require('express-jwt');
+const jwks = require('jwks-rsa');
 
-var port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
-var jwtCheck = jwt({
+const jwtCheck = jwt({
       secret: jwks.expressJwtSecret({
           cache: true,
           rateLimit: true,
