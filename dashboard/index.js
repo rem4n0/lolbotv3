@@ -301,7 +301,7 @@ if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.ca
 
   /***authorizing*/
   
-  
+  /*
   
   const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");
@@ -328,7 +328,7 @@ app.get('/authorized', function (req, res) {
 ////  app.listen(port)
   
   
-  
+  */
   
   
   app.use((req, res) => {
