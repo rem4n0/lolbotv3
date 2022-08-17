@@ -299,6 +299,38 @@ if(bot.guilds.cache.get(config.serverid).members.cache.get(req.user.id).roles.ca
   app.use("/", require("./routes/guilds/discord-guild.js"));
   app.use("/", require("./routes/guilds/xpsystem"));
 
+  /***authorizing*/
+  
+  
+  
+  var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
+
+var port = process.env.PORT || 8080;
+
+var jwtCheck = jwt({
+      secret: jwks.expressJwtSecret({
+          cache: true,
+          rateLimit: true,
+          jwksRequestsPerMinute: 5,
+          jwksUri: 'https://dev-20qcxso1.us.auth0.com/.well-known/jwks.json'
+    }),
+    audience: 'https://boboworld.xyz/api',
+    issuer: 'https://dev-20qcxso1.us.auth0.com/',
+    algorithms: ['RS256']
+});
+
+app.use(jwtCheck);
+
+app.get('/authorized', function (req, res) {
+    res.send('Secured Resource');
+});
+  
+  
+  
+  
+  
+  
   app.use((req, res) => {
     req.query.code = 404;
     req.query.message = `Page not found.`;
