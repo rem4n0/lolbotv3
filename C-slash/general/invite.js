@@ -17,7 +17,7 @@ prime: false,
  const row = new Discord.MessageActionRow()
 .addComponents(new Discord.MessageButton()
 .setLabel('Link')
-.setURL('https://boboworld.tk/invite')
+.setURL('https://boboworld.xyz/invite')
 .setStyle('LINK'),);
 
       let embed = new Discord.MessageEmbed()
