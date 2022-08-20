@@ -14,7 +14,7 @@ prime: false,
   run: async (interaction,bot,data) => {
     let embed = new Discord.MessageEmbed()
       .setColor(config.embed.Color)
-      .setDescription(`You can find all commands in our web dashboard: https://boboworld.tk/commands `)
+      .setDescription(`You can find all commands in our web dashboard: https://boboworld.xyz/commands `)
  interaction.reply({embeds:[embed]});
   
 
