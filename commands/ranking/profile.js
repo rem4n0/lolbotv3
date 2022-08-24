@@ -30,7 +30,7 @@ module.exports = {
       return message.channel.send({content:`❎ Bots cannot earn XP!`});
     };
 
-    let doc = await User.findOne({ userID: member.id }) || new User({USER ID: member.id}).save();
+    let doc = await User.findOne({ userID: member.id }) || new User({userID: member.id}).save();
    
     const server_rank = await profile.find({ 'data.xp.id': message.guild.id })
       .then(docs => Promise.resolve(docs.sort((A,B) => B.data.xp.find(x => x.id === message.guild.id).xp - A.data.xp.find(x => x.id === message.guild.id).xp)))
