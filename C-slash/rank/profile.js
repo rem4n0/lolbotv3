@@ -33,7 +33,7 @@ module.exports = {
         content: `sir I don't have data in databse please mention user not bot `,
       });
     }
-    let doc = await User.findOne({ userID: member.id }) || new User({userID: member.id});
+    let doc = await User.findOne({ userID: member.id }) || new User({userID: member.id}).save();
 
     const server_rank = await User.find({ "data.xp.id": interaction.guild.id })
       .then((docs) =>
