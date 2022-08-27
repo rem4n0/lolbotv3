@@ -10,7 +10,7 @@ module.exports = {
   run: async (bot, message, args, dev) => {
 ////if(message.guild.me.has("838593240328044554"))return
   
-  message.channel.send({content:`You can see full commands in dashboard https://boboworld.tk/commands`})
+  message.channel.send({content:`You can see full commands in dashboard https://boboworld.xyz/commands`})
     /*
 let embed = new Discord.MessageEmbed()
       .setColor("RED")
