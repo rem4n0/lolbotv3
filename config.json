@@ -1,9 +1,9 @@
 
 {
-  "token":"OTIwNDEwMzU2MDM0MTc5MDgy.GIcppi.ZXA7hgjApujAcKA6iMGn4MDjTqfcqwa80WzgAQ",
-  "clientID": "920410356034179082",
-  "secret":"b7BSLv8pmXaJGJ5UrMYxezWFZ9S-bpMs",
-  "callback":"https://boboworld.xyz/callback",
+  "token":"",///////// discord bot token
+  "clientID": "",//////discord bot client id
+  "secret":"",////discord bot secret
+  "callback":"https://yourdomain/callback",
   "prefix": "Bo",
 "joinchannel":"963051236322578532",
 
@@ -22,7 +22,7 @@
 },
 
   "invitelink":"https://discord.com/api/oauth2/authorize?client_id=920410356034179082&permissions=8&scope=bot%20applications.commands",
-  "mongoURL": "mongodb+srv://bobk:bobo1234+@cluster0.8zckc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongoURL": "",
   "channels":{
     "webstatus":"962002703200956472",
   "logChannel":"936779017854529608",
