@@ -2,7 +2,7 @@ const schema = mongoose.Schema({
   guildID: String,
 
   ///user:String,
-  prefix: { type: String, default: "Bo" },
+  prefix: { type: String, default: "lo" },
 
   isPremium: {
     type: String,
