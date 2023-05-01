@@ -1,10 +1,10 @@
 
 {
-  "token":"",///////// discord bot token
+  "token":"MTAxNTkzNDk3Mjc1MTc3Mzc5Ng.GRdKbB.8J_RVmcpj_m_QKjEiQsIUvDoEeq6zBlwoHUTyc",///////// discord bot token
   "clientID": "",//////discord bot client id
   "secret":"",////discord bot secret
   "callback":"https://yourdomain/callback",
-  "prefix": "Bo",
+  "prefix": "lo",
 "joinchannel":"963051236322578532",
 
   "serverid":"709572220506341536",
@@ -22,7 +22,7 @@
 },
 
   "invitelink":"https://discord.com/api/oauth2/authorize?client_id=920410356034179082&permissions=8&scope=bot%20applications.commands",
-  "mongoURL": "",
+  "mongoURL": "mongodb+srv://Safa:safa321@cluster0.un1rrb2.mongodb.net/?retryWrites=true&w=majority",
   "channels":{
     "webstatus":"962002703200956472",
   "logChannel":"936779017854529608",
